@@ -328,20 +328,58 @@ function buildRankRow(item, cat, period, workMeta) {
   return li;
 }
 
-async function renderWorkView(cat, period, workId) {
-  app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+function shiftDateStr(dateStr, deltaDays) {
+  const d = new Date(`${dateStr}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + deltaDays);
+  return d.toISOString().slice(0, 10);
+}
 
-  const [index, works] = await Promise.all([getIndex(), getWorksCache()]);
-  const meta = works[workId] || {};
-  const dates = (index[cat] && index[cat][period]) || [];
-
+async function buildRankSeries(cat, period, workId, dates) {
   const series = [];
   let latestItem = null;
   for (const date of dates) {
     const dayList = await fetchJson(`data/${cat}/${period}/${date}.json`).catch(() => []);
     const found = dayList.find((it) => it.workId === workId);
-    series.push({ date, rank: found ? found.rank : null });
+    series.push({ date, rank: found ? found.rank : null, change: found ? found.change : null });
     if (found) latestItem = found;
+  }
+
+  const firstReal = series.find((p) => p.rank != null);
+  if (firstReal && firstReal.change && ['up', 'down', 'same'].includes(firstReal.change.type)) {
+    const prevRank =
+      firstReal.change.type === 'up'
+        ? firstReal.rank + firstReal.change.amount
+        : firstReal.change.type === 'down'
+          ? firstReal.rank - firstReal.change.amount
+          : firstReal.rank;
+    if (prevRank >= 1) {
+      const backfillStep = period === 'daily' ? -1 : period === 'weekly' ? -7 : -30;
+      series.unshift({
+        date: shiftDateStr(firstReal.date, backfillStep),
+        rank: prevRank,
+        change: null,
+        estimated: true,
+      });
+    }
+  }
+
+  return { series, latestItem };
+}
+
+async function renderWorkView(cat, period, workId) {
+  app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+
+  const [index, works] = await Promise.all([getIndex(), getWorksCache()]);
+  const meta = works[workId] || {};
+
+  const seriesByPeriod = {};
+  let latestItem = null;
+  for (const p of PERIODS) {
+    const dates = (index[cat] && index[cat][p.key]) || [];
+    const result = await buildRankSeries(cat, p.key, workId, dates);
+    seriesByPeriod[p.key] = result.series;
+    if (p.key === period && result.latestItem) latestItem = result.latestItem;
+    if (!latestItem && result.latestItem) latestItem = result.latestItem;
   }
 
   const viewDates = (index.viewcounts && index.viewcounts[cat]) || [];
@@ -435,32 +473,60 @@ async function renderWorkView(cat, period, workId) {
     app.appendChild(buildCommentsBox(meta.topComments.slice(0, 5)));
   }
 
+  const rankTypeRow = document.createElement('div');
+  rankTypeRow.className = 'tabs';
+  const rankTypeGroup = document.createElement('div');
+  rankTypeGroup.className = 'tabgroup';
+  let currentPeriod = period;
+
+  const rankLabel = document.createElement('h3');
+  rankLabel.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
+  rankLabel.textContent = '랭킹 순위 추이';
+
   const controls = document.createElement('div');
   controls.className = 'chart-controls';
   const tabgroup = document.createElement('div');
   tabgroup.className = 'tabgroup';
   const granularities = [
-    { key: 'daily', label: '일간' },
-    { key: 'weekly', label: '주간' },
-    { key: 'monthly', label: '월간' },
-    { key: 'yearly', label: '연간' },
+    { key: 'daily', label: '일별' },
+    { key: 'weekly', label: '주별' },
+    { key: 'monthly', label: '월별' },
+    { key: 'yearly', label: '연도별' },
   ];
   let currentGran = 'daily';
   const chartBox = document.createElement('div');
   chartBox.className = 'chart-box';
+  const chartNote = document.createElement('div');
+  chartNote.style.cssText = 'font-size:11px;color:var(--text-dim);margin-top:6px;';
   const viewChartBox = document.createElement('div');
   viewChartBox.className = 'chart-box';
 
   function redraw() {
+    rankTypeGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.p === currentPeriod));
     tabgroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.g === currentGran));
+
+    const activeSeries = seriesByPeriod[currentPeriod];
     chartBox.innerHTML = '';
-    const agg = aggregateSeries(series, currentGran, 'rank', (a, b) => a < b);
+    const agg = aggregateSeries(activeSeries, currentGran, 'rank', (a, b) => a < b);
     chartBox.appendChild(buildChart(agg));
+    const hasEstimated = activeSeries.some((p) => p.estimated);
+    chartNote.textContent = hasEstimated
+      ? '※ 맨 왼쪽 점은 수집 시작일의 순위 변동폭으로 역산한 추정치예요.'
+      : '';
 
     viewChartBox.innerHTML = '';
     const viewAgg = aggregateSeries(viewSeries, currentGran, 'value', (a, b) => a > b);
     viewChartBox.appendChild(buildViewCountChart(viewAgg));
   }
+
+  for (const p of PERIODS) {
+    const btn = document.createElement('button');
+    btn.textContent = `${p.label} 랭킹`;
+    btn.dataset.p = p.key;
+    btn.addEventListener('click', () => { currentPeriod = p.key; redraw(); });
+    rankTypeGroup.appendChild(btn);
+  }
+  rankTypeRow.appendChild(rankTypeGroup);
 
   for (const g of granularities) {
     const btn = document.createElement('button');
@@ -473,12 +539,17 @@ async function renderWorkView(cat, period, workId) {
   const dlBtn = document.createElement('button');
   dlBtn.className = 'dl-btn';
   dlBtn.textContent = '엑셀 다운로드 (.xlsx)';
-  dlBtn.addEventListener('click', () => downloadExcel(series, (latestItem && latestItem.title) || workId, cat, period));
+  dlBtn.addEventListener('click', () =>
+    downloadExcel(seriesByPeriod[currentPeriod], (latestItem && latestItem.title) || workId, cat, currentPeriod)
+  );
 
   controls.appendChild(tabgroup);
   controls.appendChild(dlBtn);
+  app.appendChild(rankLabel);
+  app.appendChild(rankTypeRow);
   app.appendChild(controls);
   app.appendChild(chartBox);
+  app.appendChild(chartNote);
   if (viewSeries.some((p) => p.value != null)) {
     const viewLabel = document.createElement('h3');
     viewLabel.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
