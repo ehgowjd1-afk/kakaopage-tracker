@@ -2,20 +2,17 @@ export const CATEGORIES = {
   webnovel: {
     id: 11,
     label: '웹소설',
-    realtimeUrl: 'https://page.kakao.com/menu/10011/screen/94/',
   },
   webtoon: {
     id: 10,
     label: '웹툰',
-    realtimeUrl: 'https://page.kakao.com/menu/10/screen/93/',
   },
 };
 
-export const PERIODS = ['realtime', 'daily', 'weekly', 'monthly'];
+export const PERIODS = ['daily', 'weekly', 'monthly'];
 
 export function buildListUrl(categoryKey, period) {
   const cat = CATEGORIES[categoryKey];
-  if (period === 'realtime') return cat.realtimeUrl;
   return `https://page.kakao.com/landing/ranking/${cat.id}/?ranking_type=${period}`;
 }
 

@@ -3,7 +3,6 @@ const CATEGORIES = [
   { key: 'webtoon', label: '웹툰' },
 ];
 const PERIODS = [
-  { key: 'realtime', label: '실시간' },
   { key: 'daily', label: '일간' },
   { key: 'weekly', label: '주간' },
   { key: 'monthly', label: '월간' },
@@ -54,7 +53,7 @@ function parseHash() {
     return { view: 'work', cat: parts[1], period: parts[2], workId: parts[3] };
   }
   const cat = parts[1] || 'webnovel';
-  const period = parts[2] || 'realtime';
+  const period = parts[2] || 'daily';
   return { view: 'list', cat, period };
 }
 
@@ -64,7 +63,7 @@ function navigate(hash) {
 
 window.addEventListener('hashchange', render);
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('site-title').addEventListener('click', () => navigate('#/list/webnovel/realtime'));
+  document.getElementById('site-title').addEventListener('click', () => navigate('#/list/webnovel/daily'));
   render();
   setupSearch();
 });
@@ -287,7 +286,7 @@ async function renderWorkView(cat, period, workId) {
     const line = metaLine('원작: 웹소설 ');
     const link = document.createElement('a');
     link.textContent = novelSource.title;
-    link.href = `#/work/webnovel/realtime/${novelSource.workId}`;
+    link.href = `#/work/webnovel/daily/${novelSource.workId}`;
     link.style.cssText = 'color:var(--accent);text-decoration:underline;';
     line.appendChild(link);
     infoDiv.appendChild(line);
