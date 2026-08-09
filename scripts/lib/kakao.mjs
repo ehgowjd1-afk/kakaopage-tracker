@@ -11,9 +11,30 @@ export const CATEGORIES = {
 
 export const PERIODS = ['daily', 'weekly', 'monthly'];
 
-export function buildListUrl(categoryKey, period) {
+export const GENRES = {
+  webnovel: {
+    fantasy: { id: 86, label: '판타지' },
+    hyunpan: { id: 120, label: '현판' },
+    romance: { id: 89, label: '로맨스' },
+    romfantasy: { id: 117, label: '로판' },
+    wuxia: { id: 87, label: '무협' },
+    bl: { id: 123, label: 'BL' },
+  },
+  webtoon: {
+    fantasy: { id: 115, label: '판타지' },
+    drama: { id: 116, label: '드라마' },
+    romance: { id: 121, label: '로맨스' },
+    romfantasy: { id: 69, label: '로판' },
+    wuxia: { id: 112, label: '무협' },
+    action: { id: 122, label: '액션' },
+    bl: { id: 119, label: 'BL' },
+  },
+};
+
+export function buildListUrl(categoryKey, period, genreId) {
   const cat = CATEGORIES[categoryKey];
-  return `https://page.kakao.com/landing/ranking/${cat.id}/?ranking_type=${period}`;
+  const genrePath = genreId ? `/${genreId}` : '';
+  return `https://page.kakao.com/landing/ranking/${cat.id}${genrePath}/?ranking_type=${period}`;
 }
 
 export function buildDetailUrl(workId) {

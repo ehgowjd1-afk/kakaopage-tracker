@@ -7,6 +7,25 @@ const PERIODS = [
   { key: 'weekly', label: '주간' },
   { key: 'monthly', label: '월간' },
 ];
+const GENRES = {
+  webnovel: [
+    { key: 'fantasy', label: '판타지' },
+    { key: 'hyunpan', label: '현판' },
+    { key: 'romance', label: '로맨스' },
+    { key: 'romfantasy', label: '로판' },
+    { key: 'wuxia', label: '무협' },
+    { key: 'bl', label: 'BL' },
+  ],
+  webtoon: [
+    { key: 'fantasy', label: '판타지' },
+    { key: 'drama', label: '드라마' },
+    { key: 'romance', label: '로맨스' },
+    { key: 'romfantasy', label: '로판' },
+    { key: 'wuxia', label: '무협' },
+    { key: 'action', label: '액션' },
+    { key: 'bl', label: 'BL' },
+  ],
+};
 const CHANGE_LABEL = { up: '▲', down: '▼', same: '－', new: 'NEW' };
 
 const app = document.getElementById('app');
@@ -54,7 +73,8 @@ function parseHash() {
   }
   const cat = parts[1] || 'webnovel';
   const period = parts[2] || 'daily';
-  return { view: 'list', cat, period };
+  const genre = parts[3] || 'all';
+  return { view: 'list', cat, period, genre };
 }
 
 function navigate(hash) {
@@ -73,11 +93,11 @@ async function render() {
   if (route.view === 'work') {
     await renderWorkView(route.cat, route.period, route.workId);
   } else {
-    await renderListView(route.cat, route.period);
+    await renderListView(route.cat, route.period, route.genre);
   }
 }
 
-function renderTabs(activeCat, activePeriod) {
+function renderTabs(activeCat, activePeriod, activeGenre) {
   const nav = document.createElement('nav');
   nav.className = 'tabs';
 
@@ -97,25 +117,53 @@ function renderTabs(activeCat, activePeriod) {
     const btn = document.createElement('button');
     btn.textContent = p.label;
     if (p.key === activePeriod) btn.classList.add('active');
-    btn.addEventListener('click', () => navigate(`#/list/${activeCat}/${p.key}`));
+    btn.addEventListener('click', () => navigate(`#/list/${activeCat}/${p.key}/${activeGenre}`));
     periodGroup.appendChild(btn);
   }
 
   nav.appendChild(catGroup);
   nav.appendChild(periodGroup);
-  return nav;
+
+  const genreGroup = document.createElement('div');
+  genreGroup.className = 'tabgroup';
+  const allBtn = document.createElement('button');
+  allBtn.textContent = '전체';
+  if (activeGenre === 'all') allBtn.classList.add('active');
+  allBtn.addEventListener('click', () => navigate(`#/list/${activeCat}/${activePeriod}/all`));
+  genreGroup.appendChild(allBtn);
+  for (const g of GENRES[activeCat] || []) {
+    const btn = document.createElement('button');
+    btn.textContent = g.label;
+    if (g.key === activeGenre) btn.classList.add('active');
+    btn.addEventListener('click', () => navigate(`#/list/${activeCat}/${activePeriod}/${g.key}`));
+    genreGroup.appendChild(btn);
+  }
+
+  const genreNav = document.createElement('nav');
+  genreNav.className = 'tabs';
+  genreNav.appendChild(genreGroup);
+
+  const wrapper = document.createElement('div');
+  wrapper.appendChild(nav);
+  wrapper.appendChild(genreNav);
+  return wrapper;
 }
 
-async function renderListView(cat, period) {
+async function renderListView(cat, period, genre = 'all') {
   app.innerHTML = '';
-  app.appendChild(renderTabs(cat, period));
+  app.appendChild(renderTabs(cat, period, genre));
 
   const body = document.createElement('div');
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
+  const isGenre = genre !== 'all';
+  const dataPath = isGenre ? `${cat}/genres/${genre}/${period}` : `${cat}/${period}`;
+
   const [index, works] = await Promise.all([getIndex(), getWorksCache()]);
-  const dates = (index[cat] && index[cat][period]) || [];
+  const dates = isGenre
+    ? (index.genres?.[cat]?.[genre]?.[period]) || []
+    : (index[cat] && index[cat][period]) || [];
   if (dates.length === 0) {
     body.innerHTML = '<div class="empty-note">아직 수집된 데이터가 없습니다.</div>';
     return;
@@ -124,8 +172,8 @@ async function renderListView(cat, period) {
   const prevDate = dates.length > 1 ? dates[dates.length - 2] : null;
 
   const [latest, prev] = await Promise.all([
-    fetchJson(`data/${cat}/${period}/${latestDate}.json`),
-    prevDate ? fetchJson(`data/${cat}/${period}/${prevDate}.json`) : Promise.resolve([]),
+    fetchJson(`data/${dataPath}/${latestDate}.json`),
+    prevDate ? fetchJson(`data/${dataPath}/${prevDate}.json`) : Promise.resolve([]),
   ]);
 
   const prevIds = new Set(prev.map((it) => it.workId));
@@ -147,6 +195,10 @@ async function renderListView(cat, period) {
   note.textContent = `${latestDate} 기준 · 총 ${latest.length}개` + (prevDate ? ` · 직전 수집일: ${prevDate}` : '');
   body.appendChild(note);
 
+  if (!isGenre) {
+    body.appendChild(buildGenreDistribution(latest));
+  }
+
   const highlightRow = document.createElement('div');
   highlightRow.className = 'highlight-row';
   highlightRow.appendChild(buildHighlightCard('신규 진입', newEntries, (it) => `${it.rank}위`));
@@ -160,6 +212,46 @@ async function renderListView(cat, period) {
     list.appendChild(buildRankRow(item, cat, period, works[item.workId]));
   }
   body.appendChild(list);
+}
+
+function buildGenreDistribution(items) {
+  const counts = new Map();
+  for (const it of items) {
+    const key = it.subCategory || '기타';
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  const total = items.length;
+  const rows = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+
+  const box = document.createElement('div');
+  box.className = 'chart-box';
+  box.style.marginBottom = '18px';
+  const h3 = document.createElement('h3');
+  h3.style.cssText = 'font-size:13px;color:var(--text-dim);margin:0 0 10px;';
+  h3.textContent = 'TOP 300 장르 분포';
+  box.appendChild(h3);
+
+  for (const [genre, count] of rows) {
+    const pct = ((count / total) * 100).toFixed(1);
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;';
+    const label = document.createElement('div');
+    label.style.cssText = 'width:56px;flex-shrink:0;color:var(--text-dim);';
+    label.textContent = genre;
+    const barWrap = document.createElement('div');
+    barWrap.style.cssText = 'flex:1;background:var(--bg);border-radius:6px;overflow:hidden;height:16px;';
+    const bar = document.createElement('div');
+    bar.style.cssText = `width:${pct}%;background:var(--accent);height:100%;`;
+    barWrap.appendChild(bar);
+    const value = document.createElement('div');
+    value.style.cssText = 'width:84px;flex-shrink:0;text-align:right;color:var(--text-dim);';
+    value.textContent = `${count}개 (${pct}%)`;
+    row.appendChild(label);
+    row.appendChild(barWrap);
+    row.appendChild(value);
+    box.appendChild(row);
+  }
+  return box;
 }
 
 function buildHighlightCard(title, items, rightTextFn) {

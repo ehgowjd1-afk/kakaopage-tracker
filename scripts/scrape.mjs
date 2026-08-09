@@ -1,7 +1,7 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CATEGORIES, PERIODS, buildListUrl, scrapeRankingList, scrapeWorkDetail, scrapeComments, sleep } from './lib/kakao.mjs';
+import { CATEGORIES, PERIODS, GENRES, buildListUrl, scrapeRankingList, scrapeWorkDetail, scrapeComments, sleep } from './lib/kakao.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const DETAIL_REFRESH_DAYS = 30;
@@ -31,18 +31,29 @@ async function loadJson(filePath, fallback) {
   }
 }
 
+async function listDates(dir) {
+  const files = await fs.readdir(dir).catch(() => []);
+  return files
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .map((f) => f.replace('.json', ''))
+    .sort();
+}
+
 async function writeIndex() {
-  const index = {};
+  const index = { genres: {} };
   for (const categoryKey of Object.keys(CATEGORIES)) {
     index[categoryKey] = {};
     for (const period of PERIODS) {
-      const dir = path.join(DATA_DIR, categoryKey, period);
-      const files = await fs.readdir(dir).catch(() => []);
-      const dates = files
-        .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
-        .map((f) => f.replace('.json', ''))
-        .sort();
-      index[categoryKey][period] = dates;
+      index[categoryKey][period] = await listDates(path.join(DATA_DIR, categoryKey, period));
+    }
+    index.genres[categoryKey] = {};
+    for (const genreKey of Object.keys(GENRES[categoryKey])) {
+      index.genres[categoryKey][genreKey] = {};
+      for (const period of PERIODS) {
+        index.genres[categoryKey][genreKey][period] = await listDates(
+          path.join(DATA_DIR, categoryKey, 'genres', genreKey, period)
+        );
+      }
     }
   }
   await saveJson(path.join(DATA_DIR, 'index.json'), index);
@@ -69,6 +80,20 @@ async function main() {
       await saveJson(path.join(DATA_DIR, categoryKey, period, 'latest.json'), items);
       summary.push({ categoryKey, period, count: items.length });
       await sleep(2000 + Math.random() * 2000);
+    }
+
+    for (const [genreKey, genre] of Object.entries(GENRES[categoryKey])) {
+      for (const period of PERIODS) {
+        const url = buildListUrl(categoryKey, period, genre.id);
+        console.log(`Scraping ${categoryKey} / genre:${genreKey} / ${period} (${url})`);
+        const items = await scrapeRankingList(page, url, { log: console.log });
+        items.forEach((it) => it.workId && allWorkIds.add(it.workId));
+        const dir = path.join(DATA_DIR, categoryKey, 'genres', genreKey, period);
+        await saveJson(path.join(dir, `${today}.json`), items);
+        await saveJson(path.join(dir, 'latest.json'), items);
+        summary.push({ categoryKey, period, genre: genreKey, count: items.length });
+        await sleep(2000 + Math.random() * 2000);
+      }
     }
   }
 
