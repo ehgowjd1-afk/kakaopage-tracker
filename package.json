@@ -1,0 +1,13 @@
+{
+  "name": "kakaopage-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node scripts/scrape.mjs",
+    "install-browser": "playwright install chromium --with-deps"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
