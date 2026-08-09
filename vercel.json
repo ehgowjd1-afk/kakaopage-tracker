@@ -1,0 +1,5 @@
+{
+  "outputDirectory": "docs",
+  "installCommand": "echo 'static site, no install needed'",
+  "buildCommand": "echo 'static site, no build needed'"
+}
