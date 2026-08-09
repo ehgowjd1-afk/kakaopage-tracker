@@ -5,6 +5,7 @@ import { CATEGORIES, PERIODS, GENRES, buildListUrl, scrapeRankingList, scrapeWor
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const DETAIL_REFRESH_DAYS = 30;
+const MAX_DETAIL_FETCHES_PER_RUN = 500;
 
 function getKstDateString() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -40,7 +41,7 @@ async function listDates(dir) {
 }
 
 async function writeIndex() {
-  const index = { genres: {} };
+  const index = { genres: {}, viewcounts: {} };
   for (const categoryKey of Object.keys(CATEGORIES)) {
     index[categoryKey] = {};
     for (const period of PERIODS) {
@@ -55,6 +56,7 @@ async function writeIndex() {
         );
       }
     }
+    index.viewcounts[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'viewcounts'));
   }
   await saveJson(path.join(DATA_DIR, 'index.json'), index);
 }
@@ -68,6 +70,7 @@ async function main() {
   const page = await context.newPage();
 
   const allWorkIds = new Set();
+  const dailyTop300ByCategory = {};
   const summary = [];
 
   for (const categoryKey of Object.keys(CATEGORIES)) {
@@ -76,6 +79,7 @@ async function main() {
       console.log(`Scraping ${categoryKey} / ${period} (${url})`);
       const items = await scrapeRankingList(page, url, { log: console.log });
       items.forEach((it) => it.workId && allWorkIds.add(it.workId));
+      if (period === 'daily') dailyTop300ByCategory[categoryKey] = items;
       await saveJson(path.join(DATA_DIR, categoryKey, period, `${today}.json`), items);
       await saveJson(path.join(DATA_DIR, categoryKey, period, 'latest.json'), items);
       summary.push({ categoryKey, period, count: items.length });
@@ -87,7 +91,8 @@ async function main() {
         const url = buildListUrl(categoryKey, period, genre.id);
         console.log(`Scraping ${categoryKey} / genre:${genreKey} / ${period} (${url})`);
         const items = await scrapeRankingList(page, url, { log: console.log });
-        items.forEach((it) => it.workId && allWorkIds.add(it.workId));
+        // Intentionally NOT added to allWorkIds: genre-only long-tail works don't get
+        // detail/comment pages fetched, to keep that phase bounded to the overall TOP 300.
         const dir = path.join(DATA_DIR, categoryKey, 'genres', genreKey, period);
         await saveJson(path.join(dir, `${today}.json`), items);
         await saveJson(path.join(dir, 'latest.json'), items);
@@ -101,19 +106,50 @@ async function main() {
 
   const cachePath = path.join(DATA_DIR, 'works.json');
   const cache = await loadJson(cachePath, {});
+
+  const freshDetailCache = new Map();
+  for (const categoryKey of Object.keys(CATEGORIES)) {
+    const items = dailyTop300ByCategory[categoryKey] || [];
+    console.log(`Fetching view counts for ${categoryKey} TOP ${items.length} (daily)...`);
+    const snapshot = [];
+    let vcDone = 0;
+    for (const item of items) {
+      if (!item.workId) continue;
+      const detail = await scrapeWorkDetail(page, item.workId, { log: console.log });
+      if (detail) {
+        freshDetailCache.set(item.workId, detail);
+        if (detail.viewCount) snapshot.push({ workId: item.workId, viewCount: detail.viewCount });
+      }
+      vcDone += 1;
+      if (vcDone % 25 === 0) console.log(`  ...${vcDone}/${items.length} view counts done`);
+      await sleep(800 + Math.random() * 800);
+    }
+    const vcDir = path.join(DATA_DIR, categoryKey, 'viewcounts');
+    await saveJson(path.join(vcDir, `${today}.json`), snapshot);
+    await saveJson(path.join(vcDir, 'latest.json'), snapshot);
+  }
   const refreshMs = DETAIL_REFRESH_DAYS * 24 * 60 * 60 * 1000;
   const now = Date.now();
-  const idsToFetch = [...allWorkIds].filter((id) => {
+  const staleIds = [...allWorkIds].filter((id) => {
     const entry = cache[id];
     if (!entry) return true;
     return now - new Date(entry.lastChecked).getTime() > refreshMs;
   });
+  const idsToFetch = staleIds.slice(0, MAX_DETAIL_FETCHES_PER_RUN);
+  if (staleIds.length > idsToFetch.length) {
+    console.log(
+      `  (${staleIds.length - idsToFetch.length} more works need detail info but are deferred to a future run, capped at ${MAX_DETAIL_FETCHES_PER_RUN}/run)`
+    );
+  }
 
   console.log(`Fetching detail info for ${idsToFetch.length} works (of ${allWorkIds.size} total in today's lists)...`);
   let done = 0;
   for (const workId of idsToFetch) {
-    const detail = await scrapeWorkDetail(page, workId, { log: console.log });
-    await sleep(1200 + Math.random() * 1200);
+    let detail = freshDetailCache.get(workId);
+    if (!detail) {
+      detail = await scrapeWorkDetail(page, workId, { log: console.log });
+      await sleep(1200 + Math.random() * 1200);
+    }
     const comments = await scrapeComments(page, workId, { log: console.log });
     if (detail) {
       cache[workId] = {

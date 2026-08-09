@@ -344,6 +344,14 @@ async function renderWorkView(cat, period, workId) {
     if (found) latestItem = found;
   }
 
+  const viewDates = (index.viewcounts && index.viewcounts[cat]) || [];
+  const viewSeries = [];
+  for (const date of viewDates) {
+    const dayList = await fetchJson(`data/${cat}/viewcounts/${date}.json`).catch(() => []);
+    const found = dayList.find((it) => it.workId === workId);
+    viewSeries.push({ date, value: found ? parseCount(found.viewCount) : null });
+  }
+
   app.innerHTML = '';
   const back = document.createElement('nav');
   back.className = 'tabs';
@@ -440,12 +448,18 @@ async function renderWorkView(cat, period, workId) {
   let currentGran = 'daily';
   const chartBox = document.createElement('div');
   chartBox.className = 'chart-box';
+  const viewChartBox = document.createElement('div');
+  viewChartBox.className = 'chart-box';
 
   function redraw() {
     tabgroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.g === currentGran));
     chartBox.innerHTML = '';
-    const agg = aggregateSeries(series, currentGran);
+    const agg = aggregateSeries(series, currentGran, 'rank', (a, b) => a < b);
     chartBox.appendChild(buildChart(agg));
+
+    viewChartBox.innerHTML = '';
+    const viewAgg = aggregateSeries(viewSeries, currentGran, 'value', (a, b) => a > b);
+    viewChartBox.appendChild(buildViewCountChart(viewAgg));
   }
 
   for (const g of granularities) {
@@ -465,6 +479,13 @@ async function renderWorkView(cat, period, workId) {
   controls.appendChild(dlBtn);
   app.appendChild(controls);
   app.appendChild(chartBox);
+  if (viewSeries.some((p) => p.value != null)) {
+    const viewLabel = document.createElement('h3');
+    viewLabel.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
+    viewLabel.textContent = '누적 조회수 추이';
+    app.appendChild(viewLabel);
+    app.appendChild(viewChartBox);
+  }
   redraw();
 }
 
@@ -507,55 +528,79 @@ function isoWeekKey(d) {
   return `${date.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
 }
 
-function aggregateSeries(series, granularity) {
+function aggregateSeries(series, granularity, valueKey = 'rank', pickBest = (a, b) => a < b) {
   if (granularity === 'daily') return series;
   const buckets = new Map();
   for (const pt of series) {
-    if (pt.rank == null) continue;
+    if (pt[valueKey] == null) continue;
     const d = new Date(pt.date);
     let key;
     if (granularity === 'weekly') key = isoWeekKey(d);
     else if (granularity === 'monthly') key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
     else key = `${d.getFullYear()}`;
     const cur = buckets.get(key);
-    if (!cur || pt.rank < cur.rank) buckets.set(key, { date: pt.date, rank: pt.rank });
+    if (!cur || pickBest(pt[valueKey], cur[valueKey])) buckets.set(key, { date: pt.date, [valueKey]: pt[valueKey] });
   }
   return [...buckets.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function buildChart(series) {
-  const points = series.filter((p) => p.rank != null);
+  return buildLineChart(series, {
+    valueKey: 'rank',
+    higherIsBetter: false,
+    formatValue: (v) => `${v}위`,
+    emptyText: '표시할 순위 기록이 없습니다.',
+  });
+}
+
+function buildViewCountChart(series) {
+  return buildLineChart(series, {
+    valueKey: 'value',
+    higherIsBetter: true,
+    formatValue: formatCount,
+    emptyText: '표시할 조회수 기록이 없습니다.',
+  });
+}
+
+function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyText }) {
+  const points = series.filter((p) => p[valueKey] != null);
   if (points.length === 0) {
     const div = document.createElement('div');
     div.className = 'empty-note';
-    div.textContent = '표시할 순위 기록이 없습니다.';
+    div.textContent = emptyText;
     return div;
   }
   const width = 800;
   const height = 280;
-  const padL = 44;
+  const padL = 54;
   const padR = 16;
   const padT = 16;
   const padB = 28;
   const plotW = width - padL - padR;
   const plotH = height - padT - padB;
 
-  const ranks = points.map((p) => p.rank);
-  let minRank = Math.min(...ranks);
-  let maxRank = Math.max(...ranks);
-  if (minRank === maxRank) { minRank = Math.max(1, minRank - 1); maxRank = maxRank + 1; }
+  const values = points.map((p) => p[valueKey]);
+  let lo = Math.min(...values);
+  let hi = Math.max(...values);
+  if (lo === hi) {
+    if (higherIsBetter) hi += 1;
+    else lo = Math.max(1, lo - 1);
+  }
 
   const n = series.length;
   const xFor = (i) => padL + (n === 1 ? plotW / 2 : (i / (n - 1)) * plotW);
-  const yFor = (rank) => padT + ((rank - minRank) / (maxRank - minRank)) * plotH;
+  const yFor = (v) => {
+    const t = (v - lo) / (hi - lo);
+    return higherIsBetter ? padT + (1 - t) * plotH : padT + t * plotH;
+  };
 
   let pathD = '';
   let started = false;
   const dots = [];
   series.forEach((pt, i) => {
-    if (pt.rank == null) { started = false; return; }
+    if (pt[valueKey] == null) { started = false; return; }
     const x = xFor(i);
-    const y = yFor(pt.rank);
+    const y = yFor(pt[valueKey]);
     pathD += started ? ` L ${x} ${y}` : `M ${x} ${y}`;
     started = true;
     dots.push({ x, y, pt });
@@ -572,14 +617,14 @@ function buildChart(series) {
   gridline.setAttribute('stroke', axisColor);
   svg.appendChild(gridline);
 
-  [minRank, maxRank].forEach((r) => {
-    const y = yFor(r);
+  [lo, hi].forEach((v) => {
+    const y = yFor(v);
     const text = document.createElementNS(svgNS, 'text');
     text.setAttribute('x', 4);
     text.setAttribute('y', y + 4);
     text.setAttribute('font-size', '11');
     text.setAttribute('fill', 'var(--text-dim)');
-    text.textContent = `${r}위`;
+    text.textContent = formatValue(v);
     svg.appendChild(text);
   });
 
@@ -609,12 +654,32 @@ function buildChart(series) {
     c.setAttribute('r', 3);
     c.setAttribute('fill', 'var(--accent)');
     const title = document.createElementNS(svgNS, 'title');
-    title.textContent = `${d.pt.date}: ${d.pt.rank}위`;
+    title.textContent = `${d.pt.date}: ${formatValue(d.pt[valueKey])}`;
     c.appendChild(title);
     svg.appendChild(c);
   }
 
   return svg;
+}
+
+function parseCount(text) {
+  if (!text) return null;
+  const cleaned = text.replace(/,/g, '').trim();
+  const match = cleaned.match(/^([\d.]+)\s*(억|만|천)?$/);
+  if (!match) return null;
+  const num = parseFloat(match[1]);
+  if (Number.isNaN(num)) return null;
+  const unit = match[2];
+  if (unit === '억') return num * 100000000;
+  if (unit === '만') return num * 10000;
+  if (unit === '천') return num * 1000;
+  return num;
+}
+
+function formatCount(n) {
+  if (n >= 100000000) return `${(n / 100000000).toFixed(1)}억`;
+  if (n >= 10000) return `${(n / 10000).toFixed(1)}만`;
+  return `${Math.round(n)}`;
 }
 
 function downloadExcel(series, title, cat, period) {
