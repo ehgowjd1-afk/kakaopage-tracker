@@ -74,6 +74,9 @@ function parseHash() {
   if (parts[0] === 'new') {
     return { view: 'new', cat: parts[1] || 'webnovel' };
   }
+  if (parts[0] === 'highlights' && parts[1] && parts[2] && parts[3]) {
+    return { view: 'highlights', cat: parts[1], period: parts[2], type: parts[3] };
+  }
   const cat = parts[1] || 'webnovel';
   const period = parts[2] || 'daily';
   const genre = parts[3] || 'all';
@@ -98,6 +101,8 @@ async function render() {
     await renderWorkView(route.cat, route.period, route.workId);
   } else if (route.view === 'new') {
     await renderNewReleasesView(route.cat);
+  } else if (route.view === 'highlights') {
+    await renderHighlightsView(route.cat, route.period, route.type);
   } else {
     await renderListView(route.cat, route.period, route.genre);
   }
@@ -193,6 +198,11 @@ async function renderListView(cat, period, genre = 'all') {
     .map((it) => ({ ...it, riseAmount: prevRankMap.get(it.workId) - it.rank }))
     .sort((a, b) => b.riseAmount - a.riseAmount)
     .slice(0, 5);
+  const fallers = latest
+    .filter((it) => prevRankMap.has(it.workId) && it.rank - prevRankMap.get(it.workId) > 0)
+    .map((it) => ({ ...it, fallAmount: it.rank - prevRankMap.get(it.workId) }))
+    .sort((a, b) => b.fallAmount - a.fallAmount)
+    .slice(0, 5);
 
   body.innerHTML = '';
 
@@ -207,9 +217,18 @@ async function renderListView(cat, period, genre = 'all') {
 
   const highlightRow = document.createElement('div');
   highlightRow.className = 'highlight-row';
-  highlightRow.appendChild(buildHighlightCard('신규 진입', newEntries, (it) => `${it.rank}위`));
-  highlightRow.appendChild(buildHighlightCard('순위권 이탈', droppedOut, () => '이탈'));
-  highlightRow.appendChild(buildHighlightCard('최고 급상승', risers, (it) => `▲${it.riseAmount}`));
+  highlightRow.appendChild(
+    buildHighlightCard('신규 진입', newEntries, (it) => `${it.rank}위`, () => navigate(`#/highlights/${cat}/${period}/new`))
+  );
+  highlightRow.appendChild(
+    buildHighlightCard('순위권 이탈', droppedOut, () => '이탈', () => navigate(`#/highlights/${cat}/${period}/dropped`))
+  );
+  highlightRow.appendChild(
+    buildHighlightCard('최고 급상승', risers, (it) => `▲${it.riseAmount}`, () => navigate(`#/highlights/${cat}/${period}/risers`))
+  );
+  highlightRow.appendChild(
+    buildHighlightCard('최고 급하락', fallers, (it) => `▼${it.fallAmount}`, () => navigate(`#/highlights/${cat}/${period}/fallers`))
+  );
   body.appendChild(highlightRow);
 
   const list = document.createElement('ol');
@@ -218,6 +237,145 @@ async function renderListView(cat, period, genre = 'all') {
     list.appendChild(buildRankRow(item, cat, period, works[item.workId]));
   }
   body.appendChild(list);
+}
+
+const HIGHLIGHT_TYPES = {
+  new: { label: '신규 진입' },
+  dropped: { label: '순위권 이탈' },
+  risers: { label: '최고 급상승' },
+  fallers: { label: '최고 급하락' },
+};
+
+async function renderHighlightsView(cat, period, type) {
+  app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+  const [index] = await Promise.all([getIndex()]);
+  const dates = (index[cat] && index[cat][period]) || [];
+
+  app.innerHTML = '';
+  const back = document.createElement('nav');
+  back.className = 'tabs';
+  const backBtn = document.createElement('button');
+  backBtn.textContent = '← 목록으로';
+  backBtn.style.cssText =
+    'border:1px solid var(--border);background:var(--card-bg);color:var(--text);padding:6px 12px;border-radius:20px;font-size:13px;cursor:pointer;';
+  backBtn.addEventListener('click', () => navigate(`#/list/${cat}/${period}`));
+  back.appendChild(backBtn);
+  app.appendChild(back);
+
+  const catLabel = CATEGORIES.find((c) => c.key === cat)?.label || cat;
+  const periodLabel = PERIODS.find((p) => p.key === period)?.label || period;
+  const typeInfo = HIGHLIGHT_TYPES[type] || { label: type };
+
+  const title = document.createElement('h2');
+  title.style.cssText = 'font-size:16px;margin:12px 0;';
+  title.textContent = `${catLabel} · ${periodLabel} · ${typeInfo.label} 기록`;
+  app.appendChild(title);
+
+  if (dates.length < 2) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-note';
+    empty.textContent = '아직 비교할 이전 수집 기록이 없습니다.';
+    app.appendChild(empty);
+    return;
+  }
+
+  const loading = document.createElement('div');
+  loading.className = 'loading-note';
+  loading.textContent = '기록을 불러오는 중...';
+  app.appendChild(loading);
+
+  const lists = await Promise.all(dates.map((d) => fetchJson(`data/${cat}/${period}/${d}.json`).catch(() => [])));
+  loading.remove();
+
+  for (let i = dates.length - 1; i >= 1; i--) {
+    const latest = lists[i];
+    const prev = lists[i - 1];
+    const date = dates[i];
+    const prevIds = new Set(prev.map((it) => it.workId));
+    const latestIds = new Set(latest.map((it) => it.workId));
+    const prevRankMap = new Map(prev.map((it) => [it.workId, it.rank]));
+
+    let rows = [];
+    if (type === 'new') {
+      rows = latest
+        .filter((it) => !prevIds.has(it.workId))
+        .sort((a, b) => a.rank - b.rank)
+        .map((it) => ({ ...it, rightText: `${it.rank}위 진입` }));
+    } else if (type === 'dropped') {
+      rows = prev
+        .filter((it) => !latestIds.has(it.workId))
+        .sort((a, b) => a.rank - b.rank)
+        .map((it) => ({ ...it, rightText: `${it.rank}위에서 이탈` }));
+    } else if (type === 'risers') {
+      rows = latest
+        .filter((it) => prevRankMap.has(it.workId) && prevRankMap.get(it.workId) - it.rank > 0)
+        .map((it) => ({ ...it, amount: prevRankMap.get(it.workId) - it.rank }))
+        .sort((a, b) => b.amount - a.amount)
+        .slice(0, 20)
+        .map((it) => ({ ...it, rightText: `▲${it.amount} (${it.rank}위)` }));
+    } else if (type === 'fallers') {
+      rows = latest
+        .filter((it) => prevRankMap.has(it.workId) && it.rank - prevRankMap.get(it.workId) > 0)
+        .map((it) => ({ ...it, amount: it.rank - prevRankMap.get(it.workId) }))
+        .sort((a, b) => b.amount - a.amount)
+        .slice(0, 20)
+        .map((it) => ({ ...it, rightText: `▼${it.amount} (${it.rank}위)` }));
+    }
+
+    const section = document.createElement('div');
+    section.style.marginBottom = '16px';
+    const h3 = document.createElement('h3');
+    h3.style.cssText = 'font-size:13px;color:var(--text-dim);margin:0 0 8px;';
+    h3.textContent = `${date} (전날 대비) · ${rows.length}개`;
+    section.appendChild(h3);
+
+    if (rows.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'hc-empty';
+      empty.textContent = '해당 없음';
+      section.appendChild(empty);
+    } else {
+      const list = document.createElement('ol');
+      list.className = 'rank-list';
+      for (const it of rows) {
+        list.appendChild(buildHighlightHistoryRow(it, cat, period));
+      }
+      section.appendChild(list);
+    }
+    app.appendChild(section);
+  }
+}
+
+function buildHighlightHistoryRow(item, cat, period) {
+  const li = document.createElement('li');
+  li.className = 'rank-row';
+  li.addEventListener('click', () => navigate(`#/work/${cat}/${period}/${item.workId}`));
+
+  const thumb = document.createElement('img');
+  thumb.className = 'rank-thumb';
+  thumb.loading = 'lazy';
+  thumb.src = item.thumbnail || '';
+  thumb.alt = '';
+
+  const info = document.createElement('div');
+  info.className = 'rank-info';
+  const titleEl = document.createElement('div');
+  titleEl.className = 'rank-title';
+  titleEl.textContent = item.title;
+  const sub = document.createElement('div');
+  sub.className = 'rank-sub';
+  sub.textContent = item.subCategory || '';
+  info.appendChild(titleEl);
+  info.appendChild(sub);
+
+  const right = document.createElement('div');
+  right.style.cssText = 'font-size:12px;color:var(--text-dim);flex-shrink:0;white-space:nowrap;';
+  right.textContent = item.rightText;
+
+  li.appendChild(thumb);
+  li.appendChild(info);
+  li.appendChild(right);
+  return li;
 }
 
 async function renderNewReleasesView(cat) {
@@ -353,11 +511,12 @@ function buildGenreDistribution(items) {
   return box;
 }
 
-function buildHighlightCard(title, items, rightTextFn) {
+function buildHighlightCard(title, items, rightTextFn, onClick) {
   const card = document.createElement('div');
   card.className = 'highlight-card';
+  if (onClick) card.addEventListener('click', onClick);
   const h3 = document.createElement('h3');
-  h3.textContent = title;
+  h3.textContent = onClick ? `${title} ›` : title;
   card.appendChild(h3);
   if (items.length === 0) {
     const empty = document.createElement('div');
@@ -818,7 +977,8 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
   path.setAttribute('stroke-width', '2');
   svg.appendChild(path);
 
-  for (const d of dots) {
+  const labelEvery = dots.length <= 15 ? 1 : Math.ceil(dots.length / 15);
+  dots.forEach((d, idx) => {
     const c = document.createElementNS(svgNS, 'circle');
     c.setAttribute('cx', d.x);
     c.setAttribute('cy', d.y);
@@ -828,7 +988,20 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
     title.textContent = `${d.pt.date}: ${formatValue(d.pt[valueKey])}`;
     c.appendChild(title);
     svg.appendChild(c);
-  }
+
+    if (idx % labelEvery === 0) {
+      const above = d.y > padT + 14;
+      const label = document.createElementNS(svgNS, 'text');
+      label.setAttribute('x', d.x);
+      label.setAttribute('y', above ? d.y - 8 : d.y + 16);
+      label.setAttribute('font-size', '11');
+      label.setAttribute('font-weight', '600');
+      label.setAttribute('fill', 'var(--accent)');
+      label.setAttribute('text-anchor', 'middle');
+      label.textContent = formatValue(d.pt[valueKey]);
+      svg.appendChild(label);
+    }
+  });
 
   return svg;
 }
