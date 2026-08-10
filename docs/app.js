@@ -742,6 +742,24 @@ async function renderWorkView(cat, period, workId) {
   rankLabel.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
   rankLabel.textContent = '랭킹 순위 추이';
 
+  const currentRankSummary = document.createElement('div');
+  currentRankSummary.style.cssText =
+    'display:flex;gap:16px;flex-wrap:wrap;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:12px;';
+  for (const p of PERIODS) {
+    const s = seriesByPeriod[p.key];
+    const lastReal = [...s].reverse().find((pt) => pt.rank != null);
+    const cell = document.createElement('div');
+    const label = document.createElement('div');
+    label.style.cssText = 'font-size:12px;color:var(--text-dim);';
+    label.textContent = `${p.label} 랭킹`;
+    const value = document.createElement('div');
+    value.style.cssText = 'font-size:20px;font-weight:700;color:var(--text);';
+    value.textContent = lastReal ? `${lastReal.rank}위` : '순위권 밖';
+    cell.appendChild(label);
+    cell.appendChild(value);
+    currentRankSummary.appendChild(cell);
+  }
+
   const controls = document.createElement('div');
   controls.className = 'chart-controls';
   const tabgroup = document.createElement('div');
@@ -805,6 +823,7 @@ async function renderWorkView(cat, period, workId) {
   controls.appendChild(tabgroup);
   controls.appendChild(dlBtn);
   app.appendChild(rankLabel);
+  app.appendChild(currentRankSummary);
   app.appendChild(rankTypeRow);
   app.appendChild(controls);
   app.appendChild(chartBox);
