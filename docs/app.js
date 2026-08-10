@@ -71,6 +71,9 @@ function parseHash() {
   if (parts[0] === 'work' && parts[1] && parts[2] && parts[3]) {
     return { view: 'work', cat: parts[1], period: parts[2], workId: parts[3] };
   }
+  if (parts[0] === 'new') {
+    return { view: 'new', cat: parts[1] || 'webnovel' };
+  }
   const cat = parts[1] || 'webnovel';
   const period = parts[2] || 'daily';
   const genre = parts[3] || 'all';
@@ -84,6 +87,7 @@ function navigate(hash) {
 window.addEventListener('hashchange', render);
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('site-title').addEventListener('click', () => navigate('#/list/webnovel/daily'));
+  document.getElementById('new-releases-btn').addEventListener('click', () => navigate('#/new/webnovel'));
   render();
   setupSearch();
 });
@@ -92,6 +96,8 @@ async function render() {
   const route = parseHash();
   if (route.view === 'work') {
     await renderWorkView(route.cat, route.period, route.workId);
+  } else if (route.view === 'new') {
+    await renderNewReleasesView(route.cat);
   } else {
     await renderListView(route.cat, route.period, route.genre);
   }
@@ -212,6 +218,99 @@ async function renderListView(cat, period, genre = 'all') {
     list.appendChild(buildRankRow(item, cat, period, works[item.workId]));
   }
   body.appendChild(list);
+}
+
+async function renderNewReleasesView(cat) {
+  app.innerHTML = '';
+
+  const nav = document.createElement('nav');
+  nav.className = 'tabs';
+  const catGroup = document.createElement('div');
+  catGroup.className = 'tabgroup';
+  for (const c of CATEGORIES) {
+    const btn = document.createElement('button');
+    btn.textContent = c.label;
+    if (c.key === cat) btn.classList.add('active');
+    btn.addEventListener('click', () => navigate(`#/new/${c.key}`));
+    catGroup.appendChild(btn);
+  }
+  nav.appendChild(catGroup);
+  app.appendChild(nav);
+
+  const body = document.createElement('div');
+  body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+  app.appendChild(body);
+
+  const [items, works] = await Promise.all([
+    fetchJson(`data/${cat}/new-releases/latest.json`).catch(() => []),
+    getWorksCache(),
+  ]);
+
+  body.innerHTML = '';
+  if (items.length === 0) {
+    body.innerHTML = '<div class="empty-note">아직 수집된 신작 데이터가 없습니다.</div>';
+    return;
+  }
+
+  const note = document.createElement('div');
+  note.className = 'updated-note';
+  note.textContent = `최근 30일 신작 · 총 ${items.length}개`;
+  body.appendChild(note);
+
+  const byDate = new Map();
+  for (const it of items) {
+    const key = it.date || '날짜 미상';
+    if (!byDate.has(key)) byDate.set(key, []);
+    byDate.get(key).push(it);
+  }
+  const dates = [...byDate.keys()].sort((a, b) => b.localeCompare(a));
+
+  for (const date of dates) {
+    const section = document.createElement('div');
+    section.style.marginBottom = '16px';
+    const h3 = document.createElement('h3');
+    h3.style.cssText = 'font-size:13px;color:var(--text-dim);margin:0 0 8px;';
+    h3.textContent = date;
+    section.appendChild(h3);
+
+    const list = document.createElement('ol');
+    list.className = 'rank-list';
+    for (const it of byDate.get(date)) {
+      list.appendChild(buildNewReleaseRow(it, cat, works[it.workId]));
+    }
+    section.appendChild(list);
+    body.appendChild(section);
+  }
+}
+
+function buildNewReleaseRow(item, cat, workMeta) {
+  const li = document.createElement('li');
+  li.className = 'rank-row';
+  li.addEventListener('click', () => navigate(`#/work/${cat}/daily/${item.workId}`));
+
+  const thumb = document.createElement('img');
+  thumb.className = 'rank-thumb';
+  thumb.loading = 'lazy';
+  thumb.src = item.thumbnail || '';
+  thumb.alt = '';
+
+  const info = document.createElement('div');
+  info.className = 'rank-info';
+  const titleEl = document.createElement('div');
+  titleEl.className = 'rank-title';
+  titleEl.textContent = item.title;
+  const sub = document.createElement('div');
+  sub.className = 'rank-sub';
+  const badges = [];
+  if (item.subCategory) badges.push(item.subCategory);
+  if (workMeta && workMeta.author) badges.push(workMeta.author);
+  sub.textContent = badges.join(' · ');
+  info.appendChild(titleEl);
+  info.appendChild(sub);
+
+  li.appendChild(thumb);
+  li.appendChild(info);
+  return li;
 }
 
 function buildGenreDistribution(items) {
@@ -412,6 +511,7 @@ async function renderWorkView(cat, period, workId) {
   infoDiv.appendChild(h2);
 
   if (meta.author) infoDiv.appendChild(metaLine(`작가: ${meta.author}`));
+  if (meta.launchDate) infoDiv.appendChild(metaLine(`런칭일: ${meta.launchDate}`));
   if (meta.classification) infoDiv.appendChild(metaLine(`분류: ${meta.classification}`));
   if (meta.serialStatus) infoDiv.appendChild(metaLine(`연재 상태: ${meta.serialStatus}`));
   if (meta.publisher) infoDiv.appendChild(metaLine(`발행자: ${meta.publisher}`));

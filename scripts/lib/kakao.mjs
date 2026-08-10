@@ -31,6 +31,16 @@ export const GENRES = {
   },
 };
 
+export const NEW_RELEASES_SCREENS = {
+  webnovel: 101,
+  webtoon: 53,
+};
+
+export function buildNewReleasesUrl(categoryKey) {
+  const catId = CATEGORIES[categoryKey].id === 11 ? 10011 : 10010;
+  return `https://page.kakao.com/menu/${catId}/screen/${NEW_RELEASES_SCREENS[categoryKey]}/`;
+}
+
 export function buildListUrl(categoryKey, period, genreId) {
   const cat = CATEGORIES[categoryKey];
   const genrePath = genreId ? `/${genreId}` : '';
@@ -325,6 +335,114 @@ export async function scrapeComments(page, workId, { maxScrolls = 5, log = () =>
     topComments: result.comments.slice(0, 30),
     keywords,
   };
+}
+
+function resolveKoreanMonthDay(label, todayKstStr) {
+  const today = new Date(`${todayKstStr}T00:00:00Z`);
+  if (label === 'TODAY') return todayKstStr;
+  const m = label.match(/^(\d{2})월 (\d{2})일$/);
+  if (!m) return null;
+  const month = parseInt(m[1], 10);
+  const day = parseInt(m[2], 10);
+  let year = today.getUTCFullYear();
+  let candidate = new Date(Date.UTC(year, month - 1, day));
+  if (candidate.getTime() > today.getTime()) {
+    year -= 1;
+    candidate = new Date(Date.UTC(year, month - 1, day));
+  }
+  return candidate.toISOString().slice(0, 10);
+}
+
+export async function scrapeNewReleases(page, url, todayKstStr, { log = () => {} } = {}) {
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1500);
+
+  let lastH = 0;
+  let stable = 0;
+  for (let i = 0; i < 100; i++) {
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(300);
+    const h = await page.evaluate(() => document.body.scrollHeight);
+    if (h === lastH) stable += 1;
+    else stable = 0;
+    lastH = h;
+    if (stable >= 5) break;
+  }
+
+  const raw = await page.evaluate(() => {
+    const nodes = Array.from(
+      document.querySelectorAll('.font-medium1-bold.text-theme-solid-100, a[href^="/content/"]')
+    );
+    let currentDateLabel = null;
+    const results = [];
+    for (const node of nodes) {
+      if (node.tagName !== 'A') {
+        const t = node.textContent.trim();
+        if (t === 'TODAY' || /^\d{2}월 \d{2}일$/.test(t)) currentDateLabel = t;
+        continue;
+      }
+      const metaEl = node.querySelector('[data-t-obj]');
+      let title = null;
+      let category = null;
+      let subCategory = null;
+      if (metaEl) {
+        try {
+          const obj = JSON.parse(metaEl.getAttribute('data-t-obj'));
+          title = obj.eventMeta?.name ?? null;
+          category = obj.eventMeta?.category ?? null;
+          subCategory = obj.eventMeta?.subcategory ?? null;
+        } catch {
+          // ignore malformed json
+        }
+      }
+      const idMatch = node.getAttribute('href').match(/\/content\/(\d+)/);
+      const thumbEl = node.querySelector('img[alt="썸네일"]');
+      results.push({
+        dateLabel: currentDateLabel,
+        workId: idMatch ? idMatch[1] : null,
+        title,
+        category,
+        subCategory,
+        thumbnail: thumbEl ? thumbEl.src : null,
+      });
+    }
+    return results;
+  });
+
+  log(`  → loaded ${raw.length} new-release items`);
+
+  return raw
+    .filter((it) => it.workId)
+    .map((it) => ({
+      date: resolveKoreanMonthDay(it.dateLabel, todayKstStr),
+      workId: it.workId,
+      title: it.title,
+      category: it.category,
+      subCategory: it.subCategory,
+      thumbnail: it.thumbnail,
+    }));
+}
+
+export async function scrapeLaunchDate(page, workId, { log = () => {} } = {}) {
+  const url = `https://page.kakao.com/content/${workId}/?tab_type=episode`;
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForTimeout(1000);
+  } catch (err) {
+    log(`  ! failed to load episode list for ${workId}: ${err.message}`);
+    return null;
+  }
+
+  const dateText = await page.evaluate(() => {
+    const el = Array.from(document.querySelectorAll('body *')).find(
+      (e) => e.children.length === 0 && /^\d{2}\.\d{2}\.\d{2}$/.test(e.textContent.trim())
+    );
+    return el ? el.textContent.trim() : null;
+  });
+  if (!dateText) return null;
+
+  const [yy, mm, dd] = dateText.split('.');
+  return `20${yy}-${mm}-${dd}`;
 }
 
 export { sleep };

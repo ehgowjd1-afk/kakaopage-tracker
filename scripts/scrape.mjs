@@ -1,7 +1,19 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CATEGORIES, PERIODS, GENRES, buildListUrl, scrapeRankingList, scrapeWorkDetail, scrapeComments, sleep } from './lib/kakao.mjs';
+import {
+  CATEGORIES,
+  PERIODS,
+  GENRES,
+  buildListUrl,
+  buildNewReleasesUrl,
+  scrapeRankingList,
+  scrapeWorkDetail,
+  scrapeComments,
+  scrapeNewReleases,
+  scrapeLaunchDate,
+  sleep,
+} from './lib/kakao.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const DETAIL_REFRESH_DAYS = 30;
@@ -57,6 +69,8 @@ async function writeIndex() {
       }
     }
     index.viewcounts[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'viewcounts'));
+    index.newReleases = index.newReleases || {};
+    index.newReleases[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'new-releases'));
   }
   await saveJson(path.join(DATA_DIR, 'index.json'), index);
 }
@@ -100,6 +114,18 @@ async function main() {
         await sleep(2000 + Math.random() * 2000);
       }
     }
+  }
+
+  for (const categoryKey of Object.keys(CATEGORIES)) {
+    const url = buildNewReleasesUrl(categoryKey);
+    console.log(`Scraping ${categoryKey} / new-releases (${url})`);
+    const items = await scrapeNewReleases(page, url, today, { log: console.log });
+    items.forEach((it) => it.workId && allWorkIds.add(it.workId));
+    const dir = path.join(DATA_DIR, categoryKey, 'new-releases');
+    await saveJson(path.join(dir, `${today}.json`), items);
+    await saveJson(path.join(dir, 'latest.json'), items);
+    summary.push({ categoryKey, period: 'new-releases', count: items.length });
+    await sleep(2000 + Math.random() * 2000);
   }
 
   await writeIndex();
@@ -151,10 +177,16 @@ async function main() {
       await sleep(1200 + Math.random() * 1200);
     }
     const comments = await scrapeComments(page, workId, { log: console.log });
+    let launchDate = cache[workId]?.launchDate ?? null;
+    if (!launchDate) {
+      await sleep(800 + Math.random() * 800);
+      launchDate = await scrapeLaunchDate(page, workId, { log: console.log });
+    }
     if (detail) {
       cache[workId] = {
         ...detail,
         workId,
+        launchDate,
         totalCommentText: comments?.totalCommentText ?? null,
         topComments: comments?.topComments ?? [],
         commentKeywords: comments?.keywords ?? [],
