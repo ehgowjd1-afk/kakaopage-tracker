@@ -611,9 +611,11 @@ async function buildRankSeries(cat, period, workId, dates) {
           ? firstReal.rank - firstReal.change.amount
           : firstReal.rank;
     if (prevRank >= 1) {
-      const backfillStep = period === 'daily' ? -1 : period === 'weekly' ? -7 : -30;
+      // Kakao recalculates all three ranking types (daily/weekly/monthly) every
+      // day as rolling windows, so "change" always compares to the previous
+      // day's snapshot of that same ranking type -- never a week/month back.
       series.unshift({
-        date: shiftDateStr(firstReal.date, backfillStep),
+        date: shiftDateStr(firstReal.date, -1),
         rank: prevRank,
         change: null,
         estimated: true,
