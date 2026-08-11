@@ -503,7 +503,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 3
@@ -1812,7 +1812,7 @@
     "waitFreeType": null,
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -2458,7 +2458,7 @@
     "waitFreeType": null,
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 24

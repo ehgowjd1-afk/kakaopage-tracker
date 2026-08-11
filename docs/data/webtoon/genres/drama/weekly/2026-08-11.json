@@ -316,7 +316,7 @@
     "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
       "amount": 1
@@ -615,7 +615,7 @@
     "rank": 37,
     "workId": "70054109",
     "title": "[특집] 최애 작가의 최애 만화가 궁금해!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dj5WTv/dJMcafAQVLE/mkXVD1UERwbCfi6FvCCjh0&filename=th3",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sslr5/dJMcafgBv7D/c7WRtOQhY4f0jAUwtp1egK&filename=th3",
     "category": "웹툰",
     "subCategory": "드라마",
     "waitFree": false,
@@ -2050,7 +2050,7 @@
     "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
       "amount": 3

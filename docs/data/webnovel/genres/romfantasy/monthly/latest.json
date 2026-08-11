@@ -10,7 +10,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -384,7 +384,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 2
@@ -435,7 +435,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 2
@@ -520,7 +520,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1
@@ -1319,7 +1319,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "up",
       "amount": 2
@@ -1642,7 +1642,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1
@@ -1710,7 +1710,7 @@
     "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "up",
       "amount": 2
@@ -1727,7 +1727,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
       "amount": 10
@@ -1744,7 +1744,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 2
@@ -1761,7 +1761,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 2
@@ -2780,8 +2780,8 @@
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": "15세",
-    "isNewRelease": true,
-    "hasNewEpisode": false,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "up",
       "amount": 2
@@ -3036,7 +3036,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1
@@ -3392,8 +3392,8 @@
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
-    "isNewRelease": true,
-    "hasNewEpisode": false,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -4515,7 +4515,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1

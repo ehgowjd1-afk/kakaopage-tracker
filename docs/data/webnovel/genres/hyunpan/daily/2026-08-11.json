@@ -585,7 +585,7 @@
     "category": "웹소설",
     "subCategory": "현판",
     "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": true,
@@ -1455,7 +1455,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 4
@@ -2026,7 +2026,7 @@
     "rank": 120,
     "workId": "48220334",
     "title": "성공시대",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=VTCn3/hzab4jZqz2/19iawOUUOUVgC392L6dHe0&filename=th3",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=viluM/dJMb991KFKK/3of6h0ZBZZdcKgvSvtgtp1&filename=th3",
     "category": "웹소설",
     "subCategory": "현판",
     "waitFree": true,
@@ -2067,7 +2067,7 @@
     "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 25
@@ -2611,7 +2611,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "up",
       "amount": 2
@@ -4056,7 +4056,7 @@
     "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "up",
       "amount": 25
