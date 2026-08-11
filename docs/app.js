@@ -1234,9 +1234,11 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
   const values = points.map((p) => p[valueKey]);
   let lo = Math.min(...values);
   let hi = Math.max(...values);
-  if (lo === hi) {
-    if (higherIsBetter) hi += 1;
-    else lo = Math.max(1, lo - 1);
+  const flat = lo === hi; // every point has the same value (e.g. always 1위)
+  if (flat) {
+    // widen symmetrically so the flat line sits in the middle instead of the top edge
+    lo = lo - 1;
+    hi = hi + 1;
   }
 
   const n = series.length;
@@ -1269,7 +1271,8 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
   gridline.setAttribute('stroke', axisColor);
   svg.appendChild(gridline);
 
-  [lo, hi].forEach((v) => {
+  const axisTicks = flat ? [points[0][valueKey]] : [lo, hi];
+  axisTicks.forEach((v) => {
     const y = yFor(v);
     const text = document.createElementNS(svgNS, 'text');
     text.setAttribute('x', 4);
