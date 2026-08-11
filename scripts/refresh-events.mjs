@@ -1,7 +1,7 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { EVENT_TABS, buildEventsUrl, scrapeEvents, sleep } from './lib/kakao.mjs';
+import { EVENT_TABS, buildEventsUrl, scrapeEvents, mergeEventHistory, sleep } from './lib/kakao.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 
@@ -30,6 +30,9 @@ async function main() {
     const dir = path.join(DATA_DIR, 'events', tab);
     await saveJson(path.join(dir, `${today}.json`), events);
     await saveJson(path.join(dir, 'latest.json'), events);
+    let history = [];
+    try { history = JSON.parse(await fs.readFile(path.join(dir, 'history.json'), 'utf-8')); } catch {}
+    await saveJson(path.join(dir, 'history.json'), mergeEventHistory(history, events, today));
     await sleep(2000);
   }
   await browser.close();

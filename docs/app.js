@@ -83,6 +83,9 @@ function parseHash() {
   if (parts[0] === 'events') {
     return { view: 'events', cat: parts[1] || 'all' };
   }
+  if (parts[0] === 'memos') {
+    return { view: 'memos' };
+  }
   const cat = parts[1] || 'webnovel';
   const period = parts[2] || 'daily';
   const genre = parts[3] || 'all';
@@ -98,10 +101,11 @@ const NAV_TARGETS = {
   new: '#/new/webnovel',
   keywords: '#/keywords/webnovel',
   events: '#/events/all',
+  memos: '#/memos',
 };
 
 function updateNavActive(route) {
-  const map = { list: 'ranking', highlights: 'ranking', work: 'ranking', new: 'new', keywords: 'keywords', events: 'events' };
+  const map = { list: 'ranking', highlights: 'ranking', work: 'ranking', new: 'new', keywords: 'keywords', events: 'events', memos: 'memos' };
   const activeNav = map[route.view];
   document.querySelectorAll('#site-nav button').forEach((b) => {
     b.classList.toggle('active', b.dataset.nav === activeNav);
@@ -131,9 +135,117 @@ async function render() {
     await renderKeywordsView(route.cat);
   } else if (route.view === 'events') {
     await renderEventsView(route.cat);
+  } else if (route.view === 'memos') {
+    await renderMemosView();
   } else {
     await renderListView(route.cat, route.period, route.genre);
   }
+}
+
+// ---- Memo (per-work note, saved only in this browser) ----
+function memoKey(workId) { return `kp_memo_${workId}`; }
+function getMemoObj(workId) {
+  try {
+    const raw = localStorage.getItem(memoKey(workId));
+    if (!raw) return null;
+    // stored as JSON {text,title,cat}; tolerate a legacy plain-string value
+    try { return JSON.parse(raw); } catch { return { text: raw }; }
+  } catch { return null; }
+}
+function getMemo(workId) { const o = getMemoObj(workId); return o ? (o.text || '') : ''; }
+function setMemo(workId, text, title, cat) {
+  try {
+    if (text && text.trim()) localStorage.setItem(memoKey(workId), JSON.stringify({ text, title: title || null, cat: cat || null }));
+    else localStorage.removeItem(memoKey(workId));
+  } catch { /* storage unavailable */ }
+}
+function allMemos() {
+  const out = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith('kp_memo_')) {
+        const o = getMemoObj(k.slice('kp_memo_'.length));
+        out.push({ workId: k.slice('kp_memo_'.length), text: o ? o.text : '', title: o ? o.title : null, cat: o ? o.cat : null });
+      }
+    }
+  } catch { /* ignore */ }
+  return out;
+}
+
+async function renderMemosView() {
+  app.innerHTML = '';
+  const title = document.createElement('h2');
+  title.style.cssText = 'font-size:18px;margin:8px 0 4px;';
+  title.textContent = '내 메모';
+  app.appendChild(title);
+  const hint = document.createElement('div');
+  hint.className = 'updated-note';
+  hint.textContent = '작품 상세페이지에서 남긴 메모예요. ⚠️ 이 브라우저에만 저장되며, 다른 기기·다른 브라우저에서는 보이지 않아요.';
+  app.appendChild(hint);
+
+  const memos = allMemos();
+  if (memos.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-note';
+    empty.textContent = '아직 메모가 없어요. 작품 상세페이지에서 메모를 남겨보세요.';
+    app.appendChild(empty);
+    return;
+  }
+
+  const works = await getWorksCache();
+  const list = document.createElement('div');
+  for (const m of memos) {
+    const meta = works[m.workId] || {};
+    const card = document.createElement('div');
+    card.className = 'panel';
+    card.style.cursor = 'pointer';
+    const head = document.createElement('div');
+    head.style.cssText = 'font-weight:700;margin-bottom:6px;';
+    head.textContent = m.title || meta.title || (meta.author ? `${meta.author} 작품` : `작품 ${m.workId}`);
+    const txt = document.createElement('div');
+    txt.style.cssText = 'white-space:pre-wrap;font-size:13px;color:var(--text-dim);';
+    txt.textContent = m.text;
+    card.appendChild(head);
+    card.appendChild(txt);
+    const cat = m.cat || (meta.classification && meta.classification.includes('웹툰') ? 'webtoon' : 'webnovel');
+    card.addEventListener('click', () => navigate(`#/work/${cat}/daily/${m.workId}`));
+    list.appendChild(card);
+  }
+  app.appendChild(list);
+}
+
+function buildMemoBox(workId, title, cat) {
+  const box = document.createElement('div');
+  box.className = 'panel';
+  const label = document.createElement('div');
+  label.style.cssText = 'font-size:13px;font-weight:700;margin-bottom:6px;';
+  label.textContent = '📝 내 메모';
+  const hint = document.createElement('div');
+  hint.style.cssText = 'font-size:11px;color:var(--text-dim);margin-bottom:8px;';
+  hint.textContent = '이 브라우저에만 저장돼요 (자동 저장).';
+  const ta = document.createElement('textarea');
+  ta.value = getMemo(workId);
+  ta.placeholder = '이 작품에 대한 메모를 남겨보세요...';
+  ta.style.cssText =
+    'width:100%;min-height:80px;resize:vertical;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;outline:none;box-sizing:border-box;';
+  let saveTimer = null;
+  const savedMark = document.createElement('span');
+  savedMark.style.cssText = 'font-size:11px;color:var(--text-dim);margin-left:8px;';
+  ta.addEventListener('input', () => {
+    clearTimeout(saveTimer);
+    savedMark.textContent = '저장 중...';
+    saveTimer = setTimeout(() => {
+      setMemo(workId, ta.value, title, cat);
+      savedMark.textContent = '✓ 저장됨';
+      setTimeout(() => { savedMark.textContent = ''; }, 1500);
+    }, 400);
+  });
+  label.appendChild(savedMark);
+  box.appendChild(label);
+  box.appendChild(hint);
+  box.appendChild(ta);
+  return box;
 }
 
 function buildCatTabs(activeCat, hashPrefix) {
@@ -400,48 +512,115 @@ async function renderEventsView(tab) {
   nav.appendChild(group);
   app.appendChild(nav);
 
+  // 진행중/완료 sub-filter
+  const statusRow = document.createElement('nav');
+  statusRow.className = 'tabs';
+  const statusGroup = document.createElement('div');
+  statusGroup.className = 'tabgroup';
+  statusRow.appendChild(statusGroup);
+  app.appendChild(statusRow);
+
   const body = document.createElement('div');
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const events = await fetchJson(`data/events/${tab}/latest.json`).catch(() => []);
-  body.innerHTML = '';
-  if (!events.length) {
+  // Prefer accumulating history (knows 진행중 vs 완료); fall back to latest.
+  let history = await fetchJson(`data/events/${tab}/history.json`).catch(() => null);
+  if (!history) {
+    const latest = await fetchJson(`data/events/${tab}/latest.json`).catch(() => []);
+    history = latest.map((e) => ({ ...e, firstSeen: null, lastSeen: null }));
+  }
+  if (!history.length) {
+    statusRow.remove();
     body.innerHTML = '<div class="empty-note">아직 수집된 이벤트가 없습니다.</div>';
     return;
   }
 
+  const latestDate = history.reduce((m, e) => (e.lastSeen && e.lastSeen > m ? e.lastSeen : m), '');
+  const isOngoing = (e) => !latestDate || e.lastSeen === latestDate;
+  const ongoing = history.filter(isOngoing);
+  const ended = history.filter((e) => !isOngoing(e));
+
+  let curStatus = 'ongoing';
+  const statusOptions = [
+    { key: 'ongoing', label: `진행 중 (${ongoing.length})` },
+    { key: 'ended', label: `종료됨 (${ended.length})` },
+  ];
+  for (const s of statusOptions) {
+    const btn = document.createElement('button');
+    btn.textContent = s.label;
+    btn.dataset.st = s.key;
+    btn.addEventListener('click', () => { curStatus = s.key; renderGrid(); });
+    statusGroup.appendChild(btn);
+  }
+
   const note = document.createElement('div');
   note.className = 'updated-note';
-  note.textContent = `진행 중인 이벤트/프로모션 · 총 ${events.length}개`;
   body.appendChild(note);
 
   const grid = document.createElement('div');
   grid.className = 'event-grid';
-  for (const ev of events) {
-    const card = document.createElement('a');
-    card.className = 'event-card';
-    card.href = ev.link || '#';
-    if (ev.link) { card.target = '_blank'; card.rel = 'noopener noreferrer'; }
-    const img = document.createElement('img');
-    img.loading = 'lazy';
-    img.src = ev.thumbnail || '';
-    img.alt = '';
-    const meta = document.createElement('div');
-    meta.className = 'event-meta';
-    const t = document.createElement('div');
-    t.className = 'event-title';
-    t.textContent = ev.title || '(제목 없음)';
-    const s = document.createElement('div');
-    s.className = 'event-sub';
-    s.textContent = ev.subtitle || '';
-    meta.appendChild(t);
-    meta.appendChild(s);
-    card.appendChild(img);
-    card.appendChild(meta);
-    grid.appendChild(card);
-  }
   body.appendChild(grid);
+
+  function renderGrid() {
+    statusGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.st === curStatus));
+    const list = curStatus === 'ongoing' ? ongoing : ended;
+    note.textContent =
+      curStatus === 'ongoing'
+        ? `진행 중인 이벤트 · ${list.length}개`
+        : `종료된 이벤트 (수집 기간 중 사라진 것) · ${list.length}개`;
+    grid.innerHTML = '';
+    if (list.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty-note';
+      empty.textContent = curStatus === 'ended' ? '아직 종료된 이벤트가 없어요. 수집이 며칠 쌓이면 여기 모여요.' : '진행 중인 이벤트가 없어요.';
+      grid.appendChild(empty);
+      return;
+    }
+    for (const ev of list) {
+      const card = document.createElement('a');
+      card.className = 'event-card';
+      card.href = ev.link || '#';
+      if (ev.link) { card.target = '_blank'; card.rel = 'noopener noreferrer'; }
+      if (curStatus === 'ended') card.classList.add('event-ended');
+      const thumbWrap = document.createElement('div');
+      thumbWrap.style.position = 'relative';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.src = ev.thumbnail || '';
+      img.alt = '';
+      thumbWrap.appendChild(img);
+      if (curStatus === 'ended') {
+        const badge = document.createElement('span');
+        badge.className = 'event-badge';
+        badge.textContent = '종료';
+        thumbWrap.appendChild(badge);
+      }
+      const meta = document.createElement('div');
+      meta.className = 'event-meta';
+      const t = document.createElement('div');
+      t.className = 'event-title';
+      t.textContent = ev.title || '(제목 없음)';
+      const s = document.createElement('div');
+      s.className = 'event-sub';
+      s.textContent = ev.subtitle || '';
+      meta.appendChild(t);
+      meta.appendChild(s);
+      if (ev.firstSeen) {
+        const seen = document.createElement('div');
+        seen.style.cssText = 'font-size:11px;color:var(--text-dim);margin-top:4px;';
+        seen.textContent =
+          curStatus === 'ended'
+            ? `${ev.firstSeen} ~ ${ev.lastSeen} 확인`
+            : `${ev.firstSeen}부터 진행 중`;
+        meta.appendChild(seen);
+      }
+      card.appendChild(thumbWrap);
+      card.appendChild(meta);
+      grid.appendChild(card);
+    }
+  }
+  renderGrid();
 }
 
 function renderTabs(activeCat, activePeriod, activeGenre) {
@@ -1070,6 +1249,8 @@ async function renderWorkView(cat, period, workId) {
 
   header.appendChild(infoDiv);
   app.appendChild(header);
+
+  app.appendChild(buildMemoBox(workId, (latestItem && latestItem.title) || meta.title || null, cat));
 
   if (meta.topComments && meta.topComments.length) {
     app.appendChild(buildCommentsBox(meta.topComments.slice(0, 5)));

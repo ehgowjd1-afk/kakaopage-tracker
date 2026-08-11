@@ -14,6 +14,7 @@ import {
   scrapeNewReleases,
   scrapeLaunchDate,
   scrapeEvents,
+  mergeEventHistory,
   sleep,
 } from './lib/kakao.mjs';
 
@@ -143,6 +144,8 @@ async function main() {
     const dir = path.join(DATA_DIR, 'events', eventTab);
     await saveJson(path.join(dir, `${today}.json`), events);
     await saveJson(path.join(dir, 'latest.json'), events);
+    const history = await loadJson(path.join(dir, 'history.json'), []);
+    await saveJson(path.join(dir, 'history.json'), mergeEventHistory(history, events, today));
     summary.push({ categoryKey: eventTab, period: 'events', count: events.length });
     await sleep(2000 + Math.random() * 2000);
   }

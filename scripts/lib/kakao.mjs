@@ -48,6 +48,27 @@ export function buildEventsUrl(eventTab) {
   return `https://page.kakao.com/landing/event/${EVENT_TABS[eventTab]}/`;
 }
 
+// Merge today's scraped events into an accumulating history keyed by bannerUid.
+// Each entry keeps firstSeen/lastSeen so the frontend can tell 진행중 (lastSeen == today)
+// from 완료 (disappeared from the listing on an earlier day).
+export function mergeEventHistory(history, events, today) {
+  const byId = new Map(history.map((e) => [e.bannerUid, e]));
+  for (const ev of events) {
+    if (!ev.bannerUid) continue;
+    const existing = byId.get(ev.bannerUid);
+    if (existing) {
+      existing.lastSeen = today;
+      existing.title = ev.title;
+      existing.subtitle = ev.subtitle;
+      existing.thumbnail = ev.thumbnail;
+      existing.link = ev.link;
+    } else {
+      byId.set(ev.bannerUid, { ...ev, firstSeen: today, lastSeen: today });
+    }
+  }
+  return [...byId.values()].sort((a, b) => (b.lastSeen || '').localeCompare(a.lastSeen || '') || (b.firstSeen || '').localeCompare(a.firstSeen || ''));
+}
+
 export async function scrapeEvents(page, url, { log = () => {} } = {}) {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1500);
