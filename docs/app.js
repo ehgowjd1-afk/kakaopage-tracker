@@ -160,83 +160,131 @@ async function renderKeywordsView(cat) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const [latest, works] = await Promise.all([
+  const [dailyList, weeklyList, monthlyList, works] = await Promise.all([
     fetchJson(`data/${cat}/daily/latest.json`).catch(() => []),
+    fetchJson(`data/${cat}/weekly/latest.json`).catch(() => []),
+    fetchJson(`data/${cat}/monthly/latest.json`).catch(() => []),
     getWorksCache(),
   ]);
+  const listsByPeriod = { daily: dailyList, weekly: weeklyList, monthly: monthlyList };
 
-  // Build keyword frequency + co-occurrence over TOP 300
-  const kwCount = new Map();
-  const coCount = new Map(); // "A||B" -> count
-  const kwToWorks = new Map();
-  let analyzed = 0;
-  for (const item of latest) {
-    const w = works[item.workId];
-    if (!w || !w.keywords || !w.keywords.length) continue;
-    analyzed += 1;
-    const kws = [...new Set(w.keywords)];
-    for (const k of kws) {
-      kwCount.set(k, (kwCount.get(k) || 0) + 1);
-      if (!kwToWorks.has(k)) kwToWorks.set(k, []);
-      kwToWorks.get(k).push({ workId: item.workId, title: item.title, rank: item.rank });
-    }
-    for (let i = 0; i < kws.length; i++) {
-      for (let j = i + 1; j < kws.length; j++) {
-        const key = [kws[i], kws[j]].sort().join('||');
-        coCount.set(key, (coCount.get(key) || 0) + 1);
-      }
-    }
-  }
+  let curPeriod = 'daily';
+  let curScope = 30;
 
   body.innerHTML = '';
-  if (analyzed === 0) {
-    body.innerHTML = '<div class="empty-note">키워드 데이터가 아직 없습니다.</div>';
-    return;
+
+  // Controls: period + scope
+  const controls = document.createElement('div');
+  controls.style.cssText = 'display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;';
+
+  const periodGroup = document.createElement('div');
+  periodGroup.className = 'tabgroup';
+  for (const p of PERIODS) {
+    const btn = document.createElement('button');
+    btn.textContent = `${p.label}순위`;
+    btn.dataset.p = p.key;
+    btn.addEventListener('click', () => { curPeriod = p.key; recompute(); });
+    periodGroup.appendChild(btn);
   }
+
+  const scopeGroup = document.createElement('div');
+  scopeGroup.className = 'tabgroup';
+  for (const s of [30, 100, 300]) {
+    const btn = document.createElement('button');
+    btn.textContent = `TOP ${s}`;
+    btn.dataset.s = String(s);
+    btn.addEventListener('click', () => { curScope = s; recompute(); });
+    scopeGroup.appendChild(btn);
+  }
+
+  controls.appendChild(periodGroup);
+  controls.appendChild(scopeGroup);
+  body.appendChild(controls);
 
   const note = document.createElement('div');
   note.className = 'updated-note';
-  note.textContent = `TOP 300 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
   body.appendChild(note);
 
-  // Section 1: keyword share
-  const ranked = [...kwCount.entries()].sort((a, b) => b[1] - a[1]);
   const shareBox = document.createElement('div');
   shareBox.className = 'chart-box';
   shareBox.style.marginBottom = '18px';
-  const h3 = document.createElement('h3');
-  h3.style.cssText = 'font-size:14px;margin:0 0 12px;';
-  h3.textContent = '키워드 비중 (상위 25종)';
-  shareBox.appendChild(h3);
-  const maxCount = ranked[0][1];
-  let selectedKw = ranked[0][0];
-  for (const [kw, count] of ranked.slice(0, 25)) {
-    const pct = ((count / analyzed) * 100).toFixed(1);
-    const row = document.createElement('div');
-    row.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;cursor:pointer;';
-    row.addEventListener('click', () => { selectedKw = kw; renderCoSection(); });
-    const label = document.createElement('div');
-    label.style.cssText = 'width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
-    label.textContent = `#${kw}`;
-    const barWrap = document.createElement('div');
-    barWrap.style.cssText = 'flex:1;background:var(--bg);border-radius:6px;overflow:hidden;height:18px;';
-    const bar = document.createElement('div');
-    bar.style.cssText = `width:${(count / maxCount) * 100}%;background:var(--accent);height:100%;`;
-    barWrap.appendChild(bar);
-    const val = document.createElement('div');
-    val.style.cssText = 'width:90px;flex-shrink:0;text-align:right;color:var(--text-dim);';
-    val.textContent = `${count}개 (${pct}%)`;
-    row.appendChild(label);
-    row.appendChild(barWrap);
-    row.appendChild(val);
-    shareBox.appendChild(row);
-  }
   body.appendChild(shareBox);
 
-  // Section 2: co-occurrence for the selected keyword
   const coSection = document.createElement('div');
   coSection.className = 'chart-box';
   body.appendChild(coSection);
+
+  let kwCount = new Map();
+  let coCount = new Map();
+  let analyzed = 0;
+  let selectedKw = null;
+
+  function recompute() {
+    periodGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.p === curPeriod));
+    scopeGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.s === String(curScope)));
+
+    const list = (listsByPeriod[curPeriod] || []).slice(0, curScope);
+    kwCount = new Map();
+    coCount = new Map();
+    analyzed = 0;
+    for (const item of list) {
+      const w = works[item.workId];
+      if (!w || !w.keywords || !w.keywords.length) continue;
+      analyzed += 1;
+      const kws = [...new Set(w.keywords)];
+      for (const k of kws) kwCount.set(k, (kwCount.get(k) || 0) + 1);
+      for (let i = 0; i < kws.length; i++) {
+        for (let j = i + 1; j < kws.length; j++) {
+          const key = [kws[i], kws[j]].sort().join('||');
+          coCount.set(key, (coCount.get(key) || 0) + 1);
+        }
+      }
+    }
+
+    const periodLabel = PERIODS.find((p) => p.key === curPeriod).label;
+    note.textContent = `${periodLabel}순위 TOP ${curScope} 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
+
+    const ranked = [...kwCount.entries()].sort((a, b) => b[1] - a[1]);
+    shareBox.innerHTML = '';
+    const h3 = document.createElement('h3');
+    h3.style.cssText = 'font-size:14px;margin:0 0 12px;';
+    h3.textContent = `키워드 비중 (상위 25종)`;
+    shareBox.appendChild(h3);
+
+    if (ranked.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'hc-empty';
+      empty.textContent = '이 범위에는 키워드 데이터가 없습니다.';
+      shareBox.appendChild(empty);
+      coSection.innerHTML = '';
+      return;
+    }
+
+    if (!selectedKw || !kwCount.has(selectedKw)) selectedKw = ranked[0][0];
+    const maxCount = ranked[0][1];
+    for (const [kw, count] of ranked.slice(0, 25)) {
+      const pct = ((count / analyzed) * 100).toFixed(1);
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;cursor:pointer;';
+      row.addEventListener('click', () => { selectedKw = kw; renderCoSection(); });
+      const label = document.createElement('div');
+      label.style.cssText = 'width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      label.textContent = `#${kw}`;
+      const barWrap = document.createElement('div');
+      barWrap.style.cssText = 'flex:1;background:var(--bg);border-radius:6px;overflow:hidden;height:18px;';
+      const bar = document.createElement('div');
+      bar.style.cssText = `width:${(count / maxCount) * 100}%;background:var(--accent);height:100%;`;
+      barWrap.appendChild(bar);
+      const val = document.createElement('div');
+      val.style.cssText = 'width:90px;flex-shrink:0;text-align:right;color:var(--text-dim);';
+      val.textContent = `${count}개 (${pct}%)`;
+      row.appendChild(label);
+      row.appendChild(barWrap);
+      row.appendChild(val);
+      shareBox.appendChild(row);
+    }
+    renderCoSection();
+  }
 
   function renderCoSection() {
     coSection.innerHTML = '';
@@ -285,7 +333,8 @@ async function renderKeywordsView(cat) {
       coSection.appendChild(row);
     }
   }
-  renderCoSection();
+
+  recompute();
 }
 
 async function renderEventsView(cat) {
