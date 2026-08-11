@@ -618,11 +618,13 @@ async function renderEventsView(tab) {
       return;
     }
     for (const ev of list) {
-      const card = document.createElement('a');
+      const card = document.createElement('div');
       card.className = 'event-card';
-      card.href = ev.link || '#';
-      if (ev.link) { card.target = '_blank'; card.rel = 'noopener noreferrer'; }
       if (curStatus === 'ended') card.classList.add('event-ended');
+
+      // clickable part (thumb + title) opens the Kakao event page
+      const linkPart = document.createElement(ev.link ? 'a' : 'div');
+      if (ev.link) { linkPart.href = ev.link; linkPart.target = '_blank'; linkPart.rel = 'noopener noreferrer'; }
       const thumbWrap = document.createElement('div');
       thumbWrap.style.position = 'relative';
       const img = document.createElement('img');
@@ -651,16 +653,50 @@ async function renderEventsView(tab) {
         seen.style.cssText = 'font-size:11px;color:var(--text-dim);margin-top:4px;';
         seen.textContent =
           curStatus === 'ended'
-            ? `${ev.firstSeen} ~ ${ev.lastSeen} 확인`
-            : `${ev.firstSeen}부터 진행 중`;
+            ? `${ev.firstSeen} ~ ${ev.lastSeen} 확인됨`
+            : `${ev.firstSeen}부터 확인됨`;
         meta.appendChild(seen);
       }
-      card.appendChild(thumbWrap);
-      card.appendChild(meta);
+      linkPart.appendChild(thumbWrap);
+      linkPart.appendChild(meta);
+      card.appendChild(linkPart);
+
+      // editable memo (start/end date, notes) — saved only in this browser
+      if (ev.bannerUid) card.appendChild(buildEventMemoField(ev.bannerUid));
+
       grid.appendChild(card);
     }
   }
   renderGrid();
+}
+
+// ---- Event memo (per-banner note, saved only in this browser) ----
+function evMemoKey(uid) { return `kp_evmemo_${uid}`; }
+function getEvMemo(uid) { try { return localStorage.getItem(evMemoKey(uid)) || ''; } catch { return ''; } }
+function setEvMemo(uid, text) {
+  try {
+    if (text && text.trim()) localStorage.setItem(evMemoKey(uid), text);
+    else localStorage.removeItem(evMemoKey(uid));
+  } catch { /* ignore */ }
+}
+function buildEventMemoField(uid) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'padding:8px 10px;border-top:1px solid var(--border);';
+  const ta = document.createElement('textarea');
+  ta.value = getEvMemo(uid);
+  ta.placeholder = '시작/종료일 등 메모…';
+  ta.rows = 2;
+  ta.style.cssText =
+    'width:100%;resize:vertical;padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;outline:none;box-sizing:border-box;';
+  // don't let clicks bubble to any parent link
+  ta.addEventListener('click', (e) => e.stopPropagation());
+  let timer = null;
+  ta.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => setEvMemo(uid, ta.value), 400);
+  });
+  wrap.appendChild(ta);
+  return wrap;
 }
 
 function renderTabs(activeCat, activePeriod, activeGenre) {
