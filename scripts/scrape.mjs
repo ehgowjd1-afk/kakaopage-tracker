@@ -14,6 +14,7 @@ import {
   scrapeNewReleases,
   scrapeLaunchDate,
   scrapeEvents,
+  scrapePromotions,
   mergeEventHistory,
   sleep,
 } from './lib/kakao.mjs';
@@ -156,9 +157,10 @@ async function main() {
   const cache = await loadJson(cachePath, {});
 
   const freshDetailCache = new Map();
+  const promotionsByWork = {}; // workId -> [{bannerUid,title,link}], refreshed daily
   for (const categoryKey of Object.keys(CATEGORIES)) {
     const items = dailyTop300ByCategory[categoryKey] || [];
-    console.log(`Fetching view counts for ${categoryKey} TOP ${items.length} (daily)...`);
+    console.log(`Fetching view counts + promotions for ${categoryKey} TOP ${items.length} (daily)...`);
     const snapshot = [];
     let vcDone = 0;
     for (const item of items) {
@@ -168,14 +170,18 @@ async function main() {
         freshDetailCache.set(item.workId, detail);
         if (detail.viewCount) snapshot.push({ workId: item.workId, viewCount: detail.viewCount });
       }
+      await sleep(600 + Math.random() * 600);
+      const promos = await scrapePromotions(page, item.workId, { log: console.log });
+      promotionsByWork[item.workId] = promos;
       vcDone += 1;
-      if (vcDone % 25 === 0) console.log(`  ...${vcDone}/${items.length} view counts done`);
-      await sleep(800 + Math.random() * 800);
+      if (vcDone % 25 === 0) console.log(`  ...${vcDone}/${items.length} done`);
+      await sleep(600 + Math.random() * 600);
     }
     const vcDir = path.join(DATA_DIR, categoryKey, 'viewcounts');
     await saveJson(path.join(vcDir, `${today}.json`), snapshot);
     await saveJson(path.join(vcDir, 'latest.json'), snapshot);
   }
+  await saveJson(path.join(DATA_DIR, 'promotions.json'), promotionsByWork);
   const refreshMs = DETAIL_REFRESH_DAYS * 24 * 60 * 60 * 1000;
   const now = Date.now();
   const staleIds = [...allWorkIds].filter((id) => {

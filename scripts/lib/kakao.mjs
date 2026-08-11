@@ -535,4 +535,45 @@ export async function scrapeLaunchDate(page, workId, { log = () => {} } = {}) {
   return `20${yy}-${mm}-${dd}`;
 }
 
+// Scrape the promotion banners a work is currently featured in, from its 소식(notice) tab.
+// Only banner cards (with banner_uid) are kept; plain notices (연재 안내 등) are ignored.
+export async function scrapePromotions(page, workId, { log = () => {} } = {}) {
+  const url = `https://page.kakao.com/content/${workId}/?tab_type=notice`;
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForTimeout(1200);
+  } catch (err) {
+    log(`  ! failed to load notice tab for ${workId}: ${err.message}`);
+    return [];
+  }
+
+  return page.evaluate(() => {
+    const banners = Array.from(document.querySelectorAll('[data-t-obj*="banner_uid"]'));
+    const out = [];
+    const seen = new Set();
+    for (const b of banners) {
+      let obj = null;
+      try {
+        obj = JSON.parse(b.getAttribute('data-t-obj'));
+      } catch {
+        continue;
+      }
+      const uid = obj?.customProps?.banner_uid || null;
+      if (!uid || seen.has(uid)) continue;
+      seen.add(uid);
+      const titleEl = b.querySelector('[class*="line-clamp"]');
+      let link = obj?.eventMeta?.id || null;
+      if (link && link.startsWith('kakaopage://open/webview/event')) {
+        const m = link.match(/hash_uid=([a-f0-9]+)/);
+        if (m) link = `https://page.kakao.com/open/webview/event/?hash_uid=${m[1]}`;
+      } else if (link && link.startsWith('kakaopage://')) {
+        const m = link.match(/reference=([^&]+)/);
+        if (m) link = `https://page.kakao.com/${decodeURIComponent(m[1])}`;
+      }
+      out.push({ bannerUid: uid, title: titleEl ? titleEl.textContent.trim() : null, link });
+    }
+    return out;
+  });
+}
+
 export { sleep };

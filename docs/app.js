@@ -35,6 +35,7 @@ const searchResults = document.getElementById('search-results');
 let indexCache = null;
 let worksCache = null;
 let allLatestCache = null;
+let promotionsCache = null;
 
 async function fetchJson(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -50,6 +51,11 @@ async function getIndex() {
 async function getWorksCache() {
   if (!worksCache) worksCache = await fetchJson('data/works.json').catch(() => ({}));
   return worksCache;
+}
+
+async function getPromotions() {
+  if (!promotionsCache) promotionsCache = await fetchJson('data/promotions.json').catch(() => ({}));
+  return promotionsCache;
 }
 
 async function getAllLatest() {
@@ -213,6 +219,40 @@ async function renderMemosView() {
     list.appendChild(card);
   }
   app.appendChild(list);
+}
+
+function buildPromotionsBox(promos) {
+  const box = document.createElement('div');
+  box.className = 'panel';
+  const label = document.createElement('div');
+  label.style.cssText = 'font-size:13px;font-weight:700;margin-bottom:2px;';
+  label.textContent = '🎁 진행 중인 프로모션';
+  const hint = document.createElement('div');
+  hint.style.cssText = 'font-size:11px;color:var(--text-dim);margin-bottom:10px;';
+  hint.textContent = '이 작품의 소식 탭에 걸린 프로모션 배너예요 (매일 갱신).';
+  box.appendChild(label);
+  box.appendChild(hint);
+  for (const p of promos) {
+    const row = document.createElement(p.link ? 'a' : 'div');
+    row.style.cssText =
+      'display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;font-size:13px;';
+    if (p.link) { row.href = p.link; row.target = '_blank'; row.rel = 'noopener noreferrer'; row.style.cursor = 'pointer'; }
+    const dot = document.createElement('span');
+    dot.textContent = '🎉';
+    const t = document.createElement('span');
+    t.textContent = p.title || '(제목 없음)';
+    t.style.cssText = 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+    row.appendChild(dot);
+    row.appendChild(t);
+    if (p.link) {
+      const go = document.createElement('span');
+      go.textContent = '바로가기 ›';
+      go.style.cssText = 'color:var(--accent);font-size:12px;flex-shrink:0;';
+      row.appendChild(go);
+    }
+    box.appendChild(row);
+  }
+  return box;
 }
 
 function buildMemoBox(workId, title, cat) {
@@ -1149,8 +1189,9 @@ async function buildRankSeries(cat, period, workId, dates) {
 async function renderWorkView(cat, period, workId) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
 
-  const [index, works] = await Promise.all([getIndex(), getWorksCache()]);
+  const [index, works, promotions] = await Promise.all([getIndex(), getWorksCache(), getPromotions()]);
   const meta = works[workId] || {};
+  const workPromos = promotions[workId] || [];
 
   const seriesByPeriod = {};
   let latestItem = null;
@@ -1249,6 +1290,8 @@ async function renderWorkView(cat, period, workId) {
 
   header.appendChild(infoDiv);
   app.appendChild(header);
+
+  if (workPromos.length) app.appendChild(buildPromotionsBox(workPromos));
 
   app.appendChild(buildMemoBox(workId, (latestItem && latestItem.title) || meta.title || null, cat));
 
