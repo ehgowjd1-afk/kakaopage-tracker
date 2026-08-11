@@ -41,9 +41,11 @@ export function buildNewReleasesUrl(categoryKey) {
   return `https://page.kakao.com/menu/${catId}/screen/${NEW_RELEASES_SCREENS[categoryKey]}/`;
 }
 
-export function buildEventsUrl(categoryKey) {
-  // event landing sub-tabs: 11 = webnovel, 10 = webtoon
-  return `https://page.kakao.com/landing/event/${CATEGORIES[categoryKey].id}/`;
+// event landing sub-tabs: 0 = 전체(all), 11 = webnovel, 10 = webtoon
+export const EVENT_TABS = { all: 0, webnovel: 11, webtoon: 10 };
+
+export function buildEventsUrl(eventTab) {
+  return `https://page.kakao.com/landing/event/${EVENT_TABS[eventTab]}/`;
 }
 
 export async function scrapeEvents(page, url, { log = () => {} } = {}) {

@@ -73,8 +73,10 @@ async function writeIndex() {
     index.viewcounts[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'viewcounts'));
     index.newReleases = index.newReleases || {};
     index.newReleases[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'new-releases'));
-    index.events = index.events || {};
-    index.events[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'events'));
+  }
+  index.events = {};
+  for (const eventTab of ['all', 'webnovel', 'webtoon']) {
+    index.events[eventTab] = await listDates(path.join(DATA_DIR, 'events', eventTab));
   }
   await saveJson(path.join(DATA_DIR, 'index.json'), index);
 }
@@ -134,14 +136,14 @@ async function main() {
     await sleep(2000 + Math.random() * 2000);
   }
 
-  for (const categoryKey of Object.keys(CATEGORIES)) {
-    const url = buildEventsUrl(categoryKey);
-    console.log(`Scraping ${categoryKey} / events (${url})`);
+  for (const eventTab of ['all', 'webnovel', 'webtoon']) {
+    const url = buildEventsUrl(eventTab);
+    console.log(`Scraping events:${eventTab} (${url})`);
     const events = await scrapeEvents(page, url, { log: console.log });
-    const dir = path.join(DATA_DIR, categoryKey, 'events');
+    const dir = path.join(DATA_DIR, 'events', eventTab);
     await saveJson(path.join(dir, `${today}.json`), events);
     await saveJson(path.join(dir, 'latest.json'), events);
-    summary.push({ categoryKey, period: 'events', count: events.length });
+    summary.push({ categoryKey: eventTab, period: 'events', count: events.length });
     await sleep(2000 + Math.random() * 2000);
   }
 

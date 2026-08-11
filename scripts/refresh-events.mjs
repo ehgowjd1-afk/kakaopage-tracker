@@ -1,7 +1,7 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CATEGORIES, buildEventsUrl, scrapeEvents, sleep } from './lib/kakao.mjs';
+import { EVENT_TABS, buildEventsUrl, scrapeEvents, sleep } from './lib/kakao.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 
@@ -23,11 +23,11 @@ async function main() {
   const browser = await chromium.launch();
   const context = await browser.newContext({ ...devices['iPhone 13'], locale: 'ko-KR' });
   const page = await context.newPage();
-  for (const cat of Object.keys(CATEGORIES)) {
-    const url = buildEventsUrl(cat);
-    console.log(`Scraping ${cat} events (${url})`);
+  for (const tab of Object.keys(EVENT_TABS)) {
+    const url = buildEventsUrl(tab);
+    console.log(`Scraping events:${tab} (${url})`);
     const events = await scrapeEvents(page, url, { log: console.log });
-    const dir = path.join(DATA_DIR, cat, 'events');
+    const dir = path.join(DATA_DIR, 'events', tab);
     await saveJson(path.join(dir, `${today}.json`), events);
     await saveJson(path.join(dir, 'latest.json'), events);
     await sleep(2000);

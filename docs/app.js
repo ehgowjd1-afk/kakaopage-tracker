@@ -81,7 +81,7 @@ function parseHash() {
     return { view: 'keywords', cat: parts[1] || 'webnovel' };
   }
   if (parts[0] === 'events') {
-    return { view: 'events', cat: parts[1] || 'webnovel' };
+    return { view: 'events', cat: parts[1] || 'all' };
   }
   const cat = parts[1] || 'webnovel';
   const period = parts[2] || 'daily';
@@ -97,7 +97,7 @@ const NAV_TARGETS = {
   ranking: '#/list/webnovel/daily',
   new: '#/new/webnovel',
   keywords: '#/keywords/webnovel',
-  events: '#/events/webnovel',
+  events: '#/events/all',
 };
 
 function updateNavActive(route) {
@@ -378,15 +378,33 @@ async function renderKeywordsView(cat) {
   recompute();
 }
 
-async function renderEventsView(cat) {
+async function renderEventsView(tab) {
   app.innerHTML = '';
-  app.appendChild(buildCatTabs(cat, '#/events'));
+
+  const nav = document.createElement('nav');
+  nav.className = 'tabs';
+  const group = document.createElement('div');
+  group.className = 'tabgroup';
+  const eventTabs = [
+    { key: 'all', label: '전체' },
+    { key: 'webnovel', label: '웹소설' },
+    { key: 'webtoon', label: '웹툰' },
+  ];
+  for (const t of eventTabs) {
+    const btn = document.createElement('button');
+    btn.textContent = t.label;
+    if (t.key === tab) btn.classList.add('active');
+    btn.addEventListener('click', () => navigate(`#/events/${t.key}`));
+    group.appendChild(btn);
+  }
+  nav.appendChild(group);
+  app.appendChild(nav);
 
   const body = document.createElement('div');
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const events = await fetchJson(`data/${cat}/events/latest.json`).catch(() => []);
+  const events = await fetchJson(`data/events/${tab}/latest.json`).catch(() => []);
   body.innerHTML = '';
   if (!events.length) {
     body.innerHTML = '<div class="empty-note">아직 수집된 이벤트가 없습니다.</div>';
