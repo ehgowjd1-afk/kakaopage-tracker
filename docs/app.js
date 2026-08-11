@@ -160,22 +160,44 @@ async function renderKeywordsView(cat) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const [dailyList, weeklyList, monthlyList, works] = await Promise.all([
-    fetchJson(`data/${cat}/daily/latest.json`).catch(() => []),
-    fetchJson(`data/${cat}/weekly/latest.json`).catch(() => []),
-    fetchJson(`data/${cat}/monthly/latest.json`).catch(() => []),
-    getWorksCache(),
-  ]);
-  const listsByPeriod = { daily: dailyList, weekly: weeklyList, monthly: monthlyList };
+  const works = await getWorksCache();
 
+  let curGenre = 'all';
   let curPeriod = 'daily';
-  let curScope = 30;
+  let curScope = 300;
+
+  // cache of loaded ranking lists keyed by "genre/period"
+  const listCache = {};
+  async function getList(genre, period) {
+    const key = `${genre}/${period}`;
+    if (!listCache[key]) {
+      const path = genre === 'all' ? `${cat}/${period}` : `${cat}/genres/${genre}/${period}`;
+      listCache[key] = await fetchJson(`data/${path}/latest.json`).catch(() => []);
+    }
+    return listCache[key];
+  }
 
   body.innerHTML = '';
 
-  // Controls: period + scope
+  // Genre selector
+  const genreGroup = document.createElement('div');
+  genreGroup.className = 'tabgroup';
+  const genreOptions = [{ key: 'all', label: '전체' }, ...(GENRES[cat] || [])];
+  for (const g of genreOptions) {
+    const btn = document.createElement('button');
+    btn.textContent = g.label;
+    btn.dataset.g = g.key;
+    btn.addEventListener('click', () => { curGenre = g.key; recompute(); });
+    genreGroup.appendChild(btn);
+  }
+  const genreNav = document.createElement('nav');
+  genreNav.className = 'tabs';
+  genreNav.appendChild(genreGroup);
+  body.appendChild(genreNav);
+
+  // Period + scope controls
   const controls = document.createElement('div');
-  controls.style.cssText = 'display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;';
+  controls.style.cssText = 'display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px;';
 
   const periodGroup = document.createElement('div');
   periodGroup.className = 'tabgroup';
@@ -187,18 +209,35 @@ async function renderKeywordsView(cat) {
     periodGroup.appendChild(btn);
   }
 
-  const scopeGroup = document.createElement('div');
-  scopeGroup.className = 'tabgroup';
-  for (const s of [30, 100, 300]) {
-    const btn = document.createElement('button');
-    btn.textContent = `TOP ${s}`;
-    btn.dataset.s = String(s);
-    btn.addEventListener('click', () => { curScope = s; recompute(); });
-    scopeGroup.appendChild(btn);
-  }
+  const scopeWrap = document.createElement('div');
+  scopeWrap.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);';
+  const scopeLabel = document.createElement('span');
+  scopeLabel.textContent = 'TOP';
+  const scopeInput = document.createElement('input');
+  scopeInput.type = 'number';
+  scopeInput.min = '1';
+  scopeInput.max = '300';
+  scopeInput.value = String(curScope);
+  scopeInput.style.cssText =
+    'width:74px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;outline:none;';
+  const applyScope = () => {
+    let v = parseInt(scopeInput.value, 10);
+    if (Number.isNaN(v)) v = 300;
+    v = Math.max(1, Math.min(300, v));
+    scopeInput.value = String(v);
+    curScope = v;
+    recompute();
+  };
+  scopeInput.addEventListener('change', applyScope);
+  scopeInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') applyScope(); });
+  const scopeHint = document.createElement('span');
+  scopeHint.textContent = '위까지 (1~300)';
+  scopeWrap.appendChild(scopeLabel);
+  scopeWrap.appendChild(scopeInput);
+  scopeWrap.appendChild(scopeHint);
 
   controls.appendChild(periodGroup);
-  controls.appendChild(scopeGroup);
+  controls.appendChild(scopeWrap);
   body.appendChild(controls);
 
   const note = document.createElement('div');
@@ -219,11 +258,12 @@ async function renderKeywordsView(cat) {
   let analyzed = 0;
   let selectedKw = null;
 
-  function recompute() {
+  async function recompute() {
+    genreGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.g === curGenre));
     periodGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.p === curPeriod));
-    scopeGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.s === String(curScope)));
 
-    const list = (listsByPeriod[curPeriod] || []).slice(0, curScope);
+    const fullList = await getList(curGenre, curPeriod);
+    const list = fullList.slice(0, curScope);
     kwCount = new Map();
     coCount = new Map();
     analyzed = 0;
@@ -242,7 +282,8 @@ async function renderKeywordsView(cat) {
     }
 
     const periodLabel = PERIODS.find((p) => p.key === curPeriod).label;
-    note.textContent = `${periodLabel}순위 TOP ${curScope} 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
+    const genreLabel = genreOptions.find((g) => g.key === curGenre).label;
+    note.textContent = `${genreLabel} · ${periodLabel}순위 TOP ${curScope} 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
 
     const ranked = [...kwCount.entries()].sort((a, b) => b[1] - a[1]);
     shareBox.innerHTML = '';
