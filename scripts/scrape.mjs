@@ -7,11 +7,13 @@ import {
   GENRES,
   buildListUrl,
   buildNewReleasesUrl,
+  buildEventsUrl,
   scrapeRankingList,
   scrapeWorkDetail,
   scrapeComments,
   scrapeNewReleases,
   scrapeLaunchDate,
+  scrapeEvents,
   sleep,
 } from './lib/kakao.mjs';
 
@@ -71,6 +73,8 @@ async function writeIndex() {
     index.viewcounts[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'viewcounts'));
     index.newReleases = index.newReleases || {};
     index.newReleases[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'new-releases'));
+    index.events = index.events || {};
+    index.events[categoryKey] = await listDates(path.join(DATA_DIR, categoryKey, 'events'));
   }
   await saveJson(path.join(DATA_DIR, 'index.json'), index);
 }
@@ -105,8 +109,10 @@ async function main() {
         const url = buildListUrl(categoryKey, period, genre.id);
         console.log(`Scraping ${categoryKey} / genre:${genreKey} / ${period} (${url})`);
         const items = await scrapeRankingList(page, url, { log: console.log });
-        // Intentionally NOT added to allWorkIds: genre-only long-tail works don't get
-        // detail/comment pages fetched, to keep that phase bounded to the overall TOP 300.
+        // Genre works are added to the detail-fetch queue too, but the whole phase
+        // is capped at MAX_DETAIL_FETCHES_PER_RUN so it backfills over several days
+        // instead of hammering Kakao in one run.
+        items.forEach((it) => it.workId && allWorkIds.add(it.workId));
         const dir = path.join(DATA_DIR, categoryKey, 'genres', genreKey, period);
         await saveJson(path.join(dir, `${today}.json`), items);
         await saveJson(path.join(dir, 'latest.json'), items);
@@ -125,6 +131,17 @@ async function main() {
     await saveJson(path.join(dir, `${today}.json`), items);
     await saveJson(path.join(dir, 'latest.json'), items);
     summary.push({ categoryKey, period: 'new-releases', count: items.length });
+    await sleep(2000 + Math.random() * 2000);
+  }
+
+  for (const categoryKey of Object.keys(CATEGORIES)) {
+    const url = buildEventsUrl(categoryKey);
+    console.log(`Scraping ${categoryKey} / events (${url})`);
+    const events = await scrapeEvents(page, url, { log: console.log });
+    const dir = path.join(DATA_DIR, categoryKey, 'events');
+    await saveJson(path.join(dir, `${today}.json`), events);
+    await saveJson(path.join(dir, 'latest.json'), events);
+    summary.push({ categoryKey, period: 'events', count: events.length });
     await sleep(2000 + Math.random() * 2000);
   }
 

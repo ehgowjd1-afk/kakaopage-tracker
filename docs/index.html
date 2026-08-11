@@ -8,15 +8,28 @@
 </head>
 <body>
 <header class="top">
-  <div class="top-row">
-    <h1 id="site-title">📈 카카오페이지 트래커</h1>
-    <button id="new-releases-btn" type="button">🆕 신작</button>
-    <input id="search-box" type="text" placeholder="제목, 작가 검색" autocomplete="off" />
+  <div class="top-inner">
+    <div class="brand" id="site-title">
+      <span class="brand-mark">KP</span>
+      <span class="brand-text">카카오페이지 트래커</span>
+    </div>
+    <nav class="site-nav" id="site-nav">
+      <button data-nav="ranking" type="button">랭킹</button>
+      <button data-nav="new" type="button">신작</button>
+      <button data-nav="keywords" type="button">키워드 분석</button>
+      <button data-nav="events" type="button">이벤트</button>
+    </nav>
+    <div class="search-wrap">
+      <input id="search-box" type="text" placeholder="제목·작가 검색" autocomplete="off" />
+      <div id="search-results"></div>
+    </div>
   </div>
-  <div id="search-results"></div>
 </header>
 <main id="app"></main>
-<footer class="site-footer">개인 학습·리서치 목적으로 매일 자동 수집된 데이터입니다.</footer>
+<footer class="site-footer">
+  <span>개인 학습·리서치 목적으로 매일 자동 수집된 데이터입니다.</span>
+  <span class="footer-dim">Kakao Page Bestseller Tracker · 웹소설 · 웹툰 · TOP 300</span>
+</footer>
 <script src="vendor/xlsx.full.min.js"></script>
 <script src="app.js"></script>
 </body>

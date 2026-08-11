@@ -41,6 +41,73 @@ export function buildNewReleasesUrl(categoryKey) {
   return `https://page.kakao.com/menu/${catId}/screen/${NEW_RELEASES_SCREENS[categoryKey]}/`;
 }
 
+export function buildEventsUrl(categoryKey) {
+  // event landing sub-tabs: 11 = webnovel, 10 = webtoon
+  return `https://page.kakao.com/landing/event/${CATEGORIES[categoryKey].id}/`;
+}
+
+export async function scrapeEvents(page, url, { log = () => {} } = {}) {
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1500);
+
+  let lastH = 0;
+  let stable = 0;
+  for (let i = 0; i < 60; i++) {
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(300);
+    const h = await page.evaluate(() => document.body.scrollHeight);
+    if (h === lastH) stable += 1;
+    else stable = 0;
+    lastH = h;
+    if (stable >= 5) break;
+  }
+
+  const events = await page.evaluate(() => {
+    const banners = Array.from(document.querySelectorAll('[data-t-obj*="banner_uid"]'));
+    const results = [];
+    const seen = new Set();
+    for (const b of banners) {
+      let link = null;
+      let bannerUid = null;
+      try {
+        const obj = JSON.parse(b.getAttribute('data-t-obj'));
+        link = obj.eventMeta && obj.eventMeta.id;
+        bannerUid = obj.customProps && obj.customProps.banner_uid;
+      } catch {
+        // ignore
+      }
+      if (bannerUid && seen.has(bannerUid)) continue;
+      if (bannerUid) seen.add(bannerUid);
+
+      const img = b.querySelector('img[alt="썸네일"]');
+      const titleEl = b.querySelector('[class*="line-clamp-3"]');
+      const subEl = b.querySelector('.line-clamp-1');
+
+      // normalize kakaopage:// scheme link to a web URL when possible
+      let webLink = link;
+      if (link && link.startsWith('kakaopage://open/webview/event')) {
+        const m = link.match(/hash_uid=([a-f0-9]+)/);
+        if (m) webLink = `https://page.kakao.com/open/webview/event/?hash_uid=${m[1]}`;
+      } else if (link && link.startsWith('kakaopage://open/landing/series/poster')) {
+        const m = link.match(/reference=([^&]+)/);
+        if (m) webLink = `https://page.kakao.com/${decodeURIComponent(m[1])}`;
+      }
+
+      results.push({
+        bannerUid,
+        title: titleEl ? titleEl.textContent.trim() : (b.getAttribute('aria-label') || null),
+        subtitle: subEl ? subEl.textContent.trim() : null,
+        thumbnail: img ? img.src : null,
+        link: webLink,
+      });
+    }
+    return results;
+  });
+
+  log(`  → loaded ${events.length} events`);
+  return events;
+}
+
 export function buildListUrl(categoryKey, period, genreId) {
   const cat = CATEGORIES[categoryKey];
   const genrePath = genreId ? `/${genreId}` : '';
