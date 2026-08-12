@@ -37,3 +37,9 @@ jobs:
           git diff --cached --quiet && echo "No data changes" && exit 0
           git commit -m "chore: daily ranking data $(date -u +%Y-%m-%d)"
           git push
+
+      - name: Trigger Vercel deploy
+        if: ${{ env.HOOK != '' }}
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: curl -X POST "$HOOK"
