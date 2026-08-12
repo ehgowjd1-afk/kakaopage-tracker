@@ -21,7 +21,7 @@ import {
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const DETAIL_REFRESH_DAYS = 30;
-const MAX_DETAIL_FETCHES_PER_RUN = 500;
+const MAX_DETAIL_FETCHES_PER_RUN = 100;
 
 function getKstDateString() {
   const parts = new Intl.DateTimeFormat('en-CA', {
