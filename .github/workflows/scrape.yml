@@ -36,7 +36,13 @@ jobs:
           git add docs/data
           git diff --cached --quiet && echo "No data changes" && exit 0
           git commit -m "chore: daily ranking data $(date -u +%Y-%m-%d)"
-          git push
+          # Re-sync before pushing in case anything else landed on master
+          # while the (long) scrape was running, so the push can't be rejected.
+          for i in 1 2 3; do
+            git pull --rebase origin master && git push && break
+            echo "push attempt $i failed, retrying..."
+            sleep 5
+          done
 
       - name: Trigger Vercel deploy
         if: ${{ env.HOOK != '' }}
