@@ -1,8 +1,9 @@
 name: Daily Kakao Page scrape
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  # Scheduled trigger disabled: GitHub's scheduled runs are best-effort and
+  # were often delayed/skipped, so the daily job is driven by the reliable
+  # cloud routine instead. This workflow stays available for manual runs.
   workflow_dispatch: {}
 
 permissions:
