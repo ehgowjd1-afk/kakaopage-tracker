@@ -1,10 +1,20 @@
 // Serverless memo store backed by Vercel KV (Upstash Redis REST).
 // Everything is kept under a single key "memos" as a JSON blob:
 //   { works: { [workId]: {text,title,cat,updated} }, events: { [bannerUid]: {text,updated} } }
-// The Upstash integration (Vercel → Storage) injects KV_REST_API_URL / KV_REST_API_TOKEN.
-
-const KV_URL = process.env.KV_REST_API_URL;
-const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+// The Upstash integration (Vercel → Storage) injects <PREFIX>_REST_API_URL /
+// <PREFIX>_REST_API_TOKEN. The prefix depends on what was chosen when connecting
+// the database (KV, STORAGE, UPSTASH_REDIS, ...), so accept whichever pair exists.
+const env = process.env;
+const KV_URL =
+  env.KV_REST_API_URL ||
+  env.STORAGE_REST_API_URL ||
+  env.UPSTASH_REDIS_REST_URL ||
+  env.REDIS_REST_API_URL;
+const KV_TOKEN =
+  env.KV_REST_API_TOKEN ||
+  env.STORAGE_REST_API_TOKEN ||
+  env.UPSTASH_REDIS_REST_TOKEN ||
+  env.REDIS_REST_API_TOKEN;
 
 async function kv(command) {
   const r = await fetch(KV_URL, {
