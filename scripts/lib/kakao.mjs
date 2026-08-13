@@ -48,6 +48,28 @@ export function buildEventsUrl(eventTab) {
   return `https://page.kakao.com/landing/event/${EVENT_TABS[eventTab]}/`;
 }
 
+// Convert a Kakao banner's app-only deep link into a browser-openable web URL.
+//   kakaopage://open/landing/series/list?reference=page%2Flanding%2F18461
+//     -> https://page.kakao.com/landing/series/list/page/landing/18461/
+//   kakaopage://open/webview/event/...?hash_uid=abcd
+//     -> https://page.kakao.com/open/webview/event/?hash_uid=abcd
+export function toEventWebLink(link) {
+  if (!link) return null;
+  if (link.startsWith('http')) return link;
+  if (link.startsWith('kakaopage://')) {
+    const hash = link.match(/hash_uid=([a-f0-9]+)/);
+    if (hash) return `https://page.kakao.com/open/webview/event/?hash_uid=${hash[1]}`;
+    const ref = link.match(/reference=([^&]+)/);
+    if (ref) {
+      const decoded = decodeURIComponent(ref[1]); // e.g. page/landing/18461
+      const pathMatch = link.match(/^kakaopage:\/\/open\/([^?]+)/);
+      const path = pathMatch ? pathMatch[1].replace(/\/+$/, '') : 'landing/series/list';
+      return `https://page.kakao.com/${path}/${decoded}/`;
+    }
+  }
+  return link;
+}
+
 // Merge today's scraped events into an accumulating history keyed by bannerUid.
 // Each entry keeps firstSeen/lastSeen so the frontend can tell 진행중 (lastSeen == today)
 // from 완료 (disappeared from the listing on an earlier day).
@@ -107,14 +129,7 @@ export async function scrapeEvents(page, url, { log = () => {} } = {}) {
       const subEl = b.querySelector('.line-clamp-1');
 
       // normalize kakaopage:// scheme link to a web URL when possible
-      let webLink = link;
-      if (link && link.startsWith('kakaopage://open/webview/event')) {
-        const m = link.match(/hash_uid=([a-f0-9]+)/);
-        if (m) webLink = `https://page.kakao.com/open/webview/event/?hash_uid=${m[1]}`;
-      } else if (link && link.startsWith('kakaopage://open/landing/series/poster')) {
-        const m = link.match(/reference=([^&]+)/);
-        if (m) webLink = `https://page.kakao.com/${decodeURIComponent(m[1])}`;
-      }
+      const webLink = toEventWebLink(link);
 
       results.push({
         bannerUid,
@@ -562,14 +577,7 @@ export async function scrapePromotions(page, workId, { log = () => {} } = {}) {
       if (!uid || seen.has(uid)) continue;
       seen.add(uid);
       const titleEl = b.querySelector('[class*="line-clamp"]');
-      let link = obj?.eventMeta?.id || null;
-      if (link && link.startsWith('kakaopage://open/webview/event')) {
-        const m = link.match(/hash_uid=([a-f0-9]+)/);
-        if (m) link = `https://page.kakao.com/open/webview/event/?hash_uid=${m[1]}`;
-      } else if (link && link.startsWith('kakaopage://')) {
-        const m = link.match(/reference=([^&]+)/);
-        if (m) link = `https://page.kakao.com/${decodeURIComponent(m[1])}`;
-      }
+      const link = toEventWebLink(obj?.eventMeta?.id || null);
       out.push({ bannerUid: uid, title: titleEl ? titleEl.textContent.trim() : null, link });
     }
     return out;

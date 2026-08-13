@@ -597,6 +597,28 @@ async function renderKeywordsView(cat) {
   recompute();
 }
 
+// Convert a Kakao event link to a browser-openable web URL. Banners expose an
+// app-only deep link like:
+//   kakaopage://open/landing/series/list?reference=page%2Flanding%2F18461
+// whose web equivalent is:
+//   https://page.kakao.com/landing/series/list/page/landing/18461/
+function eventWebLink(link) {
+  if (!link) return null;
+  if (link.startsWith('http')) return link;
+  if (link.startsWith('kakaopage://')) {
+    const hash = link.match(/hash_uid=([a-f0-9]+)/);
+    if (hash) return `https://page.kakao.com/open/webview/event/?hash_uid=${hash[1]}`;
+    const ref = link.match(/reference=([^&]+)/);
+    if (ref) {
+      const decoded = decodeURIComponent(ref[1]); // e.g. page/landing/18461
+      const pathMatch = link.match(/^kakaopage:\/\/open\/([^?]+)/);
+      const path = pathMatch ? pathMatch[1].replace(/\/+$/, '') : 'landing/series/list';
+      return `https://page.kakao.com/${path}/${decoded}/`;
+    }
+  }
+  return link;
+}
+
 async function renderEventsView(tab) {
   app.innerHTML = '';
 
@@ -690,9 +712,11 @@ async function renderEventsView(tab) {
       card.className = 'event-card';
       if (curStatus === 'ended') card.classList.add('event-ended');
 
-      // clickable part (thumb + title) opens the Kakao event page
-      const linkPart = document.createElement(ev.link ? 'a' : 'div');
-      if (ev.link) { linkPart.href = ev.link; linkPart.target = '_blank'; linkPart.rel = 'noopener noreferrer'; }
+      // clickable part (thumb + title) opens the Kakao event page.
+      // Older data stored app-only kakaopage:// deep links; convert to a web URL.
+      const webLink = eventWebLink(ev.link);
+      const linkPart = document.createElement(webLink ? 'a' : 'div');
+      if (webLink) { linkPart.href = webLink; linkPart.target = '_blank'; linkPart.rel = 'noopener noreferrer'; }
       const thumbWrap = document.createElement('div');
       thumbWrap.style.position = 'relative';
       const img = document.createElement('img');
