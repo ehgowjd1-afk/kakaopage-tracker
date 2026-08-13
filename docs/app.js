@@ -148,38 +148,88 @@ async function render() {
   }
 }
 
-// ---- Memo (per-work note, saved only in this browser) ----
-function memoKey(workId) { return `kp_memo_${workId}`; }
-function getMemoObj(workId) {
-  try {
-    const raw = localStorage.getItem(memoKey(workId));
-    if (!raw) return null;
-    // stored as JSON {text,title,cat}; tolerate a legacy plain-string value
-    try { return JSON.parse(raw); } catch { return { text: raw }; }
-  } catch { return null; }
-}
-function getMemo(workId) { const o = getMemoObj(workId); return o ? (o.text || '') : ''; }
-function setMemo(workId, text, title, cat) {
-  try {
-    if (text && text.trim()) localStorage.setItem(memoKey(workId), JSON.stringify({ text, title: title || null, cat: cat || null }));
-    else localStorage.removeItem(memoKey(workId));
-  } catch { /* storage unavailable */ }
-}
-function allMemos() {
-  const out = [];
+// ---- Memo store: cloud (Vercel KV via /api/memos) first, localStorage as offline cache ----
+let memoStore = null;      // { works: {id:{text,title,cat}}, events: {uid:{text}} }
+let memoRemoteOk = false;  // true once the cloud store answered (i.e. setup done)
+
+function readLocalMemos() {
+  const works = {};
+  const events = {};
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
       if (k && k.startsWith('kp_memo_')) {
-        const o = getMemoObj(k.slice('kp_memo_'.length));
-        out.push({ workId: k.slice('kp_memo_'.length), text: o ? o.text : '', title: o ? o.title : null, cat: o ? o.cat : null });
+        const id = k.slice('kp_memo_'.length);
+        let o;
+        try { o = JSON.parse(localStorage.getItem(k)); } catch { o = { text: localStorage.getItem(k) }; }
+        if (o && o.text) works[id] = { text: o.text, title: o.title || null, cat: o.cat || null };
+      } else if (k && k.startsWith('kp_evmemo_')) {
+        const t = localStorage.getItem(k);
+        if (t) events[k.slice('kp_evmemo_'.length)] = { text: t };
       }
     }
   } catch { /* ignore */ }
-  return out;
+  return { works, events };
+}
+
+async function loadMemoStore() {
+  if (memoStore) return memoStore;
+  const local = readLocalMemos();
+  try {
+    const r = await fetch('api/memos', { cache: 'no-store' });
+    if (r.ok) {
+      const remote = await r.json();
+      memoRemoteOk = true;
+      memoStore = { works: remote.works || {}, events: remote.events || {} };
+      // First time after cloud setup: push up any memos that only exist locally.
+      const migrate = { works: {}, events: {} };
+      for (const [id, v] of Object.entries(local.works)) if (!memoStore.works[id]) { memoStore.works[id] = v; migrate.works[id] = v; }
+      for (const [id, v] of Object.entries(local.events)) if (!memoStore.events[id]) { memoStore.events[id] = v; migrate.events[id] = v; }
+      if (Object.keys(migrate.works).length || Object.keys(migrate.events).length) {
+        fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ migrate }) }).catch(() => {});
+      }
+      return memoStore;
+    }
+  } catch { /* cloud not reachable */ }
+  memoRemoteOk = false;
+  memoStore = local; // cloud not set up yet → browser-only
+  return memoStore;
+}
+
+function memoWorkGet(id) { const o = memoStore && memoStore.works[id]; return o ? (o.text || '') : ''; }
+function memoWorkSet(id, text, title, cat) {
+  if (!memoStore) memoStore = { works: {}, events: {} };
+  if (text && text.trim()) memoStore.works[id] = { text, title: title || null, cat: cat || null };
+  else delete memoStore.works[id];
+  try {
+    if (text && text.trim()) localStorage.setItem('kp_memo_' + id, JSON.stringify({ text, title: title || null, cat: cat || null }));
+    else localStorage.removeItem('kp_memo_' + id);
+  } catch { /* ignore */ }
+  if (memoRemoteOk) {
+    fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'work', id, text, title, cat }) }).catch(() => {});
+  }
+}
+function memoEventGet(id) { const o = memoStore && memoStore.events[id]; return o ? (o.text || '') : ''; }
+function memoEventSet(id, text) {
+  if (!memoStore) memoStore = { works: {}, events: {} };
+  if (text && text.trim()) memoStore.events[id] = { text };
+  else delete memoStore.events[id];
+  try {
+    if (text && text.trim()) localStorage.setItem('kp_evmemo_' + id, text);
+    else localStorage.removeItem('kp_evmemo_' + id);
+  } catch { /* ignore */ }
+  if (memoRemoteOk) {
+    fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'event', id, text }) }).catch(() => {});
+  }
+}
+function allMemos() {
+  const store = memoStore || { works: {} };
+  return Object.entries(store.works).map(([workId, o]) => ({ workId, text: o.text, title: o.title || null, cat: o.cat || null }));
 }
 
 async function renderMemosView() {
+  app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+  await loadMemoStore();
   app.innerHTML = '';
   const title = document.createElement('h2');
   title.style.cssText = 'font-size:18px;margin:8px 0 4px;';
@@ -187,7 +237,9 @@ async function renderMemosView() {
   app.appendChild(title);
   const hint = document.createElement('div');
   hint.className = 'updated-note';
-  hint.textContent = '작품 상세페이지에서 남긴 메모예요. ⚠️ 이 브라우저에만 저장되며, 다른 기기·다른 브라우저에서는 보이지 않아요.';
+  hint.textContent = memoRemoteOk
+    ? '작품 상세페이지에서 남긴 메모예요. ☁️ 클라우드에 저장돼서 어느 기기·브라우저에서도 똑같이 보여요.'
+    : '작품 상세페이지에서 남긴 메모예요. ⚠️ 아직 클라우드 저장소가 연결되지 않아 이 브라우저에만 저장돼요.';
   app.appendChild(hint);
 
   const memos = allMemos();
@@ -263,9 +315,9 @@ function buildMemoBox(workId, title, cat) {
   label.textContent = '📝 내 메모';
   const hint = document.createElement('div');
   hint.style.cssText = 'font-size:11px;color:var(--text-dim);margin-bottom:8px;';
-  hint.textContent = '이 브라우저에만 저장돼요 (자동 저장).';
+  hint.textContent = memoRemoteOk ? '☁️ 클라우드에 자동 저장 (모든 기기에서 보임).' : '자동 저장 (이 브라우저).';
   const ta = document.createElement('textarea');
-  ta.value = getMemo(workId);
+  ta.value = memoWorkGet(workId);
   ta.placeholder = '이 작품에 대한 메모를 남겨보세요...';
   ta.style.cssText =
     'width:100%;min-height:80px;resize:vertical;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;outline:none;box-sizing:border-box;';
@@ -276,7 +328,7 @@ function buildMemoBox(workId, title, cat) {
     clearTimeout(saveTimer);
     savedMark.textContent = '저장 중...';
     saveTimer = setTimeout(() => {
-      setMemo(workId, ta.value, title, cat);
+      memoWorkSet(workId, ta.value, title, cat);
       savedMark.textContent = '✓ 저장됨';
       setTimeout(() => { savedMark.textContent = ''; }, 1500);
     }, 400);
@@ -564,6 +616,7 @@ async function renderEventsView(tab) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
+  await loadMemoStore();
   // Prefer accumulating history (knows 진행중 vs 완료); fall back to latest.
   let history = await fetchJson(`data/events/${tab}/history.json`).catch(() => null);
   if (!history) {
@@ -670,20 +723,12 @@ async function renderEventsView(tab) {
   renderGrid();
 }
 
-// ---- Event memo (per-banner note, saved only in this browser) ----
-function evMemoKey(uid) { return `kp_evmemo_${uid}`; }
-function getEvMemo(uid) { try { return localStorage.getItem(evMemoKey(uid)) || ''; } catch { return ''; } }
-function setEvMemo(uid, text) {
-  try {
-    if (text && text.trim()) localStorage.setItem(evMemoKey(uid), text);
-    else localStorage.removeItem(evMemoKey(uid));
-  } catch { /* ignore */ }
-}
+// ---- Event memo (per-banner note) — uses the shared cloud memo store ----
 function buildEventMemoField(uid) {
   const wrap = document.createElement('div');
   wrap.style.cssText = 'padding:8px 10px;border-top:1px solid var(--border);';
   const ta = document.createElement('textarea');
-  ta.value = getEvMemo(uid);
+  ta.value = memoEventGet(uid);
   ta.placeholder = '시작/종료일 등 메모…';
   ta.rows = 2;
   ta.style.cssText =
@@ -693,7 +738,7 @@ function buildEventMemoField(uid) {
   let timer = null;
   ta.addEventListener('input', () => {
     clearTimeout(timer);
-    timer = setTimeout(() => setEvMemo(uid, ta.value), 400);
+    timer = setTimeout(() => memoEventSet(uid, ta.value), 400);
   });
   wrap.appendChild(ta);
   return wrap;
@@ -1225,7 +1270,7 @@ async function buildRankSeries(cat, period, workId, dates) {
 async function renderWorkView(cat, period, workId) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
 
-  const [index, works, promotions] = await Promise.all([getIndex(), getWorksCache(), getPromotions()]);
+  const [index, works, promotions] = await Promise.all([getIndex(), getWorksCache(), getPromotions(), loadMemoStore()]);
   const meta = works[workId] || {};
   const workPromos = promotions[workId] || [];
 
