@@ -209,13 +209,28 @@ function memoWorkSet(id, text, title, cat) {
     fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'work', id, text, title, cat }) }).catch(() => {});
   }
 }
-function memoEventGet(id) { const o = memoStore && memoStore.events[id]; return o ? (o.text || '') : ''; }
-function memoEventSet(id, text) {
+// Event notes hold a start date, an end date, and a free memo. They are packed
+// into the single stored `text` field as JSON so the backend stays unchanged.
+// Legacy plain-text notes (written before dates existed) become the memo.
+function memoEventGet(id) {
+  const o = memoStore && memoStore.events[id];
+  const raw = o ? (o.text || '') : '';
+  if (raw.startsWith('{')) {
+    try { const d = JSON.parse(raw); return { start: d.start || '', end: d.end || '', memo: d.memo || '' }; } catch { /* fall through */ }
+  }
+  return { start: '', end: '', memo: raw };
+}
+function memoEventSet(id, data) {
   if (!memoStore) memoStore = { works: {}, events: {} };
-  if (text && text.trim()) memoStore.events[id] = { text };
+  const start = (data.start || '').trim();
+  const end = (data.end || '').trim();
+  const memo = (data.memo || '').trim();
+  const empty = !start && !end && !memo;
+  const text = empty ? '' : JSON.stringify({ start, end, memo });
+  if (!empty) memoStore.events[id] = { text };
   else delete memoStore.events[id];
   try {
-    if (text && text.trim()) localStorage.setItem('kp_evmemo_' + id, text);
+    if (!empty) localStorage.setItem('kp_evmemo_' + id, text);
     else localStorage.removeItem('kp_evmemo_' + id);
   } catch { /* ignore */ }
   if (memoRemoteOk) {
@@ -726,20 +741,56 @@ async function renderEventsView(tab) {
 // ---- Event memo (per-banner note) — uses the shared cloud memo store ----
 function buildEventMemoField(uid) {
   const wrap = document.createElement('div');
-  wrap.style.cssText = 'padding:8px 10px;border-top:1px solid var(--border);';
+  wrap.style.cssText = 'padding:8px 10px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;';
+  const cur = memoEventGet(uid);
+
+  // Row 1: 시작일 ~ 종료일 (native date pickers)
+  const dateRow = document.createElement('div');
+  dateRow.style.cssText = 'display:flex;gap:6px;align-items:center;';
+  const inputCss =
+    'flex:1;min-width:0;padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;outline:none;box-sizing:border-box;';
+  function mkDate(value, label) {
+    const inp = document.createElement('input');
+    inp.type = 'date';
+    inp.value = value || '';
+    inp.setAttribute('aria-label', label);
+    inp.title = label;
+    inp.style.cssText = inputCss;
+    inp.addEventListener('click', (e) => e.stopPropagation());
+    return inp;
+  }
+  const startInp = mkDate(cur.start, '시작일');
+  const endInp = mkDate(cur.end, '종료일');
+  const sep = document.createElement('span');
+  sep.textContent = '~';
+  sep.style.cssText = 'color:var(--muted);font-size:12px;flex:0 0 auto;';
+  dateRow.appendChild(startInp);
+  dateRow.appendChild(sep);
+  dateRow.appendChild(endInp);
+
+  // Row 2: free memo
   const ta = document.createElement('textarea');
-  ta.value = memoEventGet(uid);
-  ta.placeholder = '시작/종료일 등 메모…';
+  ta.value = cur.memo;
+  ta.placeholder = '메모…';
   ta.rows = 2;
   ta.style.cssText =
     'width:100%;resize:vertical;padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;outline:none;box-sizing:border-box;';
-  // don't let clicks bubble to any parent link
   ta.addEventListener('click', (e) => e.stopPropagation());
+
+  // don't let clicks bubble to any parent link; debounce saves
   let timer = null;
-  ta.addEventListener('input', () => {
+  const save = () => {
     clearTimeout(timer);
-    timer = setTimeout(() => memoEventSet(uid, ta.value), 400);
-  });
+    timer = setTimeout(
+      () => memoEventSet(uid, { start: startInp.value, end: endInp.value, memo: ta.value }),
+      400
+    );
+  };
+  startInp.addEventListener('change', save);
+  endInp.addEventListener('change', save);
+  ta.addEventListener('input', save);
+
+  wrap.appendChild(dateRow);
   wrap.appendChild(ta);
   return wrap;
 }
