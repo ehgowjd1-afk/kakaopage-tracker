@@ -128,20 +128,20 @@ export async function scrapeEvents(page, url, { log = () => {} } = {}) {
       const titleEl = b.querySelector('[class*="line-clamp-3"]');
       const subEl = b.querySelector('.line-clamp-1');
 
-      // normalize kakaopage:// scheme link to a web URL when possible
-      const webLink = toEventWebLink(link);
-
+      // keep the raw link here; normalize to a web URL in Node scope below
+      // (this callback runs in the browser, where toEventWebLink doesn't exist)
       results.push({
         bannerUid,
         title: titleEl ? titleEl.textContent.trim() : (b.getAttribute('aria-label') || null),
         subtitle: subEl ? subEl.textContent.trim() : null,
         thumbnail: img ? img.src : null,
-        link: webLink,
+        link,
       });
     }
     return results;
   });
 
+  for (const e of events) e.link = toEventWebLink(e.link);
   log(`  → loaded ${events.length} events`);
   return events;
 }
@@ -562,9 +562,9 @@ export async function scrapePromotions(page, workId, { log = () => {} } = {}) {
     return [];
   }
 
-  return page.evaluate(() => {
+  const out = await page.evaluate(() => {
     const banners = Array.from(document.querySelectorAll('[data-t-obj*="banner_uid"]'));
-    const out = [];
+    const rows = [];
     const seen = new Set();
     for (const b of banners) {
       let obj = null;
@@ -577,11 +577,13 @@ export async function scrapePromotions(page, workId, { log = () => {} } = {}) {
       if (!uid || seen.has(uid)) continue;
       seen.add(uid);
       const titleEl = b.querySelector('[class*="line-clamp"]');
-      const link = toEventWebLink(obj?.eventMeta?.id || null);
-      out.push({ bannerUid: uid, title: titleEl ? titleEl.textContent.trim() : null, link });
+      // keep the raw link; normalized in Node scope below (browser context here)
+      const link = obj?.eventMeta?.id || null;
+      rows.push({ bannerUid: uid, title: titleEl ? titleEl.textContent.trim() : null, link });
     }
-    return out;
+    return rows;
   });
+  return out.map((e) => ({ ...e, link: toEventWebLink(e.link) }));
 }
 
 export { sleep };
