@@ -1,12 +1,14 @@
 name: Daily Kakao Page scrape
 
 on:
-  # Runs daily at 00:00 UTC = 09:00 KST. GitHub's scheduled runs are
-  # best-effort (can be delayed by a few minutes to ~an hour), which is fine
-  # for a once-a-day snapshot. This is the primary daily driver; the opaque
-  # cloud routine (whose logs we can't inspect) has been disabled.
+  # Primary run at 00:00 UTC = 09:00 KST, plus a safety-net run at 03:00 UTC
+  # = 12:00 KST. GitHub's scheduled runs are best-effort (can be delayed or,
+  # rarely, skipped). The backup run skips itself if today's data was already
+  # collected, so on a normal day it does nothing; it only actually scrapes
+  # when the 9am run was missed. The opaque cloud routine has been disabled.
   schedule:
     - cron: '0 0 * * *'
+    - cron: '0 3 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -23,17 +25,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Skip if today's data was already collected
+        id: guard
+        run: |
+          TODAY="$(date -u +%Y-%m-%d)"
+          if [ -f "docs/data/webnovel/daily/$TODAY.json" ]; then
+            echo "Today's data ($TODAY) already present — skipping this run."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No data yet for $TODAY — proceeding to scrape."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: 24
 
       - run: npm install
+        if: steps.guard.outputs.skip != 'true'
 
       - run: npx playwright install --with-deps chromium
+        if: steps.guard.outputs.skip != 'true'
 
       - run: npm run scrape
+        if: steps.guard.outputs.skip != 'true'
 
       - name: Commit and push updated data
+        if: steps.guard.outputs.skip != 'true'
         run: |
           # Author MUST be the real account, not a bot email: Vercel's deploy
           # protection blocks deploys for commits whose author isn't a team
@@ -53,7 +72,7 @@ jobs:
           done
 
       - name: Trigger Vercel deploy
-        if: ${{ env.HOOK != '' }}
+        if: ${{ steps.guard.outputs.skip != 'true' && env.HOOK != '' }}
         env:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
         run: curl -X POST "$HOOK"
