@@ -1,9 +1,12 @@
 name: Daily Kakao Page scrape
 
 on:
-  # Scheduled trigger disabled: GitHub's scheduled runs are best-effort and
-  # were often delayed/skipped, so the daily job is driven by the reliable
-  # cloud routine instead. This workflow stays available for manual runs.
+  # Runs daily at 00:00 UTC = 09:00 KST. GitHub's scheduled runs are
+  # best-effort (can be delayed by a few minutes to ~an hour), which is fine
+  # for a once-a-day snapshot. This is the primary daily driver; the opaque
+  # cloud routine (whose logs we can't inspect) has been disabled.
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -22,7 +25,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - run: npm install
 
@@ -32,8 +35,12 @@ jobs:
 
       - name: Commit and push updated data
         run: |
-          git config user.name "kakaopage-tracker-bot"
-          git config user.email "actions@users.noreply.github.com"
+          # Author MUST be the real account, not a bot email: Vercel's deploy
+          # protection blocks deploys for commits whose author isn't a team
+          # member, so a bot-authored data commit lands in git but never
+          # reaches the live site.
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
           git add docs/data
           git diff --cached --quiet && echo "No data changes" && exit 0
           git commit -m "chore: daily ranking data $(date -u +%Y-%m-%d)"
