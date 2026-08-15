@@ -173,26 +173,36 @@ function readLocalMemos() {
 }
 
 async function loadMemoStore() {
-  if (memoStore) return memoStore;
+  // Only trust a cached store that actually came from the cloud. If a previous
+  // call fell back to local (cloud briefly unreachable, e.g. during a deploy),
+  // retry the cloud on the next call instead of showing an empty view forever.
+  if (memoStore && memoRemoteOk) return memoStore;
   const local = readLocalMemos();
-  try {
-    const r = await fetch('api/memos', { cache: 'no-store' });
-    if (r.ok) {
-      const remote = await r.json();
-      memoRemoteOk = true;
-      memoStore = { works: remote.works || {}, events: remote.events || {} };
-      // First time after cloud setup: push up any memos that only exist locally.
-      const migrate = { works: {}, events: {} };
-      for (const [id, v] of Object.entries(local.works)) if (!memoStore.works[id]) { memoStore.works[id] = v; migrate.works[id] = v; }
-      for (const [id, v] of Object.entries(local.events)) if (!memoStore.events[id]) { memoStore.events[id] = v; migrate.events[id] = v; }
-      if (Object.keys(migrate.works).length || Object.keys(migrate.events).length) {
-        fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ migrate }) }).catch(() => {});
+  // A transient failure (cold start / mid-deploy) shouldn't wipe the view, so
+  // try the cloud a few times before falling back to browser-only storage.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const r = await fetch('api/memos', { cache: 'no-store' });
+      if (r.ok) {
+        const remote = await r.json();
+        memoRemoteOk = true;
+        memoStore = { works: remote.works || {}, events: remote.events || {} };
+        // First time after cloud setup: push up any memos that only exist locally.
+        const migrate = { works: {}, events: {} };
+        for (const [id, v] of Object.entries(local.works)) if (!memoStore.works[id]) { memoStore.works[id] = v; migrate.works[id] = v; }
+        for (const [id, v] of Object.entries(local.events)) if (!memoStore.events[id]) { memoStore.events[id] = v; migrate.events[id] = v; }
+        if (Object.keys(migrate.works).length || Object.keys(migrate.events).length) {
+          fetch('api/memos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ migrate }) }).catch(() => {});
+        }
+        return memoStore;
       }
-      return memoStore;
-    }
-  } catch { /* cloud not reachable */ }
+      // 503 = storage not configured yet; no point retrying, use local.
+      if (r.status === 503) break;
+    } catch { /* network hiccup — retry */ }
+    await new Promise((res) => setTimeout(res, 400));
+  }
   memoRemoteOk = false;
-  memoStore = local; // cloud not set up yet → browser-only
+  memoStore = local; // cloud unreachable/not set up → browser-only (will retry next call)
   return memoStore;
 }
 
