@@ -22,6 +22,11 @@ import {
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const DETAIL_REFRESH_DAYS = 30;
 const MAX_DETAIL_FETCHES_PER_RUN = 100;
+// Extra launch-date lookups for ranked (daily TOP) works that don't have one
+// yet. Bounded to stay gentle; works that never expose a date aren't retried
+// more than once per LAUNCH_RETRY_DAYS.
+const MAX_LAUNCHDATE_FETCHES_PER_RUN = 120;
+const LAUNCH_RETRY_DAYS = 14;
 
 function getKstDateString() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -158,9 +163,13 @@ async function main() {
 
   const freshDetailCache = new Map();
   const promotionsByWork = {}; // workId -> [{bannerUid,title,link}], refreshed daily
+  const now = Date.now();
+  const nowIso = () => new Date().toISOString();
+  const launchRetryMs = LAUNCH_RETRY_DAYS * 24 * 60 * 60 * 1000;
+  let launchDateBudget = MAX_LAUNCHDATE_FETCHES_PER_RUN;
   for (const categoryKey of Object.keys(CATEGORIES)) {
     const items = dailyTop300ByCategory[categoryKey] || [];
-    console.log(`Fetching view counts + promotions for ${categoryKey} TOP ${items.length} (daily)...`);
+    console.log(`Fetching view counts + details + promotions for ${categoryKey} TOP ${items.length} (daily)...`);
     const snapshot = [];
     let vcDone = 0;
     for (const item of items) {
@@ -169,8 +178,25 @@ async function main() {
       if (detail) {
         freshDetailCache.set(item.workId, detail);
         if (detail.viewCount) snapshot.push({ workId: item.workId, viewCount: detail.viewCount });
+        // Don't discard the detail we just fetched: cache it so every ranked
+        // (daily TOP) work has current author/genre/keywords/etc. Preserve any
+        // launchDate/comments already collected (detail doesn't carry them).
+        const prev = cache[item.workId] || {};
+        cache[item.workId] = { ...prev, ...detail, workId: item.workId, lastChecked: nowIso() };
       }
       await sleep(600 + Math.random() * 600);
+      // Backfill launch date for ranked works missing one (bounded; don't retry
+      // works that never expose a date more than once per LAUNCH_RETRY_DAYS).
+      const cached = cache[item.workId];
+      if (cached && !cached.launchDate && launchDateBudget > 0) {
+        const triedAt = cached.launchDateTriedAt ? new Date(cached.launchDateTriedAt).getTime() : 0;
+        if (now - triedAt > launchRetryMs) {
+          cached.launchDate = await scrapeLaunchDate(page, item.workId, { log: console.log });
+          cached.launchDateTriedAt = nowIso();
+          launchDateBudget -= 1;
+          await sleep(600 + Math.random() * 600);
+        }
+      }
       const promos = await scrapePromotions(page, item.workId, { log: console.log });
       promotionsByWork[item.workId] = promos;
       vcDone += 1;
@@ -180,10 +206,10 @@ async function main() {
     const vcDir = path.join(DATA_DIR, categoryKey, 'viewcounts');
     await saveJson(path.join(vcDir, `${today}.json`), snapshot);
     await saveJson(path.join(vcDir, 'latest.json'), snapshot);
+    await saveJson(cachePath, cache); // persist ranked-work details after each category
   }
   await saveJson(path.join(DATA_DIR, 'promotions.json'), promotionsByWork);
   const refreshMs = DETAIL_REFRESH_DAYS * 24 * 60 * 60 * 1000;
-  const now = Date.now();
   const staleIds = [...allWorkIds].filter((id) => {
     const entry = cache[id];
     if (!entry) return true;
