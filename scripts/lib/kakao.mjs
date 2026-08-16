@@ -345,15 +345,24 @@ export async function scrapeWorkDetail(page, workId, { log = () => {} } = {}) {
         .filter(Boolean);
     }
 
+    // Fallback for age-gated (19+) works: the detail body requires login, but
+    // the page's meta tags still expose author + synopsis without logging in.
+    const metaAuthor = (document.querySelector('meta[name="author"]')?.content || '').trim() || null;
+    const metaSynopsis = (
+      document.querySelector('meta[property="og:description"]')?.content ||
+      document.querySelector('meta[name="description"]')?.content ||
+      ''
+    ).trim() || null;
+
     return {
-      author: findLabelValue('글') || findLabelValue('글/그림') || findLabelValue('원작'),
+      author: findLabelValue('글') || findLabelValue('글/그림') || findLabelValue('원작') || metaAuthor,
       publisher: findLabelValue('발행자'),
       ageRatingDetail: findLabelValue('연령등급'),
       price: findLabelValue('전자책 정가'),
       classification: findLabelValue('분류'),
       serialStatus: statusText,
       isCompleted: statusText ? statusText.includes('완결') : null,
-      synopsis,
+      synopsis: synopsis || metaSynopsis,
       keywords,
       viewCount,
       rating,
