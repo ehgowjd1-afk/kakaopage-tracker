@@ -27,6 +27,9 @@ const MAX_DETAIL_FETCHES_PER_RUN = 100;
 // more than once per LAUNCH_RETRY_DAYS.
 const MAX_LAUNCHDATE_FETCHES_PER_RUN = 120;
 const LAUNCH_RETRY_DAYS = 14;
+// Fill in comments for ranked (daily TOP) works that don't have any yet, so a
+// newly-entered work gets its comments within a run or two. Bounded per run.
+const MAX_COMMENT_FETCHES_PER_RUN = 120;
 
 function getKstDateString() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -167,6 +170,7 @@ async function main() {
   const nowIso = () => new Date().toISOString();
   const launchRetryMs = LAUNCH_RETRY_DAYS * 24 * 60 * 60 * 1000;
   let launchDateBudget = MAX_LAUNCHDATE_FETCHES_PER_RUN;
+  let commentBudget = MAX_COMMENT_FETCHES_PER_RUN;
   for (const categoryKey of Object.keys(CATEGORIES)) {
     const items = dailyTop300ByCategory[categoryKey] || [];
     console.log(`Fetching view counts + details + promotions for ${categoryKey} TOP ${items.length} (daily)...`);
@@ -196,6 +200,19 @@ async function main() {
           launchDateBudget -= 1;
           await sleep(600 + Math.random() * 600);
         }
+      }
+      // Fill in comments for ranked works that don't have any yet (bounded), so
+      // newly-entered daily TOP works get comments even though they're marked
+      // fresh above and thus skipped by the detail-backfill loop below.
+      if (cached && (!cached.topComments || cached.topComments.length === 0) && commentBudget > 0) {
+        const comments = await scrapeComments(page, item.workId, { log: console.log });
+        if (comments) {
+          cached.totalCommentText = comments.totalCommentText ?? cached.totalCommentText ?? null;
+          cached.topComments = comments.topComments ?? [];
+          cached.commentKeywords = comments.keywords ?? [];
+        }
+        commentBudget -= 1;
+        await sleep(600 + Math.random() * 600);
       }
       const promos = await scrapePromotions(page, item.workId, { log: console.log });
       promotionsByWork[item.workId] = promos;
