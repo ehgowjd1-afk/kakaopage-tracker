@@ -1318,11 +1318,12 @@ function shiftDateStr(dateStr, deltaDays) {
   return d.toISOString().slice(0, 10);
 }
 
-async function buildRankSeries(cat, period, workId, dates) {
+async function buildRankSeries(cat, period, workId, dates, pathPrefix) {
+  const prefix = pathPrefix || `${cat}/${period}`;
   const series = [];
   let latestItem = null;
   for (const date of dates) {
-    const dayList = await fetchJson(`data/${cat}/${period}/${date}.json`).catch(() => []);
+    const dayList = await fetchJson(`data/${prefix}/${date}.json`).catch(() => []);
     const found = dayList.find((it) => it.workId === workId);
     series.push({ date, rank: found ? found.rank : null, change: found ? found.change : null });
     if (found) latestItem = found;
@@ -1367,6 +1368,23 @@ async function renderWorkView(cat, period, workId) {
     seriesByPeriod[p.key] = result.series;
     if (p.key === period && result.latestItem) latestItem = result.latestItem;
     if (!latestItem && result.latestItem) latestItem = result.latestItem;
+  }
+
+  // A work that only charts inside a genre (not the overall TOP 300) has no
+  // entry in the category snapshots above, so title/thumbnail/trend come up
+  // empty and the title falls back to the raw id. Recover them from the work's
+  // own genre (derived from its "웹소설 / 로판" classification).
+  if (!latestItem && meta.classification) {
+    const label = meta.classification.split('/').pop().trim();
+    const genre = (GENRES[cat] || []).find((g) => g.label === label);
+    if (genre) {
+      for (const p of PERIODS) {
+        const gDates = ((((index.genres || {})[cat] || {})[genre.key]) || {})[p.key] || [];
+        const result = await buildRankSeries(cat, p.key, workId, gDates, `${cat}/genres/${genre.key}/${p.key}`);
+        if (result.series.some((s) => s.rank != null)) seriesByPeriod[p.key] = result.series;
+        if (!latestItem && result.latestItem) latestItem = result.latestItem;
+      }
+    }
   }
 
   const viewDates = (index.viewcounts && index.viewcounts[cat]) || [];
