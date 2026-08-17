@@ -30,12 +30,15 @@ jobs:
       - name: Skip if today's data was already collected
         id: guard
         run: |
-          TODAY="$(date -u +%Y-%m-%d)"
+          # Use KST, not UTC: scrape.mjs names snapshot files by the Korea date,
+          # and the 07:15 KST run happens while UTC is still the previous day, so
+          # a UTC check would always see "yesterday" already collected and skip.
+          TODAY="$(TZ=Asia/Seoul date +%Y-%m-%d)"
           if [ -f "docs/data/webnovel/daily/$TODAY.json" ]; then
-            echo "Today's data ($TODAY) already present — skipping this run."
+            echo "Today's data ($TODAY KST) already present — skipping this run."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No data yet for $TODAY — proceeding to scrape."
+            echo "No data yet for $TODAY KST — proceeding to scrape."
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
