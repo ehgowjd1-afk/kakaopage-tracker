@@ -1,14 +1,16 @@
 name: Daily Kakao Page scrape
 
 on:
-  # Primary run at 00:00 UTC = 09:00 KST, plus a safety-net run at 03:00 UTC
-  # = 12:00 KST. GitHub's scheduled runs are best-effort (can be delayed or,
-  # rarely, skipped). The backup run skips itself if today's data was already
-  # collected, so on a normal day it does nothing; it only actually scrapes
-  # when the 9am run was missed. The opaque cloud routine has been disabled.
+  # Primary run ~09:17 KST (00:17 UTC), plus safety-net runs ~12:17 and ~15:17
+  # KST. Times are deliberately off the top of the hour: GitHub delays/drops
+  # scheduled runs most at round times like 00:00 UTC (global cron rush), which
+  # is why the 09:00 run was sometimes skipped. Each backup skips itself if
+  # today's data is already collected, so extra runs cost nothing on normal
+  # days and only scrape when an earlier run was missed.
   schedule:
-    - cron: '0 0 * * *'
-    - cron: '0 3 * * *'
+    - cron: '17 0 * * *'
+    - cron: '17 3 * * *'
+    - cron: '17 6 * * *'
   workflow_dispatch: {}
 
 permissions:
