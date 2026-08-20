@@ -22,6 +22,7 @@
   "48068866": [],
   "48264881": [],
   "48306624": [],
+  "48445310": [],
   "48633037": [
     {
       "bannerUid": "204236",
@@ -29,7 +30,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "48697412": [],
   "48787313": [],
   "48990437": [],
   "49105974": [
@@ -53,17 +53,13 @@
   "50490834": [],
   "50827118": [
     {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    },
-    {
       "bannerUid": "204236",
       "title": "[랜덤 플레이 리스트]",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
   "50866481": [],
+  "51208779": [],
   "51421747": [
     {
       "bannerUid": "203074",
@@ -76,7 +72,6 @@
   "51863028": [],
   "51880368": [],
   "52138555": [],
-  "52226628": [],
   "52347864": [
     {
       "bannerUid": "203074",
@@ -106,7 +101,6 @@
     }
   ],
   "52697368": [],
-  "52854258": [],
   "52882308": [],
   "52903324": [],
   "53021399": [],
@@ -179,7 +173,13 @@
   ],
   "54740855": [],
   "54845189": [],
-  "54872059": [],
+  "54872059": [
+    {
+      "bannerUid": "206233",
+      "title": "전설적으로 꽤나",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=f9228c526de943d66e40603fc48f5ad7"
+    }
+  ],
   "54884637": [],
   "54897451": [
     {
@@ -188,8 +188,7 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/14821/"
     }
   ],
-  "55152866": [],
-  "55268483": [],
+  "55123570": [],
   "55391838": [
     {
       "bannerUid": "203074",
@@ -202,11 +201,6 @@
       "bannerUid": "204236",
       "title": "[랜덤 플레이 리스트]",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
-    },
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
     },
     {
       "bannerUid": "203074",
@@ -233,6 +227,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
+  "55721630": [],
   "55775689": [],
   "55806263": [
     {
@@ -242,7 +237,6 @@
     }
   ],
   "55884394": [],
-  "55889891": [],
   "56070306": [],
   "56094375": [
     {
@@ -267,22 +261,9 @@
   "56272329": [],
   "56325530": [],
   "56372295": [],
-  "56407656": [
-    {
-      "bannerUid": "204156",
-      "title": "방송천재 막내작가",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18390/"
-    }
-  ],
+  "56407656": [],
   "56413106": [],
   "56443245": [],
-  "56455018": [
-    {
-      "bannerUid": "204236",
-      "title": "[랜덤 플레이 리스트]",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
-    }
-  ],
   "56505778": [
     {
       "bannerUid": "203074",
@@ -311,13 +292,7 @@
   ],
   "56611441": [],
   "56657309": [],
-  "56673674": [
-    {
-      "bannerUid": "203610",
-      "title": "쉬고 싶은 레이디",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=fb6f5b11262b5a31ecfff1ef436c6011"
-    }
-  ],
+  "56673674": [],
   "56681254": [
     {
       "bannerUid": "205003",
@@ -344,13 +319,8 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
-  "56952321": [
-    {
-      "bannerUid": "205636",
-      "title": "무협주간",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=17945835809186ca230457740da723b7"
-    }
-  ],
+  "56952321": [],
+  "56998709": [],
   "57095432": [],
   "57109925": [
     {
@@ -364,7 +334,14 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "57451201": [],
+  "57369982": [],
+  "57414495": [
+    {
+      "bannerUid": "206209",
+      "title": "총 2.7억 뷰!",
+      "link": "https://page.kakao.com/landing/series/poster/page/landing/18507/"
+    }
+  ],
   "57552517": [],
   "57616627": [],
   "57668776": [
@@ -377,11 +354,6 @@
       "bannerUid": "204236",
       "title": "[랜덤 플레이 리스트]",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
-    },
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
     },
     {
       "bannerUid": "203074",
@@ -420,6 +392,8 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=70be0721524b9d5e1303627cf0024281"
     }
   ],
+  "58261408": [],
+  "58410245": [],
   "58474045": [
     {
       "bannerUid": "205258",
@@ -427,13 +401,15 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18459/"
     }
   ],
+  "58502656": [
+    {
+      "bannerUid": "206261",
+      "title": "1레벨 플레이어",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18510/"
+    }
+  ],
   "58725187": [],
   "58819634": [
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    },
     {
       "bannerUid": "203074",
       "title": "8월의 스탬프 투어!",
@@ -442,12 +418,26 @@
   ],
   "58834728": [],
   "58840311": [],
+  "58915904": [
+    {
+      "bannerUid": "206362",
+      "title": "기간한정 무료+전원캐시",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=2437b8fb0d8bb8e1e1feb05b7aa7d7f1"
+    }
+  ],
   "58956049": [],
   "58959817": [
     {
       "bannerUid": "205422",
       "title": "프리드리히 작가전",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=6c047e0c8cdc2c463a77bd2ce9baca69"
+    }
+  ],
+  "58974573": [
+    {
+      "bannerUid": "203074",
+      "title": "8월의 스탬프 투어!",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
   "59033754": [],
@@ -460,8 +450,14 @@
   ],
   "59087644": [],
   "59153035": [],
+  "59193854": [
+    {
+      "bannerUid": "206209",
+      "title": "총 2.7억 뷰!",
+      "link": "https://page.kakao.com/landing/series/poster/page/landing/18507/"
+    }
+  ],
   "59217118": [],
-  "59250857": [],
   "59253279": [],
   "59264548": [
     {
@@ -484,13 +480,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=c3460038ee14ebf159004c21c17fb5e9"
     }
   ],
-  "59492385": [
-    {
-      "bannerUid": "203714",
-      "title": "시즌4 완결⭐️",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=d21daadc19ec197ff454b020c3f170cb"
-    }
-  ],
+  "59492385": [],
   "59496683": [
     {
       "bannerUid": "204236",
@@ -520,6 +510,7 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18382/"
     }
   ],
+  "59826085": [],
   "59854139": [
     {
       "bannerUid": "204236",
@@ -528,19 +519,13 @@
     }
   ],
   "59854763": [],
-  "59877234": [
-    {
-      "bannerUid": "205639",
-      "title": "곱게 키운 악당들",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18482/"
-    }
-  ],
+  "59877234": [],
   "59882406": [],
   "59883324": [
     {
-      "bannerUid": "205535",
-      "title": "만귀플 시즌4 론칭!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=d9ed769f5b9be779b0375ed0dfd08239"
+      "bannerUid": "206392",
+      "title": "만 년 만에 귀환한..",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18529/"
     }
   ],
   "59902182": [
@@ -551,13 +536,8 @@
     }
   ],
   "59976402": [],
-  "60009099": [
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    }
-  ],
+  "59989313": [],
+  "60009099": [],
   "60033996": [],
   "60083487": [],
   "60105861": [],
@@ -581,7 +561,6 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18404/"
     }
   ],
-  "60251820": [],
   "60328750": [
     {
       "bannerUid": "205246",
@@ -597,6 +576,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
+  "60558545": [],
   "60560157": [
     {
       "bannerUid": "204837",
@@ -619,11 +599,6 @@
   "60701113": [],
   "60707231": [
     {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    },
-    {
       "bannerUid": "203074",
       "title": "8월의 스탬프 투어!",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
@@ -631,7 +606,15 @@
   ],
   "60720041": [],
   "60728286": [],
+  "60754076": [],
   "60772282": [],
+  "60874787": [
+    {
+      "bannerUid": "203622",
+      "title": "이 작품 취향이라면?",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=70be0721524b9d5e1303627cf0024281"
+    }
+  ],
   "60903181": [
     {
       "bannerUid": "203074",
@@ -680,8 +663,15 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
-  "61116938": [],
   "61145798": [],
+  "61192421": [
+    {
+      "bannerUid": "206276",
+      "title": "악역 소녀는 사랑받기가",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18513/"
+    }
+  ],
+  "61313362": [],
   "61324740": [],
   "61397006": [],
   "61488489": [],
@@ -702,7 +692,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=b39e6e994221e0adc469d51871d53772"
     }
   ],
-  "61725025": [],
   "61822085": [
     {
       "bannerUid": "203074",
@@ -783,13 +772,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
     }
   ],
-  "62646168": [
-    {
-      "bannerUid": "203074",
-      "title": "8월의 스탬프 투어!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=7f2fa440ae4ecfe3618485aca52795ee"
-    }
-  ],
   "62649267": [
     {
       "bannerUid": "205634",
@@ -802,13 +784,32 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=92a85c2858e0fa57eb080ef1ef73a3ce"
     }
   ],
-  "62711843": [],
+  "62650665": [
+    {
+      "bannerUid": "206266",
+      "title": "게임 속 기연이 현실로",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18511/"
+    }
+  ],
+  "62672432": [],
+  "62674092": [],
+  "62711843": [
+    {
+      "bannerUid": "206395",
+      "title": "수의사님! 안녕하세요?",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18530/"
+    }
+  ],
+  "62727430": [
+    {
+      "bannerUid": "206317",
+      "title": "네학소 시즌3 론칭!",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=cb5e6276a66b974cc2fefc52f65713d8"
+    }
+  ],
   "62730241": [],
-  "62731434": [],
-  "62756463": [],
   "62762648": [],
   "62858196": [],
-  "62868354": [],
   "62887990": [
     {
       "bannerUid": "206118",
@@ -856,9 +857,8 @@
     }
   ],
   "63243059": [],
-  "63298785": [],
+  "63302278": [],
   "63451062": [],
-  "63454887": [],
   "63467942": [
     {
       "bannerUid": "204236",
@@ -866,9 +866,9 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "63491808": [],
   "63517874": [],
   "63529403": [],
+  "63641594": [],
   "63644867": [],
   "63646168": [],
   "63689702": [
@@ -879,11 +879,6 @@
     }
   ],
   "63729593": [
-    {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    },
     {
       "bannerUid": "168248",
       "title": "카카오페이지 초신작",
@@ -912,6 +907,13 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18504/"
     }
   ],
+  "63997595": [
+    {
+      "bannerUid": "168248",
+      "title": "카카오페이지 초신작",
+      "link": "https://page.kakao.com/landing/series/card/page/landing/16061/"
+    }
+  ],
   "64007563": [
     {
       "bannerUid": "205416",
@@ -932,7 +934,6 @@
     }
   ],
   "64071861": [],
-  "64096846": [],
   "64150682": [],
   "64157798": [
     {
@@ -993,24 +994,11 @@
     }
   ],
   "64446379": [],
-  "64502087": [
-    {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    }
-  ],
-  "64586514": [
-    {
-      "bannerUid": "205641",
-      "title": "시한부 흑막이 내 파혼",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18483/"
-    }
-  ],
+  "64502087": [],
+  "64586514": [],
   "64612703": [],
   "64637178": [],
   "64680206": [],
-  "64688740": [],
   "64720232": [
     {
       "bannerUid": "205218",
@@ -1110,6 +1098,7 @@
     }
   ],
   "65404412": [],
+  "65409257": [],
   "65461865": [
     {
       "bannerUid": "203622",
@@ -1130,7 +1119,6 @@
   "65535809": [],
   "65553526": [],
   "65575525": [],
-  "65614417": [],
   "65666421": [],
   "65666806": [],
   "65668709": [
@@ -1140,6 +1128,7 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18505/"
     }
   ],
+  "65685736": [],
   "65696850": [],
   "65703020": [],
   "65721646": [
@@ -1152,8 +1141,6 @@
   "65747016": [],
   "65752694": [],
   "65754723": [],
-  "65755322": [],
-  "65780250": [],
   "65858888": [],
   "65866900": [
     {
@@ -1162,20 +1149,22 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=169797065eddd266f40b477c72a1e521"
     }
   ],
-  "65892218": [
+  "65892883": [],
+  "65909500": [],
+  "65913268": [
     {
-      "bannerUid": "205933",
-      "title": "아이돌이 아니라 퇴마사",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18496/"
+      "bannerUid": "206370",
+      "title": "빨루X흑설기",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=61a14e89ce74f014643f32703b2a62b0"
     }
   ],
-  "65909249": [],
-  "65909500": [],
-  "65913268": [],
   "65947762": [],
   "65986358": [],
+  "66038657": [],
+  "66044093": [],
   "66044826": [],
   "66051073": [],
+  "66070452": [],
   "66100724": [],
   "66110131": [
     {
@@ -1186,7 +1175,6 @@
   ],
   "66112032": [],
   "66116806": [],
-  "66129102": [],
   "66133314": [
     {
       "bannerUid": "168250",
@@ -1244,13 +1232,7 @@
     }
   ],
   "66518946": [],
-  "66562231": [
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    }
-  ],
+  "66562231": [],
   "66578139": [
     {
       "bannerUid": "204141",
@@ -1263,6 +1245,13 @@
       "bannerUid": "168248",
       "title": "카카오페이지 초신작",
       "link": "https://page.kakao.com/landing/series/card/page/landing/16061/"
+    }
+  ],
+  "66637290": [
+    {
+      "bannerUid": "206362",
+      "title": "기간한정 무료+전원캐시",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=2437b8fb0d8bb8e1e1feb05b7aa7d7f1"
     }
   ],
   "66677887": [],
@@ -1303,6 +1292,8 @@
     }
   ],
   "66921235": [],
+  "66925611": [],
+  "66936307": [],
   "66970311": [
     {
       "bannerUid": "168248",
@@ -1320,6 +1311,13 @@
   ],
   "66977188": [],
   "67125234": [],
+  "67154666": [
+    {
+      "bannerUid": "206209",
+      "title": "총 2.7억 뷰!",
+      "link": "https://page.kakao.com/landing/series/poster/page/landing/18507/"
+    }
+  ],
   "67154747": [
     {
       "bannerUid": "204236",
@@ -1334,11 +1332,12 @@
   ],
   "67216052": [],
   "67231554": [],
+  "67242514": [],
   "67242927": [
     {
-      "bannerUid": "206060",
+      "bannerUid": "206386",
       "title": "결혼 장사2",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=3b6b806d946c00d7e736c7107b68f8a0"
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18526/"
     }
   ],
   "67248437": [
@@ -1348,9 +1347,14 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18436/"
     }
   ],
-  "67259586": [],
   "67277923": [],
-  "67280468": [],
+  "67280468": [
+    {
+      "bannerUid": "205375",
+      "title": "마론 후작",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=910293389a81f09a2a3ff192b6ceb9f6"
+    }
+  ],
   "67288184": [],
   "67307507": [
     {
@@ -1378,10 +1382,7 @@
       "link": "https://page.kakao.com/landing/series/card/page/landing/16061/"
     }
   ],
-  "67371749": [],
-  "67387511": [],
   "67394591": [],
-  "67399231": [],
   "67401518": [
     {
       "bannerUid": "205615",
@@ -1407,6 +1408,7 @@
   "67437111": [],
   "67474473": [],
   "67483902": [],
+  "67487385": [],
   "67498693": [],
   "67510779": [],
   "67524047": [],
@@ -1462,6 +1464,7 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18484/"
     }
   ],
+  "67696787": [],
   "67711392": [],
   "67714966": [],
   "67761851": [
@@ -1473,13 +1476,7 @@
   ],
   "67776510": [],
   "67811762": [],
-  "67826680": [
-    {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    }
-  ],
+  "67826680": [],
   "67837478": [],
   "67860502": [
     {
@@ -1556,16 +1553,10 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "68073449": [],
   "68089443": [],
-  "68093646": [
-    {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    }
-  ],
+  "68093646": [],
   "68097331": [],
+  "68099906": [],
   "68101367": [],
   "68103364": [],
   "68106487": [],
@@ -1576,16 +1567,16 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=6c047e0c8cdc2c463a77bd2ce9baca69"
     }
   ],
-  "68129014": [],
   "68130539": [],
   "68169201": [],
-  "68230570": [
+  "68196510": [
     {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
+      "bannerUid": "206273",
+      "title": "던전 미식가",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18514/"
     }
   ],
+  "68230570": [],
   "68232795": [],
   "68239737": [],
   "68243738": [],
@@ -1599,18 +1590,12 @@
   ],
   "68260953": [
     {
-      "bannerUid": "205013",
-      "title": "역대급 초월 문명으로…",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18442/"
-    },
-    {
       "bannerUid": "155118",
       "title": "✨페이지 루키즈✨",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=89984d8fe7ba088c37facc4abce26fac"
     }
   ],
   "68266257": [],
-  "68267853": [],
   "68276174": [
     {
       "bannerUid": "205915",
@@ -1623,6 +1608,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=92a85c2858e0fa57eb080ef1ef73a3ce"
     }
   ],
+  "68278075": [],
   "68280713": [],
   "68283715": [
     {
@@ -1646,6 +1632,11 @@
   ],
   "68298774": [],
   "68301756": [
+    {
+      "bannerUid": "206307",
+      "title": "이 중에서 감자 농사…",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=b0a1628bc5c98f01d402826ce7076982"
+    },
     {
       "bannerUid": "204990",
       "title": ">행운 필요하신 분?<",
@@ -1718,7 +1709,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=70be0721524b9d5e1303627cf0024281"
     }
   ],
-  "68657645": [],
   "68690124": [],
   "68703984": [],
   "68705441": [],
@@ -1727,23 +1717,9 @@
   "68723295": [],
   "68742536": [],
   "68742661": [],
-  "68743041": [],
-  "68752835": [
-    {
-      "bannerUid": "205929",
-      "title": "결혼은 면접부터",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18497/"
-    }
-  ],
   "68772236": [],
   "68836494": [],
-  "68858742": [
-    {
-      "bannerUid": "203835",
-      "title": "옆에 누울래요?💗",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=d679e9aa5dda67b09a71caadef84d979"
-    }
-  ],
+  "68858742": [],
   "68866775": [
     {
       "bannerUid": "201411",
@@ -1783,20 +1759,13 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18447/"
     }
   ],
-  "68913399": [],
   "68915385": [],
   "68920542": [],
   "68930215": [],
   "68936984": [],
   "68985853": [],
   "68987766": [],
-  "68997118": [
-    {
-      "bannerUid": "205096",
-      "title": "총 2억 뷰!",
-      "link": "https://page.kakao.com/landing/series/poster/page/landing/18448/"
-    }
-  ],
+  "68997118": [],
   "69002644": [],
   "69039773": [
     {
@@ -1820,11 +1789,6 @@
     }
   ],
   "69065891": [
-    {
-      "bannerUid": "204976",
-      "title": "복수의 여왕 외전 오픈",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=0d4b1806fe9dae7d6d6e8c296dc005d9"
-    },
     {
       "bannerUid": "201411",
       "title": "초신작 보면 캐시선물",
@@ -1852,7 +1816,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=dc79d5cb1dd450bae0421cddb66901b0"
     }
   ],
-  "69114629": [],
   "69115333": [
     {
       "bannerUid": "204847",
@@ -1867,6 +1830,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=dec2dac39b38ed5222d3e00be8d0c187"
     }
   ],
+  "69118824": [],
   "69120696": [
     {
       "bannerUid": "204998",
@@ -1905,7 +1869,7 @@
     }
   ],
   "69186189": [],
-  "69225967": [],
+  "69188703": [],
   "69229506": [
     {
       "bannerUid": "203622",
@@ -1918,14 +1882,7 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=3b7eb67ae23b836ceea73d3b31999fcd"
     }
   ],
-  "69253338": [],
-  "69263043": [
-    {
-      "bannerUid": "206214",
-      "title": "로판 웹툰 오픈런!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=3e2ce27460b256172e2d7a324b367c3c"
-    }
-  ],
+  "69263043": [],
   "69274794": [
     {
       "bannerUid": "201411",
@@ -1938,7 +1895,6 @@
       "link": "https://page.kakao.com/landing/series/card/page/landing/16061/"
     }
   ],
-  "69276361": [],
   "69276368": [
     {
       "bannerUid": "204143",
@@ -1955,7 +1911,6 @@
   ],
   "69291804": [],
   "69292516": [],
-  "69294229": [],
   "69298942": [
     {
       "bannerUid": "204837",
@@ -2001,21 +1956,21 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=dc79d5cb1dd450bae0421cddb66901b0"
     }
   ],
-  "69329606": [
-    {
-      "bannerUid": "205221",
-      "title": "우리는 단지 봄을 사…",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=4e32d2a8f9880f6736c0c4c2361b3a87"
-    }
-  ],
   "69329615": [],
   "69338121": [],
+  "69350557": [
+    {
+      "bannerUid": "181240",
+      "title": "카카페 정주행 ZONE",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=f6208ff2db5c5b264169cb44727fbc5a"
+    }
+  ],
   "69354800": [],
   "69362229": [
     {
-      "bannerUid": "206214",
-      "title": "로판 웹툰 오픈런!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=3e2ce27460b256172e2d7a324b367c3c"
+      "bannerUid": "206400",
+      "title": "애 딸린 하녀",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18531/"
     }
   ],
   "69427264": [],
@@ -2040,6 +1995,13 @@
     }
   ],
   "69465363": [],
+  "69471169": [
+    {
+      "bannerUid": "206284",
+      "title": "능력 강탈로 재앙급…",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18517/"
+    }
+  ],
   "69473994": [],
   "69473997": [],
   "69475645": [
@@ -2049,6 +2011,7 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18473/"
     }
   ],
+  "69478243": [],
   "69479740": [
     {
       "bannerUid": "204620",
@@ -2069,11 +2032,6 @@
     }
   ],
   "69484349": [
-    {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    },
     {
       "bannerUid": "201411",
       "title": "초신작 보면 캐시선물",
@@ -2114,18 +2072,6 @@
   ],
   "69498221": [],
   "69498894": [],
-  "69500409": [
-    {
-      "bannerUid": "204230",
-      "title": "도굴왕: 엔드라인",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18398/"
-    },
-    {
-      "bannerUid": "199198",
-      "title": "도굴왕 애니화 강림!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=ba78c62c80f4e9be0a428411500ef9ae"
-    }
-  ],
   "69500555": [],
   "69501495": [],
   "69510272": [],
@@ -2148,7 +2094,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "69515270": [],
   "69519621": [
     {
       "bannerUid": "203965",
@@ -2173,28 +2118,7 @@
     }
   ],
   "69577541": [],
-  "69579435": [
-    {
-      "bannerUid": "204620",
-      "title": "로잘알들을 위한 추천!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=0e87fae4902862c56eb9db31f1463e80"
-    }
-  ],
   "69613701": [],
-  "69632154": [
-    {
-      "bannerUid": "206137",
-      "title": "미래거울",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18503/"
-    }
-  ],
-  "69701275": [
-    {
-      "bannerUid": "204620",
-      "title": "로잘알들을 위한 추천!",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=0e87fae4902862c56eb9db31f1463e80"
-    }
-  ],
   "69723868": [
     {
       "bannerUid": "204236",
@@ -2202,7 +2126,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     }
   ],
-  "69751608": [],
   "69760545": [
     {
       "bannerUid": "204620",
@@ -2223,7 +2146,7 @@
     }
   ],
   "69764253": [],
-  "69773496": [],
+  "69797578": [],
   "69800992": [
     {
       "bannerUid": "204559",
@@ -2243,11 +2166,6 @@
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=e07a9f31e119480cea19de2fbfb854cd"
     },
     {
-      "bannerUid": "203802",
-      "title": "작품 열람하고 장학금",
-      "link": "https://page.kakao.com/open/webview/event/?hash_uid=232d4837fcf90b9cfbae3a93a0d8e2d4"
-    },
-    {
       "bannerUid": "201411",
       "title": "초신작 보면 캐시선물",
       "link": "https://page.kakao.com/open/webview/event/?hash_uid=b66fa93760318f1108bb8649bdd2ce86"
@@ -2260,8 +2178,8 @@
   ],
   "69836997": [],
   "69855205": [],
+  "69863606": [],
   "69883909": [],
-  "69887670": [],
   "69911197": [],
   "69915336": [],
   "69936999": [],
@@ -2273,7 +2191,6 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18488/"
     }
   ],
-  "69968194": [],
   "69969068": [],
   "69969236": [
     {
@@ -2292,7 +2209,13 @@
     }
   ],
   "69994141": [],
-  "70014480": [],
+  "70014480": [
+    {
+      "bannerUid": "204711",
+      "title": "조신한 남편의 결혼..",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18416/"
+    }
+  ],
   "70018730": [
     {
       "bannerUid": "205377",
@@ -2300,6 +2223,19 @@
       "link": "https://page.kakao.com/landing/series/list/page/landing/18467/"
     }
   ],
+  "70044226": [
+    {
+      "bannerUid": "206228",
+      "title": "스페셜 오픈런",
+      "link": "https://page.kakao.com/open/webview/event/?hash_uid=404dfbe8af23c7704e8258fa5a67e55c"
+    },
+    {
+      "bannerUid": "206377",
+      "title": "전 남친이 내 아이를…",
+      "link": "https://page.kakao.com/landing/series/list/page/landing/18523/"
+    }
+  ],
+  "70049415": [],
   "70053772": [],
   "70054029": [],
   "70058148": [
@@ -2324,13 +2260,8 @@
     }
   ],
   "70079976": [],
-  "70142886": [
-    {
-      "bannerUid": "205011",
-      "title": "미친 전무님의 애착…",
-      "link": "https://page.kakao.com/landing/series/list/page/landing/18443/"
-    }
-  ],
+  "70142886": [],
+  "70145023": [],
   "70152870": [
     {
       "bannerUid": "204852",
@@ -2346,7 +2277,6 @@
     }
   ],
   "70212852": [],
-  "70214081": [],
   "70215015": [],
   "70229845": [
     {
@@ -2356,5 +2286,6 @@
     }
   ],
   "70252106": [],
-  "70264577": []
+  "70264577": [],
+  "70282689": []
 }
