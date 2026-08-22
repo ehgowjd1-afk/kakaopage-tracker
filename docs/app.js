@@ -381,6 +381,29 @@ function buildCatTabs(activeCat, hashPrefix) {
   return nav;
 }
 
+// Week-of-month (1-based): days 1-7 → 1st week, 8-14 → 2nd, ...
+function keywordWeekOfMonth(dateStr) {
+  return Math.ceil(parseInt(dateStr.slice(8, 10), 10) / 7);
+}
+// Build {value,label} snapshot options for the keyword date picker, newest first.
+// daily → every date; weekly → one per (month, week-of-month); monthly → one per month.
+function buildKeywordDateOptions(dates, period) {
+  const sorted = [...dates].sort();
+  if (period === 'daily') return sorted.map((d) => ({ value: d, label: d })).reverse();
+  const rep = new Map(); // group key → representative (latest) date in that group
+  for (const d of sorted) {
+    const y = d.slice(0, 4);
+    const m = parseInt(d.slice(5, 7), 10);
+    const key = period === 'weekly' ? `${y}-${m}-${keywordWeekOfMonth(d)}` : `${y}-${m}`;
+    rep.set(key, d);
+  }
+  return [...rep.values()].reverse().map((d) => {
+    const m = parseInt(d.slice(5, 7), 10);
+    const label = period === 'weekly' ? `${m}월 ${keywordWeekOfMonth(d)}째주 (${d})` : `${m}월 (${d})`;
+    return { value: d, label };
+  });
+}
+
 async function renderKeywordsView(cat) {
   app.innerHTML = '';
   app.appendChild(buildCatTabs(cat, '#/keywords'));
@@ -389,21 +412,28 @@ async function renderKeywordsView(cat) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const works = await getWorksCache();
+  const [works, index] = await Promise.all([getWorksCache(), getIndex()]);
 
   let curGenre = 'all';
   let curPeriod = 'daily';
   let curScope = 300;
+  let curDate = null; // selected snapshot date; null = latest
 
-  // cache of loaded ranking lists keyed by "genre/period"
+  // cache of loaded ranking lists keyed by "genre/period/date"
   const listCache = {};
-  async function getList(genre, period) {
-    const key = `${genre}/${period}`;
+  async function getList(genre, period, date) {
+    const key = `${genre}/${period}/${date || 'latest'}`;
     if (!listCache[key]) {
-      const path = genre === 'all' ? `${cat}/${period}` : `${cat}/genres/${genre}/${period}`;
-      listCache[key] = await fetchJson(`data/${path}/latest.json`).catch(() => []);
+      const base = genre === 'all' ? `${cat}/${period}` : `${cat}/genres/${genre}/${period}`;
+      const file = date ? `${date}.json` : 'latest.json';
+      listCache[key] = await fetchJson(`data/${base}/${file}`).catch(() => []);
     }
     return listCache[key];
+  }
+  function datesFor(genre, period) {
+    return genre === 'all'
+      ? ((index[cat] || {})[period] || [])
+      : ((((index.genres || {})[cat] || {})[genre] || {})[period] || []);
   }
 
   body.innerHTML = '';
@@ -416,7 +446,7 @@ async function renderKeywordsView(cat) {
     const btn = document.createElement('button');
     btn.textContent = g.label;
     btn.dataset.g = g.key;
-    btn.addEventListener('click', () => { curGenre = g.key; recompute(); });
+    btn.addEventListener('click', () => { curGenre = g.key; refreshDateOptions(); recompute(); });
     genreGroup.appendChild(btn);
   }
   const genreNav = document.createElement('nav');
@@ -424,7 +454,7 @@ async function renderKeywordsView(cat) {
   genreNav.appendChild(genreGroup);
   body.appendChild(genreNav);
 
-  // Period + scope controls
+  // Period + date + scope controls
   const controls = document.createElement('div');
   controls.style.cssText = 'display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px;';
 
@@ -434,9 +464,37 @@ async function renderKeywordsView(cat) {
     const btn = document.createElement('button');
     btn.textContent = `${p.label}순위`;
     btn.dataset.p = p.key;
-    btn.addEventListener('click', () => { curPeriod = p.key; recompute(); });
+    btn.addEventListener('click', () => { curPeriod = p.key; refreshDateOptions(); recompute(); });
     periodGroup.appendChild(btn);
   }
+
+  // Date/period selector — labels adapt: 일간=날짜, 주간=N월 M째주, 월간=N월
+  const dateWrap = document.createElement('div');
+  dateWrap.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);';
+  const dateLabelEl = document.createElement('span');
+  dateLabelEl.textContent = '시점';
+  const dateSelect = document.createElement('select');
+  dateSelect.style.cssText =
+    'padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;outline:none;max-width:210px;';
+  dateSelect.addEventListener('change', () => { curDate = dateSelect.value || null; recompute(); });
+  function refreshDateOptions() {
+    const opts = buildKeywordDateOptions(datesFor(curGenre, curPeriod), curPeriod);
+    if (curDate && !opts.some((o) => o.value === curDate)) curDate = null;
+    dateSelect.innerHTML = '';
+    const latest = document.createElement('option');
+    latest.value = '';
+    latest.textContent = '최신';
+    dateSelect.appendChild(latest);
+    for (const o of opts) {
+      const el = document.createElement('option');
+      el.value = o.value;
+      el.textContent = o.label;
+      dateSelect.appendChild(el);
+    }
+    dateSelect.value = curDate || '';
+  }
+  dateWrap.appendChild(dateLabelEl);
+  dateWrap.appendChild(dateSelect);
 
   const scopeWrap = document.createElement('div');
   scopeWrap.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);';
@@ -465,9 +523,50 @@ async function renderKeywordsView(cat) {
   scopeWrap.appendChild(scopeInput);
   scopeWrap.appendChild(scopeHint);
 
+  const excelBtn = document.createElement('button');
+  excelBtn.textContent = '⬇ 엑셀 다운로드';
+  excelBtn.style.cssText =
+    'padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);font-size:13px;cursor:pointer;';
+  excelBtn.addEventListener('click', downloadKeywordExcel);
+
   controls.appendChild(periodGroup);
+  controls.appendChild(dateWrap);
   controls.appendChild(scopeWrap);
+  controls.appendChild(excelBtn);
   body.appendChild(controls);
+
+  // Keyword combination search + rank-distribution analysis
+  const searchSection = document.createElement('div');
+  searchSection.className = 'chart-box';
+  searchSection.style.marginBottom = '18px';
+  const searchTitle = document.createElement('h3');
+  searchTitle.style.cssText = 'font-size:14px;margin:0 0 8px;';
+  searchTitle.textContent = '키워드 조합 검색 · 분포 분석';
+  const searchHint = document.createElement('div');
+  searchHint.style.cssText = 'font-size:12px;color:var(--text-dim);margin-bottom:10px;';
+  searchHint.textContent = '키워드를 띄어쓰기로 조합해 입력하세요 (예: 능력녀 집착남). 모두 가진 작품과, 그 작품들이 현재 순위에서 상위 몇 %에 분포하는지 보여줘요.';
+  const searchRow = document.createElement('div');
+  searchRow.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;';
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.placeholder = '예: 능력녀 집착남';
+  searchInput.style.cssText =
+    'flex:1;min-width:180px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;outline:none;';
+  const searchBtn = document.createElement('button');
+  searchBtn.textContent = '검색';
+  searchBtn.style.cssText =
+    'padding:8px 18px;border-radius:999px;border:none;background:var(--accent);color:#fff;font-size:13px;cursor:pointer;';
+  const searchResult = document.createElement('div');
+  const doSearch = () => runComboSearch(searchInput.value);
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+  searchRow.appendChild(searchInput);
+  searchRow.appendChild(searchBtn);
+  searchSection.appendChild(searchTitle);
+  searchSection.appendChild(searchHint);
+  searchSection.appendChild(searchRow);
+  searchSection.appendChild(searchResult);
+  body.appendChild(searchSection);
 
   const note = document.createElement('div');
   note.className = 'updated-note';
@@ -486,21 +585,28 @@ async function renderKeywordsView(cat) {
   let coCount = new Map();
   let analyzed = 0;
   let selectedKw = null;
+  let currentFullList = [];
+  let analyzedWorks = [];
+  let curGenreLabel = '전체';
+  let curPeriodLabel = '일간';
 
   async function recompute() {
     genreGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.g === curGenre));
     periodGroup.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.p === curPeriod));
 
-    const fullList = await getList(curGenre, curPeriod);
+    const fullList = await getList(curGenre, curPeriod, curDate);
+    currentFullList = fullList;
     const list = fullList.slice(0, curScope);
     kwCount = new Map();
     coCount = new Map();
     analyzed = 0;
+    analyzedWorks = [];
     for (const item of list) {
       const w = works[item.workId];
       if (!w || !w.keywords || !w.keywords.length) continue;
       analyzed += 1;
       const kws = [...new Set(w.keywords)];
+      analyzedWorks.push({ rank: item.rank, title: item.title || w.title || item.workId, author: w.author || '', workId: item.workId, keywords: kws });
       for (const k of kws) kwCount.set(k, (kwCount.get(k) || 0) + 1);
       for (let i = 0; i < kws.length; i++) {
         for (let j = i + 1; j < kws.length; j++) {
@@ -510,9 +616,10 @@ async function renderKeywordsView(cat) {
       }
     }
 
-    const periodLabel = PERIODS.find((p) => p.key === curPeriod).label;
-    const genreLabel = genreOptions.find((g) => g.key === curGenre).label;
-    note.textContent = `${genreLabel} · ${periodLabel}순위 TOP ${curScope} 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
+    curPeriodLabel = PERIODS.find((p) => p.key === curPeriod).label;
+    curGenreLabel = genreOptions.find((g) => g.key === curGenre).label;
+    const when = curDate || '최신';
+    note.textContent = `${curGenreLabel} · ${curPeriodLabel}순위(${when}) TOP ${curScope} 중 키워드 보유 ${analyzed}개 작품 기준 · 고유 키워드 ${kwCount.size}종`;
 
     const ranked = [...kwCount.entries()].sort((a, b) => b[1] - a[1]);
     shareBox.innerHTML = '';
@@ -604,6 +711,85 @@ async function renderKeywordsView(cat) {
     }
   }
 
+  // Combo search: works holding ALL typed keywords, and where they sit in the ranking.
+  function runComboSearch(raw) {
+    const terms = (raw || '').split(/[\s,+#]+/).map((t) => t.trim()).filter(Boolean);
+    searchResult.innerHTML = '';
+    if (!terms.length) { searchResult.innerHTML = '<div class="hc-empty">키워드를 입력하세요.</div>'; return; }
+    const listFull = currentFullList;
+    const total = listFull.length;
+    if (!total) { searchResult.innerHTML = '<div class="hc-empty">이 시점 데이터가 없습니다.</div>'; return; }
+    const matches = [];
+    listFull.forEach((item, idx) => {
+      const w = works[item.workId];
+      if (!w || !w.keywords) return;
+      const kset = new Set(w.keywords);
+      if (terms.every((t) => kset.has(t))) {
+        const rank = item.rank || idx + 1;
+        matches.push({ rank, title: item.title || w.title || item.workId, workId: item.workId, pct: (rank / total) * 100 });
+      }
+    });
+    matches.sort((a, b) => a.rank - b.rank);
+    if (!matches.length) {
+      searchResult.innerHTML = `<div class="hc-empty">‘${terms.map((t) => '#' + t).join(' ')}’ 를 모두 가진 작품이 이 범위(TOP ${total})에 없어요.</div>`;
+      return;
+    }
+    const inTop = (p) => matches.filter((m) => m.rank <= total * p).length;
+    const avgRank = Math.round(matches.reduce((s, m) => s + m.rank, 0) / matches.length);
+    const avgPct = (matches.reduce((s, m) => s + m.pct, 0) / matches.length).toFixed(1);
+    const head = document.createElement('div');
+    head.style.cssText = 'font-size:13px;line-height:1.7;margin-bottom:10px;';
+    head.innerHTML =
+      `<b>${terms.map((t) => '#' + t).join(' ')}</b> 조합: <b>${matches.length}개</b> 작품 ` +
+      `(전체 TOP ${total}의 ${((matches.length / total) * 100).toFixed(1)}%)<br>` +
+      `분포 → 상위 10% 내 <b>${inTop(0.1)}</b>개 · 상위 25% 내 <b>${inTop(0.25)}</b>개 · 상위 50% 내 <b>${inTop(0.5)}</b>개<br>` +
+      `평균 순위 <b>${avgRank}위</b> (상위 ${avgPct}%)`;
+    searchResult.appendChild(head);
+    const listEl = document.createElement('div');
+    for (const m of matches.slice(0, 60)) {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;gap:8px;font-size:13px;padding:5px 0;border-top:1px solid var(--border);cursor:pointer;';
+      row.addEventListener('click', () => navigate(`#/work/${cat}/${curPeriod}/${m.workId}`));
+      const r = document.createElement('span');
+      r.style.cssText = 'width:56px;flex-shrink:0;color:var(--text-dim);';
+      r.textContent = `${m.rank}위`;
+      const t = document.createElement('span');
+      t.style.cssText = 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      t.textContent = m.title;
+      const pc = document.createElement('span');
+      pc.style.cssText = 'width:70px;flex-shrink:0;text-align:right;color:var(--text-dim);';
+      pc.textContent = `상위 ${m.pct.toFixed(0)}%`;
+      row.appendChild(r); row.appendChild(t); row.appendChild(pc);
+      listEl.appendChild(row);
+    }
+    if (matches.length > 60) {
+      const more = document.createElement('div');
+      more.style.cssText = 'font-size:12px;color:var(--text-dim);padding-top:6px;';
+      more.textContent = `…외 ${matches.length - 60}개 더`;
+      listEl.appendChild(more);
+    }
+    searchResult.appendChild(listEl);
+  }
+
+  // Excel export: full keyword ratios + co-occurrence + per-work keywords (more than the screen shows).
+  function downloadKeywordExcel() {
+    if (typeof XLSX === 'undefined') { alert('엑셀 라이브러리를 불러오지 못했어요.'); return; }
+    if (!analyzed) { alert('내보낼 키워드 데이터가 없어요.'); return; }
+    const wb = XLSX.utils.book_new();
+    const kwRows = [['키워드', '작품수', '비율(%)']];
+    [...kwCount.entries()].sort((a, b) => b[1] - a[1]).forEach(([k, c]) => kwRows.push([k, c, +((c / analyzed) * 100).toFixed(2)]));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(kwRows), '키워드비중');
+    const coRows = [['키워드A', '키워드B', '함께등장(작품수)']];
+    [...coCount.entries()].filter(([, c]) => c >= 2).sort((a, b) => b[1] - a[1]).forEach(([key, c]) => { const [a, b] = key.split('||'); coRows.push([a, b, c]); });
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(coRows), '동시출현');
+    const workRows = [['순위', '작품명', '작가', '키워드']];
+    analyzedWorks.forEach((w) => workRows.push([w.rank, w.title, w.author, (w.keywords || []).join(', ')]));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(workRows), '작품별키워드');
+    const when = curDate || '최신';
+    XLSX.writeFile(wb, `키워드분석_${cat}_${curGenreLabel}_${curPeriodLabel}_${when}.xlsx`);
+  }
+
+  refreshDateOptions();
   recompute();
 }
 
