@@ -381,26 +381,41 @@ function buildCatTabs(activeCat, hashPrefix) {
   return nav;
 }
 
-// Week-of-month (1-based): days 1-7 → 1st week, 8-14 → 2nd, ...
-function keywordWeekOfMonth(dateStr) {
-  return Math.ceil(parseInt(dateStr.slice(8, 10), 10) / 7);
+function kwYmd(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function kwMD(dateStr) {
+  return `${parseInt(dateStr.slice(5, 7), 10)}/${parseInt(dateStr.slice(8, 10), 10)}`;
+}
+// Monday (week start) of the calendar week containing dateStr.
+function kwMondayOf(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); // getDay: 0=Sun → shift so Mon=0
+  return d;
 }
 // Build {value,label} snapshot options for the keyword date picker, newest first.
-// daily → every date; weekly → one per (month, week-of-month); monthly → one per month.
+// Kakao's weekly/monthly rankings are trailing aggregates, so to see a full
+// Mon–Sun week we use that week's Sunday snapshot (the latest day in the week);
+// for a month we use that month's last available snapshot.
 function buildKeywordDateOptions(dates, period) {
   const sorted = [...dates].sort();
   if (period === 'daily') return sorted.map((d) => ({ value: d, label: d })).reverse();
-  const rep = new Map(); // group key → representative (latest) date in that group
+  const groups = new Map(); // group key → representative (latest, ascending overwrite) date
   for (const d of sorted) {
-    const y = d.slice(0, 4);
-    const m = parseInt(d.slice(5, 7), 10);
-    const key = period === 'weekly' ? `${y}-${m}-${keywordWeekOfMonth(d)}` : `${y}-${m}`;
-    rep.set(key, d);
+    const key = period === 'weekly' ? kwYmd(kwMondayOf(d)) : d.slice(0, 7); // Monday date or YYYY-MM
+    groups.set(key, d);
   }
-  return [...rep.values()].reverse().map((d) => {
-    const m = parseInt(d.slice(5, 7), 10);
-    const label = period === 'weekly' ? `${m}월 ${keywordWeekOfMonth(d)}째주 (${d})` : `${m}월 (${d})`;
-    return { value: d, label };
+  return [...groups.entries()].reverse().map(([key, rep]) => {
+    if (period === 'weekly') {
+      const mon = new Date(key + 'T00:00:00');
+      const sun = new Date(mon);
+      sun.setDate(mon.getDate() + 6);
+      const wk = Math.ceil(mon.getDate() / 7);
+      const sunStr = kwYmd(sun);
+      const note = rep === sunStr ? '' : ` · ${kwMD(rep)}까지`;
+      return { value: rep, label: `${mon.getMonth() + 1}월 ${wk}주 (${kwMD(kwYmd(mon))}~${kwMD(sunStr)})${note}` };
+    }
+    return { value: rep, label: `${parseInt(key.slice(5, 7), 10)}월 (${kwMD(rep)} 기준)` };
   });
 }
 
