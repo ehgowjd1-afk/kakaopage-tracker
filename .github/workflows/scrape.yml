@@ -58,6 +58,8 @@ jobs:
 
       - name: Commit and push updated data
         if: steps.guard.outputs.skip != 'true'
+        env:
+          GIT_EDITOR: 'true'
         run: |
           # Author MUST be the real account, not a bot email: Vercel's deploy
           # protection blocks deploys for commits whose author isn't a team
@@ -65,16 +67,30 @@ jobs:
           # reaches the live site.
           git config user.name "ehgowjd1-afk"
           git config user.email "ehgowjd1@gmail.com"
+          # Commit message uses the KST date, matching the snapshot file names.
+          MSG="chore: daily ranking data $(TZ=Asia/Seoul date +%Y-%m-%d)"
           git add docs/data
           git diff --cached --quiet && echo "No data changes" && exit 0
-          git commit -m "chore: daily ranking data $(date -u +%Y-%m-%d)"
-          # Re-sync before pushing in case anything else landed on master
-          # while the (long) scrape was running, so the push can't be rejected.
-          for i in 1 2 3; do
-            git pull --rebase origin master && git push && break
+          git commit -m "$MSG"
+          # Re-sync before pushing. index.json is fully derived from the data
+          # files, so if it conflicts (e.g. another writer landed a different
+          # day) we take the remote copy and rebuild it from the union of files
+          # instead of letting a text conflict block the push.
+          for i in 1 2 3 4 5; do
+            git fetch origin master
+            git merge -X theirs --no-edit origin/master || {
+              git checkout --theirs -- docs/data 2>/dev/null || true
+              git add docs/data
+              git commit --no-edit || true
+            }
+            node scripts/write-index.mjs
+            git add docs/data/index.json
+            git diff --cached --quiet || git commit -m "chore: rebuild index"
+            if git push origin master; then echo "pushed"; exit 0; fi
             echo "push attempt $i failed, retrying..."
             sleep 5
           done
+          echo "push failed after retries"; exit 1
 
       - name: Trigger Vercel deploy
         if: ${{ steps.guard.outputs.skip != 'true' && env.HOOK != '' }}
