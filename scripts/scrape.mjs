@@ -47,6 +47,25 @@ async function saveJson(filePath, data) {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 }
 
+// Slim companion of works.json for the front-end's broad views (ranking list,
+// keyword analysis, search, memos). Drops the huge synopsis/comment fields
+// (~90% of the size) and is minified, so those views transfer ~0.4MB instead of
+// ~12MB. The full works.json is only fetched on a single work's detail page.
+const WORKS_LITE_FIELDS = [
+  'title', 'author', 'classification', 'keywords', 'viewCount', 'rating',
+  'launchDate', 'serialStatus', 'isCompleted', 'publisher', 'ageRatingDetail',
+  'sameWorkVersions', 'totalCommentText',
+];
+async function writeWorksLite(cache) {
+  const lite = {};
+  for (const [id, o] of Object.entries(cache)) {
+    const s = {};
+    for (const k of WORKS_LITE_FIELDS) if (o[k] !== undefined && o[k] !== null) s[k] = o[k];
+    lite[id] = s;
+  }
+  await fs.writeFile(path.join(DATA_DIR, 'works-lite.json'), JSON.stringify(lite), 'utf-8');
+}
+
 async function loadJson(filePath, fallback) {
   try {
     const text = await fs.readFile(filePath, 'utf-8');
@@ -272,6 +291,7 @@ async function main() {
     await sleep(1500 + Math.random() * 1500);
   }
   await saveJson(cachePath, cache);
+  await writeWorksLite(cache);
   await writeIndex();
 
   await browser.close();

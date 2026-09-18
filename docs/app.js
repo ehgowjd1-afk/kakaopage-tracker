@@ -53,6 +53,18 @@ async function getWorksCache() {
   return worksCache;
 }
 
+// Lightweight work metadata (author/keywords/classification/viewCount…) WITHOUT
+// the heavy synopsis + comment fields. Used by every broad view (ranking list,
+// keyword analysis, search, memos) so they don't pull the ~48MB full works.json
+// (~12MB gzipped) just to show an author name. Falls back to the full file.
+let worksLiteCache = null;
+async function getWorksLite() {
+  if (worksLiteCache) return worksLiteCache;
+  const lite = await fetchJson('data/works-lite.json').catch(() => null);
+  worksLiteCache = lite || (await getWorksCache());
+  return worksLiteCache;
+}
+
 async function getPromotions() {
   if (!promotionsCache) promotionsCache = await fetchJson('data/promotions.json').catch(() => ({}));
   return promotionsCache;
@@ -276,7 +288,7 @@ async function renderMemosView() {
     return;
   }
 
-  const works = await getWorksCache();
+  const works = await getWorksLite();
   const list = document.createElement('div');
   for (const m of memos) {
     const meta = works[m.workId] || {};
@@ -427,7 +439,7 @@ async function renderKeywordsView(cat) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  const [works, index] = await Promise.all([getWorksCache(), getIndex()]);
+  const [works, index] = await Promise.all([getWorksLite(), getIndex()]);
 
   let curGenre = 'all';
   let curPeriod = 'daily';
@@ -1098,7 +1110,7 @@ async function renderListView(cat, period, genre = 'all') {
   const isGenre = genre !== 'all';
   const dataPath = isGenre ? `${cat}/genres/${genre}/${period}` : `${cat}/${period}`;
 
-  const [index, works] = await Promise.all([getIndex(), getWorksCache()]);
+  const [index, works] = await Promise.all([getIndex(), getWorksLite()]);
   const dates = isGenre
     ? (index.genres?.[cat]?.[genre]?.[period]) || []
     : (index[cat] && index[cat][period]) || [];
@@ -2009,7 +2021,7 @@ function setupSearch() {
 }
 
 async function runSearch(query) {
-  const [all, works] = await Promise.all([getAllLatest(), getWorksCache()]);
+  const [all, works] = await Promise.all([getAllLatest(), getWorksLite()]);
   const q = query.toLowerCase();
   const seen = new Map();
   for (const [key, list] of Object.entries(all)) {
