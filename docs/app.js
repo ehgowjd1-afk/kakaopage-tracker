@@ -677,7 +677,7 @@ async function renderKeywordsView(cat) {
       const barWrap = document.createElement('div');
       barWrap.style.cssText = 'flex:1;background:var(--bg);border-radius:6px;overflow:hidden;height:18px;';
       const bar = document.createElement('div');
-      bar.style.cssText = `width:${(count / maxCount) * 100}%;background:var(--accent);height:100%;`;
+      bar.style.cssText = `width:${(count / maxCount) * 100}%;background:var(--spark);height:100%;`;
       barWrap.appendChild(bar);
       const val = document.createElement('div');
       val.style.cssText = 'width:90px;flex-shrink:0;text-align:right;color:var(--text-dim);';
@@ -1437,7 +1437,7 @@ function buildGenreDistribution(items) {
     const barWrap = document.createElement('div');
     barWrap.style.cssText = 'flex:1;background:var(--bg);border-radius:6px;overflow:hidden;height:16px;';
     const bar = document.createElement('div');
-    bar.style.cssText = `width:${pct}%;background:var(--accent);height:100%;`;
+    bar.style.cssText = `width:${pct}%;background:var(--spark);height:100%;`;
     barWrap.appendChild(bar);
     const value = document.createElement('div');
     value.style.cssText = 'width:84px;flex-shrink:0;text-align:right;color:var(--text-dim);';
