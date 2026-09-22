@@ -336,7 +336,7 @@ function buildPromotionsBox(promos) {
     if (p.link) {
       const go = document.createElement('span');
       go.textContent = '바로가기 ›';
-      go.style.cssText = 'color:var(--accent);font-size:12px;flex-shrink:0;';
+      go.style.cssText = 'color:var(--accent-ink);font-size:12px;flex-shrink:0;';
       row.appendChild(go);
     }
     box.appendChild(row);
@@ -582,7 +582,7 @@ async function renderKeywordsView(cat) {
   const searchBtn = document.createElement('button');
   searchBtn.textContent = '검색';
   searchBtn.style.cssText =
-    'padding:8px 18px;border-radius:999px;border:none;background:var(--accent);color:#fff;font-size:13px;cursor:pointer;';
+    'padding:8px 18px;border-radius:999px;border:none;background:var(--accent);color:var(--on-accent);font-size:13px;cursor:pointer;font-weight:600;';
   const searchResult = document.createElement('div');
   const doSearch = () => runComboSearch(searchInput.value);
   searchBtn.addEventListener('click', doSearch);
@@ -1644,7 +1644,7 @@ async function renderWorkView(cat, period, workId) {
     const link = document.createElement('a');
     link.textContent = novelSource.title;
     link.href = `#/work/webnovel/daily/${novelSource.workId}`;
-    link.style.cssText = 'color:var(--accent);text-decoration:underline;';
+    link.style.cssText = 'color:var(--accent-ink);text-decoration:underline;';
     line.appendChild(link);
     infoDiv.appendChild(line);
   }
@@ -1937,7 +1937,7 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
   const path = document.createElementNS(svgNS, 'path');
   path.setAttribute('d', pathD);
   path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', 'var(--accent)');
+  path.setAttribute('stroke', 'var(--accent-ink)');
   path.setAttribute('stroke-width', '2');
   svg.appendChild(path);
 
@@ -1947,7 +1947,7 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
     c.setAttribute('cx', d.x);
     c.setAttribute('cy', d.y);
     c.setAttribute('r', 3);
-    c.setAttribute('fill', 'var(--accent)');
+    c.setAttribute('fill', 'var(--accent-ink)');
     const title = document.createElementNS(svgNS, 'title');
     title.textContent = `${d.pt.date}: ${formatValue(d.pt[valueKey])}`;
     c.appendChild(title);
@@ -1960,7 +1960,7 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
       label.setAttribute('y', above ? d.y - 8 : d.y + 16);
       label.setAttribute('font-size', '11');
       label.setAttribute('font-weight', '600');
-      label.setAttribute('fill', 'var(--accent)');
+      label.setAttribute('fill', 'var(--accent-ink)');
       label.setAttribute('text-anchor', 'middle');
       label.textContent = formatValue(d.pt[valueKey]);
       svg.appendChild(label);
@@ -2076,7 +2076,7 @@ async function runSearch(query) {
   kakaoLink.href = `https://page.kakao.com/search?query=${encodeURIComponent(query)}`;
   kakaoLink.target = '_blank';
   kakaoLink.rel = 'noopener noreferrer';
-  kakaoLink.style.cssText = 'color:var(--accent);justify-content:center;font-weight:600;';
+  kakaoLink.style.cssText = 'color:var(--accent-ink);justify-content:center;font-weight:600;';
   kakaoLink.textContent = `🔍 카카오페이지에서 "${query}" 검색하기`;
   searchResults.appendChild(kakaoLink);
 

@@ -6,9 +6,11 @@
   --text-dim: #6b7280;
   --border: #e7e9ee;
   --border-strong: #d6d9e0;
-  --accent: #5b4be6;
-  --accent-2: #7c6ff0;
-  --accent-soft: #edeafd;
+  --accent: #ffcc00;
+  --accent-2: #ffb300;
+  --accent-soft: #fff4cc;
+  --accent-ink: #8a6a00;
+  --on-accent: #191600;
   --up: #f0334a;
   --down: #2b8bff;
   --same: #9aa0a8;
@@ -29,9 +31,11 @@
     --text-dim: #9096a2;
     --border: #262932;
     --border-strong: #333744;
-    --accent: #8f85ff;
-    --accent-2: #a99fff;
-    --accent-soft: #262250;
+    --accent: #ffcc00;
+    --accent-2: #ffb300;
+    --accent-soft: #3a3410;
+    --accent-ink: #ffcc00;
+    --on-accent: #191600;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.35);
     --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5);
   }
@@ -84,7 +88,7 @@ header.top {
   height: 30px;
   border-radius: 8px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 800;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -114,7 +118,7 @@ header.top {
 .site-nav button:hover { color: var(--text); }
 .site-nav button.active {
   background: var(--card-bg);
-  color: var(--accent);
+  color: var(--accent-ink);
   box-shadow: var(--shadow);
 }
 
@@ -191,7 +195,7 @@ nav.tabs {
 .tabgroup button.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 .updated-note { font-size: 12.5px; color: var(--text-dim); margin-bottom: 14px; }
@@ -219,7 +223,7 @@ nav.tabs {
 .highlight-card h3 { font-size: 12.5px; margin: 0 0 10px; color: var(--text-dim); font-weight: 700; letter-spacing: 0.2px; }
 .highlight-card .hc-item { display: flex; justify-content: space-between; gap: 6px; font-size: 12.5px; padding: 3px 0; }
 .highlight-card .hc-item .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.highlight-card .hc-item span:last-child { color: var(--accent); font-weight: 600; flex-shrink: 0; }
+.highlight-card .hc-item span:last-child { color: var(--accent-ink); font-weight: 600; flex-shrink: 0; }
 .highlight-card .hc-empty { font-size: 12px; color: var(--text-dim); }
 
 /* ---------- Panels / cards ---------- */
@@ -247,7 +251,7 @@ ol.rank-list { list-style: none; margin: 0; padding: 0; }
   transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
 }
 .rank-row:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateX(2px); }
-.rank-num { width: 30px; text-align: center; font-weight: 800; font-size: 15px; flex-shrink: 0; color: var(--accent); }
+.rank-num { width: 30px; text-align: center; font-weight: 800; font-size: 15px; flex-shrink: 0; color: var(--accent-ink); }
 .rank-thumb { width: 44px; height: 62px; object-fit: cover; border-radius: 7px; background: var(--border); flex-shrink: 0; }
 .rank-info { flex: 1; min-width: 0; }
 .rank-title { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -273,7 +277,7 @@ ol.rank-list { list-style: none; margin: 0; padding: 0; }
 .work-header h2 { margin: 0 0 8px; font-size: 19px; }
 .work-meta { font-size: 13px; color: var(--text-dim); margin: 2px 0; }
 .work-keywords { margin-top: 9px; }
-.work-keywords span { display: inline-block; font-size: 11px; background: var(--accent-soft); color: var(--accent); padding: 3px 9px; border-radius: 999px; margin: 3px 4px 0 0; font-weight: 600; }
+.work-keywords span { display: inline-block; font-size: 11px; background: var(--accent-soft); color: var(--accent-ink); padding: 3px 9px; border-radius: 999px; margin: 3px 4px 0 0; font-weight: 600; }
 .work-synopsis { white-space: pre-wrap; font-size: 13px; color: var(--text-dim); margin-top: 12px; max-height: 110px; overflow-y: auto; }
 
 /* current-rank summary */
@@ -287,7 +291,7 @@ ol.rank-list { list-style: none; margin: 0; padding: 0; }
 
 .chart-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
 button.dl-btn {
-  border: 1px solid var(--accent); background: var(--accent); color: #fff;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent);
   padding: 7px 14px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; cursor: pointer;
 }
 button.dl-btn:hover { filter: brightness(1.05); }
@@ -312,7 +316,7 @@ button.dl-btn:hover { filter: brightness(1.05); }
 .event-card img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--border); display: block; }
 .event-meta { padding: 10px 12px; }
 .event-title { font-size: 13px; font-weight: 700; line-height: 1.4; }
-.event-sub { font-size: 12px; color: var(--accent); margin-top: 4px; font-weight: 600; }
+.event-sub { font-size: 12px; color: var(--accent-ink); margin-top: 4px; font-weight: 600; }
 .event-card.event-ended { opacity: 0.7; }
 .event-card.event-ended img { filter: grayscale(0.6); }
 .event-badge {
