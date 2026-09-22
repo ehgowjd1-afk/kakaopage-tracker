@@ -6,11 +6,12 @@
   --text-dim: #6b7280;
   --border: #e7e9ee;
   --border-strong: #d6d9e0;
-  --accent: #ffcc00;
-  --accent-2: #ffb300;
-  --accent-soft: #fff4cc;
-  --accent-ink: #8a6a00;
-  --on-accent: #191600;
+  --accent: #17171c;
+  --accent-2: #34343c;
+  --accent-soft: #f0f0f3;
+  --accent-ink: #17171c;
+  --on-accent: #ffffff;
+  --spark: #ffcc00;
   --up: #f0334a;
   --down: #2b8bff;
   --same: #9aa0a8;
@@ -31,11 +32,12 @@
     --text-dim: #9096a2;
     --border: #262932;
     --border-strong: #333744;
-    --accent: #ffcc00;
-    --accent-2: #ffb300;
-    --accent-soft: #3a3410;
-    --accent-ink: #ffcc00;
-    --on-accent: #191600;
+    --accent: #f2f3f5;
+    --accent-2: #d8dade;
+    --accent-soft: #23262e;
+    --accent-ink: #f2f3f5;
+    --on-accent: #17171c;
+    --spark: #ffcc00;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.35);
     --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5);
   }
@@ -87,8 +89,8 @@ header.top {
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: var(--on-accent);
+  background: var(--spark);
+  color: #17171c;
   font-weight: 800;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -134,7 +136,7 @@ header.top {
   outline: none;
   transition: border-color 0.12s, box-shadow 0.12s;
 }
-#search-box:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+#search-box:focus { border-color: var(--spark); box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.3); }
 
 #search-results {
   position: absolute;
