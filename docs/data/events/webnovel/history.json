@@ -1,12 +1,579 @@
 [
   {
+    "bannerUid": "213438",
+    "title": "[이달의 신작] 다시 쓰는 결혼 계약서",
+    "subtitle": "선공개 바로 보기>",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btiDWG/dJMcafO8O1Q/UxKdh5ohGww1YIyavkzYr0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7e40c3ef7dfab57258e9becf8ae354fc",
+    "firstSeen": "2026-09-26",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "213270",
+    "title": "스페셜 오픈런 최대 5천캐시 선물",
+    "subtitle": "전원 캐시 선물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kBBKC/dJMcagUGRVY/HVBeh94rl98sKD6KTkDYz0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=fe5ab6eb0ff2ac528ee0b30400db1d99",
+    "firstSeen": "2026-09-26",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212700",
+    "title": "믿을 수 없게도 악녀의 오빠가 되었다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=daAj3g/dJMcafg87iu/dd48LntSkTlViMJbkYhnqK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7aa3c9106396cfa1c6cbba44fea4e7d4",
+    "firstSeen": "2026-09-26",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "213103",
+    "title": "천재 아역 배우는 아빠를 찾고 싶어!",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HQyPj/dJMcairlHOJ/1NI3IXMf6GIWaykmILgqok&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19024/",
+    "firstSeen": "2026-09-26",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212976",
+    "title": "카카오페이지 금주의 루키 신작",
+    "subtitle": "최대 1만 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bVYVQ4/dJMcajjBon6/uGJo7KmxjDpj1uqKwEeZyK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=15361a61c667c29e76f11e16b46f8813",
+    "firstSeen": "2026-09-26",
+    "lastSeen": "2026-09-26"
+  },
+  {
     "bannerUid": "212698",
     "title": "YES or YES",
     "subtitle": "웹툰 원작 골라보기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YRxJE/dJMcai5RLk1/nU4ROs8EQPzKy4pLbnMPzk&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=a3a310080a0b005a043648b9eedd72f0",
     "firstSeen": "2026-09-25",
-    "lastSeen": "2026-09-25"
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212560",
+    "title": "저승식당",
+    "subtitle": "외전 3부 연재!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cfWGas/dJMcac5JuGM/WwZDjK5qgXidhVxjAqgBl0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18993/",
+    "firstSeen": "2026-09-25",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212943",
+    "title": "위장 취업에 성공한 독,한 왕녀입니다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dsw5LS/dJMcaaUosw2/MQoTjN0UKVSukqo9r3d3K0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19021/",
+    "firstSeen": "2026-09-25",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212941",
+    "title": "영혼을 수확하는 인형술사",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sp5Oy/dJMcahMIFLT/kAcoDQZAHikbhUQoxgJyJk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19022/",
+    "firstSeen": "2026-09-25",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212967",
+    "title": "인기 단행본, 세트 할인가로 만나요",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNaVg4/dJMcabyYgE2/ePS9wK5nOakZlAjXB92sOK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=f699843131f69e916dec720bf14599a1",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212065",
+    "title": "로맨스 스테디 완결작",
+    "subtitle": "매일 50화 무료!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b46BXZ/dJMcagNWFud/lZxklBpDA0U3dfkZVEobRK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=fda4ccbe18393517482f8edad505b05e",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211881",
+    "title": "<사천당가의 시비로 살아남기> Molae 작가 초신작!",
+    "subtitle": "선공개 보러가기>",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DTEZb/dJMcackhUc0/LFkQpc7uUNnqvrGD7Zr3Tk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=38daf2d9e59934cd48662b3ebdc74241",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212489",
+    "title": "사천당가의 시비로 살아남기",
+    "subtitle": "외전 컴백 기념!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=795mT/dJMb99VrYZx/1liRKmphkfkBGtx1gnGI4K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=915081c434897944e538849c430df92a",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212717",
+    "title": "너는 그냥 당하면 돼",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=l5xQE/dJMcahFW65R/ZKikmwRegFUcHaElVUKtmK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7edef393271b542645858d8e3698e4e1",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212821",
+    "title": "연애 카운팅, 상태창을 열람하시겠습니까?",
+    "subtitle": "특별 외전 열람!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oU0yQ/dJMb992jdVY/UDF2wz19Ba7uNRBUtCtK8K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4a4a3316c1dc1d9902d98b1d439b4d63",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212476",
+    "title": "뱀 가문의 막내딸입니다",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b3K4jW/dJMcab0b7G1/SBKHx8gaQ6EqKHFU1OIhB1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18974/",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212057",
+    "title": "카카오페이지 9월의 명작",
+    "subtitle": "감상만 해도 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UIP8n/dJMcaaGWNMw/uNL10oSX9jtIikC0QuYL3K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=f05330783b3d3fd4937d3fe07b4673c0",
+    "firstSeen": "2026-09-24",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212696",
+    "title": "독자의 선택",
+    "subtitle": "최대 1천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNI5jb/dJMcab0cou1/VWHP3pBPikXMUGs0CVZN9K&filename=th3",
+    "link": "https://page.kakao.com/landing/series/poster/page/landing/19006/",
+    "firstSeen": "2026-09-23",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212819",
+    "title": "슈퍼 루키 론칭! 아빠 몰래 북부대공을...?",
+    "subtitle": "전원 캐시 선물🔥",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9pjL7/dJMcaf2pwN3/wu1wU4NpiNIIzCdnl08WMK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=0e924adbb675cea84df4f3ac7cf1cb99",
+    "firstSeen": "2026-09-23",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212715",
+    "title": "또 봐도 또 봐도 무료!",
+    "subtitle": "또또또 무료로 보자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UnlHC/dJMcagNZp2A/TkuGqXOOtAV2EaX7MpQQk0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19008/",
+    "firstSeen": "2026-09-23",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212694",
+    "title": "북부 전선의 미친 창잡이",
+    "subtitle": "500화 돌파!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Fy2Va/dJMcad4AXDq/CXhkRYzEizT07gIuQpfDS1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19005/",
+    "firstSeen": "2026-09-23",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212491",
+    "title": "아빠 몰래 북부대공을 농부로 키우면",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AMuCB/dJMcacdzTAZ/9VcK8raPAChLREvJh2n13k&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18984/",
+    "firstSeen": "2026-09-23",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212564",
+    "title": "추석 특집! 로판 몰아보기",
+    "subtitle": "연참+외전+3다무",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kuc8t/dJMcadcojcl/F3VZsgL2oJHkYAb2Ue2MY0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=3c13effdc1e04a84c79a5a8186e11ce9",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212312",
+    "title": "러브 캠프",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=h0HzT/dJMcagAheyA/K79WwuEkYvpIzuY5m7Wupk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18963/",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212310",
+    "title": "그림자만 밟았는데 스킬이 막 복사됨",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bDogj4/dJMcadp0IcM/GVcwFILirOMkIKs1brPJQ0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18962/",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211932",
+    "title": "십룡쟁패",
+    "subtitle": "500화 돌파!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mx8Gb/dJMcaiLxWIP/ZcpBUy73k5h5zFJJcqfxG0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18937/",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212459",
+    "title": "숲속 작은 집 창가에",
+    "subtitle": "또또또 무료로 보자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XHVoT/dJMcagtwMsn/wVbKWWlgDfboFKTk1N0at0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=b196ae71c6b92c7d16b9bf88017ddb5c",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212474",
+    "title": "BL소설 Top-Tier",
+    "subtitle": "모아 보기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kvJAi/dJMcaiSuMJE/9ETQyagmJsJtN2v479QLIK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/card/page/landing/18973/",
+    "firstSeen": "2026-09-22",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212143",
+    "title": "늑대가 물어온 19금 선물!?💥",
+    "subtitle": "매일 최대 2천캐시",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cDza7Q/dJMcag1em40/mKqwkByRArgI0E8yus5wQk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=57dbb4886d7e14f13181898c60b4fe6f",
+    "firstSeen": "2026-09-21",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211930",
+    "title": "꼭 봐야할 무협 모으는 계정",
+    "subtitle": "인생 무협 추천!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dIpwpq/dJMcaaGWwdh/iMoCGorq44anjp8mJMKSUK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=25a94ad94556be455c237966d67fb252",
+    "firstSeen": "2026-09-21",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211822",
+    "title": "실례지만 여의주 좀 주워주세용",
+    "subtitle": "인기작 보면 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cuB3B/dJMcad4xJvJ/oSy68KltkkvUrNibODeWE1&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=40ea2dcb03169c621766f5e6f18599b1",
+    "firstSeen": "2026-09-21",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212300",
+    "title": "불사신의 주치의가 내과의사임",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bohpZo/dJMcaaUk9wH/XbCW5kRFjwdZM87ufvTI4k&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18958/",
+    "firstSeen": "2026-09-21",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211924",
+    "title": "불멸자들",
+    "subtitle": "트리플 콤보!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pn2Hu/dJMcag1dKb3/NtdKu1HQZ70Pct3mZXZ0y0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4fcf58b0193164b4005a2fed540aa334",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211879",
+    "title": "[초신작] 선공개 OPEN 기념, 전원캐시 선물",
+    "subtitle": "Painkiller",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lpjC0/dJMcafuy9SL/5aHmTsAJ0YWIyR4Yx2PFk0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=48a95fe90842dbb7fe826b107c2e5250",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211538",
+    "title": "어린 아내가 생겼다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMlT6z/dJMcagG8A4D/pKYqxRZIU7NxpU1HCL2VP1&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=8a2e980cfdda4a572ddde968fa19750c",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "212175",
+    "title": "커피만 타는데 너무 강함",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b3bPnH/dJMcabyUTLL/nqcRUvqqloA0hPvpoga5U1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18957/",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211536",
+    "title": "로판 완전판 더블 티켓",
+    "subtitle": "외전+대여권까지!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sBqSk/dJMcahlJKrO/C87cNeEB4ncNaVyvqImyB1&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=67b390a08021b956abfd19e60b0922c2",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211920",
+    "title": "눈을 떴더니 사장님과 신혼여행 중이다",
+    "subtitle": "외전+단행본 독점",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dTva0/dJMcahzbXxe/jw7g2n9Jn6mtrD4aoYjGa1&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=3fdfb4ac591e02e69c58053d9f7c5dac",
+    "firstSeen": "2026-09-20",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211728",
+    "title": "인기 단행본, 세트 할인가로 만나요",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bnzRIg/dJMcafVJFuw/5fC6PMkdhrEluqwHkkqPR1&filename=th3",
+    "link": "https://page.kakao.com/landing/set/poster/page/landing/18920/",
+    "firstSeen": "2026-09-19",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211936",
+    "title": "초월급 금손 대장장이의 귀환",
+    "subtitle": "2부 론칭 이벤트!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cZ0qXN/dJMcafuzXsn/0F3VWqXTT36Juw6cCLW3vK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18938/",
+    "firstSeen": "2026-09-19",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211938",
+    "title": "후계자는 모르겠고 힐링이나 하렵니다",
+    "subtitle": "500화 돌파!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TqbGP/dJMcabsbVZC/nDwV0mjFlZV5qvYGotLZL1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18939/",
+    "firstSeen": "2026-09-19",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211695",
+    "title": "너의 윙맨에게",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdImOm/dJMcadpX3fA/bynP2AjqFf9H3g5U9afv70&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=1a5e3ba4f5a2cb13d8982a2631b3bd5a",
+    "firstSeen": "2026-09-19",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211319",
+    "title": "여주가 다 해 먹음",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c6StQv/dJMcaiLuMFF/l9FdVjMufg3CuHeZqZklOK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18884/",
+    "firstSeen": "2026-09-18",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211532",
+    "title": "들숨에 재력이, 날숨에 행운이",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dlcSlc/dJMcadKc1nz/CNqRHdf8kJJcqAwYepnnG0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18897/",
+    "firstSeen": "2026-09-18",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211518",
+    "title": "재해를 먹는 마법사",
+    "subtitle": "2부 복귀 이벤트!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dqYg27/dJMcafBlgHu/tjfBcxP6bVhw9RpEAV79c0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18896/",
+    "firstSeen": "2026-09-17",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211324",
+    "title": "힐링 무협전",
+    "subtitle": "작품보면 캐시 선물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5gWBP/dJMcacYUbnJ/ukrkgLUmc28iIqyZyLJ6kk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=696f50bd4d02142d74af7bd2f6a741d1",
+    "firstSeen": "2026-09-17",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211328",
+    "title": "회귀한 EX급 무신은 천살성 헌터가 되기로 했다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=0IRBj/dJMcadXQEyS/NQJ3wh5Ii71AZiRnYGk0ck&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18887/",
+    "firstSeen": "2026-09-16",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210604",
+    "title": "소심하고 쩨쩨하게",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9S8AU/dJMcac5AOlI/RkcnkUzzU45gp12r5DSS5K&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18836/",
+    "firstSeen": "2026-09-16",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211238",
+    "title": "혼돈단신",
+    "subtitle": "1500화 돌파!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dIPuMC/dJMcacEJb2K/odBOEh9K6WE7LhaKl4PKm1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18875/",
+    "firstSeen": "2026-09-16",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "211128",
+    "title": "내가 죽인 최애와 데뷔합니다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cE6Pb8/dJMcafuvMUY/661TkzwarUXIss034TgNOK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18862/",
+    "firstSeen": "2026-09-15",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210590",
+    "title": "<영애먹살> 밀리언페이지 달성!",
+    "subtitle": "최대 1만 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bP6nON/dJMcagG3hHl/HmMepbVZ6DDirUbsLlvJmk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=9ba19d30fad6187178802d673d892a33",
+    "firstSeen": "2026-09-14",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210571",
+    "title": "오늘만 무료!+최대 5천캐시 선물",
+    "subtitle": "유인 작가전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2TQaU/dJMb99Vjl3I/k65c60sTg3nlNwQwVSDrMK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=5a3270e75b8c84c7b11ceb83527fe940",
+    "firstSeen": "2026-09-14",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210778",
+    "title": "제국 총사령관이 돌아왔다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zEP8S/dJMb998Q3lM/jlefAnKkiKFkgtdxxZecok&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18842/",
+    "firstSeen": "2026-09-14",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210351",
+    "title": "광음지외",
+    "subtitle": "1000화 이벤트!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nkLad/dJMcacRWE6F/bHm9sYzTwWnrwEG9j4zx1k&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/18810/",
+    "firstSeen": "2026-09-13",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210586",
+    "title": "인기 단행본, 세트 할인가로 만나요",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdac9u/dJMcabZ2ekI/yCZjwslWvPhWieyZq2lMT0&filename=th3",
+    "link": "https://page.kakao.com/landing/set/poster/page/landing/18828/",
+    "firstSeen": "2026-09-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "210054",
+    "title": "인기 단행본, 세트 할인가로 만나요",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIEWtg/dJMcahMwc14/U1l1Fv9XCLGgkzdAKdH10k&filename=th3",
+    "link": "https://page.kakao.com/landing/set/poster/page/landing/18789/",
+    "firstSeen": "2026-09-09",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "207317",
+    "title": "9월 초신작 전원 캐시 선물!",
+    "subtitle": "라인업 보러가기>",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIScVF/dJMcaiEwufF/VCUzZ8qY6mxT9ZjRAhKfW0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=69ac8164ad67328b93acf4b034677c13",
+    "firstSeen": "2026-09-02",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "208642",
+    "title": "페이지 명작관 9월의 스탬프 투어!",
+    "subtitle": "감상하면 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vCoKN/dJMcaf16W8d/yVbh8zZMjyPPrm1VjE9g31&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4a972f82d6babf80fcfec983e687f891",
+    "firstSeen": "2026-09-01",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "203186",
+    "title": "[FREE] 오늘의 무료회차 증량작 확인해보세요!",
+    "subtitle": "무료 감상하기>",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMceOg/dJMcagl5dC8/4xM0533zYBJJ2DyRRcNAp0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=fc007c33f6436fbfc557d37d1f7f08d3",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "186390",
+    "title": "❤️로캣단 작품 몰아보기❤️",
+    "subtitle": null,
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RUNAe/dJMcadPiO8S/ixx0RxiXBPP3kUlJRLFilk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=8699a442f7b4b49fa1431e8bd42f5a14",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "168249",
+    "title": "카카오페이지 초신작",
+    "subtitle": "초신작 모아보기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=glckv/dJMcaiEC72h/PKnulvR0dZNKb30EIV9npK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/16064/",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "167698",
+    "title": "[1분 컷] 월, 일, 시, 분이 겹칠 때 모두에게 캐시선물",
+    "subtitle": "지금 확인하기 >",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wuazj/dJMcaiovixx/vmmwOVjUxOzHhRbyOleYD0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=dddecf3f29a5c6c98b7829f61d17e1c4",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "155117",
+    "title": "페이지 루키즈",
+    "subtitle": null,
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KoyvI/dJMcahW1SKF/x0C73ivkwsNiUgw0G5vJDK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=89984d8fe7ba088c37facc4abce26fac",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
+  },
+  {
+    "bannerUid": "168247",
+    "title": "초신작, 작가 마지막검사",
+    "subtitle": null,
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bJs410/dJMcafOYY7y/rz9gfbgEIflbrHls9viFAK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/card/page/landing/16061/",
+    "firstSeen": "2026-08-12",
+    "lastSeen": "2026-09-26"
   },
   {
     "bannerUid": "212891",
@@ -27,308 +594,11 @@
     "lastSeen": "2026-09-25"
   },
   {
-    "bannerUid": "212560",
-    "title": "저승식당",
-    "subtitle": "외전 3부 연재!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cfWGas/dJMcac5JuGM/WwZDjK5qgXidhVxjAqgBl0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18993/",
-    "firstSeen": "2026-09-25",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212943",
-    "title": "위장 취업에 성공한 독,한 왕녀입니다",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dsw5LS/dJMcaaUosw2/MQoTjN0UKVSukqo9r3d3K0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19021/",
-    "firstSeen": "2026-09-25",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212941",
-    "title": "영혼을 수확하는 인형술사",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sp5Oy/dJMcahMIFLT/kAcoDQZAHikbhUQoxgJyJk&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19022/",
-    "firstSeen": "2026-09-25",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212967",
-    "title": "인기 단행본, 세트 할인가로 만나요",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNaVg4/dJMcabyYgE2/ePS9wK5nOakZlAjXB92sOK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=f699843131f69e916dec720bf14599a1",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212065",
-    "title": "로맨스 스테디 완결작",
-    "subtitle": "매일 50화 무료!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b46BXZ/dJMcagNWFud/lZxklBpDA0U3dfkZVEobRK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=fda4ccbe18393517482f8edad505b05e",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211881",
-    "title": "<사천당가의 시비로 살아남기> Molae 작가 초신작!",
-    "subtitle": "선공개 보러가기>",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DTEZb/dJMcackhUc0/LFkQpc7uUNnqvrGD7Zr3Tk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=38daf2d9e59934cd48662b3ebdc74241",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212489",
-    "title": "사천당가의 시비로 살아남기",
-    "subtitle": "외전 컴백 기념!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=795mT/dJMb99VrYZx/1liRKmphkfkBGtx1gnGI4K&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=915081c434897944e538849c430df92a",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212717",
-    "title": "너는 그냥 당하면 돼",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=l5xQE/dJMcahFW65R/ZKikmwRegFUcHaElVUKtmK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7edef393271b542645858d8e3698e4e1",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212821",
-    "title": "연애 카운팅, 상태창을 열람하시겠습니까?",
-    "subtitle": "특별 외전 열람!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oU0yQ/dJMb992jdVY/UDF2wz19Ba7uNRBUtCtK8K&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4a4a3316c1dc1d9902d98b1d439b4d63",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212476",
-    "title": "뱀 가문의 막내딸입니다",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b3K4jW/dJMcab0b7G1/SBKHx8gaQ6EqKHFU1OIhB1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18974/",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212057",
-    "title": "카카오페이지 9월의 명작",
-    "subtitle": "감상만 해도 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UIP8n/dJMcaaGWNMw/uNL10oSX9jtIikC0QuYL3K&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=f05330783b3d3fd4937d3fe07b4673c0",
-    "firstSeen": "2026-09-24",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212696",
-    "title": "독자의 선택",
-    "subtitle": "최대 1천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNI5jb/dJMcab0cou1/VWHP3pBPikXMUGs0CVZN9K&filename=th3",
-    "link": "https://page.kakao.com/landing/series/poster/page/landing/19006/",
-    "firstSeen": "2026-09-23",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212819",
-    "title": "슈퍼 루키 론칭! 아빠 몰래 북부대공을...?",
-    "subtitle": "전원 캐시 선물🔥",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9pjL7/dJMcaf2pwN3/wu1wU4NpiNIIzCdnl08WMK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=0e924adbb675cea84df4f3ac7cf1cb99",
-    "firstSeen": "2026-09-23",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212715",
-    "title": "또 봐도 또 봐도 무료!",
-    "subtitle": "또또또 무료로 보자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UnlHC/dJMcagNZp2A/TkuGqXOOtAV2EaX7MpQQk0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19008/",
-    "firstSeen": "2026-09-23",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212694",
-    "title": "북부 전선의 미친 창잡이",
-    "subtitle": "500화 돌파!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Fy2Va/dJMcad4AXDq/CXhkRYzEizT07gIuQpfDS1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19005/",
-    "firstSeen": "2026-09-23",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212491",
-    "title": "아빠 몰래 북부대공을 농부로 키우면",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AMuCB/dJMcacdzTAZ/9VcK8raPAChLREvJh2n13k&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18984/",
-    "firstSeen": "2026-09-23",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212564",
-    "title": "추석 특집! 로판 몰아보기",
-    "subtitle": "연참+외전+3다무",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kuc8t/dJMcadcojcl/F3VZsgL2oJHkYAb2Ue2MY0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=3c13effdc1e04a84c79a5a8186e11ce9",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212312",
-    "title": "러브 캠프",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=h0HzT/dJMcagAheyA/K79WwuEkYvpIzuY5m7Wupk&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18963/",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212310",
-    "title": "그림자만 밟았는데 스킬이 막 복사됨",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bDogj4/dJMcadp0IcM/GVcwFILirOMkIKs1brPJQ0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18962/",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211932",
-    "title": "십룡쟁패",
-    "subtitle": "500화 돌파!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mx8Gb/dJMcaiLxWIP/ZcpBUy73k5h5zFJJcqfxG0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18937/",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212459",
-    "title": "숲속 작은 집 창가에",
-    "subtitle": "또또또 무료로 보자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XHVoT/dJMcagtwMsn/wVbKWWlgDfboFKTk1N0at0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=b196ae71c6b92c7d16b9bf88017ddb5c",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212474",
-    "title": "BL소설 Top-Tier",
-    "subtitle": "모아 보기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kvJAi/dJMcaiSuMJE/9ETQyagmJsJtN2v479QLIK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/card/page/landing/18973/",
-    "firstSeen": "2026-09-22",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212143",
-    "title": "늑대가 물어온 19금 선물!?💥",
-    "subtitle": "매일 최대 2천캐시",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cDza7Q/dJMcag1em40/mKqwkByRArgI0E8yus5wQk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=57dbb4886d7e14f13181898c60b4fe6f",
-    "firstSeen": "2026-09-21",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211930",
-    "title": "꼭 봐야할 무협 모으는 계정",
-    "subtitle": "인생 무협 추천!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dIpwpq/dJMcaaGWwdh/iMoCGorq44anjp8mJMKSUK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=25a94ad94556be455c237966d67fb252",
-    "firstSeen": "2026-09-21",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211822",
-    "title": "실례지만 여의주 좀 주워주세용",
-    "subtitle": "인기작 보면 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cuB3B/dJMcad4xJvJ/oSy68KltkkvUrNibODeWE1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=40ea2dcb03169c621766f5e6f18599b1",
-    "firstSeen": "2026-09-21",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212300",
-    "title": "불사신의 주치의가 내과의사임",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bohpZo/dJMcaaUk9wH/XbCW5kRFjwdZM87ufvTI4k&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18958/",
-    "firstSeen": "2026-09-21",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211924",
-    "title": "불멸자들",
-    "subtitle": "트리플 콤보!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pn2Hu/dJMcag1dKb3/NtdKu1HQZ70Pct3mZXZ0y0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4fcf58b0193164b4005a2fed540aa334",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211879",
-    "title": "[초신작] 선공개 OPEN 기념, 전원캐시 선물",
-    "subtitle": "Painkiller",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lpjC0/dJMcafuy9SL/5aHmTsAJ0YWIyR4Yx2PFk0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=48a95fe90842dbb7fe826b107c2e5250",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211538",
-    "title": "어린 아내가 생겼다",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMlT6z/dJMcagG8A4D/pKYqxRZIU7NxpU1HCL2VP1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=8a2e980cfdda4a572ddde968fa19750c",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "212175",
-    "title": "커피만 타는데 너무 강함",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b3bPnH/dJMcabyUTLL/nqcRUvqqloA0hPvpoga5U1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18957/",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211536",
-    "title": "로판 완전판 더블 티켓",
-    "subtitle": "외전+대여권까지!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sBqSk/dJMcahlJKrO/C87cNeEB4ncNaVyvqImyB1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=67b390a08021b956abfd19e60b0922c2",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211920",
-    "title": "눈을 떴더니 사장님과 신혼여행 중이다",
-    "subtitle": "외전+단행본 독점",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dTva0/dJMcahzbXxe/jw7g2n9Jn6mtrD4aoYjGa1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=3fdfb4ac591e02e69c58053d9f7c5dac",
-    "firstSeen": "2026-09-20",
-    "lastSeen": "2026-09-25"
-  },
-  {
     "bannerUid": "211922",
     "title": "랭킹 1위 직행 플레이리스트",
     "subtitle": "열람하고 캐시받자!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bjMMo9/dJMcaatmbEH/uWRdxGykIc5aZFCKA72i71&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=dce7649322f99a3063946209bacbae96",
-    "firstSeen": "2026-09-19",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211728",
-    "title": "인기 단행본, 세트 할인가로 만나요",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bnzRIg/dJMcafVJFuw/5fC6PMkdhrEluqwHkkqPR1&filename=th3",
-    "link": "https://page.kakao.com/landing/set/poster/page/landing/18920/",
     "firstSeen": "2026-09-19",
     "lastSeen": "2026-09-25"
   },
@@ -351,156 +621,12 @@
     "lastSeen": "2026-09-25"
   },
   {
-    "bannerUid": "211936",
-    "title": "초월급 금손 대장장이의 귀환",
-    "subtitle": "2부 론칭 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cZ0qXN/dJMcafuzXsn/0F3VWqXTT36Juw6cCLW3vK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18938/",
-    "firstSeen": "2026-09-19",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211938",
-    "title": "후계자는 모르겠고 힐링이나 하렵니다",
-    "subtitle": "500화 돌파!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TqbGP/dJMcabsbVZC/nDwV0mjFlZV5qvYGotLZL1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18939/",
-    "firstSeen": "2026-09-19",
-    "lastSeen": "2026-09-25"
-  },
-  {
     "bannerUid": "211697",
     "title": "카카오페이지 금주의 루키 신작",
     "subtitle": "최대 1만 캐시!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=h2l7J/dJMcagfUZUj/3Q65S2Irs9MFenB9koATt1&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=43651b6c5b9b1af130300bba104addc6",
     "firstSeen": "2026-09-19",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211695",
-    "title": "너의 윙맨에게",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdImOm/dJMcadpX3fA/bynP2AjqFf9H3g5U9afv70&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=1a5e3ba4f5a2cb13d8982a2631b3bd5a",
-    "firstSeen": "2026-09-19",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211319",
-    "title": "여주가 다 해 먹음",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c6StQv/dJMcaiLuMFF/l9FdVjMufg3CuHeZqZklOK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18884/",
-    "firstSeen": "2026-09-18",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211532",
-    "title": "들숨에 재력이, 날숨에 행운이",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dlcSlc/dJMcadKc1nz/CNqRHdf8kJJcqAwYepnnG0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18897/",
-    "firstSeen": "2026-09-18",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211518",
-    "title": "재해를 먹는 마법사",
-    "subtitle": "2부 복귀 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dqYg27/dJMcafBlgHu/tjfBcxP6bVhw9RpEAV79c0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18896/",
-    "firstSeen": "2026-09-17",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211324",
-    "title": "힐링 무협전",
-    "subtitle": "작품보면 캐시 선물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5gWBP/dJMcacYUbnJ/ukrkgLUmc28iIqyZyLJ6kk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=696f50bd4d02142d74af7bd2f6a741d1",
-    "firstSeen": "2026-09-17",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211328",
-    "title": "회귀한 EX급 무신은 천살성 헌터가 되기로 했다",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=0IRBj/dJMcadXQEyS/NQJ3wh5Ii71AZiRnYGk0ck&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18887/",
-    "firstSeen": "2026-09-16",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210604",
-    "title": "소심하고 쩨쩨하게",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9S8AU/dJMcac5AOlI/RkcnkUzzU45gp12r5DSS5K&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18836/",
-    "firstSeen": "2026-09-16",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211238",
-    "title": "혼돈단신",
-    "subtitle": "1500화 돌파!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dIPuMC/dJMcacEJb2K/odBOEh9K6WE7LhaKl4PKm1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18875/",
-    "firstSeen": "2026-09-16",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "211128",
-    "title": "내가 죽인 최애와 데뷔합니다",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cE6Pb8/dJMcafuvMUY/661TkzwarUXIss034TgNOK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18862/",
-    "firstSeen": "2026-09-15",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210590",
-    "title": "<영애먹살> 밀리언페이지 달성!",
-    "subtitle": "최대 1만 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bP6nON/dJMcagG3hHl/HmMepbVZ6DDirUbsLlvJmk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=9ba19d30fad6187178802d673d892a33",
-    "firstSeen": "2026-09-14",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210571",
-    "title": "오늘만 무료!+최대 5천캐시 선물",
-    "subtitle": "유인 작가전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2TQaU/dJMb99Vjl3I/k65c60sTg3nlNwQwVSDrMK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=5a3270e75b8c84c7b11ceb83527fe940",
-    "firstSeen": "2026-09-14",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210778",
-    "title": "제국 총사령관이 돌아왔다",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zEP8S/dJMb998Q3lM/jlefAnKkiKFkgtdxxZecok&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18842/",
-    "firstSeen": "2026-09-14",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210351",
-    "title": "광음지외",
-    "subtitle": "1000화 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nkLad/dJMcacRWE6F/bHm9sYzTwWnrwEG9j4zx1k&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/18810/",
-    "firstSeen": "2026-09-13",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210586",
-    "title": "인기 단행본, 세트 할인가로 만나요",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdac9u/dJMcabZ2ekI/yCZjwslWvPhWieyZq2lMT0&filename=th3",
-    "link": "https://page.kakao.com/landing/set/poster/page/landing/18828/",
-    "firstSeen": "2026-09-12",
     "lastSeen": "2026-09-25"
   },
   {
@@ -519,87 +645,6 @@
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=n51kQ/dJMcabr4OM2/9mecYZYwgHi1sdkfchWiF1&filename=th3",
     "link": "https://page.kakao.com/landing/series/list/page/landing/18825/",
     "firstSeen": "2026-09-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "210054",
-    "title": "인기 단행본, 세트 할인가로 만나요",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIEWtg/dJMcahMwc14/U1l1Fv9XCLGgkzdAKdH10k&filename=th3",
-    "link": "https://page.kakao.com/landing/set/poster/page/landing/18789/",
-    "firstSeen": "2026-09-09",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "207317",
-    "title": "9월 초신작 전원 캐시 선물!",
-    "subtitle": "라인업 보러가기>",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIScVF/dJMcaiEwufF/VCUzZ8qY6mxT9ZjRAhKfW0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=69ac8164ad67328b93acf4b034677c13",
-    "firstSeen": "2026-09-02",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "208642",
-    "title": "페이지 명작관 9월의 스탬프 투어!",
-    "subtitle": "감상하면 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vCoKN/dJMcaf16W8d/yVbh8zZMjyPPrm1VjE9g31&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=4a972f82d6babf80fcfec983e687f891",
-    "firstSeen": "2026-09-01",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "203186",
-    "title": "[FREE] 오늘의 무료회차 증량작 확인해보세요!",
-    "subtitle": "무료 감상하기>",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMceOg/dJMcagl5dC8/4xM0533zYBJJ2DyRRcNAp0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=fc007c33f6436fbfc557d37d1f7f08d3",
-    "firstSeen": "2026-08-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "186390",
-    "title": "❤️로캣단 작품 몰아보기❤️",
-    "subtitle": null,
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RUNAe/dJMcadPiO8S/ixx0RxiXBPP3kUlJRLFilk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=8699a442f7b4b49fa1431e8bd42f5a14",
-    "firstSeen": "2026-08-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "168249",
-    "title": "카카오페이지 초신작",
-    "subtitle": "초신작 모아보기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=glckv/dJMcaiEC72h/PKnulvR0dZNKb30EIV9npK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/16064/",
-    "firstSeen": "2026-08-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "167698",
-    "title": "[1분 컷] 월, 일, 시, 분이 겹칠 때 모두에게 캐시선물",
-    "subtitle": "지금 확인하기 >",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wuazj/dJMcaiovixx/vmmwOVjUxOzHhRbyOleYD0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=dddecf3f29a5c6c98b7829f61d17e1c4",
-    "firstSeen": "2026-08-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "155117",
-    "title": "페이지 루키즈",
-    "subtitle": null,
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KoyvI/dJMcahW1SKF/x0C73ivkwsNiUgw0G5vJDK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=89984d8fe7ba088c37facc4abce26fac",
-    "firstSeen": "2026-08-12",
-    "lastSeen": "2026-09-25"
-  },
-  {
-    "bannerUid": "168247",
-    "title": "초신작, 작가 마지막검사",
-    "subtitle": null,
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bJs410/dJMcafOYY7y/rz9gfbgEIflbrHls9viFAK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/card/page/landing/16061/",
-    "firstSeen": "2026-08-12",
     "lastSeen": "2026-09-25"
   },
   {
