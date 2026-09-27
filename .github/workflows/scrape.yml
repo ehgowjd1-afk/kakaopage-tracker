@@ -1,17 +1,14 @@
 name: Daily Kakao Page scrape
 
 on:
-  # Scheduled runs are DISABLED: this private repo exhausted its monthly free
-  # GitHub Actions minutes (~2,000/mo) around 2026-09-27 because the full daily
-  # scrape is ~75 min, so scheduled runs now fail to start ("spending limit")
-  # and only spam failure emails. Daily collection is handled by the minutes-free
-  # Anthropic cloud routine (trig_01BcU6fAFbsdq6unAW8bx1AR, ~15:00 KST) instead.
-  # Kept as manual-only so the .bat / a dispatch can still trigger a run when
-  # minutes are available (they reset on the 1st of each month).
-  #  schedule:
-  #    - cron: '15 22 * * *'
-  #    - cron: '15 1 * * *'
-  #    - cron: '15 4 * * *'
+  # Daily runs at 07:15 KST (22:15 UTC) plus safety-net retries ~10:15 and
+  # ~13:15 KST. The repo is public, so GitHub Actions minutes are unlimited and
+  # free (the private-repo 2,000/mo cap that ran out on 2026-09-27 no longer
+  # applies). Each backup skips itself when today's data is already collected.
+  schedule:
+    - cron: '15 22 * * *'
+    - cron: '15 1 * * *'
+    - cron: '15 4 * * *'
   workflow_dispatch: {}
 
 permissions:
