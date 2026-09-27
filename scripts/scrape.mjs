@@ -122,7 +122,10 @@ async function main() {
       ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
       : {}
   );
-  const context = await browser.newContext({ ...devices['iPhone 13'], locale: 'ko-KR' });
+  // ignoreHTTPSErrors lets the browser work behind a TLS-intercepting egress
+  // proxy (e.g. the cloud backup sandbox re-terminates HTTPS with its own CA
+  // that Chromium doesn't trust). Harmless locally/in CI where certs are valid.
+  const context = await browser.newContext({ ...devices['iPhone 13'], locale: 'ko-KR', ignoreHTTPSErrors: true });
   const page = await context.newPage();
 
   const allWorkIds = new Set();
