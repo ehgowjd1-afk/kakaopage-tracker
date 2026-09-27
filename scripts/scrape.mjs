@@ -114,7 +114,14 @@ async function main() {
   const today = getKstDateString();
   console.log(`=== Kakao Page scrape start (${today} KST) ===`);
 
-  const browser = await chromium.launch();
+  // Use a specific Chromium binary when one is provided (e.g. the cloud backup
+  // sandbox pins a different Playwright build than the repo). Falls back to
+  // Playwright's own managed browser locally / in CI.
+  const browser = await chromium.launch(
+    process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+      ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
+      : {}
+  );
   const context = await browser.newContext({ ...devices['iPhone 13'], locale: 'ko-KR' });
   const page = await context.newPage();
 
