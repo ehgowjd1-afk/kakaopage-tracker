@@ -89,6 +89,9 @@ function parseHash() {
   if (parts[0] === 'work' && parts[1] && parts[2] && parts[3]) {
     return { view: 'work', cat: parts[1], period: parts[2], workId: parts[3] };
   }
+  if (parts[0] === 'publisher' && parts[1]) {
+    return { view: 'publisher', pub: decodeURIComponent(parts.slice(1).join('/')) };
+  }
   if (parts[0] === 'new') {
     return { view: 'new', cat: parts[1] || 'webnovel' };
   }
@@ -145,6 +148,8 @@ async function render() {
   updateNavActive(route);
   if (route.view === 'work') {
     await renderWorkView(route.cat, route.period, route.workId);
+  } else if (route.view === 'publisher') {
+    await renderPublisherView(route.pub);
   } else if (route.view === 'new') {
     await renderNewReleasesView(route.cat);
   } else if (route.view === 'highlights') {
@@ -1566,6 +1571,95 @@ async function buildRankSeries(cat, period, workId, dates, pathPrefix) {
   return { series, latestItem };
 }
 
+async function renderPublisherView(pub) {
+  app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
+  const [index, all] = await Promise.all([getSearchIndex(), getAllLatest()]);
+
+  // "통합순위" = best (lowest) current rank across the overall daily/weekly/monthly lists.
+  const bestRank = new Map();
+  for (const list of Object.values(all)) {
+    for (const it of list) {
+      if (it.rank == null) continue;
+      const id = String(it.workId);
+      const cur = bestRank.get(id);
+      if (cur == null || it.rank < cur) bestRank.set(id, it.rank);
+    }
+  }
+
+  const works = index.filter((it) => it.publisher === pub);
+  app.innerHTML = '';
+
+  const back = document.createElement('nav');
+  back.className = 'tabs';
+  const backBtn = document.createElement('button');
+  backBtn.textContent = '← 돌아가기';
+  backBtn.style.cssText = 'border:1px solid var(--border);background:var(--card-bg);color:var(--text);padding:6px 12px;border-radius:20px;font-size:13px;cursor:pointer;';
+  backBtn.addEventListener('click', () => history.back());
+  back.appendChild(backBtn);
+  app.appendChild(back);
+
+  const h2 = document.createElement('h2');
+  h2.textContent = `📚 ${pub}`;
+  app.appendChild(h2);
+  const note = document.createElement('div');
+  note.className = 'updated-note';
+  note.textContent = `작품 ${works.length}개 · 누적조회수 50 : 통합순위 50 종합순`;
+  app.appendChild(note);
+
+  if (!works.length) {
+    const e = document.createElement('div');
+    e.className = 'empty-note';
+    e.textContent = '이 출판사의 작품 데이터가 없습니다.';
+    app.appendChild(e);
+    return;
+  }
+
+  // 50:50 rank blend: position in view-count order + position in overall-rank order.
+  const byView = [...works].sort((a, b) => (parseCount(b.viewCount) || 0) - (parseCount(a.viewCount) || 0));
+  const viewPos = new Map();
+  byView.forEach((w, i) => viewPos.set(w.workId, i + 1));
+  const byRank = [...works].sort((a, b) => (bestRank.get(a.workId) ?? 100000) - (bestRank.get(b.workId) ?? 100000));
+  const rankPos = new Map();
+  byRank.forEach((w, i) => rankPos.set(w.workId, i + 1));
+  const scored = works.map((w) => ({ w, score: (viewPos.get(w.workId) + rankPos.get(w.workId)) / 2 }));
+  scored.sort((a, b) => a.score - b.score);
+
+  const ol = document.createElement('ol');
+  ol.className = 'rank-list';
+  scored.forEach(({ w }, i) => {
+    const li = document.createElement('li');
+    li.className = 'rank-row';
+    li.addEventListener('click', () => navigate(`#/work/${w.cat}/daily/${w.workId}`));
+    const num = document.createElement('div');
+    num.className = 'rank-num';
+    num.textContent = i + 1;
+    const thumb = document.createElement('img');
+    thumb.className = 'rank-thumb';
+    thumb.loading = 'lazy';
+    thumb.src = w.thumbnail || '';
+    thumb.alt = '';
+    const info = document.createElement('div');
+    info.className = 'rank-info';
+    const t = document.createElement('div');
+    t.className = 'rank-title';
+    t.textContent = w.title;
+    const sub = document.createElement('div');
+    sub.className = 'rank-sub';
+    const cr = bestRank.get(w.workId);
+    const bits = [(CATEGORIES.find((c) => c.key === w.cat)?.label) || w.cat];
+    if (w.viewCount) bits.push(`조회 ${w.viewCount}`);
+    bits.push(cr != null ? `통합 ${cr}위` : '순위권 밖');
+    sub.textContent = bits.join(' · ');
+    info.appendChild(t);
+    info.appendChild(sub);
+    li.appendChild(num);
+    li.appendChild(thumb);
+    li.appendChild(info);
+    ol.appendChild(li);
+  });
+  app.appendChild(ol);
+}
+
 async function renderWorkView(cat, period, workId) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
 
@@ -2020,26 +2114,46 @@ function setupSearch() {
   });
 }
 
+let searchIndexCache = null;
+async function getSearchIndex() {
+  // Title+author index of every work that has EVER been ranked (incl. works
+  // that have since dropped out of the rankings), so search isn't limited to
+  // the current TOP lists.
+  if (!searchIndexCache) searchIndexCache = await fetchJson('data/search-index.json').catch(() => []);
+  return searchIndexCache;
+}
+
 async function runSearch(query) {
-  const [all, works] = await Promise.all([getAllLatest(), getWorksLite()]);
+  const index = await getSearchIndex();
   const q = query.toLowerCase();
-  const seen = new Map();
-  for (const [key, list] of Object.entries(all)) {
-    const [cat, period] = key.split('/');
-    for (const item of list) {
-      if (seen.has(item.workId)) continue;
-      const author = (works[item.workId] && works[item.workId].author) || '';
-      const title = item.title || '';
-      if (title.toLowerCase().includes(q) || author.toLowerCase().includes(q)) {
-        seen.set(item.workId, { ...item, cat, period });
-      }
-    }
-    if (seen.size >= 20) break;
+  const items = [];
+  const pubHits = new Map(); // publisher name -> number of matching works
+  for (const it of index) {
+    const title = (it.title || '').toLowerCase();
+    const author = (it.author || '').toLowerCase();
+    const publisher = it.publisher || '';
+    if (publisher && publisher.toLowerCase().includes(q)) pubHits.set(publisher, (pubHits.get(publisher) || 0) + 1);
+    if ((title.includes(q) || author.includes(q) || publisher.toLowerCase().includes(q)) && items.length < 30) items.push(it);
   }
 
   searchResults.innerHTML = '';
-  const items = [...seen.values()].slice(0, 20);
-  if (items.length === 0) {
+
+  // Publisher shortcuts → a 50:50 (cumulative views + overall rank) ranking view.
+  const pubs = [...pubHits.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3);
+  for (const [pub, cnt] of pubs) {
+    const row = document.createElement('div');
+    row.className = 'sr-item';
+    row.style.cssText = 'font-weight:600;color:var(--accent-ink);';
+    row.textContent = `📚 출판사 "${pub}" 작품 ${cnt}개 종합순위`;
+    row.addEventListener('click', () => {
+      searchResults.classList.remove('open');
+      searchBox.value = '';
+      navigate(`#/publisher/${encodeURIComponent(pub)}`);
+    });
+    searchResults.appendChild(row);
+  }
+
+  if (items.length === 0 && pubs.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'sr-item';
     empty.textContent = '수집된 데이터 안에는 검색 결과가 없습니다.';
@@ -2056,8 +2170,10 @@ async function runSearch(query) {
       const subDiv = document.createElement('div');
       subDiv.className = 'sr-meta';
       const catLabel = CATEGORIES.find((c) => c.key === it.cat)?.label || it.cat;
-      const periodLabel = PERIODS.find((p) => p.key === it.period)?.label || it.period;
-      subDiv.textContent = `${catLabel} · ${periodLabel} ${it.rank}위`;
+      const bits = [catLabel];
+      if (it.subCategory) bits.push(it.subCategory);
+      if (it.author) bits.push(it.author);
+      subDiv.textContent = bits.join(' · ');
       meta.appendChild(titleDiv);
       meta.appendChild(subDiv);
       div.appendChild(img);
@@ -2065,7 +2181,7 @@ async function runSearch(query) {
       div.addEventListener('click', () => {
         searchResults.classList.remove('open');
         searchBox.value = '';
-        navigate(`#/work/${it.cat}/${it.period}/${it.workId}`);
+        navigate(`#/work/${it.cat}/daily/${it.workId}`);
       });
       searchResults.appendChild(div);
     }

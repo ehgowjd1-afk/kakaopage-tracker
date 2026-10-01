@@ -1,6 +1,7 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { buildSearchIndex } from './build-search-index.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -302,6 +303,8 @@ async function main() {
   }
   await saveJson(cachePath, cache);
   await writeWorksLite(cache);
+  // Title/author search index of every work ever ranked (incl. dropped-out).
+  await fs.writeFile(path.join(DATA_DIR, 'search-index.json'), JSON.stringify(buildSearchIndex()), 'utf-8');
   await writeIndex();
 
   await browser.close();
