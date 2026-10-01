@@ -31,6 +31,13 @@ const LAUNCH_RETRY_DAYS = 14;
 // Fill in comments for ranked (daily TOP) works that don't have any yet, so a
 // newly-entered work gets its comments within a run or two. Bounded per run.
 const MAX_COMMENT_FETCHES_PER_RUN = 120;
+// Keep tracking the cumulative view count of works that have DROPPED OUT of
+// every ranking. They're no longer in today's lists, so the loops above never
+// touch them and their viewCount would freeze at its last-ranked value. Each
+// run refreshes a bounded batch, oldest-first, so the whole dropped-work
+// backlog rotates through over time and the publisher ranking / search stay
+// current. Bounded to stay gentle on Kakao.
+const MAX_DROPPED_VIEW_REFRESH_PER_RUN = 200;
 
 function getKstDateString() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -302,6 +309,42 @@ async function main() {
     await sleep(1500 + Math.random() * 1500);
   }
   await saveJson(cachePath, cache);
+
+  // Dropped-work view-count refresh: works in the cache that are NOT in any of
+  // today's lists keep getting their cumulative view count (and author/
+  // publisher/keywords/rating, which detail returns for free) refreshed, a
+  // bounded batch per run, oldest-refreshed first so the backlog rotates.
+  const rankedToday = new Set([...allWorkIds].map((id) => String(id)));
+  const droppedIds = Object.keys(cache)
+    .filter((id) => !rankedToday.has(String(id)))
+    .sort((a, b) => {
+      const ta = new Date(cache[a].viewRefreshedAt || cache[a].lastChecked || 0).getTime();
+      const tb = new Date(cache[b].viewRefreshedAt || cache[b].lastChecked || 0).getTime();
+      return ta - tb; // oldest first
+    })
+    .slice(0, MAX_DROPPED_VIEW_REFRESH_PER_RUN);
+  if (droppedIds.length) {
+    console.log(`Refreshing view counts for ${droppedIds.length} dropped-out works (${Object.keys(cache).length - rankedToday.size} tracked, rotating)...`);
+    let dvDone = 0;
+    for (const workId of droppedIds) {
+      const detail = await scrapeWorkDetail(page, workId, { log: console.log });
+      if (detail) {
+        const prev = cache[workId] || {};
+        cache[workId] = { ...prev, ...detail, workId, viewRefreshedAt: new Date().toISOString() };
+      } else {
+        // Mark it tried so a work that no longer resolves doesn't block rotation.
+        cache[workId].viewRefreshedAt = new Date().toISOString();
+      }
+      dvDone += 1;
+      if (dvDone % 25 === 0) {
+        await saveJson(cachePath, cache);
+        console.log(`  ...${dvDone}/${droppedIds.length} dropped-work views refreshed`);
+      }
+      await sleep(900 + Math.random() * 900);
+    }
+    await saveJson(cachePath, cache);
+  }
+
   await writeWorksLite(cache);
   // Title/author search index of every work ever ranked (incl. dropped-out).
   await fs.writeFile(path.join(DATA_DIR, 'search-index.json'), JSON.stringify(buildSearchIndex()), 'utf-8');
