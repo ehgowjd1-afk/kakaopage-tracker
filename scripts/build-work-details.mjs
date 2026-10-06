@@ -9,6 +9,7 @@
 import fs from 'node:fs/promises';
 import fssync from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { CATEGORIES, PERIODS, GENRES } from './lib/kakao.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
@@ -29,7 +30,7 @@ function genreKeyOf(cat, classification) {
   return found ? found[0] : null;
 }
 
-async function main() {
+export async function buildWorkDetails() {
   const works = readJson(path.join(DATA_DIR, 'works.json'), {});
   const cats = Object.keys(CATEGORIES);
 
@@ -82,6 +83,18 @@ async function main() {
     }
   }
 
+  // Exact daily metrics (views / rating participation / comments) collected via
+  // the BFF API — 1-unit precise, covers every work regardless of ranking.
+  // Complements the historical rounded viewSeries going forward.
+  const metricsByWork = {};
+  const mdir = path.join(DATA_DIR, 'metrics');
+  for (const date of datesIn(mdir)) {
+    const day = readJson(path.join(mdir, `${date}.json`), {});
+    for (const [id, m] of Object.entries(day)) {
+      (metricsByWork[id] || (metricsByWork[id] = [])).push({ date, v: m.v ?? null, rc: m.rc ?? null, rs: m.rs ?? null, cc: m.cc ?? null });
+    }
+  }
+
   await fs.mkdir(OUT_DIR, { recursive: true });
   let written = 0;
   for (const [id, w] of Object.entries(works)) {
@@ -104,6 +117,7 @@ async function main() {
       commentKeywords: w.commentKeywords ?? [],
       rankSeries,
       viewSeries: views[id] || [],
+      metricsSeries: metricsByWork[id] || [],
     };
     const file = path.join(OUT_DIR, `${id}.json`);
     const next = JSON.stringify(card);
@@ -115,4 +129,7 @@ async function main() {
   console.log(`detail cards: ${Object.keys(works).length} works, ${written} written/changed.`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Run standalone: `node scripts/build-work-details.mjs`
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  buildWorkDetails().catch((e) => { console.error(e); process.exit(1); });
+}

@@ -2,6 +2,8 @@ import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { buildSearchIndex } from './build-search-index.mjs';
+import { collectAllMetrics } from './collect-metrics.mjs';
+import { buildWorkDetails } from './build-work-details.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -349,8 +351,14 @@ async function main() {
   // Title/author search index of every work ever ranked (incl. dropped-out).
   await fs.writeFile(path.join(DATA_DIR, 'search-index.json'), JSON.stringify(buildSearchIndex()), 'utf-8');
   await writeIndex();
-
   await browser.close();
+
+  // Exact daily metrics (views/rating/comments) for EVERY work via BFF — covers
+  // works that dropped out of the ranking and new titles too. Then rebuild the
+  // per-work detail cards so the detail page stays a single fast fetch.
+  try { await collectAllMetrics(); } catch (e) { console.error('metrics step failed:', e.message); }
+  try { await buildWorkDetails(); } catch (e) { console.error('detail-card step failed:', e.message); }
+
   console.log('=== Done ===');
   console.table(summary);
 }

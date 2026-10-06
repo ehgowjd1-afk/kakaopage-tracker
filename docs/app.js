@@ -1703,7 +1703,14 @@ async function renderWorkView(cat, period, workId) {
   }
   const latestItem = { title: meta.title, thumbnail: (card && card.thumbnail) || '' };
 
-  const viewSeries = ((card && card.viewSeries) || []).map((v) => ({ date: v.date, value: parseCount(v.viewCount) }));
+  // Views over time: historical rounded (viewSeries) merged with exact BFF
+  // metrics (metricsSeries.v, going forward). Exact values win on shared dates.
+  const metricsSeries = (card && card.metricsSeries) || [];
+  const latestM = metricsSeries.length ? metricsSeries[metricsSeries.length - 1] : null;
+  const viewByDate = new Map();
+  for (const v of (card && card.viewSeries) || []) { const val = parseCount(v.viewCount); if (val != null) viewByDate.set(v.date, val); }
+  for (const m of metricsSeries) if (m.v != null) viewByDate.set(m.date, m.v);
+  const viewSeries = [...viewByDate.entries()].sort((a, b) => (a[0] < b[0] ? -1 : 1)).map(([date, value]) => ({ date, value }));
 
   app.innerHTML = '';
   const back = document.createElement('nav');
@@ -1731,9 +1738,13 @@ async function renderWorkView(cat, period, workId) {
   if (meta.classification) infoDiv.appendChild(metaLine(`분류: ${meta.classification}`));
   if (meta.serialStatus) infoDiv.appendChild(metaLine(`연재 상태: ${meta.serialStatus}`));
   if (meta.publisher) infoDiv.appendChild(metaLine(`발행자: ${meta.publisher}`));
-  if (meta.viewCount) infoDiv.appendChild(metaLine(`누적 조회수: ${meta.viewCount}`));
-  if (meta.rating) infoDiv.appendChild(metaLine(`평점: ${meta.rating}`));
-  if (meta.totalCommentText) infoDiv.appendChild(metaLine(`전체 댓글 수: ${meta.totalCommentText}`));
+  // Prefer exact BFF numbers (1-unit precise) over the page's rounded display.
+  if (latestM && latestM.v != null) infoDiv.appendChild(metaLine(`누적 조회수: ${formatCount(latestM.v)} (${latestM.v.toLocaleString()})`));
+  else if (meta.viewCount) infoDiv.appendChild(metaLine(`누적 조회수: ${meta.viewCount}`));
+  if (latestM && latestM.rc) infoDiv.appendChild(metaLine(`평점: ${(latestM.rs / latestM.rc).toFixed(2)} (참여 ${latestM.rc.toLocaleString()}명)`));
+  else if (meta.rating) infoDiv.appendChild(metaLine(`평점: ${meta.rating}`));
+  if (latestM && latestM.cc != null) infoDiv.appendChild(metaLine(`전체 댓글 수: ${latestM.cc.toLocaleString()}`));
+  else if (meta.totalCommentText) infoDiv.appendChild(metaLine(`전체 댓글 수: ${meta.totalCommentText}`));
 
   const novelSource = (meta.sameWorkVersions || []).find((v) => v.category === '웹소설');
   if (novelSource) {
@@ -1874,6 +1885,20 @@ async function renderWorkView(cat, period, workId) {
     app.appendChild(viewLabel);
     app.appendChild(viewChartBox);
   }
+  // Exact daily trends from BFF metrics (appear once ≥2 days have accumulated).
+  const addMetricTrend = (label, series) => {
+    if (series.length < 2) return;
+    const h = document.createElement('h3');
+    h.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
+    h.textContent = label;
+    const box = document.createElement('div');
+    box.className = 'chart-box';
+    box.appendChild(buildViewCountChart(series));
+    app.appendChild(h);
+    app.appendChild(box);
+  };
+  addMetricTrend('평점 참여 수 추이', metricsSeries.filter((m) => m.rc != null).map((m) => ({ date: m.date, value: m.rc })));
+  addMetricTrend('전체 댓글 수 추이', metricsSeries.filter((m) => m.cc != null).map((m) => ({ date: m.date, value: m.cc })));
   redraw();
 }
 
