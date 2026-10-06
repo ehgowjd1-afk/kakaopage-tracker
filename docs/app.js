@@ -1571,6 +1571,23 @@ async function buildRankSeries(cat, period, workId, dates, pathPrefix) {
   return { series, latestItem };
 }
 
+// Prepend the estimated previous-day point from the first real point's "change"
+// delta (same logic buildRankSeries used), for a precomputed per-work series.
+function withEstimatedPrevDay(series) {
+  const out = (series || []).slice();
+  const firstReal = out.find((p) => p.rank != null);
+  if (firstReal && firstReal.change && ['up', 'down', 'same'].includes(firstReal.change.type)) {
+    const prevRank =
+      firstReal.change.type === 'up'
+        ? firstReal.rank + firstReal.change.amount
+        : firstReal.change.type === 'down'
+          ? firstReal.rank - firstReal.change.amount
+          : firstReal.rank;
+    if (prevRank >= 1) out.unshift({ date: shiftDateStr(firstReal.date, -1), rank: prevRank, change: null, estimated: true });
+  }
+  return out;
+}
+
 async function renderPublisherView(pub) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   const [index, all] = await Promise.all([getSearchIndex(), getAllLatest()]);
@@ -1663,44 +1680,30 @@ async function renderPublisherView(pub) {
 async function renderWorkView(cat, period, workId) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
 
-  const [index, works, promotions] = await Promise.all([getIndex(), getWorksCache(), getPromotions(), loadMemoStore()]);
-  const meta = works[workId] || {};
+  // One small per-work "detail card" holds everything this page needs (synopsis,
+  // comments, rank trend, view trend), so we fetch ONE ~20KB file instead of the
+  // ~59MB works.json plus ~220 per-date snapshot requests. Light metadata
+  // (author/classification/keywords/rating…) comes from the already-cached lite.
+  const [lite, card, promotions] = await Promise.all([
+    getWorksLite(), fetchJson(`data/detail/${workId}.json`).catch(() => null), getPromotions(), loadMemoStore(),
+  ]);
+  const liteMeta = lite[workId] || {};
+  const meta = {
+    ...liteMeta,
+    synopsis: card ? card.synopsis : null,
+    topComments: card ? card.topComments : [],
+    commentKeywords: card ? card.commentKeywords : [],
+    title: liteMeta.title || (card && card.title) || workId,
+  };
   const workPromos = promotions[workId] || [];
 
   const seriesByPeriod = {};
-  let latestItem = null;
   for (const p of PERIODS) {
-    const dates = (index[cat] && index[cat][p.key]) || [];
-    const result = await buildRankSeries(cat, p.key, workId, dates);
-    seriesByPeriod[p.key] = result.series;
-    if (p.key === period && result.latestItem) latestItem = result.latestItem;
-    if (!latestItem && result.latestItem) latestItem = result.latestItem;
+    seriesByPeriod[p.key] = withEstimatedPrevDay((card && card.rankSeries && card.rankSeries[p.key]) || []);
   }
+  const latestItem = { title: meta.title, thumbnail: (card && card.thumbnail) || '' };
 
-  // A work that only charts inside a genre (not the overall TOP 300) has no
-  // entry in the category snapshots above, so title/thumbnail/trend come up
-  // empty and the title falls back to the raw id. Recover them from the work's
-  // own genre (derived from its "웹소설 / 로판" classification).
-  if (!latestItem && meta.classification) {
-    const label = meta.classification.split('/').pop().trim();
-    const genre = (GENRES[cat] || []).find((g) => g.label === label);
-    if (genre) {
-      for (const p of PERIODS) {
-        const gDates = ((((index.genres || {})[cat] || {})[genre.key]) || {})[p.key] || [];
-        const result = await buildRankSeries(cat, p.key, workId, gDates, `${cat}/genres/${genre.key}/${p.key}`);
-        if (result.series.some((s) => s.rank != null)) seriesByPeriod[p.key] = result.series;
-        if (!latestItem && result.latestItem) latestItem = result.latestItem;
-      }
-    }
-  }
-
-  const viewDates = (index.viewcounts && index.viewcounts[cat]) || [];
-  const viewSeries = [];
-  for (const date of viewDates) {
-    const dayList = await fetchJson(`data/${cat}/viewcounts/${date}.json`).catch(() => []);
-    const found = dayList.find((it) => it.workId === workId);
-    viewSeries.push({ date, value: found ? parseCount(found.viewCount) : null });
-  }
+  const viewSeries = ((card && card.viewSeries) || []).map((v) => ({ date: v.date, value: parseCount(v.viewCount) }));
 
   app.innerHTML = '';
   const back = document.createElement('nav');
@@ -2065,8 +2068,9 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
 }
 
 function parseCount(text) {
-  if (!text) return null;
-  const cleaned = text.replace(/,/g, '').trim();
+  if (text == null) return null;
+  if (typeof text === 'number') return text; // exact integer (BFF) — no rounding
+  const cleaned = String(text).replace(/,/g, '').trim();
   const match = cleaned.match(/^([\d.]+)\s*(억|만|천)?$/);
   if (!match) return null;
   const num = parseFloat(match[1]);
