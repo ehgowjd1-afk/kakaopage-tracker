@@ -181,7 +181,7 @@ export async function collectComments() {
   const today = kstDate();
   const budget = {
     a: Number(arg('budget-a', 1500)),
-    ep: Number(arg('budget-ep', 8000)),
+    ep: Number(arg('budget-ep', 15000)),
     deadline: t0 + Number(arg('max-minutes', 100)) * 60000,
     failed: 0,
     streak: 0,

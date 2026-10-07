@@ -1690,7 +1690,7 @@ async function renderWorkView(cat, period, workId) {
   ]);
   // Comment analysis (scripts/collect-comments.mjs). When present it replaces the
   // older scraped "인기 댓글"/"댓글 반응 키워드" (BEST 25 only).
-  const hasCm = !!(cm && cm.react);
+  const hasCm = !!(cm && cm.react && cm.n);   // n = 0: the work has no comments at all
   const liteMeta = lite[workId] || {};
   const meta = {
     ...liteMeta,
@@ -2022,9 +2022,10 @@ function buildReactionBox(cm, onDownload) {
   dl.addEventListener('click', onDownload);
   head.appendChild(dl);
   box.appendChild(head);
-  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;',
-    `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었고, ` +
-    `그중 감정 반응이 잡힌 ${r.used}개를 100%로 본 비율이에요 (한 댓글이 여러 반응에 들어갈 수 있어요). 막대를 누르면 대표 댓글이 보여요.`));
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;', r.used
+    ? `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었고, ` +
+      `그중 감정 반응이 잡힌 ${r.used}개를 100%로 본 비율이에요 (한 댓글이 여러 반응에 들어갈 수 있어요). 막대를 누르면 대표 댓글이 보여요.`
+    : `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었는데, 감정 반응이 잡힌 댓글은 없었어요.`));
 
   const rows = topReactions(cm, REACTIONS.length);
   const max = rows.length ? rows[0][1][0] : 1;

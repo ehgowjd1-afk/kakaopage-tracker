@@ -20,7 +20,7 @@ on:
         default: '1500'
       budget_ep:
         description: 'Episodes this run (TOP 100 works, per-episode)'
-        default: '8000'
+        default: '15000'
       max_minutes:
         description: 'Time limit for collecting, minutes (keep under 150)'
         default: '100'
@@ -70,7 +70,7 @@ jobs:
         run: >
           node scripts/collect-comments.mjs
           --budget-a=${{ github.event.inputs.budget_a || '1500' }}
-          --budget-ep=${{ github.event.inputs.budget_ep || '8000' }}
+          --budget-ep=${{ github.event.inputs.budget_ep || '15000' }}
           --max-minutes=${{ github.event.inputs.max_minutes || '100' }}
 
       - name: Commit and push
