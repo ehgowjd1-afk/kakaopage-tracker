@@ -40,6 +40,7 @@ async function postComments(params) {
 function slim(c) {
   return {
     uid: c.comment_uid,
+    user: c.user_name || '',   // there's no author flag; compare with the work's author name
     text: c.comment || '',
     likes: c.like_count || 0,
     replies: c.reply_count || 0,

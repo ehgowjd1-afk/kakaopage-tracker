@@ -1766,18 +1766,32 @@ async function renderWorkView(cat, period, workId) {
   }
 
   if (hasCm && cm.react.used) {
-    const line = metaLine('독자 반응: ');
-    const link = document.createElement('a');
-    link.href = '#';
-    link.textContent = `${topReactions(cm, 3).map(([k, [cnt]]) => `${reactionInfo(k).label} ${Math.round((cnt / cm.react.used) * 100)}%`).join(' · ')} (자세히 ↓)`;
-    link.style.cssText = 'color:var(--accent-ink);text-decoration:underline;';
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.getElementById('comment-analysis');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-    line.appendChild(link);
-    infoDiv.appendChild(line);
+    const pct = (cnt) => `${Math.round((cnt / cm.react.used) * 100)}%`;
+    const all = topReactions(cm, REACTIONS.length);
+    const story = all.filter(([k]) => !ABOUT_WORK.includes(k)).slice(0, 3);
+    const work = all.filter(([k]) => ABOUT_WORK.includes(k));
+    const link = (text) => {
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = text;
+      a.style.cssText = 'color:var(--accent-ink);text-decoration:underline;';
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('comment-analysis');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+      return a;
+    };
+    if (story.length) {
+      const line = metaLine('독자 반응: ');
+      line.appendChild(link(story.map(([k, [cnt]]) => `${reactionInfo(k).label} ${pct(cnt)}`).join(' · ')));
+      infoDiv.appendChild(line);
+    }
+    if (work.length) {
+      const line = metaLine('작품 평가: ');
+      line.appendChild(link(work.map(([k, [cnt]]) => `${reactionInfo(k).label} ${pct(cnt)}`).join(' · ')));
+      infoDiv.appendChild(line);
+    }
   }
 
   if (!hasCm && meta.commentKeywords && meta.commentKeywords.length) {
@@ -1967,9 +1981,13 @@ function buildCommentsBox(comments) {
 // Keys/labels mirror the reaction engine scripts/lib/kreact.cjs.
 const REACTIONS = [
   ['laugh', '웃음', '#eab308'], ['sad', '감동·슬픔', '#3b82f6'], ['love', '설렘·애정', '#ec4899'],
-  ['anger', '분노·답답', '#ef4444'], ['chill', '소름·긴장', '#8b5cf6'], ['shock', '충격·반전', '#f97316'],
+  ['anger', '과몰입 분노·답답', '#ef4444'], ['chill', '소름·긴장', '#8b5cf6'], ['shock', '충격·반전', '#f97316'],
   ['cheer', '응원·걱정', '#22c55e'], ['theory', '추리·떡밥', '#14b8a6'], ['praise', '칭찬·감탄', '#b45309'],
+  ['complain', '작품 불만', '#64748b'],
 ];
+// In-story reactions (to characters/events) vs. reactions to the work itself.
+const ABOUT_WORK = ['praise', 'complain'];
+const COMPLAIN_WHY = { story: '전개·개연성', volume: '분량·연재·가격', art: '작화·문장', drop: '하차 선언' };
 function reactionInfo(k) {
   const r = REACTIONS.find((x) => x[0] === k);
   return r ? { label: r[1], color: r[2] } : { label: k, color: 'var(--same)' };
@@ -2004,6 +2022,11 @@ function mixText(mix, n) {
   return Object.entries(mix || {}).sort((a, b) => b[1] - a[1]).slice(0, n)
     .map(([k, v]) => `${reactionInfo(k).label} ${v}`).join(' · ');
 }
+// Sample flags: 's' = spoiler, 'a' = the author's own comment (older files used 1 for spoiler)
+function sampleFlags(flags) {
+  const f = flags === 1 ? 's' : String(flags || '');
+  return { spoiler: f.includes('s'), author: f.includes('a') };
+}
 function topMixKey(mix) {
   const e = Object.entries(mix || {}).sort((a, b) => b[1] - a[1])[0];
   return e ? e[0] : null;
@@ -2029,20 +2052,24 @@ function buildReactionBox(cm, onDownload) {
 
   const rows = topReactions(cm, REACTIONS.length);
   const max = rows.length ? rows[0][1][0] : 1;
-  for (const [k, [cnt, likes]] of rows) {
+  const reactionRow = (k, cnt, likes) => {
     const info = reactionInfo(k);
     const row = mk('div', 'margin:5px 0;cursor:pointer;');
     const line = mk('div', 'display:flex;align-items:center;gap:8px;font-size:13px;');
-    line.appendChild(mk('span', 'width:72px;flex:none;', info.label));
+    line.appendChild(mk('span', 'width:104px;flex:none;', info.label));
     const track = mk('div', 'flex:1;min-width:40px;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden;');
     track.appendChild(mk('div', `height:100%;width:${Math.max(2, (cnt / max) * 100)}%;background:${info.color};`));
     line.appendChild(track);
     line.appendChild(mk('span', 'flex:none;min-width:112px;text-align:right;font-size:12px;color:var(--text-dim);',
       `${Math.round((cnt / r.used) * 100)}% · ${cnt}개 · 👍${formatCount(likes)}`));
     row.appendChild(line);
+    if (k === 'complain' && r.why) {
+      row.appendChild(mk('div', 'margin:2px 0 0 112px;font-size:11px;color:var(--text-dim);',
+        `불만 이유: ${Object.entries(r.why).sort((a, b) => b[1] - a[1]).map(([w, n]) => `${COMPLAIN_WHY[w] || w} ${n}`).join(' · ')}`));
+    }
     const ex = (r.examples && r.examples[k]) || [];
     if (ex.length) {
-      const exBox = mk('div', `display:none;margin:6px 0 10px 80px;border-left:3px solid ${info.color};padding-left:8px;`);
+      const exBox = mk('div', `display:none;margin:6px 0 10px 112px;border-left:3px solid ${info.color};padding-left:8px;`);
       for (const [text, lk, ep] of ex) {
         exBox.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;margin-top:6px;', `👍${(lk || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}`));
         exBox.appendChild(commentBody(text));
@@ -2050,7 +2077,17 @@ function buildReactionBox(cm, onDownload) {
       row.appendChild(exBox);
       row.addEventListener('click', () => { exBox.style.display = exBox.style.display === 'none' ? 'block' : 'none'; });
     }
-    box.appendChild(row);
+    return row;
+  };
+  // Two groups: reactions to characters/events inside the story vs. to the work itself
+  const groups = [
+    ['작품 속 몰입 반응 — 인물·사건을 보며 웃고 울고 화내는 반응', rows.filter(([k]) => !ABOUT_WORK.includes(k))],
+    ['작품에 대한 평가 — 작품·작가·전개·분량·작화를 향한 말', rows.filter(([k]) => ABOUT_WORK.includes(k))],
+  ];
+  for (const [groupTitle, groupRows] of groups) {
+    if (!groupRows.length) continue;
+    box.appendChild(mk('div', CM_SUB + 'margin-top:12px;', groupTitle));
+    for (const [k, [cnt, likes]] of groupRows) box.appendChild(reactionRow(k, cnt, likes));
   }
 
   if (r.words && r.words.length) {
@@ -2063,10 +2100,11 @@ function buildReactionBox(cm, onDownload) {
 
   if (cm.top && cm.top.length) {
     box.appendChild(mk('div', CM_SUB, `공감 TOP ${cm.top.length} 댓글`));
-    cm.top.forEach(([text, likes, ep, date, spoiler], i) => {
+    cm.top.forEach(([text, likes, ep, date, flags], i) => {
+      const { spoiler, author } = sampleFlags(flags);
       const row = mk('div', 'padding:8px 0;border-bottom:1px solid var(--border);');
       row.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:3px;',
-        `${i + 1}. 👍${(likes || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}${date ? ` · ${date}` : ''}${spoiler ? ' · 스포일러' : ''}`));
+        `${i + 1}. 👍${(likes || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}${date ? ` · ${date}` : ''}${author ? ' · ✍ 작가의 말 (반응 분석에선 제외)' : ''}${spoiler ? ' · 스포일러' : ''}`));
       row.appendChild(commentBody(text, spoiler));
       box.appendChild(row);
     });
@@ -2213,11 +2251,18 @@ function downloadCommentExcel(title, cm, ep) {
     if (!v) continue;
     const ex = ((r.examples || {})[k] || [])[0] || [];
     const pct = (d) => (d ? +((v[0] / d) * 100).toFixed(1) : 0);
-    summary.push([label, v[0], pct(r.used), pct(r.total), v[1], ex[0] || '', ex[1] || '', ex[2] || '']);
+    summary.push([ABOUT_WORK.includes(k) ? `[작품 평가] ${label}` : label, v[0], pct(r.used), pct(r.total), v[1], ex[0] || '', ex[1] || '', ex[2] || '']);
+  }
+  if (r.why) {
+    summary.push([], ['작품 불만 이유', '댓글 수']);
+    Object.entries(r.why).sort((a, b) => b[1] - a[1]).forEach(([w, n]) => summary.push([COMPLAIN_WHY[w] || w, n]));
   }
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(summary), '반응 요약');
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['순위', '공감', '회차', '작성일', '스포일러', '댓글']]
-    .concat((cm.top || []).map(([text, likes, epl, date, sp], i) => [i + 1, likes, epl, date, sp ? 'Y' : '', text]))), '공감 TOP 댓글');
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['순위', '공감', '회차', '작성일', '스포일러', '작가의 말', '댓글']]
+    .concat((cm.top || []).map(([text, likes, epl, date, flags], i) => {
+      const { spoiler, author } = sampleFlags(flags);
+      return [i + 1, likes, epl, date, spoiler ? 'Y' : '', author ? 'Y' : '', text];
+    }))), '공감 TOP 댓글');
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['단어', '나온 댓글 수']].concat(r.words || [])), '자주 나온 말');
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['회차', '공감 상위 댓글 수', '공감 합']].concat(cm.epHot || [])), '댓글 몰린 회차');
   if (ep && ep.episodes) {

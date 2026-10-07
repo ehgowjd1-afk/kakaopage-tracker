@@ -72,10 +72,21 @@ function writeIfChanged(f, obj) {
 const cut = (s, n) => { const t = KREACT.clean(s).replace(/\s+/g, ' '); return t.length > n ? t.slice(0, n - 1) + '…' : t; };
 const readable = (list) => list.filter((c) => KREACT.clean(c.text));
 
-// [text, likes, episode, date(, 1 = spoiler)]
-function sample(c, title, n) {
+// The API has no author flag: a comment is the author's when its nickname matches the
+// work's author field ("나인수, 김재환", "고문종/이태욱"; "수담·옥" is ONE name) or it is
+// an obvious author's note. Author notes are shown (marked) but never counted as reactions.
+function authorSet(author) {
+  return new Set(String(author || '').split(/[,/]/).map((s) => s.trim()).filter(Boolean));
+}
+const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다/;
+const isAuthor = (c, authors) => authors.has((c.user || '').trim()) || AUTHOR_NOTE.test(c.text || '');
+const readers = (list, authors) => list.filter((c) => !isAuthor(c, authors));
+
+// [text, likes, episode, date(, flags: 's' = spoiler, 'a' = author)]
+function sample(c, title, n, authors) {
   const s = [cut(c.text, n), c.likes, episodeLabel(c.episodeTitle, title), (c.at || '').slice(0, 10)];
-  if (c.spoiler) s.push(1);
+  const flags = (c.spoiler ? 's' : '') + (isAuthor(c, authors) ? 'a' : '');
+  if (flags) s.push(flags);
   return s;
 }
 
@@ -98,13 +109,14 @@ function analyse(comments, title, opts) {
   return r;
 }
 
-async function seriesSummary(id, title, today, n, opts) {
+async function seriesSummary(id, title, authors, today, n, opts) {
   const { total, comments } = await seriesTopComments(id, n, { gap: GAP });
+  const fromReaders = readers(comments, authors);
   return {
     v: ENGINE_V, updated: today, due: kstDate(A_REFRESH_DAYS + (hash(id) % 7)),
     total, n: comments.length,
-    top: readable(comments).slice(0, opts.top).map((c) => sample(c, title, opts.cut)),
-    react: analyse(comments, title, opts), epHot: hotEpisodes(comments, title, opts.hot),
+    top: readable(comments).slice(0, opts.top).map((c) => sample(c, title, opts.cut, authors)),
+    react: analyse(fromReaders, title, opts), epHot: hotEpisodes(fromReaders, title, opts.hot),
   };
 }
 
@@ -113,21 +125,23 @@ async function deepStart(w, today) {
   const old = readJson(path.join(OUT, `${w.id}.json`), null);
   const oldEp = readJson(path.join(OUT_EP, `${w.id}.json`), null);
   const fresh = old && old.tier === 'deep' && old.v === ENGINE_V && old.updated && daysBetween(old.updated, today) < DEEP_REFRESH_DAYS;
-  w.summary = fresh && !w.isNew ? old : { tier: 'deep', ...(await seriesSummary(w.id, w.title, today, DEEP_N, DEEP_OPTS)) };
+  w.summary = fresh && !w.isNew ? old : { tier: 'deep', ...(await seriesSummary(w.id, w.title, w.authors, today, DEEP_N, DEEP_OPTS)) };
   w.eps = await listEpisodes(w.id, { gap: GAP });
-  w.epData = (oldEp && oldEp.episodes) || {};   // productId -> [order, label, total, scanned, best, mix, releasedAt]
+  // productId -> [order, label, total, scanned, best, mix, releasedAt, engineVersion]
+  w.epData = (oldEp && oldEp.episodes) || {};
   w.scanned = 0;
 }
 
 async function scanEpisode(w, e, today) {
   const { total, comments } = await episodeTopComments(w.id, e.productId, EP_N, { gap: GAP });
-  const r = KREACT.analyze(comments.map((c) => ({ text: c.text, likes: c.likes })));
+  const fromReaders = readers(comments, w.authors);
+  const r = KREACT.analyze(fromReaders.map((c) => ({ text: c.text, likes: c.likes })));
   const mix = {};
   for (const [k, v] of Object.entries(r.reactions)) mix[k] = v[0];
-  const best = readable(comments)[0];
+  const best = readable(fromReaders)[0];
   w.epData[e.productId] = [e.order, episodeLabel(e.title, w.title), total || 0, today,
     best ? (best.spoiler ? [cut(best.text, 90), best.likes, 1] : [cut(best.text, 90), best.likes]) : null,
-    mix, (e.at || '').slice(0, 10)];
+    mix, (e.at || '').slice(0, 10), ENGINE_V];
   w.scanned += 1;
 }
 
@@ -206,8 +220,9 @@ export async function collectComments() {
   const all = idsArg ? idsArg.split(',').filter(Boolean) : [...new Set([...Object.keys(lite), ...top100.keys()])];
 
   // deep: new to the TOP 100 (or never scanned) first, then by rank
+  const authorsOf = (id) => authorSet(lite[id] && lite[id].author);
   const deep = all.filter((id) => top100.has(id)).map((id) => ({
-    id, title: titleOf(id), rank: top100.get(id),
+    id, title: titleOf(id), authors: authorsOf(id), rank: top100.get(id),
     isNew: !prevTop.has(id) || !fs.existsSync(path.join(OUT_EP, `${id}.json`)),
   })).sort((a, b) => (b.isNew - a.isNew) || (a.rank - b.rank));
 
@@ -247,7 +262,7 @@ export async function collectComments() {
     const file = path.join(OUT, `${id}.json`);
     const old = readJson(file, null);
     try {
-      const out = { tier: 'A', ...(await seriesSummary(id, titleOf(id), today, A_N, A_OPTS)) };
+      const out = { tier: 'A', ...(await seriesSummary(id, titleOf(id), authorsOf(id), today, A_N, A_OPTS)) };
       if (old && old.epTotal) { out.epTotal = old.epTotal; out.epScanned = old.epScanned; }   // keeps a former TOP 100 work's episode table linked
       writeIfChanged(file, out);
       ok(budget);
@@ -262,15 +277,17 @@ export async function collectComments() {
   });
 
   // 3) deep backfill with what's left: never-read episodes first (no per-work cap,
-  //    new TOP 100 entrants first), then up to EP_PER_WORK stale re-reads per work.
+  //    new TOP 100 entrants first), then episodes read with an older engine version
+  //    (newest first), then up to EP_PER_WORK stale re-reads per work.
   started.sort((a, b) => (b.isNew - a.isNew) || (a.rank - b.rank));
   await pool(started, DEEP_WORKERS, budget, async (w) => {
     const unscanned = w.eps.filter((e) => !w.epData[e.productId]).reverse();
+    const outdated = w.eps.filter((e) => { const d = w.epData[e.productId]; return d && d[7] !== ENGINE_V; }).reverse();
     const stale = w.eps.filter((e) => {
       const d = w.epData[e.productId];
-      return d && daysBetween(d[3], today) >= EP_REFRESH_DAYS + (hash(e.productId) % 7);
+      return d && d[7] === ENGINE_V && daysBetween(d[3], today) >= EP_REFRESH_DAYS + (hash(e.productId) % 7);
     }).sort((a, b) => (w.epData[a.productId][3] < w.epData[b.productId][3] ? -1 : 1));
-    const list = [...unscanned, ...stale.slice(0, EP_PER_WORK)];
+    const list = [...unscanned, ...outdated, ...stale.slice(0, EP_PER_WORK)];
     if (!list.length) return;
     const before = w.scanned;
     await scanList(w, list, budget, today);
