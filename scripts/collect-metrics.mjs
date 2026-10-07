@@ -30,7 +30,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function fetchMetrics(id) {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const r = await fetch(BFF + id, { headers: HEADERS });
+      // timeout: a hung request must never stall the daily job (it has a hard time limit)
+      const r = await fetch(BFF + id, { headers: HEADERS, signal: AbortSignal.timeout(20000) });
       if (!r.ok) { if (attempt) return null; await sleep(500); continue; }
       const j = await r.json();
       const sp = j?.result?.content?.service_property;

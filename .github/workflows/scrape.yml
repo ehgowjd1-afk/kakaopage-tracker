@@ -21,7 +21,10 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # A normal run takes ~88 min (2026-10-07: ~76 min of it is per-work page
+    # visits). 90 left no headroom — one slow day would kill the job before the
+    # commit step and lose the whole day. Hosted runners allow up to 360.
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
 
