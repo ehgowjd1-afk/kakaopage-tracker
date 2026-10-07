@@ -1,0 +1,100 @@
+name: Daily comment analysis
+
+# Comment collection + reaction analysis (scripts/collect-comments.mjs). Runs as
+# its OWN workflow after the ranking scrape has committed, so it can never delay
+# or break the day's ranking data. Bounded by request budgets and a time limit;
+# whatever isn't done today continues tomorrow.
+on:
+  # Right after each scrape run finishes. Only the first one of the KST day does
+  # the work; later ones skip via the guard below.
+  workflow_run:
+    workflows: ['Daily Kakao Page scrape']
+    types: [completed]
+  # Fallback for days the rankings came from the cloud backup instead (16:30 KST).
+  schedule:
+    - cron: '30 7 * * *'
+  workflow_dispatch:
+    inputs:
+      budget_a:
+        description: 'Tier A works this run (whole-work top 100 comments)'
+        default: '1500'
+      budget_ep:
+        description: 'Episodes this run (TOP 100 works, per-episode)'
+        default: '8000'
+      max_minutes:
+        description: 'Time limit for collecting, minutes (keep under 150)'
+        default: '100'
+      force:
+        description: 'Run even if already done today (true/false)'
+        default: 'false'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comments
+  cancel-in-progress: false
+
+jobs:
+  comments:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Skip if already done today, or today's rankings aren't in yet
+        id: guard
+        run: |
+          TODAY="$(TZ=Asia/Seoul date +%Y-%m-%d)"
+          if [ "${{ github.event.inputs.force }}" != "true" ] && grep -q "\"lastRun\":\"$TODAY\"" docs/data/comments/state.json 2>/dev/null; then
+            echo "Comments already collected for $TODAY (KST) — skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          elif [ ! -f "docs/data/webnovel/daily/$TODAY.json" ]; then
+            echo "No ranking data for $TODAY (KST) yet — skipping; the next trigger will run."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
+        with:
+          node-version: 24
+
+      # No npm install: the collector only uses Node built-ins (fetch etc.).
+      - name: Collect comments
+        if: steps.guard.outputs.skip != 'true'
+        run: >
+          node scripts/collect-comments.mjs
+          --budget-a=${{ github.event.inputs.budget_a || '1500' }}
+          --budget-ep=${{ github.event.inputs.budget_ep || '8000' }}
+          --max-minutes=${{ github.event.inputs.max_minutes || '100' }}
+
+      - name: Commit and push
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          # Author MUST be the real account (Vercel blocks deploys of other authors).
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
+          git add docs/data/comments
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: comment analysis $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          # Only this workflow writes docs/data/comments, so rebasing onto newer
+          # ranking commits never conflicts.
+          for i in 1 2 3 4 5; do
+            git fetch origin master
+            git rebase origin/master || { git rebase --abort; git merge -X ours --no-edit origin/master; }
+            if git push origin HEAD:master; then echo "pushed"; exit 0; fi
+            echo "push attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "push failed after retries"; exit 1
+
+      - name: Trigger Vercel deploy
+        if: ${{ steps.guard.outputs.skip != 'true' && env.HOOK != '' }}
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: curl -X POST "$HOOK"

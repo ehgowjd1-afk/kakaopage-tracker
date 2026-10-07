@@ -1684,9 +1684,13 @@ async function renderWorkView(cat, period, workId) {
   // comments, rank trend, view trend), so we fetch ONE ~20KB file instead of the
   // ~59MB works.json plus ~220 per-date snapshot requests. Light metadata
   // (author/classification/keywords/rating…) comes from the already-cached lite.
-  const [lite, card, promotions] = await Promise.all([
+  const [lite, card, promotions, , cm] = await Promise.all([
     getWorksLite(), fetchJson(`data/detail/${workId}.json`).catch(() => null), getPromotions(), loadMemoStore(),
+    fetchJson(`data/comments/${workId}.json`).catch(() => null),
   ]);
+  // Comment analysis (scripts/collect-comments.mjs). When present it replaces the
+  // older scraped "인기 댓글"/"댓글 반응 키워드" (BEST 25 only).
+  const hasCm = !!(cm && cm.react);
   const liteMeta = lite[workId] || {};
   const meta = {
     ...liteMeta,
@@ -1761,7 +1765,22 @@ async function renderWorkView(cat, period, workId) {
     infoDiv.appendChild(metaLine(`다른 형태로도 있음: ${otherVersions.map((v) => `${v.category} <${v.title}>`).join(', ')}`));
   }
 
-  if (meta.commentKeywords && meta.commentKeywords.length) {
+  if (hasCm && cm.react.used) {
+    const line = metaLine('독자 반응: ');
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = `${topReactions(cm, 3).map(([k, [cnt]]) => `${reactionInfo(k).label} ${Math.round((cnt / cm.react.used) * 100)}%`).join(' · ')} (자세히 ↓)`;
+    link.style.cssText = 'color:var(--accent-ink);text-decoration:underline;';
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('comment-analysis');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+    line.appendChild(link);
+    infoDiv.appendChild(line);
+  }
+
+  if (!hasCm && meta.commentKeywords && meta.commentKeywords.length) {
     const kwDiv = document.createElement('div');
     kwDiv.className = 'work-keywords';
     const label = document.createElement('div');
@@ -1800,7 +1819,7 @@ async function renderWorkView(cat, period, workId) {
 
   app.appendChild(buildMemoBox(workId, (latestItem && latestItem.title) || meta.title || null, cat));
 
-  if (meta.topComments && meta.topComments.length) {
+  if (!hasCm && meta.topComments && meta.topComments.length) {
     app.appendChild(buildCommentsBox(meta.topComments.slice(0, 5)));
   }
 
@@ -1900,6 +1919,18 @@ async function renderWorkView(cat, period, workId) {
   addMetricTrend('평점 참여 수 추이', metricsSeries.filter((m) => m.rc != null).map((m) => ({ date: m.date, value: m.rc })));
   addMetricTrend('전체 댓글 수 추이', metricsSeries.filter((m) => m.cc != null).map((m) => ({ date: m.date, value: m.cc })));
   redraw();
+
+  if (hasCm) {
+    const title = (latestItem && latestItem.title) || meta.title || workId;
+    const epHolder = document.createElement('div');
+    let epData = null;
+    const epPromise = cm.epScanned
+      ? fetchJson(`data/comments/ep/${workId}.json`).then((d) => { epData = d; return d; }).catch(() => null)
+      : Promise.resolve(null);
+    app.appendChild(buildReactionBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
+    app.appendChild(epHolder);
+    epPromise.then((d) => { if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d)); });
+  }
 }
 
 function metaLine(text) {
@@ -1930,6 +1961,271 @@ function buildCommentsBox(comments) {
     box.appendChild(row);
   }
   return box;
+}
+
+// ---- 댓글 분석 (data/comments/{id}.json · ep/{id}.json, scripts/collect-comments.mjs) ----
+// Keys/labels mirror the reaction engine scripts/lib/kreact.cjs.
+const REACTIONS = [
+  ['laugh', '웃음', '#eab308'], ['sad', '감동·슬픔', '#3b82f6'], ['love', '설렘·애정', '#ec4899'],
+  ['anger', '분노·답답', '#ef4444'], ['chill', '소름·긴장', '#8b5cf6'], ['shock', '충격·반전', '#f97316'],
+  ['cheer', '응원·걱정', '#22c55e'], ['theory', '추리·떡밥', '#14b8a6'], ['praise', '칭찬·감탄', '#b45309'],
+];
+function reactionInfo(k) {
+  const r = REACTIONS.find((x) => x[0] === k);
+  return r ? { label: r[1], color: r[2] } : { label: k, color: 'var(--same)' };
+}
+function topReactions(cm, n) {
+  return Object.entries((cm.react && cm.react.reactions) || {})
+    .sort((a, b) => b[1][0] - a[1][0] || b[1][1] - a[1][1])
+    .slice(0, n);
+}
+function mk(tag, css, text) {
+  const e = document.createElement(tag);
+  if (css) e.style.cssText = css;
+  if (text != null) e.textContent = text;
+  return e;
+}
+const CM_H3 = 'font-size:13px;color:var(--text-dim);margin:0 0 6px;';
+const CM_SUB = 'font-size:12px;color:var(--text-dim);margin:16px 0 6px;font-weight:600;';
+const CM_NOTE = 'font-size:11px;color:var(--text-dim);line-height:1.5;';
+// Comment body; spoilers stay blurred until tapped (Kakao hides them too).
+function commentBody(text, spoiler) {
+  const body = mk('div', 'white-space:pre-wrap;word-break:break-all;font-size:13px;', text);
+  if (spoiler) {
+    body.style.filter = 'blur(5px)';
+    body.style.cursor = 'pointer';
+    body.title = '스포일러 — 눌러서 보기';
+    body.addEventListener('click', () => { body.style.filter = ''; body.style.cursor = ''; body.title = ''; }, { once: true });
+  }
+  return body;
+}
+// "웃음 5 · 추리·떡밥 3" from a per-episode {reaction: count} mix
+function mixText(mix, n) {
+  return Object.entries(mix || {}).sort((a, b) => b[1] - a[1]).slice(0, n)
+    .map(([k, v]) => `${reactionInfo(k).label} ${v}`).join(' · ');
+}
+function topMixKey(mix) {
+  const e = Object.entries(mix || {}).sort((a, b) => b[1] - a[1])[0];
+  return e ? e[0] : null;
+}
+
+function buildReactionBox(cm, onDownload) {
+  const r = cm.react;
+  const box = mk('div');
+  box.className = 'chart-box';
+  box.id = 'comment-analysis';
+  box.style.marginTop = '16px';
+  const head = mk('div', 'display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;');
+  head.appendChild(mk('h3', CM_H3, '독자 반응 · 댓글 분석'));
+  const dl = mk('button', '', '댓글 분석 엑셀 (.xlsx)');
+  dl.className = 'dl-btn';
+  dl.addEventListener('click', onDownload);
+  head.appendChild(dl);
+  box.appendChild(head);
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;',
+    `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었고, ` +
+    `그중 감정 반응이 잡힌 ${r.used}개를 100%로 본 비율이에요 (한 댓글이 여러 반응에 들어갈 수 있어요). 막대를 누르면 대표 댓글이 보여요.`));
+
+  const rows = topReactions(cm, REACTIONS.length);
+  const max = rows.length ? rows[0][1][0] : 1;
+  for (const [k, [cnt, likes]] of rows) {
+    const info = reactionInfo(k);
+    const row = mk('div', 'margin:5px 0;cursor:pointer;');
+    const line = mk('div', 'display:flex;align-items:center;gap:8px;font-size:13px;');
+    line.appendChild(mk('span', 'width:72px;flex:none;', info.label));
+    const track = mk('div', 'flex:1;min-width:40px;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden;');
+    track.appendChild(mk('div', `height:100%;width:${Math.max(2, (cnt / max) * 100)}%;background:${info.color};`));
+    line.appendChild(track);
+    line.appendChild(mk('span', 'flex:none;min-width:112px;text-align:right;font-size:12px;color:var(--text-dim);',
+      `${Math.round((cnt / r.used) * 100)}% · ${cnt}개 · 👍${formatCount(likes)}`));
+    row.appendChild(line);
+    const ex = (r.examples && r.examples[k]) || [];
+    if (ex.length) {
+      const exBox = mk('div', `display:none;margin:6px 0 10px 80px;border-left:3px solid ${info.color};padding-left:8px;`);
+      for (const [text, lk, ep] of ex) {
+        exBox.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;margin-top:6px;', `👍${(lk || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}`));
+        exBox.appendChild(commentBody(text));
+      }
+      row.appendChild(exBox);
+      row.addEventListener('click', () => { exBox.style.display = exBox.style.display === 'none' ? 'block' : 'none'; });
+    }
+    box.appendChild(row);
+  }
+
+  if (r.words && r.words.length) {
+    box.appendChild(mk('div', CM_SUB, '자주 나온 말'));
+    const kw = mk('div');
+    kw.className = 'work-keywords';
+    for (const [w, n] of r.words) kw.appendChild(mk('span', '', `${w} ${n}`));
+    box.appendChild(kw);
+  }
+
+  if (cm.top && cm.top.length) {
+    box.appendChild(mk('div', CM_SUB, `공감 TOP ${cm.top.length} 댓글`));
+    cm.top.forEach(([text, likes, ep, date, spoiler], i) => {
+      const row = mk('div', 'padding:8px 0;border-bottom:1px solid var(--border);');
+      row.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:3px;',
+        `${i + 1}. 👍${(likes || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}${date ? ` · ${date}` : ''}${spoiler ? ' · 스포일러' : ''}`));
+      row.appendChild(commentBody(text, spoiler));
+      box.appendChild(row);
+    });
+  }
+
+  if (cm.epHot && cm.epHot.length) {
+    box.appendChild(mk('div', CM_SUB, '공감 많은 댓글이 몰린 회차'));
+    const kw = mk('div');
+    kw.className = 'work-keywords';
+    for (const [label, n, likes] of cm.epHot) kw.appendChild(mk('span', '', `${label} · ${n}개 · 👍${formatCount(likes)}`));
+    box.appendChild(kw);
+  }
+  return box;
+}
+
+// Per-episode table: [order, label, total, scanned, best, mix, releasedAt]
+function buildEpisodeBox(cm, ep) {
+  const rows = Object.values(ep.episodes || {}).sort((a, b) => a[0] - b[0]);
+  const box = mk('div');
+  box.className = 'chart-box';
+  box.style.marginTop = '16px';
+  box.appendChild(mk('h3', CM_H3, '회차별 반응'));
+  const total = Math.max(cm.epTotal || 0, rows.length);
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;',
+    `회차 ${rows.length.toLocaleString()}/${total.toLocaleString()}개 분석 · 댓글 수는 그 회차 전체, 반응은 회차마다 공감 상위 30개 댓글 기준` +
+    (rows.length < total ? ' · 나머지 회차는 매일 조금씩 채워져요' : '')));
+  if (!rows.length) return box;
+
+  const modes = [['count', '댓글 수']].concat(
+    REACTIONS.filter(([k]) => rows.some((r) => (r[5] || {})[k])).map(([k, label]) => [k, `${label} 반응`]));
+  let mode = 'count';
+  const val = (r) => (mode === 'count' ? r[2] : ((r[5] || {})[mode] || 0));
+
+  const tabs = mk('div', 'display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;');
+  tabs.className = 'tabgroup';
+  const chartWrap = mk('div');
+  const axis = mk('div', 'display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-top:4px;');
+  const detail = mk('div', 'margin-top:10px;padding:10px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;');
+  const listTitle = mk('div', CM_SUB);
+  const list = mk('div');
+
+  function showDetail(r) {
+    detail.innerHTML = '';
+    detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개`));
+    const mt = mixText(r[5], 9);
+    detail.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:6px;', mt ? `공감 상위 30개 중 반응: ${mt}` : '공감 상위 댓글에서 잡힌 반응이 없어요'));
+    if (r[4]) {
+      detail.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;', `베스트 댓글 👍${(r[4][1] || 0).toLocaleString()}${r[4][2] ? ' · 스포일러' : ''}`));
+      detail.appendChild(commentBody(r[4][0], r[4][2]));
+    }
+  }
+
+  function drawChart() {
+    const NS = 'http://www.w3.org/2000/svg';
+    const n = rows.length;
+    const W = n * 10;
+    const H = 150;
+    const vmax = Math.max(1, ...rows.map(val));
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.style.cssText = 'width:100%;height:150px;display:block;cursor:crosshair;';
+    rows.forEach((r, i) => {
+      const v = val(r);
+      if (!v) return;
+      const h = Math.max(2, (v / vmax) * (H - 2));
+      const rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('x', i * 10 + 1);
+      rect.setAttribute('width', 8);
+      rect.setAttribute('y', H - h);
+      rect.setAttribute('height', h);
+      const key = mode === 'count' ? topMixKey(r[5]) : mode;
+      rect.style.fill = key ? reactionInfo(key).color : 'var(--same)';
+      svg.appendChild(rect);
+    });
+    // hover / tap anywhere on the chart picks the episode under the pointer
+    const pick = (e) => {
+      const box2 = svg.getBoundingClientRect();
+      const i = Math.min(n - 1, Math.max(0, Math.floor(((e.clientX - box2.left) / box2.width) * n)));
+      showDetail(rows[i]);
+    };
+    svg.addEventListener('mousemove', pick);
+    svg.addEventListener('click', pick);
+    chartWrap.innerHTML = '';
+    chartWrap.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-bottom:2px;',
+      `최대 ${vmax.toLocaleString()}${mode === 'count' ? '개' : '개 (공감 상위 30개 중)'}`));
+    chartWrap.appendChild(svg);
+    axis.innerHTML = '';
+    axis.appendChild(mk('span', '', rows[0][1]));
+    if (n > 2) axis.appendChild(mk('span', '', rows[Math.floor(n / 2)][1]));
+    axis.appendChild(mk('span', '', rows[n - 1][1]));
+  }
+
+  function drawList() {
+    listTitle.textContent = mode === 'count'
+      ? '댓글이 가장 많은 회차 TOP 10'
+      : `'${reactionInfo(mode).label}' 반응이 가장 많은 회차 TOP 10 (공감 상위 30개 중)`;
+    list.innerHTML = '';
+    rows.slice().sort((a, b) => val(b) - val(a) || a[0] - b[0]).slice(0, 10).forEach((r, i) => {
+      if (!val(r)) return;
+      const row = mk('div', 'padding:7px 0;border-bottom:1px solid var(--border);cursor:pointer;');
+      row.appendChild(mk('div', 'font-size:13px;',
+        `${i + 1}. ${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개${mixText(r[5], 2) ? ` · ${mixText(r[5], 2)}` : ''}`));
+      if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;',
+        r[4][2] ? '베스트 댓글: (스포일러)' : `베스트 댓글: ${r[4][0]}`));
+      row.addEventListener('click', () => { showDetail(r); detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+      list.appendChild(row);
+    });
+  }
+
+  function redrawEp() {
+    tabs.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.m === mode));
+    drawChart();
+    drawList();
+  }
+  for (const [k, label] of modes) {
+    const b = mk('button', '', label);
+    b.dataset.m = k;
+    b.addEventListener('click', () => { mode = k; redrawEp(); });
+    tabs.appendChild(b);
+  }
+  box.appendChild(tabs);
+  box.appendChild(chartWrap);
+  box.appendChild(axis);
+  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', '막대 색 = 그 회차에서 가장 많이 나온 반응. 차트 위에 마우스를 올리거나 누르면 회차 정보가 보여요.'));
+  box.appendChild(detail);
+  box.appendChild(listTitle);
+  box.appendChild(list);
+  redrawEp();
+  showDetail(rows[rows.length - 1]);
+  return box;
+}
+
+function downloadCommentExcel(title, cm, ep) {
+  const wb = XLSX.utils.book_new();
+  const r = cm.react || { reactions: {}, examples: {}, words: [], total: 0, used: 0 };
+  const summary = [
+    ['작품', title], ['기준일', cm.updated], ['전체 댓글 수', cm.total], ['분석한 댓글 (공감순)', cm.n],
+    ['읽을 내용이 있는 댓글', r.total], ['감정 반응이 잡힌 댓글', r.used], [],
+    ['반응', '댓글 수', '비율(%, 반응 잡힌 댓글 중)', '비율(%, 분석한 댓글 중)', '공감 합', '대표 댓글', '대표 댓글 공감', '대표 댓글 회차'],
+  ];
+  for (const [k, label] of REACTIONS) {
+    const v = r.reactions[k];
+    if (!v) continue;
+    const ex = ((r.examples || {})[k] || [])[0] || [];
+    const pct = (d) => (d ? +((v[0] / d) * 100).toFixed(1) : 0);
+    summary.push([label, v[0], pct(r.used), pct(r.total), v[1], ex[0] || '', ex[1] || '', ex[2] || '']);
+  }
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(summary), '반응 요약');
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['순위', '공감', '회차', '작성일', '스포일러', '댓글']]
+    .concat((cm.top || []).map(([text, likes, epl, date, sp], i) => [i + 1, likes, epl, date, sp ? 'Y' : '', text]))), '공감 TOP 댓글');
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['단어', '나온 댓글 수']].concat(r.words || [])), '자주 나온 말');
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['회차', '공감 상위 댓글 수', '공감 합']].concat(cm.epHot || [])), '댓글 몰린 회차');
+  if (ep && ep.episodes) {
+    const head = ['순서', '회차', '공개일', '댓글 수'].concat(REACTIONS.map(([, label]) => `${label} (상위30 중)`), ['베스트 댓글', '베스트 공감', '수집일']);
+    const body = Object.values(ep.episodes).sort((a, b) => a[0] - b[0]).map((e) => [e[0], e[1], e[6] || '', e[2]]
+      .concat(REACTIONS.map(([k]) => (e[5] || {})[k] || 0), [e[4] ? e[4][0] : '', e[4] ? e[4][1] : '', e[3]]));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([head].concat(body)), '회차별');
+  }
+  XLSX.writeFile(wb, `${String(title).replace(/[\\/:*?"<>|]/g, '_')}_댓글분석_${cm.updated}.xlsx`);
 }
 
 function isoWeekKey(d) {
