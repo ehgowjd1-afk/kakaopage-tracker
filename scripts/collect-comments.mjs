@@ -87,8 +87,9 @@ const readable = (list) => list.filter((c) => KREACT.clean(c.text));
 function authorSet(author) {
   return new Set(String(author || '').split(/[,/]/).map((s) => s.trim()).filter(Boolean));
 }
-// 웹툰은 그림·각색 작가도 인사를 남긴다 ("<그 쓰레기가 나였어요>의 작화를 맡은 에습입니다")
-const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)[을를]?\s?(담당|맡)/;
+// 웹툰은 그림·각색 작가도, 출판사도 인사를 남긴다 ("<그 쓰레기가 나였어요>의 작화를 맡은 에습입니다",
+// "<우검쟁패>를 출간한 스마트빅/월하담입니다")
+const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)[을를]?\s?(담당|맡)|출간한\s?\S{1,20}입니다|출판사입니다|편집(부|자)입니다/;
 const isAuthor = (c, authors) => authors.has((c.user || '').trim()) || AUTHOR_NOTE.test(c.text || '');
 const readers = (list, authors) => list.filter((c) => !isAuthor(c, authors));
 
