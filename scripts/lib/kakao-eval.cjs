@@ -80,6 +80,7 @@ function prepText(text, titleRe) {
 function keepFor() {
   // aboutWork: 하차 선언처럼 댓글 전체가 작품 얘기인 경우 ('주인공 답답해서 접습니다'의 주인공 비판은 하차 이유)
   return function keep(pairs, text, aboutWork) {
+    if (!pairs || !pairs.length) return [];          // 엔진이 통째로 건너뛴 댓글(선구매 기대평 등)은 null을 준다
     if (KREACT.DEFEND.test(text || '')) return [];   // 불평하는 다른 독자를 나무라는 댓글: 작품 평가가 아님
     const whole = aboutWork || isDrop(text);
     const out = [];
