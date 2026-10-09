@@ -16,7 +16,8 @@ const path = require('path');
 const RABSA = require('./rabsa.cjs');
 const KREACT = require('./kreact.cjs');
 
-const ADAPTER_V = '1';   // 걸러내기 규칙을 바꾸면 올릴 것 (수집기가 다시 계산)
+const ADAPTER_V = '2';   // 걸러내기 규칙·저장 항목을 바꾸면 올릴 것 (수집기가 다시 계산)
+// 2: 하차 선언·이유, 공감 많이 받은 칭찬/불만 댓글, 반응 좋았던/아쉬웠던 회차, 회차별 대표 칭찬·불만
 const VERSION = `${RABSA.VERSION}k${ADAPTER_V}`;
 
 // 작품을 직접 가리키는 말 ('무협소설·순정만화'처럼 장르를 말할 때의 소설·만화는 빼려고 앞에 한글이 붙으면 제외)
@@ -36,7 +37,7 @@ const EVAL_KW = {
   romance: /로맨스|러브|연애|썸|순애/,
 };
 // 감성어를 품은 보통 낱말 ('내구도'의 구도, '번역하면'의 역하, 'lv별로'의 별로, '오타쿠'의 오타…)
-const COMPOUND_MASK = /유치원|며느리|비웃|내구도|번역하|오타쿠|고대\s?비문|무서운|무서워|무서웠|(?<=[A-Za-z0-9가-힣])별로/g;
+const COMPOUND_MASK = /유치원|며느리|비웃|내구도|번역하|오타쿠|고대\s?비문|무서운|무서워|무서웠|하차\s?했다가|안\s?볼래야\s?안\s?볼\s?수|(?<=[A-Za-z0-9가-힣])별로/g;
 // 스토리 요소 낱말 중 작중 상황에도 늘 쓰는 말: 작품을 가리키는 말이 같이 있어야 전개 평가로 본다
 // ("르벨린 머리채 잡고 잘 사는 거 답답하다" = 작중 분노, "요즘 전개 고구마" = 전개 평가)
 const STORY_REACTION_KW = /^(답답|고구마|속터|급발진|삽질|질질|사이다|속시원)/;
@@ -44,6 +45,30 @@ const STORY_REACTION_KW = /^(답답|고구마|속터|급발진|삽질|질질|사
 const NARRATED_BORED = /지루해\s?하|지루하다고|지루하대|지루했대/;
 
 const blank = (s) => ' '.repeat(s.length);
+
+// ---- 하차 선언 ----
+// '하차합니다·접습니다·그만 볼게요·안 볼 거예요·여기까지' = 하차. 하지만 '하차할 뻔·하차하려다(=그래도 봄)',
+// '하차했다가 다시 옴', '하차 안 해요', 남의 하차 얘기('하차한 사람들'), 다른 독자 나무람('불만이면 하차하세요')은 아니다.
+// ('탈주·손절'은 '탈주마법사' 같은 이름에도 들어가서 동사 꼴일 때만)
+const DROP_RE = /하차|접(습니다|을게|을래|겠|어요|었|음)|그만\s?(볼|보겠|봐야|읽|볼래|봅니다)|안\s?(볼|보겠|사겠|살)\s?(거|것|게|래|란|랍|께)|여기까지\s?(볼|보|읽)|(탈주|손절)(합니다|할게|할래|해요|함|각|하겠)/;
+// ('안 볼래야 안 볼 수가 없다' = 칭찬, '남주 바뀌면 하차합니다' = 조건 걸고 하는 투정)
+// 하차하는 남을 비꼬는 말('하차한다고 겁주네', '하차할거면 조용히', '왜 읽냐? 하차햐'), 인물이 빠지는 '여주 중도하차'도 아니다
+const NOT_DROP = /하차\s?(할\s?뻔|하려다|하려고|고민|각|안\s?해|못\s?해|ㄴㄴ|하지)|하차\s?했다가|하차했다가|안\s?하차|하차(한|하신|하는|하실)\s?(사람|분|독자|애|놈)|안\s?볼\s?(래야|래도|수가|수\s?없)|(면|으면|다면|거면)\s?(바로\s?|진짜\s?|그냥\s?|당장\s?)?(하차|접|그만\s?볼|안\s?볼)|하차\s?(한다는|한다고|할\s?거면|할거면|하면\s?될|햐|해라|하던가|하든가|하시던가|하든지)|하차\s?다\s?어쩐다|하차다\s?어쩐다|중도\s?하차|(남주|여주|주인공|캐릭터|캐릭|조연|인물)\S{0,3}\s?하차/;
+function isDrop(text) {
+  const t = (text || '').replace(KREACT.NEGATED, blank);
+  return DROP_RE.test(t) && !NOT_DROP.test(text || '') && !KREACT.DEFEND.test(text || '');
+}
+// 하차 이유를 뽑을 때는 하차라는 말 자체를 가린다 ('전개 질질 끌어서 하차' → '전개가 질질 끈다')
+const DROP_WORDS = /하차\S*|접습니다|접을게\S*|접겠\S*|그만\s?(볼|보겠|봐야|읽|볼래|봅니다)\S*|여기까지\s?(볼|보|읽)\S*|(탈주|손절)(합니다|할게|할래|해요|함|각|하겠)\S*/g;
+// 리디 사전에 없는 웹소설 단골 불만 (카카오 댓글에서 실제로 많이 나온 말)
+const EXTRA_NEG = [
+  [/설명충|잡설명|설명이\s?(너무\s?|넘\s?)?(많|길)|설명만\s?(하|계속|주구장창)/, '설명이 너무 많다'],
+  [/분량\s?(늘리|채우|뽑)|늘리기\s?(신공|좀|그만)?|우려\s?먹|우려\s?드/, '분량을 늘린다'],
+  [/대필|작가가?\s?바뀐|본인\s?글이\s?아/, '작가가 바뀐 것 같다'],
+  [/진도\s?좀\s?나|진도가\s?(너무\s?)?(느|늦|안\s?나)|진행이\s?(너무\s?)?(느|늦)/, '진행이 느리다'],
+];
+const extraNeg = (t) => EXTRA_NEG.filter(([re]) => re.test(t || '')).map(([, s]) => s);
+const excerpt = (t, n) => { const s = (t || '').replace(/\s+/g, ' ').trim(); return s.length > n ? `${s.slice(0, n - 1)}…` : s; };
 
 // 엔진에 넣기 전 댓글 손질: 부정의 부정('질질 안 끌고', '쿠키가 아깝지 않았음')과 겹치는 낱말을 지운다
 function prepText(text, titleRe) {
@@ -53,14 +78,16 @@ function prepText(text, titleRe) {
 }
 
 function keepFor() {
-  return function keep(pairs, text) {
+  // aboutWork: 하차 선언처럼 댓글 전체가 작품 얘기인 경우 ('주인공 답답해서 접습니다'의 주인공 비판은 하차 이유)
+  return function keep(pairs, text, aboutWork) {
     if (KREACT.DEFEND.test(text || '')) return [];   // 불평하는 다른 독자를 나무라는 댓글: 작품 평가가 아님
+    const whole = aboutWork || isDrop(text);
     const out = [];
     for (const p of pairs) {
       const a = p[0];
       const clause = p[2] || '';
       if (a === '_over') { out.push(p); continue; }
-      const ref = WORK_REF.test(clause);
+      const ref = whole || WORK_REF.test(clause);
       if (p[1] < 0 && WANT_MORE.test(clause)) continue;
       if (p[1] < 0 && /^(오타|오탈자)/.test(p[3] || '') && !TYPO_COMPLAINT.test(clause)) continue;
       if (a === 'overall') { if (ref || WHOLE_WORK.test(clause)) out.push(p); continue; }
@@ -148,31 +175,86 @@ function makeEvaluator(dataDir) {
     return words.length ? new RegExp(words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g') : null;
   }
 
-  // comments: [{text, likes, at}] (작가 댓글은 이미 뺀 것)
-  function evaluate(id, comments, { examplesPer = 2, opinions = [6, 3, 4] } = {}) {
+  // 댓글 하나하나의 판정: 칭찬한 말 / 아쉬워한 말 (공통 의견과 같은 문장) / 하차 선언
+  function judge(id, comments) {
+    const mask = titleMask(id);
+    const texts = comments.map((c) => prepText(c.text, mask));
+    const opts = optsFor(id, texts);
+    const said = (p) => opinionText(RABSA.normKey(p[3] ? `${p[3]}·${p[4] || ''}` : (p[4] || '')));
+    const items = (t, aboutWork) => opts.keep(RABSA.analyzeReview(t, opts), t, aboutWork).filter((p) => p[0] !== '_over');
+    return comments.map((c, i) => {
+      const its = items(texts[i]);
+      const drop = isDrop(c.text);
+      const extra = extraNeg(texts[i]);
+      const out = {
+        pos: [...new Set(its.filter((p) => p[1] > 0 && p[5] !== 'mild').map(said))],
+        neg: [...new Set(its.filter((p) => p[1] < 0).map(said).concat(extra))],
+        drop,
+      };
+      if (drop) out.why = [...new Set(items(texts[i].replace(DROP_WORDS, blank), true).filter((p) => p[1] < 0).map(said).concat(extra))];
+      return out;
+    });
+  }
+
+  // comments: [{text, likes, at, ep}] (작가 댓글은 이미 뺀 것, ep = 회차 이름)
+  function evaluate(id, comments, { examplesPer = 2, opinions = [6, 3, 4], quotes = 5 } = {}) {
     const mask = titleMask(id);
     const texts = comments.map((c) => prepText(c.text, mask));
     const opts = optsFor(id, texts);
     const agg = RABSA.newAgg();
     comments.forEach((c, i) => RABSA.addReview(agg, { content: texts[i], likes: c.likes, at: c.at || '' }, opts));
-    return pack(agg, { examplesPer, opinions });
-  }
+    const out = pack(agg, { examplesPer, opinions });
 
-  // 회차 하나의 댓글에서 '작품을 칭찬한 댓글 수 / 아쉬워한 댓글 수'
-  function countEval(id, comments) {
-    const mask = titleMask(id);
-    const texts = comments.map((c) => prepText(c.text, mask));
-    const opts = optsFor(id, texts);
-    let pos = 0, neg = 0;
-    for (const t of texts) {
-      const items = opts.keep(RABSA.analyzeReview(t, opts), t).filter((p) => p[0] !== '_over' && p[5] !== 'mild');
-      if (items.some((p) => p[1] > 0)) pos++;
-      if (items.some((p) => p[1] < 0)) neg++;
+    const js = judge(id, comments);
+    const byLikes = (a, b) => comments[b].likes - comments[a].likes;
+    const idx = comments.map((_, i) => i);
+    const quote = (i, said) => [excerpt(comments[i].text, 140), comments[i].likes, comments[i].ep || '', said.slice(0, 2)];
+    // 공감을 산 부분 / 아쉬운 부분: 공감 많이 받은 칭찬·불만 댓글
+    out.goodTop = idx.filter((i) => js[i].pos.length && !js[i].neg.length).sort(byLikes).slice(0, quotes).map((i) => quote(i, js[i].pos));
+    out.badTop = idx.filter((i) => js[i].neg.length || js[i].drop).sort(byLikes).slice(0, quotes).map((i) => quote(i, js[i].neg));
+    // 하차: 몇 명이, 무엇 때문에 (같은 댓글 안의 아쉬운 말)
+    const drops = idx.filter((i) => js[i].drop);
+    if (drops.length) {
+      const why = {};
+      for (const i of drops) for (const s of js[i].why || []) why[s] = (why[s] || 0) + 1;
+      out.drop = {
+        n: drops.length,
+        why: Object.entries(why).sort((a, b) => b[1] - a[1]).slice(0, 6),
+        ex: drops.sort(byLikes).slice(0, 3).map((i) => [excerpt(comments[i].text, 140), comments[i].likes, comments[i].ep || '']),
+      };
     }
-    return [pos, neg];
+    // 회차별: 공감 많은 댓글 가운데 칭찬/불만이 몰린 회차
+    const eps = {};
+    idx.forEach((i) => {
+      const label = comments[i].ep; if (!label) return;
+      const e = eps[label] || (eps[label] = { p: 0, n: 0, d: 0, pl: 0, nl: 0, bp: -1, bn: -1 });
+      if (js[i].pos.length && !js[i].neg.length) { e.p++; e.pl += comments[i].likes; if (e.bp < 0 || comments[i].likes > comments[e.bp].likes) e.bp = i; }
+      if (js[i].neg.length || js[i].drop) { e.n++; e.nl += comments[i].likes; if (js[i].drop) e.d++; if (e.bn < 0 || comments[i].likes > comments[e.bn].likes) e.bn = i; }
+    });
+    const E = Object.entries(eps);
+    out.epGood = E.filter(([, e]) => e.p).sort((a, b) => b[1].pl - a[1].pl).slice(0, 5)
+      .map(([label, e]) => [label, e.p, e.pl, excerpt(comments[e.bp].text, 110), comments[e.bp].likes]);
+    out.epBad = E.filter(([, e]) => e.n).sort((a, b) => (b[1].nl + b[1].d * 1000) - (a[1].nl + a[1].d * 1000)).slice(0, 5)
+      .map(([label, e]) => [label, e.n, e.d, e.nl, excerpt(comments[e.bn].text, 110), comments[e.bn].likes]);
+    return out;
   }
 
-  return { VERSION, evaluate, countEval, optsFor, prep: (id, text) => prepText(text, titleMask(id)) };
+  // 회차 하나 (공감 상위 30개): [칭찬 댓글 수, 불만 댓글 수, 하차 선언 수], 대표 칭찬, 대표 불만
+  function episodeEval(id, comments) {
+    const js = judge(id, comments);
+    let pos = 0, neg = 0, drop = 0, bp = -1, bn = -1;
+    js.forEach((j, i) => {
+      const good = j.pos.length && !j.neg.length;
+      const bad = j.neg.length || j.drop;
+      if (good) { pos++; if (bp < 0 || comments[i].likes > comments[bp].likes) bp = i; }
+      if (bad) { neg++; if (bn < 0 || comments[i].likes > comments[bn].likes) bn = i; }
+      if (j.drop) drop++;
+    });
+    const q = (i, said) => (i < 0 ? null : [excerpt(comments[i].text, 90), comments[i].likes, said[0] || '']);
+    return { counts: [pos, neg, drop], good: q(bp, bp < 0 ? [] : js[bp].pos), bad: q(bn, bn < 0 ? [] : js[bn].neg.length ? js[bn].neg : ['하차']) };
+  }
+
+  return { VERSION, evaluate, episodeEval, judge, optsFor, prep: (id, text) => prepText(text, titleMask(id)) };
 }
 
 // ---- 저장 형태 + '공통 의견' 문장 (리디 docs/app.js commonOpinions 를 수집기 쪽으로 옮김) ----

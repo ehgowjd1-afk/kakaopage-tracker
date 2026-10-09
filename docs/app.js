@@ -1765,11 +1765,8 @@ async function renderWorkView(cat, period, workId) {
     infoDiv.appendChild(metaLine(`다른 형태로도 있음: ${otherVersions.map((v) => `${v.category} <${v.title}>`).join(', ')}`));
   }
 
-  if (hasCm && (cm.react.used || (cm.ev && cm.ev.used))) {
-    const pct = (cnt) => `${Math.round((cnt / cm.react.used) * 100)}%`;
-    const all = topReactions(cm, REACTIONS.length);
-    const story = all.filter(([k]) => !ABOUT_WORK.includes(k)).slice(0, 3);
-    const work = all.filter(([k]) => ABOUT_WORK.includes(k));
+  // 한 줄 요약: "작품 평가: 호평 60 · 아쉬움 3 · 하차 2 · 👍 캐릭터가 귀엽다 · 👎 …" (누르면 아래 작품 분석으로)
+  if (hasCm && cm.ev && cm.ev.used) {
     const link = (text) => {
       const a = document.createElement('a');
       a.href = '#';
@@ -1782,26 +1779,15 @@ async function renderWorkView(cat, period, workId) {
       });
       return a;
     };
-    if (story.length) {
-      const line = metaLine('독자 반응: ');
-      line.appendChild(link(story.map(([k, [cnt]]) => `${reactionInfo(k).label} ${pct(cnt)}`).join(' · ')));
-      infoDiv.appendChild(line);
-    }
-    if (cm.ev && cm.ev.used) {
-      // e.g. "호평 60 · 아쉬움 0 · 👍 캐릭터가 귀엽다"
-      const [p, n] = evalTotals(cm.ev);
-      const op = cm.ev.op || {};
-      const parts = [`호평 ${p} · 아쉬움 ${n}`];
-      if (op.pos && op.pos[0]) parts.push(`👍 ${op.pos[0][0]}`);
-      if (op.neg && op.neg[0]) parts.push(`👎 ${op.neg[0][0]}`);
-      const line = metaLine('작품 평가: ');
-      line.appendChild(link(parts.join(' · ')));
-      infoDiv.appendChild(line);
-    } else if (work.length) {
-      const line = metaLine('작품 평가: ');
-      line.appendChild(link(work.map(([k, [cnt]]) => `${reactionInfo(k).label} ${pct(cnt)}`).join(' · ')));
-      infoDiv.appendChild(line);
-    }
+    const [p, n] = evalTotals(cm.ev);
+    const op = cm.ev.op || {};
+    const parts = [`호평 ${p} · 아쉬움 ${n}`];
+    if (cm.ev.drop) parts.push(`하차 ${cm.ev.drop.n}`);
+    if (op.pos && op.pos[0]) parts.push(`👍 ${op.pos[0][0]}`);
+    if (op.neg && op.neg[0]) parts.push(`👎 ${op.neg[0][0]}`);
+    const line = metaLine('작품 평가: ');
+    line.appendChild(link(`${parts.join(' · ')} (자세히 ↓)`));
+    infoDiv.appendChild(line);
   }
 
   if (!hasCm && meta.commentKeywords && meta.commentKeywords.length) {
@@ -1951,7 +1937,7 @@ async function renderWorkView(cat, period, workId) {
     const epPromise = cm.epScanned
       ? fetchJson(`data/comments/ep/${workId}.json`).then((d) => { epData = d; return d; }).catch(() => null)
       : Promise.resolve(null);
-    app.appendChild(buildReactionBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
+    app.appendChild(buildWorkAnalysisBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
     app.appendChild(epHolder);
     epPromise.then((d) => { if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d)); });
   }
@@ -2052,109 +2038,27 @@ function topMixKey(mix) {
   return e ? e[0] : null;
 }
 
-function buildReactionBox(cm, onDownload) {
-  const r = cm.react;
-  const box = mk('div');
-  box.className = 'chart-box';
-  box.id = 'comment-analysis';
-  box.style.marginTop = '16px';
-  const head = mk('div', 'display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;');
-  head.appendChild(mk('h3', CM_H3, '독자 반응 · 댓글 분석'));
-  const dl = mk('button', '', '댓글 분석 엑셀 (.xlsx)');
-  dl.className = 'dl-btn';
-  dl.addEventListener('click', onDownload);
-  head.appendChild(dl);
-  box.appendChild(head);
-  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;', r.used
-    ? `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었고, ` +
-      `그중 감정 반응이 잡힌 ${r.used}개를 100%로 본 비율이에요 (한 댓글이 여러 반응에 들어갈 수 있어요). 막대를 누르면 대표 댓글이 보여요.`
-    : `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었는데, 감정 반응이 잡힌 댓글은 없었어요.`));
+// ---- 작품 분석 · 댓글로 본 독자 평가 ----
+// 리디 트래커와 같은 분석법(cm.ev, scripts/lib/kakao-eval.cjs): 독자들이 좋아한 부분 / 아쉬운 부분 /
+// 하차 이유 / 반응 좋았던·아쉬웠던 회차 / 요소별 평가. 작품 속 몰입 반응(웃음·눈물…)은 참고로 한 줄만.
+const CM_SEC = 'font-size:14px;font-weight:700;margin:20px 0 6px;';
+const CM_ROW = 'padding:7px 0;border-bottom:1px solid var(--border);';
 
-  const rows = topReactions(cm, REACTIONS.length);
-  const max = rows.length ? rows[0][1][0] : 1;
-  const reactionRow = (k, cnt, likes) => {
-    const info = reactionInfo(k);
-    const row = mk('div', 'margin:5px 0;cursor:pointer;');
-    const line = mk('div', 'display:flex;align-items:center;gap:8px;font-size:13px;');
-    line.appendChild(mk('span', 'width:104px;flex:none;', info.label));
-    const track = mk('div', 'flex:1;min-width:40px;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden;');
-    track.appendChild(mk('div', `height:100%;width:${Math.max(2, (cnt / max) * 100)}%;background:${info.color};`));
-    line.appendChild(track);
-    line.appendChild(mk('span', 'flex:none;min-width:112px;text-align:right;font-size:12px;color:var(--text-dim);',
-      `${Math.round((cnt / r.used) * 100)}% · ${cnt}개 · 👍${formatCount(likes)}`));
-    row.appendChild(line);
-    const ex = (r.examples && r.examples[k]) || [];
-    if (ex.length) {
-      const exBox = mk('div', `display:none;margin:6px 0 10px 112px;border-left:3px solid ${info.color};padding-left:8px;`);
-      for (const [text, lk, ep] of ex) {
-        exBox.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;margin-top:6px;', `👍${(lk || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}`));
-        exBox.appendChild(commentBody(text));
-      }
-      row.appendChild(exBox);
-      row.addEventListener('click', () => { exBox.style.display = exBox.style.display === 'none' ? 'block' : 'none'; });
-    }
-    return row;
-  };
-  // Two groups: reactions to characters/events inside the story vs. to the work itself.
-  // The work's evaluation comes from the RIDI tracker's method (cm.ev, engine v3+); files
-  // analysed before that still carry the coarse 칭찬·감탄 / 작품 불만 reaction bars.
-  const inStory = rows.filter(([k]) => !ABOUT_WORK.includes(k));
-  if (inStory.length) {
-    box.appendChild(mk('div', CM_SUB + 'margin-top:12px;', '작품 속 몰입 반응 — 인물·사건을 보며 웃고 울고 화내는 반응'));
-    for (const [k, [cnt, likes]] of inStory) box.appendChild(reactionRow(k, cnt, likes));
-  }
-  if (cm.ev) {
-    box.appendChild(buildEvalSection(cm.ev));
-  } else {
-    const aboutWork = rows.filter(([k]) => ABOUT_WORK.includes(k));
-    if (aboutWork.length) {
-      box.appendChild(mk('div', CM_SUB + 'margin-top:12px;', '작품에 대한 평가 — 작품·작가·전개·분량·작화를 향한 말'));
-      for (const [k, [cnt, likes]] of aboutWork) box.appendChild(reactionRow(k, cnt, likes));
-    }
-  }
-
-  if (r.words && r.words.length) {
-    box.appendChild(mk('div', CM_SUB, '자주 나온 말'));
-    const kw = mk('div');
-    kw.className = 'work-keywords';
-    for (const [w, n] of r.words) kw.appendChild(mk('span', '', `${w} ${n}`));
-    box.appendChild(kw);
-  }
-
-  if (cm.top && cm.top.length) {
-    box.appendChild(mk('div', CM_SUB, `공감 TOP ${cm.top.length} 댓글`));
-    cm.top.forEach(([text, likes, ep, date, flags], i) => {
-      const { spoiler, author } = sampleFlags(flags);
-      const row = mk('div', 'padding:8px 0;border-bottom:1px solid var(--border);');
-      row.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:3px;',
-        `${i + 1}. 👍${(likes || 0).toLocaleString()}${ep ? ` · ${ep}` : ''}${date ? ` · ${date}` : ''}${author ? ' · ✍ 작가의 말 (반응 분석에선 제외)' : ''}${spoiler ? ' · 스포일러' : ''}`));
-      row.appendChild(commentBody(text, spoiler));
-      box.appendChild(row);
-    });
-  }
-
-  if (cm.epHot && cm.epHot.length) {
-    box.appendChild(mk('div', CM_SUB, '공감 많은 댓글이 몰린 회차'));
-    const kw = mk('div');
-    kw.className = 'work-keywords';
-    for (const [label, n, likes] of cm.epHot) kw.appendChild(mk('span', '', `${label} · ${n}개 · 👍${formatCount(likes)}`));
-    box.appendChild(kw);
-  }
-  return box;
+// 댓글 한 줄: '👍공감 · 회차 · 무엇을' + 본문
+function quoteRow(likes, ep, tags, text, spoiler) {
+  const row = mk('div', CM_ROW);
+  const head = [`👍${(likes || 0).toLocaleString()}`];
+  if (ep) head.push(ep);
+  if (tags && tags.length) head.push(tags.join(' · '));
+  row.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:3px;', head.join(' · ')));
+  row.appendChild(commentBody(text, spoiler));
+  return row;
 }
 
-// '작품에 대한 평가' — 리디 트래커와 같은 분석법: 독자들의 공통 의견 + 요소별 호평/무난/아쉬움
-function buildEvalSection(ev) {
-  const wrap = mk('div');
-  wrap.appendChild(mk('div', CM_SUB + 'margin-top:14px;', '작품에 대한 평가 — 리디 트래커와 같은 분석법'));
-  wrap.appendChild(mk('div', CM_NOTE + 'margin-bottom:8px;',
-    `공감 많은 댓글 ${ev.n}개 중 작품을 평가한 댓글 ${ev.used}개. 작가·전개·작화·이번 화처럼 작품을 가리키는 말과 함께 한 평가만 셉니다. ` +
-    '캐릭터에게 화내는 말은 과몰입으로 따로 세고, 작가의 말·다른 작품 얘기는 뺐어요.'));
-
-  const op = ev.op || { pos: [], mid: [], neg: [] };
-  const opBox = mk('div', 'border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:10px;');
-  opBox.appendChild(mk('div', 'font-size:13px;font-weight:600;margin-bottom:4px;', '독자들의 공통 의견'));
-  const addOp = (sign, [text, n, quote]) => {
+// 공통 의견 줄: [문장, 건수, 대표 발췌]
+function opinionRows(list, sign) {
+  const box = mk('div');
+  for (const [text, n, quote] of list || []) {
     const row = mk('div', 'padding:4px 0;');
     const top = mk('div', 'display:flex;justify-content:space-between;gap:8px;font-size:13px;');
     top.appendChild(mk('span', `font-weight:600;color:${sign > 0 ? EV_POS : sign < 0 ? EV_NEG : 'var(--text-dim)'};`,
@@ -2162,109 +2066,228 @@ function buildEvalSection(ev) {
     top.appendChild(mk('span', 'flex:none;font-size:12px;color:var(--text-dim);', `${n}건`));
     row.appendChild(top);
     if (quote) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin-top:2px;word-break:break-all;', `“${quote}”`));
-    opBox.appendChild(row);
-  };
-  if (op.pos.length) op.pos.forEach((o) => addOp(1, o));
-  else opBox.appendChild(mk('div', CM_NOTE, '좋은 점: 뚜렷하게 반복된 말 없음'));
-  if (op.mid.length) {
-    opBox.appendChild(mk('div', CM_NOTE + 'margin-top:6px;', "무난하다는 평 (칭찬이지만 '그냥 그렇다'에 가까운 말)"));
-    op.mid.forEach((o) => addOp(0, o));
+    box.appendChild(row);
   }
-  opBox.appendChild(mk('div', CM_NOTE + 'margin-top:6px;', op.neg.length ? '아쉬운 점으로 반복된 말' : '아쉬운 점: 뚜렷하게 반복된 말 없음'));
-  op.neg.forEach((o) => addOp(-1, o));
-  if (ev.over) {
-    opBox.appendChild(mk('div', CM_NOTE + 'margin-top:6px;', '캐릭터 과몰입 반응 (불만으로 세지 않음)'));
-    const row = mk('div', 'padding:4px 0;');
-    const top = mk('div', 'display:flex;justify-content:space-between;gap:8px;font-size:13px;');
-    top.appendChild(mk('span', 'font-weight:600;', '🔥 캐릭터에게 화내거나 욕한 반응'));
-    top.appendChild(mk('span', 'flex:none;font-size:12px;color:var(--text-dim);', `${ev.over}건`));
-    row.appendChild(top);
-    (ev.overEx || []).forEach(([quote]) => row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin-top:2px;word-break:break-all;', `“${quote}”`)));
-    opBox.appendChild(row);
-  }
-  opBox.appendChild(mk('div', CM_NOTE + 'margin-top:6px;', '평가가 담긴 댓글의 2% 이상(최소 2건)이 같은 말을 했을 때만 보여요.'));
-  wrap.appendChild(opBox);
+  return box;
+}
 
+// 요소별 평가 막대 (초록 호평 · 회색 무난 · 빨강 아쉬움), 누르면 예시
+function elementBars(ev) {
+  const wrap = mk('div');
   const list = Object.entries(ev.asp || {})
     .map(([k, s]) => ({ k, pos: s[0], neg: s[1], mid: s[2] || 0 }))
     .filter((x) => x.pos + x.neg + x.mid > 0)
     .sort((a, b) => (b.pos + b.neg + b.mid) - (a.pos + a.neg + a.mid));
-  if (list.length) {
-    wrap.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin:8px 0 4px;font-weight:600;',
-      '요소별 반응 — 초록 호평 · 회색 무난 · 빨강 아쉬움 (막대를 누르면 예시)'));
-    const maxT = Math.max(...list.map((x) => x.pos + x.neg + x.mid));
-    for (const x of list) {
-      const row = mk('div', 'margin:5px 0;cursor:pointer;');
-      const line = mk('div', 'display:flex;align-items:center;gap:8px;font-size:13px;');
-      line.appendChild(mk('span', 'width:104px;flex:none;', EVAL_ASPECTS[x.k] || x.k));
-      const track = mk('div', 'flex:1;min-width:40px;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden;display:flex;');
-      for (const [n, color] of [[x.pos, EV_POS], [x.mid, EV_MID], [x.neg, EV_NEG]]) {
-        if (n) track.appendChild(mk('div', `height:100%;width:${(n / maxT) * 100}%;background:${color};`));
-      }
-      line.appendChild(track);
-      line.appendChild(mk('span', 'flex:none;min-width:112px;text-align:right;font-size:12px;color:var(--text-dim);',
-        `호평 ${x.pos}${x.mid ? ` · 무난 ${x.mid}` : ''} · 아쉬움 ${x.neg}`));
-      row.appendChild(line);
-      const ex = (ev.ex || {})[x.k];
-      if (ex) {
-        const exBox = mk('div', 'display:none;margin:6px 0 10px 112px;padding-left:8px;border-left:3px solid var(--border);');
-        for (const [side, label, color] of [['p', '호평', EV_POS], ['m', '무난', EV_MID], ['n', '아쉬움', EV_NEG]]) {
-          for (const [text, lk] of ex[side] || []) {
-            exBox.appendChild(mk('div', `font-size:11px;color:${color};margin-top:6px;`, `${label} · 👍${(lk || 0).toLocaleString()}`));
-            exBox.appendChild(commentBody(text));
-          }
-        }
-        row.appendChild(exBox);
-        row.addEventListener('click', () => { exBox.style.display = exBox.style.display === 'none' ? 'block' : 'none'; });
-      }
-      wrap.appendChild(row);
+  if (!list.length) return wrap;
+  const maxT = Math.max(...list.map((x) => x.pos + x.neg + x.mid));
+  for (const x of list) {
+    const row = mk('div', 'margin:5px 0;cursor:pointer;');
+    const line = mk('div', 'display:flex;align-items:center;gap:8px;font-size:13px;');
+    line.appendChild(mk('span', 'width:104px;flex:none;', EVAL_ASPECTS[x.k] || x.k));
+    const track = mk('div', 'flex:1;min-width:40px;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden;display:flex;');
+    for (const [n, color] of [[x.pos, EV_POS], [x.mid, EV_MID], [x.neg, EV_NEG]]) {
+      if (n) track.appendChild(mk('div', `height:100%;width:${(n / maxT) * 100}%;background:${color};`));
     }
+    line.appendChild(track);
+    line.appendChild(mk('span', 'flex:none;min-width:112px;text-align:right;font-size:12px;color:var(--text-dim);',
+      `호평 ${x.pos}${x.mid ? ` · 무난 ${x.mid}` : ''} · 아쉬움 ${x.neg}`));
+    row.appendChild(line);
+    const ex = (ev.ex || {})[x.k];
+    if (ex) {
+      const exBox = mk('div', 'display:none;margin:6px 0 10px 112px;padding-left:8px;border-left:3px solid var(--border);');
+      for (const [side, label, color] of [['p', '호평', EV_POS], ['m', '무난', EV_MID], ['n', '아쉬움', EV_NEG]]) {
+        for (const [text, lk] of ex[side] || []) {
+          exBox.appendChild(mk('div', `font-size:11px;color:${color};margin-top:6px;`, `${label} · 👍${(lk || 0).toLocaleString()}`));
+          exBox.appendChild(commentBody(text));
+        }
+      }
+      row.appendChild(exBox);
+      row.addEventListener('click', () => { exBox.style.display = exBox.style.display === 'none' ? 'block' : 'none'; });
+    }
+    wrap.appendChild(row);
   }
   return wrap;
 }
 
-// Per-episode table: [order, label, total, scanned, best, mix, releasedAt, engineVersion, [작품 호평 댓글, 작품 아쉬움 댓글]]
+function buildWorkAnalysisBox(cm, onDownload) {
+  const ev = cm.ev;
+  const box = mk('div');
+  box.className = 'chart-box';
+  box.id = 'comment-analysis';
+  box.style.marginTop = '16px';
+  const head = mk('div', 'display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;');
+  head.appendChild(mk('h3', CM_H3, '작품 분석 · 댓글로 본 독자 평가'));
+  const dl = mk('button', '', '분석 엑셀 (.xlsx)');
+  dl.className = 'dl-btn';
+  dl.addEventListener('click', onDownload);
+  head.appendChild(dl);
+  box.appendChild(head);
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:8px;',
+    `${cm.updated} 기준 · 전체 댓글 ${(cm.total || 0).toLocaleString()}개 중 공감 많은 ${cm.n}개를 읽었어요. ` +
+    '리디 트래커와 같은 분석법으로, 작가·전개·작화·이번 화처럼 작품을 두고 한 말만 평가로 셉니다 ' +
+    '(작가의 말·다른 작품 얘기·캐릭터에게 화내는 과몰입은 제외).'));
+  if (!ev) {
+    box.appendChild(mk('div', CM_NOTE, '이 작품은 아직 새 분석 전이에요. 다음 자동 수집 때 채워져요.'));
+    return box;
+  }
+
+  const [p, n] = evalTotals(ev);
+  const chips = mk('div', 'display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 2px;');
+  const chip = (text, color) => chips.appendChild(mk('span',
+    `font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:${color};`, text));
+  chip(`호평 ${p}`, EV_POS);
+  chip(`아쉬움 ${n}`, EV_NEG);
+  if (ev.drop) chip(`하차 선언 ${ev.drop.n}`, EV_NEG);
+  chip(`작품을 평가한 댓글 ${ev.used}/${ev.n}`, 'var(--text-dim)');
+  box.appendChild(chips);
+
+  // 1) 좋아한 부분 — 공감을 산 부분
+  box.appendChild(mk('div', CM_SEC, '👍 독자들이 좋아한 부분 — 공감을 산 부분'));
+  const op = ev.op || { pos: [], mid: [], neg: [] };
+  if (op.pos.length) box.appendChild(opinionRows(op.pos, 1));
+  if (ev.goodTop && ev.goodTop.length) {
+    box.appendChild(mk('div', CM_SUB, '공감을 가장 많이 받은 칭찬'));
+    ev.goodTop.forEach(([text, likes, ep, said]) => box.appendChild(quoteRow(likes, ep, said, text)));
+  }
+  if (!op.pos.length && !(ev.goodTop && ev.goodTop.length)) box.appendChild(mk('div', CM_NOTE, '작품을 칭찬한 말이 뚜렷하게 잡히지 않았어요.'));
+
+  // 2) 아쉬운 부분
+  box.appendChild(mk('div', CM_SEC, '👎 아쉬운 부분'));
+  if (op.neg.length) box.appendChild(opinionRows(op.neg, -1));
+  if (op.mid.length) {
+    box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', "무난하다는 평 (칭찬이지만 '그냥 그렇다'에 가까운 말)"));
+    box.appendChild(opinionRows(op.mid, 0));
+  }
+  if (ev.badTop && ev.badTop.length) {
+    box.appendChild(mk('div', CM_SUB, '공감을 가장 많이 받은 불만'));
+    ev.badTop.forEach(([text, likes, ep, said]) => box.appendChild(quoteRow(likes, ep, said, text)));
+  }
+  if (!op.neg.length && !(ev.badTop && ev.badTop.length)) box.appendChild(mk('div', CM_NOTE, '반복된 불만은 없어요.'));
+
+  // 3) 하차
+  if (ev.drop) {
+    box.appendChild(mk('div', CM_SEC, `🚪 하차한 독자들 — 공감 많은 댓글 ${ev.n}개 중 ${ev.drop.n}개가 하차를 말했어요`));
+    if (ev.drop.why && ev.drop.why.length) {
+      box.appendChild(mk('div', CM_SUB, '하차 이유 (같은 댓글에서 함께 말한 것)'));
+      const why = mk('div');
+      why.className = 'work-keywords';
+      for (const [w, c] of ev.drop.why) why.appendChild(mk('span', '', `${w} ${c}`));
+      box.appendChild(why);
+    }
+    box.appendChild(mk('div', CM_SUB, '공감 많이 받은 하차 댓글'));
+    ev.drop.ex.forEach(([text, likes, ep]) => box.appendChild(quoteRow(likes, ep, null, text)));
+  }
+
+  // 4) 회차별로 보면 (공감 많은 댓글 기준)
+  if ((ev.epGood && ev.epGood.length) || (ev.epBad && ev.epBad.length)) {
+    box.appendChild(mk('div', CM_SEC, '📍 회차별로 보면 — 공감 많은 댓글이 칭찬·불만을 남긴 회차'));
+    const cols = mk('div', 'display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;');
+    const col = (title, rows, color) => {
+      const c = mk('div');
+      c.appendChild(mk('div', `font-size:12px;font-weight:700;color:${color};margin-bottom:4px;`, title));
+      rows.forEach((r) => c.appendChild(r));
+      if (!rows.length) c.appendChild(mk('div', CM_NOTE, '없음'));
+      cols.appendChild(c);
+    };
+    col('반응 좋았던 회차', (ev.epGood || []).map(([label, cnt, , quote, lk]) => {
+      const r = mk('div', CM_ROW);
+      r.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${label} · 칭찬 ${cnt}건`));
+      r.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `👍${(lk || 0).toLocaleString()} “${quote}”`));
+      return r;
+    }), EV_POS);
+    col('반응 아쉬웠던 회차', (ev.epBad || []).map(([label, cnt, drops, , quote, lk]) => {
+      const r = mk('div', CM_ROW);
+      r.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${label} · 불만 ${cnt}건${drops ? ` · 하차 ${drops}` : ''}`));
+      r.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `👍${(lk || 0).toLocaleString()} “${quote}”`));
+      return r;
+    }), EV_NEG);
+    box.appendChild(cols);
+    if (cm.epScanned) box.appendChild(mk('div', CM_NOTE + 'margin-top:6px;', '모든 회차의 흐름은 아래 「회차별 반응 흐름」에서 볼 수 있어요.'));
+  }
+
+  // 5) 요소별 평가
+  if (Object.keys(ev.asp || {}).length) {
+    box.appendChild(mk('div', CM_SEC, '요소별 평가'));
+    box.appendChild(mk('div', CM_NOTE + 'margin-bottom:4px;', '초록 호평 · 회색 무난 · 빨강 아쉬움 — 막대를 누르면 예시 댓글'));
+    box.appendChild(elementBars(ev));
+  }
+
+  // 6) 참고: 몰입 반응 한 줄 · 자주 나온 말 · 공감 TOP 댓글
+  const r = cm.react;
+  if (r && r.used) {
+    const tops = topReactions(cm, REACTIONS.length).filter(([k]) => !ABOUT_WORK.includes(k)).slice(0, 4)
+      .map(([k, [cnt]]) => `${reactionInfo(k).label} ${Math.round((cnt / r.used) * 100)}%`).join(' · ');
+    box.appendChild(mk('div', CM_NOTE + 'margin-top:16px;', `참고 · 작품 속 몰입 반응: ${tops}`));
+  }
+  if (r && r.words && r.words.length) {
+    box.appendChild(mk('div', CM_SUB, '자주 나온 말'));
+    const kw = mk('div');
+    kw.className = 'work-keywords';
+    for (const [w, c] of r.words) kw.appendChild(mk('span', '', `${w} ${c}`));
+    box.appendChild(kw);
+  }
+  if (cm.top && cm.top.length) {
+    box.appendChild(mk('div', CM_SUB, `공감 TOP ${cm.top.length} 댓글 (전체)`));
+    cm.top.forEach(([text, likes, ep, date, flags]) => {
+      const { spoiler, author } = sampleFlags(flags);
+      box.appendChild(quoteRow(likes, [ep, date].filter(Boolean).join(' · '), author ? ['✍ 작가의 말'] : null, text, spoiler));
+    });
+  }
+  return box;
+}
+
+// 회차별 반응 흐름 — r = [order, label, total, scanned, best, mix, releasedAt, engineVersion,
+//   [칭찬 댓글, 불만 댓글, 하차 선언], 대표 칭찬, 대표 불만, 무료(1/0)] (칭찬·불만·하차는 회차마다 공감 상위 30개 기준)
 function buildEpisodeBox(cm, ep) {
   const rows = Object.values(ep.episodes || {}).sort((a, b) => a[0] - b[0]);
   const box = mk('div');
   box.className = 'chart-box';
   box.style.marginTop = '16px';
-  box.appendChild(mk('h3', CM_H3, '회차별 반응'));
+  box.appendChild(mk('h3', CM_H3, '회차별 반응 흐름'));
   const total = Math.max(cm.epTotal || 0, rows.length);
   box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;',
-    `회차 ${rows.length.toLocaleString()}/${total.toLocaleString()}개 분석 · 댓글 수는 그 회차 전체, 반응은 회차마다 공감 상위 30개 댓글 기준` +
+    `회차 ${rows.length.toLocaleString()}/${total.toLocaleString()}개 분석 · 댓글 수는 그 회차 전체, 칭찬·불만·하차는 회차마다 공감 상위 30개 댓글 기준` +
     (rows.length < total ? ' · 나머지 회차는 매일 조금씩 채워져요' : '')));
   if (!rows.length) return box;
 
-  // evpos / evneg = 그 회차 댓글 중 작품을 칭찬한 / 아쉬워한 댓글 수 (리디 분석법, r[8])
-  const EV_MODES = { evpos: ['작품 호평', EV_POS, 0], evneg: ['작품 아쉬움', EV_NEG, 1] };
-  const modes = [['count', '댓글 수']].concat(
-    REACTIONS.filter(([k]) => !ABOUT_WORK.includes(k) && rows.some((r) => (r[5] || {})[k])).map(([k, label]) => [k, `${label} 반응`]),
-    Object.entries(EV_MODES).filter(([, m]) => rows.some((r) => r[8] && r[8][m[2]])).map(([k, m]) => [k, m[0]]));
+  const evOf = (r) => (Array.isArray(r[8]) ? r[8] : null);
+  const IDX = { pos: 0, neg: 1, drop: 2 };
+  const modes = [['count', '댓글 수'], ['pos', '작품 칭찬'], ['neg', '작품 불만'], ['drop', '하차 선언']]
+    .filter(([k]) => k === 'count' || rows.some((r) => evOf(r) && evOf(r)[IDX[k]]));
   let mode = 'count';
-  const val = (r) => (mode === 'count' ? r[2]
-    : EV_MODES[mode] ? ((r[8] || [])[EV_MODES[mode][2]] || 0)
-      : ((r[5] || {})[mode] || 0));
+  const val = (r) => (mode === 'count' ? r[2] : ((evOf(r) || [])[IDX[mode]] || 0));
+  // 댓글 수 막대 색: 칭찬이 더 많으면 초록, 불만·하차가 더 많으면 빨강
+  const tone = (r) => {
+    const e = evOf(r);
+    if (!e) return 'var(--same)';
+    if (e[1] + (e[2] || 0) > e[0]) return EV_NEG;
+    if (e[0] > e[1]) return EV_POS;
+    return 'var(--same)';
+  };
 
   const tabs = mk('div', 'display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;');
   tabs.className = 'tabgroup';
   const chartWrap = mk('div');
   const axis = mk('div', 'display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-top:4px;');
   const detail = mk('div', 'margin-top:10px;padding:10px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;');
-  const listTitle = mk('div', CM_SUB);
-  const list = mk('div');
 
   function showDetail(r) {
     detail.innerHTML = '';
     detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개`));
-    const mt = mixText(r[5], 9);
-    detail.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:6px;', mt ? `공감 상위 30개 중 반응: ${mt}` : '공감 상위 댓글에서 잡힌 반응이 없어요'));
-    if (r[8] && (r[8][0] || r[8][1])) {
+    const e = evOf(r);
+    if (e) {
       detail.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:6px;',
-        `작품 평가 (리디 분석법): 칭찬한 댓글 ${r[8][0]} · 아쉬워한 댓글 ${r[8][1]}`));
+        `작품 평가 (공감 상위 30개 중): 칭찬 ${e[0]} · 불만 ${e[1]}${e.length > 2 ? ` · 하차 ${e[2]}` : ''}`));
     }
+    const q = (label, x, color) => {
+      if (!x) return;
+      detail.appendChild(mk('div', `font-size:11px;color:${color};margin-top:4px;`, `${label}${x[2] ? ` · ${x[2]}` : ''} · 👍${(x[1] || 0).toLocaleString()}`));
+      detail.appendChild(commentBody(x[0]));
+    };
+    q('대표 칭찬', r[9], EV_POS);
+    q('대표 불만', r[10], EV_NEG);
     if (r[4]) {
-      detail.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;', `베스트 댓글 👍${(r[4][1] || 0).toLocaleString()}${r[4][2] ? ' · 스포일러' : ''}`));
+      detail.appendChild(mk('div', 'color:var(--text-dim);font-size:11px;margin-top:4px;', `베스트 댓글 👍${(r[4][1] || 0).toLocaleString()}${r[4][2] ? ' · 스포일러' : ''}`));
       detail.appendChild(commentBody(r[4][0], r[4][2]));
     }
   }
@@ -2288,120 +2311,148 @@ function buildEpisodeBox(cm, ep) {
       rect.setAttribute('width', 8);
       rect.setAttribute('y', H - h);
       rect.setAttribute('height', h);
-      const key = mode === 'count' ? topMixKey(r[5]) : mode;
-      rect.style.fill = EV_MODES[key] ? EV_MODES[key][1] : key ? reactionInfo(key).color : 'var(--same)';
+      rect.style.fill = mode === 'count' ? tone(r) : mode === 'pos' ? EV_POS : EV_NEG;
       svg.appendChild(rect);
     });
-    // hover / tap anywhere on the chart picks the episode under the pointer
     const pick = (e) => {
-      const box2 = svg.getBoundingClientRect();
-      const i = Math.min(n - 1, Math.max(0, Math.floor(((e.clientX - box2.left) / box2.width) * n)));
+      const b = svg.getBoundingClientRect();
+      const i = Math.min(n - 1, Math.max(0, Math.floor(((e.clientX - b.left) / b.width) * n)));
       showDetail(rows[i]);
     };
     svg.addEventListener('mousemove', pick);
     svg.addEventListener('click', pick);
     chartWrap.innerHTML = '';
     chartWrap.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-bottom:2px;',
-      `최대 ${vmax.toLocaleString()}${mode === 'count' ? '개' : '개 (공감 상위 30개 중)'}`));
+      `최대 ${vmax.toLocaleString()}개${mode === 'count' ? '' : ' (공감 상위 30개 중)'}`));
     chartWrap.appendChild(svg);
     axis.innerHTML = '';
     axis.appendChild(mk('span', '', rows[0][1]));
     if (n > 2) axis.appendChild(mk('span', '', rows[Math.floor(n / 2)][1]));
     axis.appendChild(mk('span', '', rows[n - 1][1]));
   }
-
-  function drawList() {
-    listTitle.textContent = mode === 'count'
-      ? '댓글이 가장 많은 회차 TOP 10'
-      : mode === 'evpos' ? '작품을 칭찬한 댓글이 많은 회차 TOP 10 (공감 상위 30개 중)'
-        : mode === 'evneg' ? '작품을 아쉬워한 댓글이 많은 회차 TOP 10 (공감 상위 30개 중)'
-          : `'${reactionInfo(mode).label}' 반응이 가장 많은 회차 TOP 10 (공감 상위 30개 중)`;
-    list.innerHTML = '';
-    rows.slice().sort((a, b) => val(b) - val(a) || a[0] - b[0]).slice(0, 10).forEach((r, i) => {
-      if (!val(r)) return;
-      const row = mk('div', 'padding:7px 0;border-bottom:1px solid var(--border);cursor:pointer;');
-      row.appendChild(mk('div', 'font-size:13px;',
-        `${i + 1}. ${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개${mixText(r[5], 2) ? ` · ${mixText(r[5], 2)}` : ''}`));
-      if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;',
-        r[4][2] ? '베스트 댓글: (스포일러)' : `베스트 댓글: ${r[4][0]}`));
-      row.addEventListener('click', () => { showDetail(r); detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
-      list.appendChild(row);
-    });
-  }
-
-  function redrawEp() {
-    tabs.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.m === mode));
-    drawChart();
-    drawList();
-  }
   for (const [k, label] of modes) {
     const b = mk('button', '', label);
     b.dataset.m = k;
-    b.addEventListener('click', () => { mode = k; redrawEp(); });
+    b.addEventListener('click', () => {
+      mode = k;
+      tabs.querySelectorAll('button').forEach((x) => x.classList.toggle('active', x.dataset.m === mode));
+      drawChart();
+    });
     tabs.appendChild(b);
   }
   box.appendChild(tabs);
   box.appendChild(chartWrap);
   box.appendChild(axis);
-  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', '막대 색 = 그 회차에서 가장 많이 나온 반응. 차트 위에 마우스를 올리거나 누르면 회차 정보가 보여요.'));
+  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', '댓글 수 막대: 초록 = 칭찬이 더 많은 회차, 빨강 = 불만·하차가 더 많은 회차. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'));
   box.appendChild(detail);
-  box.appendChild(listTitle);
-  box.appendChild(list);
-  redrawEp();
+
+  // 회차 목록 4가지
+  const counts = rows.map((r) => r[2] || 0);
+  const med = (arr) => { const s = arr.slice().sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+  const listSec = (title, note, items, render) => {
+    if (!items.length) return;
+    box.appendChild(mk('div', CM_SEC, title));
+    if (note) box.appendChild(mk('div', CM_NOTE + 'margin-bottom:4px;', note));
+    items.forEach((it) => {
+      const row = mk('div', CM_ROW + 'cursor:pointer;');
+      render(it, row);
+      row.addEventListener('click', () => { showDetail(it.r); detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+      box.appendChild(row);
+    });
+  };
+  const quoteLine = (row, x, color, label) => {
+    if (!x) return;
+    row.appendChild(mk('div', `font-size:12px;color:${color};word-break:break-all;`, `${label}${x[2] ? ` (${x[2]})` : ''} 👍${(x[1] || 0).toLocaleString()} “${x[0]}”`));
+  };
+
+  // ① 화제가 된 회차: 앞 5화와 뒤 5화 '둘 다'보다 댓글이 1.5배 넘게 달린 회차
+  //    (초반 무료 회차는 원래 댓글이 많아서 한쪽만 비교하면 늘 화제처럼 보인다)
+  const spikes = rows.map((r, i) => {
+    const prev = med(counts.slice(Math.max(0, i - 5), i));
+    const next = med(counts.slice(i + 1, i + 6));
+    if (!prev || !next) return null;
+    return { r, ratio: counts[i] / Math.max(prev, next) };
+  }).filter((x) => x && x.ratio >= 1.5).sort((a, b) => b.ratio - a.ratio).slice(0, 6);
+  listSec('🔥 화제가 된 회차', '앞뒤 회차보다 댓글이 확 늘어난 곳 — 무슨 장면이었는지는 베스트 댓글로', spikes, ({ r, ratio }, row) => {
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개 (앞뒤 회차의 ${ratio.toFixed(1)}배)`));
+    if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `베스트 👍${(r[4][1] || 0).toLocaleString()} “${r[4][2] ? '(스포일러)' : r[4][0]}”`));
+  });
+  // ② 칭찬이 많았던 회차
+  const good = rows.filter((r) => evOf(r) && evOf(r)[0] > 0).sort((a, b) => evOf(b)[0] - evOf(a)[0] || b[2] - a[2]).slice(0, 6).map((r) => ({ r }));
+  listSec('👍 칭찬이 많았던 회차', '공감 상위 30개 댓글 중 작품을 칭찬한 댓글이 많은 회차', good, ({ r }, row) => {
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 칭찬 ${evOf(r)[0]}건 · 댓글 ${(r[2] || 0).toLocaleString()}개`));
+    quoteLine(row, r[9], EV_POS, '대표 칭찬');
+  });
+  // ③ 불만·하차가 나온 회차
+  const bad = rows.filter((r) => evOf(r) && (evOf(r)[1] || evOf(r)[2])).sort((a, b) => (evOf(b)[1] + 2 * (evOf(b)[2] || 0)) - (evOf(a)[1] + 2 * (evOf(a)[2] || 0)) || b[2] - a[2]).slice(0, 6).map((r) => ({ r }));
+  listSec('👎 불만·하차가 나온 회차', '공감 상위 30개 댓글 중 작품에 불만을 말하거나 하차를 선언한 댓글이 많은 회차', bad, ({ r }, row) => {
+    const e = evOf(r);
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 불만 ${e[1]}건${e[2] ? ` · 하차 ${e[2]}` : ''}`));
+    quoteLine(row, r[10], EV_NEG, '대표 불만');
+  });
+  // ④ 댓글이 크게 줄어든 지점 (하차 신호): 이 회차까지 4화의 중간값보다 다음 4화가 40% 넘게 적은 곳
+  //    (갓 나온 최신 회차는 댓글이 아직 쌓이는 중이라 뺀다)
+  const falls = [];
+  for (let i = 3; i < rows.length - 8; i++) {
+    const before = med(counts.slice(i - 3, i + 1));
+    const after = med(counts.slice(i + 1, i + 5));
+    if (before >= 20 && after / before <= 0.6) falls.push({ r: rows[i], i, ratio: after / before, paywall: rows[i][11] === 1 && rows[i + 1][11] === 0 });
+  }
+  const kept = [];
+  falls.sort((a, b) => a.ratio - b.ratio).forEach((f) => { if (!kept.some((k) => Math.abs(k.i - f.i) <= 3) && kept.length < 5) kept.push(f); });
+  kept.sort((a, b) => a.i - b.i);
+  listSec('📉 댓글이 크게 줄어든 지점', '이 회차 이후 댓글이 확 줄었어요 — 독자가 빠졌을 수 있는 곳 (무료→유료 경계면 표시)', kept, ({ r, ratio, paywall }, row) => {
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} 이후 댓글 ${Math.round((1 - ratio) * 100)}% 감소${paywall ? ' · 무료→유료 경계' : ''}`));
+    quoteLine(row, r[10], EV_NEG, '그 회차 대표 불만');
+  });
+
+  tabs.querySelector('button').classList.add('active');
+  drawChart();
   showDetail(rows[rows.length - 1]);
   return box;
 }
 
 function downloadCommentExcel(title, cm, ep) {
   const wb = XLSX.utils.book_new();
-  const r = cm.react || { reactions: {}, examples: {}, words: [], total: 0, used: 0 };
-  const summary = [
-    ['작품', title], ['기준일', cm.updated], ['전체 댓글 수', cm.total], ['분석한 댓글 (공감순)', cm.n],
-    ['읽을 내용이 있는 댓글', r.total], ['감정 반응이 잡힌 댓글', r.used], [],
-    ['반응', '댓글 수', '비율(%, 반응 잡힌 댓글 중)', '비율(%, 분석한 댓글 중)', '공감 합', '대표 댓글', '대표 댓글 공감', '대표 댓글 회차'],
-  ];
-  for (const [k, label] of REACTIONS) {
-    const v = r.reactions[k];
-    if (!v) continue;
-    const ex = ((r.examples || {})[k] || [])[0] || [];
-    const pct = (d) => (d ? +((v[0] / d) * 100).toFixed(1) : 0);
-    summary.push([ABOUT_WORK.includes(k) ? `[작품 평가] ${label}` : label, v[0], pct(r.used), pct(r.total), v[1], ex[0] || '', ex[1] || '', ex[2] || '']);
-  }
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(summary), '반응 요약');
-  if (cm.ev) {
-    const ev = cm.ev;
+  const add = (rows, name) => XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(rows), name);
+  const ev = cm.ev;
+  if (ev) {
+    const [p, n] = evalTotals(ev);
     const op = ev.op || { pos: [], mid: [], neg: [] };
-    const opRows = [['작품 평가 (리디 트래커와 같은 분석법)'], ['분석한 댓글', ev.n], ['작품을 평가한 댓글', ev.used], ['캐릭터 과몰입 반응', ev.over || 0], [],
-      ['구분', '공통 의견', '건수', '대표 댓글']];
-    for (const [label, arr] of [['좋은 점', op.pos], ['무난', op.mid], ['아쉬운 점', op.neg]]) {
-      for (const [text, n, quote] of arr) opRows.push([label, text, n, quote || '']);
+    add([['작품', title], ['기준일', cm.updated], ['전체 댓글 수', cm.total], ['분석한 댓글 (공감순)', ev.n], ['작품을 평가한 댓글', ev.used],
+      ['호평', p], ['아쉬움', n], ['하차 선언', ev.drop ? ev.drop.n : 0], [],
+      ['구분', '공통 의견', '건수', '대표 댓글']]
+      .concat(op.pos.map((o) => ['좋은 점', o[0], o[1], o[2] || '']), op.mid.map((o) => ['무난', o[0], o[1], o[2] || '']), op.neg.map((o) => ['아쉬운 점', o[0], o[1], o[2] || ''])), '요약·공통 의견');
+    add([['공감', '회차', '무엇을', '댓글']].concat((ev.goodTop || []).map((q) => [q[1], q[2], (q[3] || []).join(', '), q[0]])), '공감 받은 칭찬');
+    add([['공감', '회차', '무엇을', '댓글']].concat((ev.badTop || []).map((q) => [q[1], q[2], (q[3] || []).join(', '), q[0]])), '공감 받은 불만');
+    if (ev.drop) {
+      add([['하차 이유', '댓글 수']].concat(ev.drop.why || [], [[], ['공감', '회차', '하차 댓글']], (ev.drop.ex || []).map((x) => [x[1], x[2], x[0]])), '하차');
     }
-    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(opRows), '공통 의견');
-    const aspRows = [['요소', '호평', '무난', '아쉬움', '강한 호평', '강한 불만', '호평 예시', '아쉬움 예시']];
-    for (const [k, s] of Object.entries(ev.asp || {}).sort((a, b) => (b[1][0] + b[1][1]) - (a[1][0] + a[1][1]))) {
-      const ex = (ev.ex || {})[k] || {};
-      aspRows.push([EVAL_ASPECTS[k] || k, s[0], s[2] || 0, s[1], s[3] || 0, s[4] || 0,
-        ((ex.p || [])[0] || [])[0] || '', ((ex.n || [])[0] || [])[0] || '']);
-    }
-    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(aspRows), '요소별 평가');
+    add([['구분', '회차', '건수', '하차', '대표 댓글 공감', '대표 댓글']]
+      .concat((ev.epGood || []).map((x) => ['반응 좋았던 회차', x[0], x[1], '', x[4], x[3]]), (ev.epBad || []).map((x) => ['반응 아쉬웠던 회차', x[0], x[1], x[2], x[5], x[4]])), '회차별(공감 댓글 기준)');
+    add([['요소', '호평', '무난', '아쉬움', '강한 호평', '강한 불만', '호평 예시', '아쉬움 예시']]
+      .concat(Object.entries(ev.asp || {}).sort((a, b) => (b[1][0] + b[1][1]) - (a[1][0] + a[1][1])).map(([k, s]) => {
+        const ex = (ev.ex || {})[k] || {};
+        return [EVAL_ASPECTS[k] || k, s[0], s[2] || 0, s[1], s[3] || 0, s[4] || 0, ((ex.p || [])[0] || [])[0] || '', ((ex.n || [])[0] || [])[0] || ''];
+      })), '요소별 평가');
   }
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['순위', '공감', '회차', '작성일', '스포일러', '작가의 말', '댓글']]
+  add([['순위', '공감', '회차', '작성일', '스포일러', '작가의 말', '댓글']]
     .concat((cm.top || []).map(([text, likes, epl, date, flags], i) => {
       const { spoiler, author } = sampleFlags(flags);
       return [i + 1, likes, epl, date, spoiler ? 'Y' : '', author ? 'Y' : '', text];
-    }))), '공감 TOP 댓글');
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['단어', '나온 댓글 수']].concat(r.words || [])), '자주 나온 말');
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['회차', '공감 상위 댓글 수', '공감 합']].concat(cm.epHot || [])), '댓글 몰린 회차');
+    })), '공감 TOP 댓글');
   if (ep && ep.episodes) {
-    const kinds = REACTIONS.filter(([k]) => !ABOUT_WORK.includes(k));
-    const head = ['순서', '회차', '공개일', '댓글 수'].concat(kinds.map(([, label]) => `${label} (상위30 중)`),
-      ['작품 칭찬 댓글 (상위30 중)', '작품 아쉬움 댓글 (상위30 중)', '베스트 댓글', '베스트 공감', '수집일']);
-    const body = Object.values(ep.episodes).sort((a, b) => a[0] - b[0]).map((e) => [e[0], e[1], e[6] || '', e[2]]
-      .concat(kinds.map(([k]) => (e[5] || {})[k] || 0),
-        [e[8] ? e[8][0] : '', e[8] ? e[8][1] : '', e[4] ? e[4][0] : '', e[4] ? e[4][1] : '', e[3]]));
-    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([head].concat(body)), '회차별');
+    const head = ['순서', '회차', '공개일', '무료', '댓글 수', '칭찬 댓글 (상위30 중)', '불만 댓글 (상위30 중)', '하차 선언',
+      '대표 칭찬', '대표 칭찬 공감', '대표 불만', '대표 불만 공감', '베스트 댓글', '베스트 공감', '수집일'];
+    const body = Object.values(ep.episodes).sort((a, b) => a[0] - b[0]).map((e) => {
+      const v = Array.isArray(e[8]) ? e[8] : [];
+      return [e[0], e[1], e[6] || '', e[11] === 1 ? 'Y' : '', e[2], v[0] ?? '', v[1] ?? '', v[2] ?? '',
+        e[9] ? e[9][0] : '', e[9] ? e[9][1] : '', e[10] ? e[10][0] : '', e[10] ? e[10][1] : '',
+        e[4] ? e[4][0] : '', e[4] ? e[4][1] : '', e[3]];
+    });
+    add([head].concat(body), '회차별');
   }
-  XLSX.writeFile(wb, `${String(title).replace(/[\\/:*?"<>|]/g, '_')}_댓글분석_${cm.updated}.xlsx`);
+  XLSX.writeFile(wb, `${String(title).replace(/[\\/:*?"<>|]/g, '_')}_작품분석_${cm.updated}.xlsx`);
 }
 
 function isoWeekKey(d) {

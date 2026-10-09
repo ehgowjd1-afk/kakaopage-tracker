@@ -54,8 +54,8 @@ const DEEP_WORKERS = 3;
 const GAP = 200;              // ms between requests inside one worker
 
 // ev = 작품 평가: 요소별 예시 수, 공통 의견 [좋은 점, 무난, 아쉬운 점] 개수
-const A_OPTS = { examplesPer: 1, words: 15, top: 5, cut: 140, hot: 5, ev: { examplesPer: 1, opinions: [4, 2, 3] } };
-const DEEP_OPTS = { examplesPer: 3, words: 25, top: 10, cut: 160, hot: 10, ev: { examplesPer: 2, opinions: [6, 3, 4] } };
+const A_OPTS = { examplesPer: 1, words: 15, top: 5, cut: 140, hot: 5, ev: { examplesPer: 1, opinions: [4, 2, 3], quotes: 3 } };
+const DEEP_OPTS = { examplesPer: 3, words: 25, top: 10, cut: 160, hot: 10, ev: { examplesPer: 2, opinions: [6, 3, 4], quotes: 5 } };
 
 function arg(name, def) {
   const a = process.argv.find((x) => x.startsWith(`--${name}=`));
@@ -89,7 +89,7 @@ function authorSet(author) {
 }
 // 웹툰은 그림·각색 작가도, 출판사도 인사를 남긴다 ("<그 쓰레기가 나였어요>의 작화를 맡은 에습입니다",
 // "<우검쟁패>를 출간한 스마트빅/월하담입니다")
-const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)[을를]?\s?(담당|맡)|출간한\s?\S{1,20}입니다|출판사입니다|편집(부|자)입니다/;
+const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)[을를]?\s?(담당|맡)|출간한\s?\S{1,20}입니다|출판사입니다|편집(부|자)입니다|(미디어|출판|스튜디오|에이전시|엔터|컴퍼니|담당자)\S{0,3}입니다/;
 const isAuthor = (c, authors) => authors.has((c.user || '').trim()) || AUTHOR_NOTE.test(c.text || '');
 const readers = (list, authors) => list.filter((c) => !isAuthor(c, authors));
 
@@ -128,7 +128,7 @@ async function seriesSummary(id, title, authors, today, n, opts) {
     total, n: comments.length,
     top: readable(comments).slice(0, opts.top).map((c) => sample(c, title, opts.cut, authors)),
     react: analyse(fromReaders, title, opts), epHot: hotEpisodes(fromReaders, title, opts.hot),
-    ev: EV.evaluate(id, fromReaders.map((c) => ({ text: KREACT.clean(c.text), likes: c.likes, at: c.at })), opts.ev),
+    ev: EV.evaluate(id, fromReaders.map((c) => ({ text: KREACT.clean(c.text), likes: c.likes, at: c.at, ep: episodeLabel(c.episodeTitle, title) })), opts.ev),
   };
 }
 
@@ -151,11 +151,12 @@ async function scanEpisode(w, e, today) {
   const mix = {};
   for (const [k, v] of Object.entries(r.reactions)) mix[k] = v[0];
   const best = readable(fromReaders)[0];
-  // [8] = 이 회차 댓글 중 작품을 칭찬한 / 아쉬워한 댓글 수 (리디 분석법)
-  const ev = EV.countEval(w.id, fromReaders.map((c) => ({ text: KREACT.clean(c.text) })));
+  // 작품 평가 (리디 분석법): [8] = [칭찬 댓글, 불만 댓글, 하차 선언] 수, [9] = 대표 칭찬, [10] = 대표 불만
+  // ([발췌, 공감, 무엇을]), [11] = 지금 무료 회차인가 (무료→유료 경계의 댓글 감소를 하차와 구별하려고)
+  const ev = EV.episodeEval(w.id, fromReaders.map((c) => ({ text: KREACT.clean(c.text), likes: c.likes })));
   w.epData[e.productId] = [e.order, episodeLabel(e.title, w.title), total || 0, today,
     best ? (best.spoiler ? [cut(best.text, 90), best.likes, 1] : [cut(best.text, 90), best.likes]) : null,
-    mix, (e.at || '').slice(0, 10), ENGINE_V, ev];
+    mix, (e.at || '').slice(0, 10), ENGINE_V, ev.counts, ev.good, ev.bad, e.free ? 1 : 0];
   w.scanned += 1;
 }
 
