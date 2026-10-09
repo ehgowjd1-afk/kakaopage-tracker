@@ -1,10 +1,15 @@
 // Comment collection + reaction analysis (results only, like the RIDI tracker).
 //
+// Two analyses per comment set:
+//   react — in-story reactions (laugh / tears / anger at characters…), lib/kreact.cjs
+//   ev    — evaluation of the work itself with the RIDI tracker's method (review engine
+//           v8, per-element praise/complaint + '독자들의 공통 의견'), lib/kakao-eval.cjs,
+//           which filters out in-story chatter the RIDI engine would read as verdicts.
+//
 // Tier A    — every known work: its 100 most-liked comments (one request) ->
-//             reaction mix (KREACT), top comments and the episodes those top
-//             comments came from. Refreshed every 14-20 days (jittered per work
-//             so the load spreads out). The RIDI review-aspect engine (rabsa) is
-//             NOT used: on episode comments it mostly misfires (see kreact.cjs).
+//             react + ev, top comments and the episodes those top comments came
+//             from. Refreshed every 14-20 days (jittered per work so the load
+//             spreads out).
 // Tier deep — today's daily TOP 100 (webnovel + webtoon): 300 most-liked
 //             comments, plus EVERY episode's comment count, best comment and the
 //             reaction mix of its top 30. Each run re-reads the newest episodes;
@@ -26,11 +31,14 @@ import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { seriesTopComments, episodeTopComments, listEpisodes, episodeLabel, sleep } from './lib/kakao-comments.mjs';
 
-const KREACT = createRequire(import.meta.url)('./lib/kreact.cjs');
+const require = createRequire(import.meta.url);
+const KREACT = require('./lib/kreact.cjs');                  // 작품 속 몰입 반응 (웃음·눈물·과몰입 분노…)
+const { makeEvaluator, VERSION: EVAL_V } = require('./lib/kakao-eval.cjs');   // 작품 평가 = 리디 분석법 (요소별 호평·아쉬움)
 const DATA = path.join(process.cwd(), 'docs', 'data');
 const OUT = path.join(DATA, 'comments');
 const OUT_EP = path.join(OUT, 'ep');
-const ENGINE_V = `k${KREACT.VERSION}`;
+const ENGINE_V = `k${KREACT.VERSION}-r${EVAL_V}`;
+let EV = null;                                                // makeEvaluator(DATA), built once per run
 
 const A_N = 100;              // comments analysed per work (tier A) - a single request
 const DEEP_N = 300;           // comments analysed per deep work
@@ -45,8 +53,9 @@ const A_WORKERS = 4;
 const DEEP_WORKERS = 3;
 const GAP = 200;              // ms between requests inside one worker
 
-const A_OPTS = { examplesPer: 1, words: 15, top: 5, cut: 140, hot: 5 };
-const DEEP_OPTS = { examplesPer: 3, words: 25, top: 10, cut: 160, hot: 10 };
+// ev = 작품 평가: 요소별 예시 수, 공통 의견 [좋은 점, 무난, 아쉬운 점] 개수
+const A_OPTS = { examplesPer: 1, words: 15, top: 5, cut: 140, hot: 5, ev: { examplesPer: 1, opinions: [4, 2, 3] } };
+const DEEP_OPTS = { examplesPer: 3, words: 25, top: 10, cut: 160, hot: 10, ev: { examplesPer: 2, opinions: [6, 3, 4] } };
 
 function arg(name, def) {
   const a = process.argv.find((x) => x.startsWith(`--${name}=`));
@@ -78,7 +87,8 @@ const readable = (list) => list.filter((c) => KREACT.clean(c.text));
 function authorSet(author) {
   return new Set(String(author || '').split(/[,/]/).map((s) => s.trim()).filter(Boolean));
 }
-const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다/;
+// 웹툰은 그림·각색 작가도 인사를 남긴다 ("<그 쓰레기가 나였어요>의 작화를 맡은 에습입니다")
+const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)[을를]?\s?(담당|맡)/;
 const isAuthor = (c, authors) => authors.has((c.user || '').trim()) || AUTHOR_NOTE.test(c.text || '');
 const readers = (list, authors) => list.filter((c) => !isAuthor(c, authors));
 
@@ -117,6 +127,7 @@ async function seriesSummary(id, title, authors, today, n, opts) {
     total, n: comments.length,
     top: readable(comments).slice(0, opts.top).map((c) => sample(c, title, opts.cut, authors)),
     react: analyse(fromReaders, title, opts), epHot: hotEpisodes(fromReaders, title, opts.hot),
+    ev: EV.evaluate(id, fromReaders.map((c) => ({ text: KREACT.clean(c.text), likes: c.likes, at: c.at })), opts.ev),
   };
 }
 
@@ -139,9 +150,11 @@ async function scanEpisode(w, e, today) {
   const mix = {};
   for (const [k, v] of Object.entries(r.reactions)) mix[k] = v[0];
   const best = readable(fromReaders)[0];
+  // [8] = 이 회차 댓글 중 작품을 칭찬한 / 아쉬워한 댓글 수 (리디 분석법)
+  const ev = EV.countEval(w.id, fromReaders.map((c) => ({ text: KREACT.clean(c.text) })));
   w.epData[e.productId] = [e.order, episodeLabel(e.title, w.title), total || 0, today,
     best ? (best.spoiler ? [cut(best.text, 90), best.likes, 1] : [cut(best.text, 90), best.likes]) : null,
-    mix, (e.at || '').slice(0, 10), ENGINE_V];
+    mix, (e.at || '').slice(0, 10), ENGINE_V, ev];
   w.scanned += 1;
 }
 
@@ -203,6 +216,7 @@ export async function collectComments() {
   const titles = {};
   for (const it of readJson(path.join(DATA, 'search-index.json'), [])) if (it.workId) titles[it.workId] = it.title || '';
   const titleOf = (id) => titles[id] || (readJson(path.join(DATA, 'detail', `${id}.json`), null) || {}).title || '';
+  EV = makeEvaluator(DATA);
 
   const top100 = new Map();
   const prevTop = new Set();
