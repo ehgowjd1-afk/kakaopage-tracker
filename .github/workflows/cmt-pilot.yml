@@ -1,0 +1,93 @@
+name: 회차 댓글 분석 시범
+
+# scripts/cmt/cmt_pilot.mjs 를 손으로만 돌립니다 (자동 실행 없음). 매일 도는 수집과는 완전히 따로입니다.
+# 작품 1~3개의 초반·중간·최근 회차 댓글을 로그인 없이 모아(닉네임은 버림),
+# AI로 반복 반응 묶음 찾기(Sonnet) → 댓글마다 표시(Haiku) → 참고용 니즈 맵(Sonnet)을 만듭니다.
+# 결과(숫자·표시·묶음 — 댓글 원문 없음)는 하루만 보관하는 실행 결과물로 올리고,
+# 저장소에는 이 달 AI 사용액(state/ai_state.json)만 커밋합니다. 기존 수집 파일은 건드리지 않습니다.
+# AI 일괄은 보내는 즉시 예상 비용을 먼저 기록하고, 끝나면 실제 금액으로 맞춥니다(중간에 끊겨도 사용액이 빠지지 않음).
+# API 키는 저장소 시크릿 ANTHROPIC_API_KEY 를 씁니다. 이 트래커의 월 AI 한도는 $30 (--limit-usd).
+
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "작품 번호(쉼표로 1~3개)"
+        type: string
+        default: "56243215,66476840"
+      cap_usd:
+        description: "이번 시범 비용 상한(달러) — 예상이 넘으면 보내지 않음"
+        type: string
+        default: "2"
+
+permissions:
+  contents: write
+
+# AI 작업끼리 겹치지 않게 (돈 기록 파일을 같이 씀)
+concurrency:
+  group: ai-kakao
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 130
+    steps:
+      # 늘 master 최신에서 시작한다 — 앞 시범이 커밋한 사용액(state/ai_state.json)을 읽어야 이 달 한도를 제대로 잰다
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 노드 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # 저장소의 package.json(Playwright 등)은 설치하지 않고, 별도 폴더에 SDK만 받아 연결한다
+      - name: Claude SDK 설치
+        run: |
+          mkdir -p /tmp/sdk && cd /tmp/sdk && npm init -y >/dev/null && npm install --no-audit --no-fund @anthropic-ai/sdk@0.128.0
+          ln -s /tmp/sdk/node_modules "$GITHUB_WORKSPACE/node_modules"
+
+      # 입력값은 환경 변수로 넘긴다 (명령줄에 바로 붙이지 않음). 형식이 이상하면 스크립트가 멈춘다.
+      - name: 시범 실행
+        timeout-minutes: 120
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IDS: ${{ inputs.ids }}
+          CAP_USD: ${{ inputs.cap_usd }}
+        run: >
+          node scripts/cmt/cmt_pilot.mjs --ids "$IDS" --cap-usd "$CAP_USD"
+          --limit-usd 30 --wait-min 100
+          --out cmt_pilot_out.json --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: 결과 올리기 (하루 보관)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cmt-pilot-out
+          path: cmt_pilot_out.json
+          retention-days: 1
+          if-no-files-found: ignore
+
+      - name: AI 사용액 저장(커밋)
+        if: always()
+        run: |
+          rm -f node_modules
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
+          git add state/ai_state.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "바뀐 내용이 없어 커밋하지 않습니다."
+            exit 0
+          fi
+          git commit -q -m "회차 댓글 분석 시범: AI 사용액 기록"
+          # 이 파일은 이 작업만 쓴다(같은 줄에 서서 차례로 돎) — 매일 수집이 그 사이 다른 파일을 올렸으면 그 위에 얹어 다시 민다
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:master; then echo "저장 완료"; exit 0; fi
+            echo "다른 수집과 겹쳤습니다. 합치고 다시 시도 ($i/5)"
+            git fetch -q origin master && git rebase -q origin/master || { git rebase --abort 2>/dev/null || true; }
+            sleep $((i * 5))
+          done
+          echo "저장 실패"; exit 1
