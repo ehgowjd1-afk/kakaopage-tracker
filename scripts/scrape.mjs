@@ -8,6 +8,7 @@ import { writePromoSnapshot, buildPromoPeriods } from './build-promo-periods.mjs
 import { collectEventDetails } from './collect-event-details.mjs';
 import { fetchBffDetail, isGated, fillGaps } from './lib/bff-detail.mjs';
 import { writeWorksLite as writeLite } from './lib/works-lite.mjs';
+import { loadTopComments, hasTopComments, setTopComments, saveTopComments } from './lib/top-comments.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -205,9 +206,15 @@ async function main() {
 
   const cachePath = path.join(DATA_DIR, 'works.json');
   const cache = await loadJson(cachePath, {});
+  // Popular comments live in their own sharded store, not in works.json
+  // (lib/top-comments.mjs) — saved together with the cache.
+  const tc = loadTopComments(DATA_DIR);
   // works.json is minified: pretty-printed it passed GitHub's 50MB warning
   // (60.8MB on 2026-10-10) and keeps growing; minified is ~30% smaller.
-  const saveCache = (c) => fs.writeFile(cachePath, JSON.stringify(c), 'utf-8');
+  const saveCache = async (c) => {
+    await fs.writeFile(cachePath, JSON.stringify(c), 'utf-8');
+    saveTopComments(tc);
+  };
 
   const freshDetailCache = new Map();
   const promotionsByWork = {}; // workId -> [{bannerUid,title,link}], refreshed daily
@@ -249,11 +256,11 @@ async function main() {
       // Fill in comments for ranked works that don't have any yet (bounded), so
       // newly-entered daily TOP works get comments even though they're marked
       // fresh above and thus skipped by the detail-backfill loop below.
-      if (cached && (!cached.topComments || cached.topComments.length === 0) && commentBudget > 0) {
+      if (cached && !hasTopComments(tc, item.workId) && commentBudget > 0) {
         const comments = await scrapeComments(page, item.workId, { log: console.log });
         if (comments) {
           cached.totalCommentText = comments.totalCommentText ?? cached.totalCommentText ?? null;
-          cached.topComments = comments.topComments ?? [];
+          setTopComments(tc, item.workId, comments.topComments ?? []);
           cached.commentKeywords = comments.keywords ?? [];
         }
         commentBudget -= 1;
@@ -307,10 +314,10 @@ async function main() {
         workId,
         launchDate,
         totalCommentText: comments?.totalCommentText ?? detail.totalCommentText ?? null,
-        topComments: comments?.topComments ?? [],
         commentKeywords: comments?.keywords ?? [],
         lastChecked: new Date().toISOString(),
       };
+      if (comments) setTopComments(tc, workId, comments.topComments ?? []);
     }
     done += 1;
     if (done % 10 === 0) {

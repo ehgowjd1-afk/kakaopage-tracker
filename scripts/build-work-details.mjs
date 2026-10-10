@@ -11,6 +11,7 @@ import fssync from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { CATEGORIES, PERIODS, GENRES } from './lib/kakao.mjs';
+import { loadTopComments, getTopComments } from './lib/top-comments.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const OUT_DIR = path.join(DATA_DIR, 'detail');
@@ -32,6 +33,7 @@ function genreKeyOf(cat, classification) {
 
 export async function buildWorkDetails() {
   const works = readJson(path.join(DATA_DIR, 'works.json'), {});
+  const tc = loadTopComments(DATA_DIR); // popular comments live outside works.json
   const cats = Object.keys(CATEGORIES);
 
   // Accumulators keyed by workId. Overall first, genre as fallback for works
@@ -113,7 +115,7 @@ export async function buildWorkDetails() {
       title: m.title ?? w.title ?? null,
       thumbnail: m.thumbnail ?? null,
       synopsis: w.synopsis ?? null,
-      topComments: w.topComments ?? [],
+      topComments: getTopComments(tc, id),
       commentKeywords: w.commentKeywords ?? [],
       rankSeries,
       viewSeries: views[id] || [],

@@ -2,6 +2,7 @@ import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { scrapeWorkDetail, scrapeComments, sleep } from './lib/kakao.mjs';
+import { loadTopComments, setTopComments, saveTopComments } from './lib/top-comments.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'docs', 'data');
 const CATEGORY = 'webnovel';
@@ -24,6 +25,9 @@ async function saveJson(filePath, data) {
 async function main() {
   const cachePath = path.join(DATA_DIR, 'works.json');
   const cache = await loadJson(cachePath, {});
+  const tc = loadTopComments(DATA_DIR);
+  // minified + popular comments saved to their own store, like scrape.mjs
+  const saveCache = async () => { await fs.writeFile(cachePath, JSON.stringify(cache), 'utf-8'); saveTopComments(tc); };
 
   const ids = new Set();
   for (const g of TARGET_GENRES) {
@@ -49,19 +53,20 @@ async function main() {
         ...detail,
         workId,
         totalCommentText: comments?.totalCommentText ?? null,
-        topComments: comments?.topComments ?? [],
         commentKeywords: comments?.keywords ?? [],
         lastChecked: new Date().toISOString(),
       };
+      // popular comments live in their own store (lib/top-comments.mjs), not works.json
+      if (comments) setTopComments(tc, workId, comments.topComments ?? []);
     }
     done += 1;
     if (done % 10 === 0) {
-      await saveJson(cachePath, cache);
+      await saveCache();
       console.log(`  ...${done}/${idsToFetch.length} works done`);
     }
     await sleep(1500 + Math.random() * 1500);
   }
-  await saveJson(cachePath, cache);
+  await saveCache();
   await browser.close();
   console.log('=== Done ===');
 }
