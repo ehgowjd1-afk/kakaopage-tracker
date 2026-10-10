@@ -205,6 +205,9 @@ async function main() {
 
   const cachePath = path.join(DATA_DIR, 'works.json');
   const cache = await loadJson(cachePath, {});
+  // works.json is minified: pretty-printed it passed GitHub's 50MB warning
+  // (60.8MB on 2026-10-10) and keeps growing; minified is ~30% smaller.
+  const saveCache = (c) => fs.writeFile(cachePath, JSON.stringify(c), 'utf-8');
 
   const freshDetailCache = new Map();
   const promotionsByWork = {}; // workId -> [{bannerUid,title,link}], refreshed daily
@@ -265,7 +268,7 @@ async function main() {
     const vcDir = path.join(DATA_DIR, categoryKey, 'viewcounts');
     await saveJson(path.join(vcDir, `${today}.json`), snapshot);
     await saveJson(path.join(vcDir, 'latest.json'), snapshot);
-    await saveJson(cachePath, cache); // persist ranked-work details after each category
+    await saveCache(cache); // persist ranked-work details after each category
   }
   await saveJson(path.join(DATA_DIR, 'promotions.json'), promotionsByWork);
   // Keep today's 소식-tab banners as a dated snapshot (promotions.json only holds
@@ -311,12 +314,12 @@ async function main() {
     }
     done += 1;
     if (done % 10 === 0) {
-      await saveJson(cachePath, cache);
+      await saveCache(cache);
       console.log(`  ...${done}/${idsToFetch.length} works done`);
     }
     await sleep(1500 + Math.random() * 1500);
   }
-  await saveJson(cachePath, cache);
+  await saveCache(cache);
 
   // Dropped-work view-count refresh: works in the cache that are NOT in any of
   // today's lists keep getting their cumulative view count (and author/
@@ -345,12 +348,12 @@ async function main() {
       }
       dvDone += 1;
       if (dvDone % 25 === 0) {
-        await saveJson(cachePath, cache);
+        await saveCache(cache);
         console.log(`  ...${dvDone}/${droppedIds.length} dropped-work views refreshed`);
       }
       await sleep(900 + Math.random() * 900);
     }
-    await saveJson(cachePath, cache);
+    await saveCache(cache);
   }
 
   await writeWorksLite(cache);
