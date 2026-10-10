@@ -65,14 +65,36 @@ async function getWorksLite() {
   return worksLiteCache;
 }
 
-// Promotion periods per work (scripts/build-promo-periods.mjs):
-//   { first, last, banners: {uid: [title, link, family, reach]},
-//     works: {workId: [[uid, start, end, flags]]} }
-// flags: 1 = may have started earlier, 2 = still running, 4 = may have run longer
-// (the work was outside the daily TOP 300 on that side, so nobody checked).
+// Promotion periods per work, from the 이벤트 tab (scripts/build-promo-periods.mjs):
+//   ev:    { key: [title, subtitle, link, family, tags, nWorks, start, end, src, flags, uids, open, close] }
+//   works: { workId: [[key, start, end, flags, before, during, after, scope]] }
+// src: 'o' official open/close · 'l' days listed in the 이벤트 tab · 'n' days seen on the work
+// flags: 1 = may have started before records began, 2 = still running, 4 = may have run longer
+// before/during/after: average daily rank (0 = outside the ranking, null = no data);
+// scope 'o' = overall daily TOP 300, 'g' = the work's genre daily TOP 300.
 async function getPromoPeriods() {
-  if (!promoPeriodsCache) promoPeriodsCache = await fetchJson('data/promo-periods.json').catch(() => ({ banners: {}, works: {} }));
+  if (!promoPeriodsCache) promoPeriodsCache = await fetchJson('data/promo-periods.json').catch(() => ({ ev: {}, works: {} }));
   return promoPeriodsCache;
+}
+
+// Per event: its works with their before/during/after ranks, plus reward-type
+// groups and a no-event baseline (scripts/build-promo-periods.mjs). 이벤트 tab only.
+let eventAnalysisCache = null;
+async function getEventAnalysis() {
+  if (!eventAnalysisCache) eventAnalysisCache = await fetchJson('data/event-analysis.json').catch(() => ({ events: {}, groups: [] }));
+  return eventAnalysisCache;
+}
+
+// Same key as scripts/lib/promo.mjs eventKey(): one per Kakao event page.
+function eventKeyOf(link) {
+  let l = String(link || '');
+  try { l = decodeURIComponent(l); } catch { /* keep as is */ }
+  let m = l.match(/hash_uid=([a-f0-9]{8,})/) || l.match(/\/event\/([a-f0-9]{16,})/);
+  if (m) return `h:${m[1]}`;
+  m = l.match(/landing\/(\d+)/);
+  if (m) return `l:${m[1]}`;
+  m = l.match(/series_id=(\d+)/);
+  return m ? `s:${m[1]}` : null;
 }
 
 async function getAllLatest() {
@@ -321,21 +343,31 @@ async function renderMemosView() {
 }
 
 // ── 프로모션 기간 ──
-// 작품 소식 탭에 걸린 배너를 일간 TOP 300에 든 날마다 확인해 이은 기간이다.
-// 'platform'(스탬프 투어 같은 참여형)은 수십 작품이 한 달 내내 같이 걸려 있어
-// 순위 차이를 설명하지 못하므로 목록 표시·그래프 색칠에서 빼고 카드에만 적는다.
+// 이벤트 칸의 이벤트를 하나씩 열어 본 참여 작품·기간·리워드로 만든다(작품 소식 탭
+// 기록으로 보충). 'platform'(스탬프 투어 같은 참여형)은 수십 작품이 한 달 내내
+// 같이 걸려 있어 순위 차이를 설명하지 못하므로 목록 표시·그래프 색칠에서 뺀다.
 const PROMO_FAMILY = {
-  benefit: { label: '무료·혜택', tip: '무료 회차·기다무·캐시 같은 혜택 이벤트' },
-  event: { label: '작품 이벤트', tip: '론칭·완결·연참·기념처럼 이 작품을 내세운 이벤트 (작품 이름을 단 2주짜리 이벤트 페이지 포함)' },
-  curation: { label: '기획전·추천', tip: '여러 작품을 묶은 기획전·추천 자리에 노출' },
-  platform: { label: '플랫폼 참여 이벤트', tip: '스탬프 투어처럼 여러 작품이 함께 들어간 참여형 이벤트' },
+  benefit: { label: '무료·혜택', tip: '무료 회차·기다무·캐시·할인 같은 리워드가 있는 이벤트' },
+  event: { label: '작품 이벤트', tip: '론칭·완결·시즌·연참·기념처럼 이 작품을 내세운 이벤트' },
+  curation: { label: '기획전·추천', tip: '여러 작품을 묶은 기획전·추천 자리에 노출 (따로 적힌 리워드 없음)' },
+  platform: { label: '플랫폼 참여 이벤트', tip: '스탬프 투어처럼 수십 작품이 함께 들어간 참여형 이벤트' },
 };
 const PROMO_SHADED = ['benefit', 'event', 'curation'];
+const REWARD_TAG = /^(\d+다무|기다무|한시한편|무료 회차|캐시|할인|이용권|\d+화 무료|최대 .+ 캐시)$/;
+const PROMO_SRC = {
+  o: '이벤트 페이지에 적힌 기간',
+  l: '이벤트 칸에 떠 있던 기간',
+  n: '작품 소식 탭에서 본 기간',
+};
 
 function promosOfWork(pp, workId) {
-  return ((pp && pp.works && pp.works[workId]) || []).map(([uid, s, e, flags]) => {
-    const [title, link, family, reach] = pp.banners[uid] || [];
-    return { uid, title: title || '(제목 없음)', link: link || null, family: family || 'event', reach: reach || 1, s, e, flags };
+  return ((pp && pp.works && pp.works[workId]) || []).map(([key, s, e, flags, b, d, a, sc]) => {
+    const [title, sub, link, family, tags, reach, , , src, , uids, open, close] = (pp.ev && pp.ev[key]) || [];
+    return {
+      key, title: title || '(제목 없음)', sub: sub || '', link: eventWebLink(link) || null,
+      family: family || 'event', tags: tags || [], reach: reach || 1, s, e, flags, src,
+      uids: uids || [], open, close, eff: { b, d, a, sc },
+    };
   });
 }
 
@@ -352,7 +384,7 @@ function promoWhen(p) {
 
 /** 순위 목록 줄에 붙이는 작은 표시: 그날 걸려 있던 프로모션. ended면 그날이 아니라
  *  직전 3일 안에 끝난 것도 '끝난 직후'로 보여준다(급하락·이탈 확인용). 없으면 null.
- *  끝 날짜가 불확실한 기간(flags 4: 그 뒤로 순위권 밖이라 못 봄)은 '끝남'으로 치지 않는다. */
+ *  끝 날짜가 불확실한 기간(flags 4)은 '끝남'으로 치지 않는다. */
 function buildPromoChip(pp, workId, date, { ended = false } = {}) {
   const all = promosOfWork(pp, workId).filter((p) => PROMO_SHADED.includes(p.family));
   let list = all.filter((p) => p.s <= date && date <= p.e);
@@ -364,39 +396,21 @@ function buildPromoChip(pp, workId, date, { ended = false } = {}) {
   }
   if (!list.length) return null;
   list.sort((a, b) => PROMO_SHADED.indexOf(a.family) - PROMO_SHADED.indexOf(b.family));
+  const top = list[0];
+  const reward = displayTags(top.tags).filter((t) => REWARD_TAG.test(t)).slice(0, 2).join('+');
   const chip = document.createElement('span');
-  chip.className = `promo-chip fam-${list[0].family}${state === 'ended' ? ' ended' : ''}`;
+  chip.className = `promo-chip fam-${top.family}${state === 'ended' ? ' ended' : ''}`;
   chip.textContent = state === 'ended'
     ? '이벤트 끝난 직후'
-    : PROMO_FAMILY[list[0].family].label + (list.length > 1 ? ` +${list.length - 1}` : '');
-  chip.title = list.map((p) => `${PROMO_FAMILY[p.family].label} · ${promoWhen(p)} · ${p.title}`).join('\n');
+    : (reward || PROMO_FAMILY[top.family].label) + (list.length > 1 ? ` +${list.length - 1}` : '');
+  chip.title = list.map((p) => `${promoWhen(p)} · ${p.title}${p.sub ? ` (${p.sub})` : ''}`).join('\n');
   return chip;
 }
 
-/** 프로모션 시작 전 7일 · 기간 중 · 끝난 뒤 7일의 일간 순위 평균.
- *  collected = 일간 순위를 수집한 날짜들. 그 구간에서 순위권 밖인 날이 절반을
- *  넘으면 { out: true }. 수집한 날이 없으면 null. */
-function promoRankWindows(dailySeries, collected, p, firstDay) {
-  const rankOf = new Map(dailySeries.filter((x) => !x.estimated && x.rank != null).map((x) => [x.date, x.rank]));
-  const win = (from, to) => {
-    const days = collected.filter((d) => d >= from && d <= to);
-    if (!days.length) return null;
-    const ranks = days.map((d) => rankOf.get(d)).filter((r) => r != null);
-    if (ranks.length * 2 < days.length) return { out: true, n: days.length };
-    return { avg: Math.round(ranks.reduce((a, r) => a + r, 0) / ranks.length), n: days.length };
-  };
-  return {
-    // 수집 첫날부터 걸려 있던 건 언제 시작했는지 몰라서 '시작 전'과 비교하지 않는다
-    before: (p.flags & 1) && p.s === firstDay ? null : win(shiftDateStr(p.s, -7), shiftDateStr(p.s, -1)),
-    during: win(p.s, p.e),
-    after: p.flags & 2 ? null : win(shiftDateStr(p.e, 1), shiftDateStr(p.e, 7)),
-  };
-}
-
-/** '일간 순위: 시작 전 45위 → 기간 중 23위 ▲22 → 끝난 뒤 40위' */
-function buildPromoEffect(w) {
-  if (!w.during) return null;
-  const word = (x) => (x.out ? '순위권 밖' : `${x.avg}위`);
+/** '일간 순위: 시작 전 45위 → 기간 중 23위 ▲22 → 끝난 뒤 40위'
+ *  eff = {b, d, a, sc}: 평균 순위, 0 = 순위권 밖, null = 자료 없음 / 아직 모으는 중 */
+function buildPromoEffect(eff, ongoing) {
+  if (!eff || eff.d == null) return null;
   const div = document.createElement('div');
   div.className = 'promo-effect';
   const add = (text, cls) => {
@@ -405,22 +419,46 @@ function buildPromoEffect(w) {
     s.textContent = text;
     div.appendChild(s);
   };
-  add('일간 순위: ');
-  if (w.before) add(`시작 전 ${word(w.before)} → `);
-  add(`기간 중 ${word(w.during)}`);
-  if (w.before && !w.during.out) {
-    if (w.before.out) add(' 순위권 진입', 'd up');
-    else if (w.before.avg !== w.during.avg) {
-      const d = w.before.avg - w.during.avg;
-      add(d > 0 ? ` ▲${d}` : ` ▼${-d}`, d > 0 ? 'd up' : 'd down');
-    }
+  if (!(eff.b > 0) && !(eff.d > 0) && !(eff.a > 0)) {
+    add('그 무렵 전체·장르 일간 TOP 300 밖이라 순위 비교는 못 해요');
+    return div;
   }
-  if (w.after) add(w.after.n >= 3 ? ` → 끝난 뒤 ${word(w.after)}` : ' → 끝난 뒤는 자료 모으는 중');
-  div.title = '시작 전 7일 · 기간 중 · 끝난 뒤 7일의 일간 순위 평균 (순위권 밖인 날이 절반 넘으면 \'순위권 밖\')';
+  const word = (v) => (v > 0 ? `${v}위` : '순위권 밖');
+  add(eff.sc === 'g' ? '장르 일간 순위: ' : '일간 순위: ');
+  if (eff.b != null) add(`시작 전 ${word(eff.b)} → `);
+  add(`기간 중 ${word(eff.d)}`);
+  if (eff.b > 0 && eff.d > 0 && eff.b !== eff.d) {
+    const d = eff.b - eff.d;
+    add(d > 0 ? ` ▲${d}` : ` ▼${-d}`, d > 0 ? 'd up' : 'd down');
+  } else if (eff.b === 0 && eff.d > 0) {
+    add(' 순위권 진입', 'd up');
+  }
+  if (!ongoing) add(eff.a != null ? ` → 끝난 뒤 ${word(eff.a)}` : ' → 끝난 뒤는 자료 모으는 중');
+  div.title = '시작 전 7일 · 기간 중 · 끝난 뒤 7일의 일간 순위 평균 (순위권 밖인 날이 절반 넘으면 \'순위권 밖\'). '
+    + (eff.sc === 'g' ? '전체 TOP 300 밖이라 장르 순위로 봤어요.' : '');
   return div;
 }
 
-function buildPromoRow(p, pp, effect) {
+/** '캐시' + '최대 3천 캐시' → '최대 3천 캐시' 하나만 (무료 회차 / N화 무료도 같게) */
+function displayTags(tags) {
+  const hasCash = tags.some((t) => /^최대 .+ 캐시$/.test(t));
+  const hasEps = tags.some((t) => /^\d+화 무료$/.test(t));
+  return tags.filter((t) => !(hasCash && t === '캐시') && !(hasEps && t === '무료 회차'));
+}
+
+function buildTagChips(tags) {
+  const wrap = document.createElement('span');
+  wrap.className = 'promo-tags';
+  for (const t of displayTags(tags)) {
+    const c = document.createElement('span');
+    c.className = REWARD_TAG.test(t) ? 'ptag reward' : 'ptag';
+    c.textContent = t;
+    wrap.appendChild(c);
+  }
+  return wrap;
+}
+
+function buildPromoRow(p, pp) {
   const row = document.createElement('div');
   row.className = 'promo-row';
   const sw = document.createElement('span');
@@ -432,6 +470,13 @@ function buildPromoRow(p, pp, effect) {
   t.textContent = p.title;
   if (p.link) { t.href = p.link; t.target = '_blank'; t.rel = 'noopener noreferrer'; }
   body.appendChild(t);
+  if (p.sub || p.tags.length) {
+    const subLine = document.createElement('div');
+    subLine.className = 'promo-sub';
+    if (p.sub) subLine.appendChild(document.createTextNode(p.sub));
+    if (p.tags.length) subLine.appendChild(buildTagChips(p.tags));
+    body.appendChild(subLine);
+  }
   const meta = document.createElement('div');
   meta.className = 'promo-meta';
   const fam = document.createElement('span');
@@ -441,6 +486,7 @@ function buildPromoRow(p, pp, effect) {
   const when = document.createElement('span');
   when.textContent = promoWhen(p);
   if (p.flags & 2) when.className = 'live';
+  when.title = (PROMO_SRC[p.src] || '') + (p.open ? ` (${p.open} ~ ${p.close || ''})` : '');
   meta.appendChild(when);
   if (p.reach > 1) {
     const r = document.createElement('span');
@@ -449,8 +495,7 @@ function buildPromoRow(p, pp, effect) {
   }
   if (p.flags & 1) {
     const f = document.createElement('span');
-    f.textContent = p.s === pp.first ? `수집 시작(${mdDay(pp.first)}) 전부터` : '시작은 더 이를 수 있음';
-    f.title = '그 전날엔 이 작품이 일간 TOP 300 밖이라 확인하지 못했어요.';
+    f.textContent = `기록 시작(${mdDay(pp.first)}) 전부터`;
     meta.appendChild(f);
   }
   if (p.flags & 4) {
@@ -459,14 +504,25 @@ function buildPromoRow(p, pp, effect) {
     f.title = '다음 날엔 이 작품이 일간 TOP 300 밖이라 확인하지 못했어요.';
     meta.appendChild(f);
   }
+  // 이벤트 칸에 직접 적어 둔 시작일·종료일이 있으면 같이 보여준다
+  for (const uid of p.uids) {
+    const m = memoStore ? memoEventGet(uid) : null;
+    if (m && (m.start || m.end)) {
+      const f = document.createElement('span');
+      f.textContent = `📝 내 메모 ${m.start ? mdDay(m.start) : ''}~${m.end ? mdDay(m.end) : ''}`;
+      meta.appendChild(f);
+      break;
+    }
+  }
   body.appendChild(meta);
+  const effect = p.family === 'platform' ? null : buildPromoEffect(p.eff, p.flags & 2);
   if (effect) body.appendChild(effect);
   row.appendChild(body);
   return row;
 }
 
-/** 상세 화면: 이 작품에 걸렸던 프로모션 목록 + 전·중·후 일간 순위 */
-function buildPromoCard(promos, pp, dailySeries, collected) {
+/** 상세 화면: 이 작품이 들어갔던 이벤트 목록 + 전·중·후 일간 순위 */
+function buildPromoCard(promos, pp) {
   const box = document.createElement('div');
   box.className = 'panel promo-card';
   box.id = 'promo-card';
@@ -475,7 +531,7 @@ function buildPromoCard(promos, pp, dailySeries, collected) {
   head.textContent = '🎁 프로모션 기간';
   const range = document.createElement('span');
   range.className = 'promo-range';
-  range.textContent = `${mdDay(pp.first)}~${mdDay(pp.last)} 기록`;
+  range.textContent = `${mdDay(pp.first)}~${mdDay(pp.last)} 이벤트 기록`;
   head.appendChild(range);
   box.appendChild(head);
 
@@ -483,13 +539,11 @@ function buildPromoCard(promos, pp, dailySeries, collected) {
   const byRecent = (a, b) => (b.flags & 2) - (a.flags & 2) || (a.e < b.e ? 1 : a.e > b.e ? -1 : a.s < b.s ? 1 : -1);
   const shaded = promos.filter((p) => PROMO_SHADED.includes(p.family)).sort(byRecent);
   const platform = promos.filter((p) => !PROMO_SHADED.includes(p.family)).sort(byRecent);
-  for (const p of shaded) {
-    box.appendChild(buildPromoRow(p, pp, buildPromoEffect(promoRankWindows(dailySeries, collected, p, pp.first))));
-  }
+  for (const p of shaded) box.appendChild(buildPromoRow(p, pp));
   if (!shaded.length) {
     const none = document.createElement('div');
     none.className = 'promo-meta';
-    none.textContent = '이 작품만의 이벤트·혜택·기획전 기록은 없어요.';
+    none.textContent = '이 작품이 들어간 혜택·작품 이벤트·기획전 기록은 없어요.';
     box.appendChild(none);
   }
   if (platform.length) {
@@ -497,12 +551,12 @@ function buildPromoCard(promos, pp, dailySeries, collected) {
     const sum = document.createElement('summary');
     sum.textContent = `플랫폼 참여 이벤트 ${platform.length}건 (스탬프 투어 등 · 그래프엔 칠하지 않아요)`;
     det.appendChild(sum);
-    for (const p of platform) det.appendChild(buildPromoRow(p, pp, null));
+    for (const p of platform) det.appendChild(buildPromoRow(p, pp));
     box.appendChild(det);
   }
   const hint = document.createElement('div');
   hint.className = 'promo-hint';
-  hint.textContent = '작품 소식 탭에 걸린 배너를 일간 TOP 300에 든 날마다 확인한 기록이에요. 순위권 밖이던 날은 확인하지 못해 실제 기간과 조금 다를 수 있어요. '
+  hint.textContent = '이벤트 칸의 이벤트 페이지를 하나씩 열어 참여 작품을 확인한 기록이에요. 기간은 페이지에 적힌 시각이 있으면 그걸, 없으면 이벤트 칸에 떠 있던 날짜를 써요. '
     + '순위가 바뀐 게 프로모션 때문이라고 단정할 수는 없어요. 같은 시기 새 회차나 다른 노출도 영향을 줘요.';
   box.appendChild(hint);
   return box;
@@ -1058,7 +1112,7 @@ async function renderEventsView(tab) {
   body.innerHTML = '<div class="loading-note">불러오는 중...</div>';
   app.appendChild(body);
 
-  await loadMemoStore();
+  const [, ea] = await Promise.all([loadMemoStore(), getEventAnalysis()]);
   // Prefer accumulating history (knows 진행중 vs 완료); fall back to latest.
   let history = await fetchJson(`data/events/${tab}/history.json`).catch(() => null);
   if (!history) {
@@ -1088,6 +1142,9 @@ async function renderEventsView(tab) {
     btn.addEventListener('click', () => { curStatus = s.key; renderGrid(); });
     statusGroup.appendChild(btn);
   }
+
+  const analysisPanel = buildRewardAnalysis(ea);
+  if (analysisPanel) body.appendChild(analysisPanel);
 
   const note = document.createElement('div');
   note.className = 'updated-note';
@@ -1145,6 +1202,13 @@ async function renderEventsView(tab) {
       s.textContent = ev.subtitle || '';
       meta.appendChild(t);
       meta.appendChild(s);
+      // 리워드·계기 태그 (이벤트 페이지에서 읽은 '25화 무료', '최대 5천 캐시' 포함)
+      const evA = ea && ea.events && ea.events[eventKeyOf(ev.link)];
+      if (evA && evA.tg && evA.tg.length) {
+        const tagRow = buildTagChips(evA.tg);
+        tagRow.style.marginTop = '5px';
+        meta.appendChild(tagRow);
+      }
       if (ev.firstSeen) {
         const seen = document.createElement('div');
         seen.style.cssText = 'font-size:11px;color:var(--text-dim);margin-top:4px;';
@@ -1158,6 +1222,10 @@ async function renderEventsView(tab) {
       linkPart.appendChild(meta);
       card.appendChild(linkPart);
 
+      // which works this event had, and how their daily rank moved
+      const works = buildEventWorks(ea, ev);
+      if (works) card.appendChild(works);
+
       // editable memo (start/end date, notes) — saved only in this browser
       if (ev.bannerUid) card.appendChild(buildEventMemoField(ev.bannerUid));
 
@@ -1165,6 +1233,143 @@ async function renderEventsView(tab) {
     }
   }
   renderGrid();
+}
+
+// ---- Event analysis (data/event-analysis.json) ----
+// 순위 비교: 시작 전 7일 vs 기간 중의 일간 순위 평균(전체 TOP 300 밖이면 장르 순위).
+// 5% 넘게 좋아지면 올라감, 나빠지면 내려감, 그 사이는 비슷.
+
+/** '45→23위 ▲22' · '밖→120위 진입' · '순위 기록 없음' */
+function buildEffShort(b, d, sc) {
+  const span = document.createElement('span');
+  span.className = 'eff-short';
+  if (!(b > 0) && !(d > 0)) {
+    span.textContent = '순위 기록 없음';
+    span.classList.add('none');
+    return span;
+  }
+  const w = (v) => (v == null ? '?' : v > 0 ? String(v) : '밖');
+  span.appendChild(document.createTextNode(`${sc === 'g' ? '장르 ' : ''}${w(b)}→${w(d)}위`));
+  let cls = null;
+  let txt = '';
+  if (b > 0 && d > 0 && b !== d) { txt = b > d ? ` ▲${b - d}` : ` ▼${d - b}`; cls = b > d ? 'up' : 'down'; }
+  else if (b === 0 && d > 0) { txt = ' 진입'; cls = 'up'; }
+  else if (b > 0 && d === 0) { txt = ' 이탈'; cls = 'down'; }
+  if (txt) {
+    const dd = document.createElement('span');
+    dd.className = `d ${cls}`;
+    dd.textContent = txt;
+    span.appendChild(dd);
+  }
+  return span;
+}
+
+/** 이벤트 카드 아래: 참여 작품 N개 · 올라감/내려감 (누르면 작품별 순위) */
+function buildEventWorks(ea, ev) {
+  const a = ea && ea.events && ea.events[eventKeyOf(ev.link)];
+  if (!a || !a.w || !a.w.length) return null;
+  const det = document.createElement('details');
+  det.className = 'event-works';
+  const sum = document.createElement('summary');
+  const st = a.st || {};
+  sum.textContent = `참여 작품 ${a.w.length}개`;
+  if (st.n || st.ent) {
+    const up = document.createElement('span');
+    up.className = 'd up';
+    up.textContent = ` ▲${(st.up || 0) + (st.ent || 0)}`;
+    const down = document.createElement('span');
+    down.className = 'd down';
+    down.textContent = ` ▼${(st.down || 0) + (st.out || 0)}`;
+    sum.appendChild(up);
+    sum.appendChild(down);
+    if (st.flat) sum.appendChild(document.createTextNode(` －${st.flat}`));
+  }
+  sum.title = '시작 전 7일 대비 기간 중 일간 순위: ▲ 올라간(진입 포함) 작품 수 · ▼ 내려간(이탈 포함) 작품 수 · － 비슷한 작품 수';
+  det.appendChild(sum);
+  // 순위가 있는 작품 먼저(기간 중 순위 순), 그다음 순위 기록 없는 작품
+  const rows = a.w.slice().sort((x, y) => ((x[4] > 0 ? x[4] : 9999) - (y[4] > 0 ? y[4] : 9999)));
+  for (const [id, title, cat, b, d, , sc] of rows) {
+    const row = document.createElement('div');
+    row.className = 'ew-row';
+    const link = document.createElement('a');
+    link.href = `#/work/${cat || 'webnovel'}/daily/${id}`;
+    link.textContent = title || `작품 ${id}`;
+    row.appendChild(link);
+    row.appendChild(buildEffShort(b, d, sc));
+    det.appendChild(row);
+  }
+  return det;
+}
+
+/** 이벤트 칸 위: 리워드·이벤트 종류별로 참여 작품 순위가 어떻게 움직였는지 + 평소와 비교 */
+function buildRewardAnalysis(ea) {
+  if (!ea || !ea.groups || !ea.groups.length) return null;
+  const det = document.createElement('details');
+  det.className = 'panel reward-analysis';
+  const sum = document.createElement('summary');
+  sum.textContent = '📊 리워드·이벤트 종류별 순위 변화';
+  det.appendChild(sum);
+  const hint = document.createElement('div');
+  hint.className = 'promo-hint';
+  hint.textContent = `${ea.first ? mdDay(ea.first) : ''}~${ea.last ? mdDay(ea.last) : ''} 이벤트에 참여한 작품마다 시작 전 7일과 기간 중의 일간 순위 평균을 비교했어요(전체 TOP 300 밖이면 장르 순위). `
+    + '5% 넘게 좋아지면 올라감. 맨 위 \'평소\'는 이벤트가 없던 작품들을 같은 방식으로 비교한 값이라, 이것보다 높아야 효과가 있었다고 볼 수 있어요. '
+    + '한 이벤트에 리워드가 여러 개면 각 줄에 모두 들어가요. 리워드는 이벤트 칸 부제목·이벤트 페이지 글에서 읽었어요(이미지 속 글자는 못 읽어요).';
+  det.appendChild(hint);
+
+  const KIND = { family: '이벤트 종류', reward: '리워드', amount: '리워드 크기', occasion: '계기', size: '규모' };
+  const table = document.createElement('table');
+  table.className = 'reward-table';
+  const head = document.createElement('tr');
+  for (const h of ['', '작품', '올라감', '내려감', '중간값', '진입']) {
+    const th = document.createElement('th');
+    th.textContent = h;
+    head.appendChild(th);
+  }
+  table.appendChild(head);
+  const pct = (x, n) => (n ? `${Math.round((x / n) * 100)}%` : '-');
+  const addRow = (label, g, cls) => {
+    const tr = document.createElement('tr');
+    if (cls) tr.className = cls;
+    const cells = [
+      label,
+      String(g.n),
+      pct(g.up, g.n),
+      pct(g.down, g.n),
+      g.med == null ? '-' : `${g.med > 0 ? '▲' : g.med < 0 ? '▼' : ''}${Math.abs(g.med)}%`,
+      g.ent ? String(g.ent) : '-',
+    ];
+    cells.forEach((c, i) => {
+      const td = document.createElement('td');
+      td.textContent = c;
+      if (i === 4 && g.med) td.className = g.med > 0 ? 'd up' : 'd down';
+      tr.appendChild(td);
+    });
+    table.appendChild(tr);
+  };
+  if (ea.baseline) addRow('평소 (이벤트 없음)', ea.baseline, 'base');
+  let kind = null;
+  for (const g of ea.groups) {
+    if (g.kind !== kind) {
+      kind = g.kind;
+      const tr = document.createElement('tr');
+      tr.className = 'kind';
+      const td = document.createElement('td');
+      td.colSpan = 6;
+      td.textContent = KIND[kind] || kind;
+      tr.appendChild(td);
+      table.appendChild(tr);
+    }
+    addRow(g.kind === 'family' ? (PROMO_FAMILY[g.label] || {}).label || g.label : g.label, g);
+  }
+  const scroller = document.createElement('div');
+  scroller.className = 'table-scroll';
+  scroller.appendChild(table);
+  det.appendChild(scroller);
+  const foot = document.createElement('div');
+  foot.className = 'promo-hint';
+  foot.textContent = '작품 = 시작 전·기간 중 모두 순위가 있던 작품 수, 진입 = 시작 전엔 순위권 밖이었다가 기간 중 들어온 작품 수. 중간값 = 기간 중 순위가 시작 전보다 몇 % 좋아졌는지의 가운데 값. 이벤트에 고른 작품은 원래 오르는 중이던 작품일 수 있어서, 차이가 곧 이벤트 효과라고 단정할 수는 없어요.';
+  det.appendChild(foot);
+  return det;
 }
 
 // ---- Event memo (per-banner note) — uses the shared cloud memo store ----
@@ -1865,9 +2070,9 @@ async function renderWorkView(cat, period, workId) {
   // comments, rank trend, view trend), so we fetch ONE ~20KB file instead of the
   // ~59MB works.json plus ~220 per-date snapshot requests. Light metadata
   // (author/classification/keywords/rating…) comes from the already-cached lite.
-  const [lite, card, pp, , cm, index] = await Promise.all([
+  const [lite, card, pp, , cm] = await Promise.all([
     getWorksLite(), fetchJson(`data/detail/${workId}.json`).catch(() => null), getPromoPeriods(), loadMemoStore(),
-    fetchJson(`data/comments/${workId}.json`).catch(() => null), getIndex().catch(() => ({})),
+    fetchJson(`data/comments/${workId}.json`).catch(() => null),
   ]);
   // Comment analysis (scripts/collect-comments.mjs). When present it replaces the
   // older scraped "인기 댓글"/"댓글 반응 키워드" (BEST 25 only).
@@ -2108,7 +2313,7 @@ async function renderWorkView(cat, period, workId) {
   const legend = buildPromoLegend(bands);
   if (legend) app.appendChild(legend);
   if (promos.length) {
-    app.appendChild(buildPromoCard(promos, pp, seriesByPeriod.daily || [], (index[cat] && index[cat].daily) || []));
+    app.appendChild(buildPromoCard(promos, pp));
   }
   if (viewSeries.some((p) => p.value != null)) {
     const viewLabel = document.createElement('h3');

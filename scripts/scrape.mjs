@@ -5,6 +5,7 @@ import { buildSearchIndex } from './build-search-index.mjs';
 import { collectAllMetrics } from './collect-metrics.mjs';
 import { buildWorkDetails } from './build-work-details.mjs';
 import { writePromoSnapshot, buildPromoPeriods } from './build-promo-periods.mjs';
+import { collectEventDetails } from './collect-event-details.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -266,9 +267,9 @@ async function main() {
     await saveJson(cachePath, cache); // persist ranked-work details after each category
   }
   await saveJson(path.join(DATA_DIR, 'promotions.json'), promotionsByWork);
-  // Keep today's banners as a dated snapshot and rebuild the per-work promotion
-  // periods the site shades on rank charts (promotions.json only holds today).
-  try { writePromoSnapshot(today, promotionsByWork); buildPromoPeriods(); } catch (e) { console.error('promo-period step failed:', e.message); }
+  // Keep today's 소식-tab banners as a dated snapshot (promotions.json only holds
+  // today); the promotion periods are rebuilt at the end of the run.
+  try { writePromoSnapshot(today, promotionsByWork); } catch (e) { console.error('promo snapshot failed:', e.message); }
   const refreshMs = DETAIL_REFRESH_DAYS * 24 * 60 * 60 * 1000;
   const staleIds = [...allWorkIds].filter((id) => {
     const entry = cache[id];
@@ -362,6 +363,11 @@ async function main() {
   // per-work detail cards so the detail page stays a single fast fetch.
   try { await collectAllMetrics(); } catch (e) { console.error('metrics step failed:', e.message); }
   try { await buildWorkDetails(); } catch (e) { console.error('detail-card step failed:', e.message); }
+  // Open each event in the 이벤트 tab (new / still running) for its works, reward
+  // lines and official dates, then rebuild the per-work promotion periods and the
+  // event analysis the site shows.
+  try { await collectEventDetails(); } catch (e) { console.error('event-details step failed:', e.message); }
+  try { buildPromoPeriods(); } catch (e) { console.error('promo-period step failed:', e.message); }
 
   console.log('=== Done ===');
   console.table(summary);

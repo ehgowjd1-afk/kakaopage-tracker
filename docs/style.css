@@ -318,6 +318,30 @@ a.promo-title { text-decoration: underline; text-decoration-color: var(--border-
 .promo-card details { margin-top: 8px; }
 .promo-card summary { cursor: pointer; font-size: 12px; color: var(--text-dim); padding: 4px 0; }
 .promo-hint { font-size: 11px; color: var(--text-dim); margin-top: 10px; line-height: 1.5; }
+.promo-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; font-size: 12px; font-weight: 600; margin-top: 1px; }
+.promo-tags { display: inline-flex; flex-wrap: wrap; gap: 3px; }
+.ptag { font-size: 10.5px; font-weight: 600; padding: 0 5px; border-radius: 5px; background: var(--accent-soft); color: var(--text-dim); line-height: 17px; }
+.ptag.reward { color: var(--c-benefit-ink); }
+.d.up { color: var(--up); font-weight: 700; }
+.d.down { color: var(--down); font-weight: 700; }
+
+/* event cards: participating works */
+.event-works { border-top: 1px solid var(--border); padding: 6px 10px; font-size: 12px; }
+.event-works summary { cursor: pointer; color: var(--text-dim); font-weight: 600; padding: 2px 0; }
+.ew-row { display: flex; justify-content: space-between; gap: 6px; padding: 3px 0; border-top: 1px dashed var(--border); }
+.ew-row a { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 2px; }
+.eff-short { flex-shrink: 0; font-variant-numeric: tabular-nums; color: var(--text-dim); white-space: nowrap; }
+.eff-short.none { font-size: 11px; }
+
+/* events tab: reward analysis table */
+.reward-analysis summary { cursor: pointer; font-size: 13px; font-weight: 700; }
+.table-scroll { overflow-x: auto; margin-top: 8px; }
+.reward-table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.reward-table th { text-align: right; font-weight: 600; color: var(--text-dim); padding: 4px 6px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.reward-table td { text-align: right; padding: 4px 6px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.reward-table th:first-child, .reward-table td:first-child { text-align: left; white-space: normal; min-width: 8.5em; }
+.reward-table tr.kind td { text-align: left; font-weight: 700; color: var(--text-dim); padding-top: 10px; }
+.reward-table tr.base td { font-weight: 700; background: var(--accent-soft); }
 
 /* ---------- Work detail ---------- */
 .work-header {
