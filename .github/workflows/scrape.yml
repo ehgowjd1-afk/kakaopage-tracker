@@ -85,8 +85,12 @@ jobs:
               git commit --no-edit || true
             }
             node scripts/write-index.mjs
-            git add docs/data/index.json
-            git diff --cached --quiet || git commit -m "chore: rebuild index"
+            # Promotion periods / event analysis are derived too, and the image-
+            # reading task on the user's PC also rewrites them (after adding
+            # event-image readings) — rebuild from the merged inputs.
+            node scripts/build-promo-periods.mjs
+            git add docs/data/index.json docs/data/promo-periods.json docs/data/event-analysis.json
+            git diff --cached --quiet || git commit -m "chore: rebuild index + promotion data"
             if git push origin master; then echo "pushed"; exit 0; fi
             echo "push attempt $i failed, retrying..."
             sleep 5
