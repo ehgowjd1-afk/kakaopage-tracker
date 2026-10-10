@@ -83,6 +83,12 @@ async function fetchEvent(hash) {
     open: opens[0] || null,
     close: closes[closes.length - 1] || null,
     rewards: rewardPhrases(htmlText(body)),
+    // image events keep their period and rewards inside the pictures; the ids
+    // let them be read later (data/events/image-reads.json). Work cover cards skipped.
+    imgs: (j.content_info_list || [])
+      .filter((it) => it.destination_type_ios !== 'DN04' && it.resource_url)
+      .sort((a, b) => Number(a.item_order) - Number(b.item_order))
+      .map((it) => it.resource_url),
   };
 }
 
@@ -111,10 +117,12 @@ function rewardPhrases(text) {
 async function fetchLanding(id) {
   const works = [];
   let title = null;
+  let topImage = null;
   for (let page = 0; page < 20; page++) {
     const j = await fetchJson(`${BFF}/api/gateway/view/v1/landing/series/list?page=${page}&size=100&theme_keyword_uid=&reference=${encodeURIComponent(`page/landing/${id}`)}`);
     const res = j.result || {};
     if (title == null) title = res.title || null;
+    if (topImage == null) topImage = res.top_image || null; // the banner with period + rewards
     // [id, title, cat, free episodes now, wait-free minutes now (180 = 3다무)]
     // — a snapshot from when the page was fetched, i.e. during the event for
     // ones caught while running.
@@ -130,7 +138,7 @@ async function fetchLanding(id) {
     if (res.is_end !== false || !(res.list || []).length) break;
     await sleep(300);
   }
-  return { kind: 'landing', ver: null, title: decodeEntities(title), works, open: null, close: null };
+  return { kind: 'landing', ver: null, title: decodeEntities(title), works, open: null, close: null, imgs: topImage ? [topImage] : [] };
 }
 
 // Every event the 이벤트 tab has listed, merged across its three sub-tabs.

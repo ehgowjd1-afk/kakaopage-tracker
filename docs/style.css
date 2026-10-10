@@ -320,6 +320,8 @@ a.promo-title { text-decoration: underline; text-decoration-color: var(--border-
 .promo-hint { font-size: 11px; color: var(--text-dim); margin-top: 10px; line-height: 1.5; }
 .promo-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; font-size: 12px; font-weight: 600; margin-top: 1px; }
 .promo-tags { display: inline-flex; flex-wrap: wrap; gap: 3px; }
+.promo-rewards { font-size: 11.5px; line-height: 1.5; margin-top: 3px; color: var(--text); }
+.promo-rewards.pending { color: var(--text-dim); font-style: italic; }
 .ptag { font-size: 10.5px; font-weight: 600; padding: 0 5px; border-radius: 5px; background: var(--accent-soft); color: var(--text-dim); line-height: 17px; }
 .ptag.reward { color: var(--c-benefit-ink); }
 .d.up { color: var(--up); font-weight: 700; }

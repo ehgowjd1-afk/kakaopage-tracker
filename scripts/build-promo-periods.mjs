@@ -50,6 +50,24 @@ function shiftDay(date, n) {
   return d.toISOString().slice(0, 10);
 }
 
+const dayDiff = (a, b) => Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
+
+// Dates read off an event image are trusted only when they fit when the event
+// was listed: it starts within 3 days of first appearing (or before records
+// began), and doesn't end well before it was last listed.
+function plausibleImagePeriod(ir, e, first, latest) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(ir.start || '') || (ir.end && !/^\d{4}-\d{2}-\d{2}$/.test(ir.end))) return false;
+  if (ir.end && ir.end < ir.start) return false;
+  // a second, independent reading already confirmed dates that looked off
+  // (e.g. listed late, or dropped from the listing before it ended)
+  if (ir.rechecked) return true;
+  if (e.firstSeen && e.firstSeen !== first && Math.abs(dayDiff(ir.start, e.firstSeen)) > 3) return false;
+  if (e.firstSeen === first && dayDiff(ir.start, e.firstSeen) < -3) return false;
+  if (ir.end && e.lastSeen && dayDiff(ir.end, e.lastSeen) > 3) return false;
+  if (ir.end && e.lastSeen && e.lastSeen !== latest && dayDiff(e.lastSeen, ir.end) > 3) return false;
+  return true;
+}
+
 // ── 소식-tab snapshots ──
 
 // promotions.json shape ({workId: [{bannerUid, title, link}]}, one key per work
@@ -148,29 +166,65 @@ function eventTags(text) {
   if (/복귀|컴백|돌아옴|돌아왔/.test(t)) tags.push('복귀');
   return tags;
 }
-export const REWARD_TAGS = ['3다무', '기다무', '한시한편', '무료 회차', '캐시', '할인', '이용권'];
+export const REWARD_TAGS = ['3다무', '기다무', '한시한편', '무료 회차', '캐시', '캐시 전원 지급', '캐시 추첨', '할인', '이용권', '기타 혜택'];
 
-// How much: the most free episodes and the biggest cash prize mentioned.
-function rewardSize(text) {
+// How much: the most free episodes and the biggest cash prize mentioned, in the
+// event's text and (when read) its images.
+function rewardSize(text, ir) {
   const t = String(text || '');
   const eps = [...t.matchAll(/(\d+)\s*화\s*(?:까지\s*)?무료|무료\s*회차\s*(\d+)\s*화/g)].map((m) => Number(m[1] || m[2])).filter((n) => n > 0 && n < 1000);
   const cash = [...t.matchAll(/최대\s*([\d,.]+)\s*(천|만)?\s*캐시/g)].map((m) => {
     const n = parseFloat(m[1].replace(/,/g, ''));
     return m[2] === '만' ? n * 10000 : m[2] === '천' ? n * 1000 : n;
   }).filter((n) => n > 0);
+  for (const r of (ir && ir.rewards) || []) {
+    if (r.free_eps > 0 && r.free_eps < 1000) eps.push(r.free_eps);
+    if (r.cash_max > 0 && (r.kind === 'cash_all' || r.kind === 'cash_lottery')) cash.push(r.cash_max);
+  }
   return { eps: eps.length ? Math.max(...eps) : null, cash: cash.length ? Math.max(...cash) : null };
 }
 // shown on the site: '25화 무료', '최대 5천 캐시'
-function rewardAmounts(text) {
-  const { eps, cash } = rewardSize(text);
+function rewardAmounts({ eps, cash }) {
   const out = [];
   if (eps) out.push(`${eps}화 무료`);
   if (cash) out.push(`최대 ${cash >= 10000 ? `${cash / 10000}만` : cash >= 1000 ? `${cash / 1000}천` : cash} 캐시`);
   return out;
 }
+// Tags from rewards read off the event images (data/events/image-reads.json).
+// Lottery cash (뽑기권·추첨) and cash everyone gets are told apart — the images
+// say which, the subtitles rarely do.
+const IMAGE_OCCASION = { 론칭: '론칭', 완결: '완결', '시즌·외전': '시즌·외전·연참', 연참: '시즌·외전·연참', 복귀: '복귀' };
+function imageTags(ir) {
+  const tags = [];
+  for (const r of (ir && ir.rewards) || []) {
+    // '1시간마다 1편 무료' is what Kakao calls 한시한편
+    if (r.kind === 'wait_free') tags.push(r.wait_hours === 1 ? '한시한편' : r.wait_hours && r.wait_hours < 12 ? `${r.wait_hours}다무` : '기다무');
+    else if (r.kind === 'free_episodes') tags.push('무료 회차');
+    else if (r.kind === 'cash_all') tags.push('캐시', '캐시 전원 지급');
+    else if (r.kind === 'cash_lottery') tags.push('캐시', '캐시 추첨');
+    else if (r.kind === 'discount') tags.push('할인');
+    else if (r.kind === 'ticket') tags.push('이용권');
+    else if (r.kind === 'other') tags.push('기타 혜택');
+  }
+  if (ir && IMAGE_OCCASION[ir.occasion]) tags.push(IMAGE_OCCASION[ir.occasion]);
+  return tags;
+}
+// Colour family once the rewards are known. Nearly every event runs a cash draw
+// (1,129 of 1,131 cash rewards read off images are 뽑기권), so cash alone says
+// little; what separates events is whether reading got cheaper.
+//   benefit  = 무료·할인 혜택   wait-free shortened, free episodes, discount, tickets
+//   event    = 캐시·작품 이벤트  no reading benefit: cash draws, launch/completion events
+//   curation = 기획전·추천      no reading benefit, 4+ works bundled
+//   platform = 플랫폼 참여      site-wide games (from the text rules)
+const READING_BENEFIT = /^(\d+다무|기다무|한시한편|무료 회차|할인|이용권)$/;
+function eventFamily(textFamily, tags, n) {
+  if (textFamily === 'platform') return 'platform';
+  if (tags.some((t) => READING_BENEFIT.test(t))) return 'benefit';
+  return n >= 4 ? 'curation' : 'event';
+}
+
 // grouped in the analysis: coarse size buckets so each has enough works
-function rewardSizeGroups(text) {
-  const { eps, cash } = rewardSize(text);
+function rewardSizeGroups({ eps, cash }) {
   const out = [];
   if (cash) out.push(cash <= 2000 ? '캐시 최대 2천 이하' : cash < 5000 ? '캐시 최대 3~4천' : '캐시 최대 5천 이상');
   if (eps) out.push(eps < 20 ? '무료 20화 미만' : '무료 20화 이상');
@@ -275,6 +329,8 @@ function stats(pairs) {
 
 export function buildPromoPeriods() {
   const details = readJson(path.join(DATA_DIR, 'events', 'details.json'), {});
+  // period + rewards read off image events' pictures (see image-reads.json header)
+  const imageReads = readJson(path.join(DATA_DIR, 'events', 'image-reads.json'), {});
   const { events: listed, latest } = listedEvents();
   const first = listed.reduce((m, e) => (e.firstSeen && (!m || e.firstSeen < m) ? e.firstSeen : m), null);
   const R = loadRanks();
@@ -289,8 +345,18 @@ export function buildPromoPeriods() {
   const workCat = new Map();
   for (const e of listed) {
     const d = details[e.key] || {};
-    const open = d.open || null;
-    const close = d.close || null;
+    const ir = imageReads[e.key] || null;
+    // period: HTML page 'open'/'close' > dates printed on the event image > the
+    // days the event sat in the 이벤트 tab. An image date far from when the event
+    // was actually listed is treated as a misread and ignored.
+    let open = d.open || null;
+    let close = d.close || null;
+    let src = open || close ? 'o' : 'l';
+    if (!open && !close && ir && ir.start && plausibleImagePeriod(ir, e, first, latest)) {
+      open = `${ir.start}${ir.start_time ? ` ${ir.start_time}` : ''}`;
+      close = ir.end ? `${ir.end}${ir.end_time ? ` ${ir.end_time}` : ''}` : null;
+      src = 'i';
+    }
     // an event that opens in the evening (usually 22:00) counts from the next day
     let s = open ? open.slice(0, 10) : e.firstSeen;
     if (open && Number(open.slice(11, 13)) >= 18) s = shiftDay(s, 1);
@@ -305,8 +371,10 @@ export function buildPromoPeriods() {
     }
     const text = [e.title, e.subtitle, d.title, ...(d.rewards || [])].join(' ');
     ev.set(e.key, {
-      key: e.key, title: d.title || e.title, sub: e.subtitle || '', link: e.link, text,
-      s, e: end, src: open || close ? 'o' : 'l',
+      key: e.key, title: d.title || e.title, sub: e.subtitle || '', link: e.link, text, ir,
+      // 1 = images read, 0 = image event not read yet, null = nothing to read
+      imgRead: ir ? 1 : (d.imgs || []).length ? 0 : null,
+      s, e: end, src,
       flags: (!open && e.firstSeen === first ? 1 : 0) | (ongoing ? 2 : 0),
       uids: e.uids, open, close, tabs: e.tabs, works, firstSeen: e.firstSeen, lastSeen: e.lastSeen,
     });
@@ -353,10 +421,12 @@ export function buildPromoPeriods() {
   for (const [k, x] of ev) {
     if (x.noticeOnly) continue;
     const n = x.works.size;
-    const fam = promoFamily(x.text, n);
-    const tags = eventTags(x.text);
-    const shown = [...tags, ...rewardAmounts(x.text)];
-    evOut[x.key] = [x.title, x.sub, x.link, fam, shown, n, x.s, x.e, x.src, x.flags, x.uids, x.open, x.close];
+    const rewardTexts = ((x.ir && x.ir.rewards) || []).map((r) => r.text).filter(Boolean).slice(0, 6);
+    const tags = [...new Set([...eventTags(x.text), ...imageTags(x.ir)])];
+    const fam = eventFamily(promoFamily(`${x.text} ${rewardTexts.join(' ')}`, n), tags, n);
+    const size = rewardSize(x.text, x.ir);
+    const shown = [...tags, ...rewardAmounts(size)];
+    evOut[x.key] = [x.title, x.sub, x.link, fam, shown, n, x.s, x.e, x.src, x.flags, x.uids, x.open, x.close, rewardTexts, x.imgRead];
     const rows = [];
     const pairs = [];
     for (const id of [...x.works].sort()) {
@@ -371,18 +441,18 @@ export function buildPromoPeriods() {
         const rw = tags.filter(isReward);
         for (const t of rw) addGroup(t, 'reward', eff[0], eff[1]);
         if (!rw.length) addGroup('리워드 없음 (노출만)', 'reward', eff[0], eff[1]);
-        for (const t of rewardSizeGroups(x.text)) addGroup(t, 'amount', eff[0], eff[1]);
+        for (const t of rewardSizeGroups(size)) addGroup(t, 'amount', eff[0], eff[1]);
         for (const t of tags.filter((t) => !isReward(t))) addGroup(t, 'occasion', eff[0], eff[1]);
         addGroup(n >= 4 ? '여러 작품 기획전 (4작품 이상)' : '단독·소수 (1~3작품)', 'size', eff[0], eff[1]);
       }
       addGroup(fam, 'family', eff[0], eff[1]);
     }
-    analysis[x.key] = { w: rows, st: stats(pairs), tg: shown, f: fam };
+    analysis[x.key] = { w: rows, st: stats(pairs), tg: shown, f: fam, rt: rewardTexts, ir: x.imgRead };
   }
   for (const [id, ps] of own) {
     for (const p of ps) {
       const x = ev.get(`n:${p.key}`);
-      if (!evOut[p.key]) evOut[p.key] = [x.title, '', x.link, promoFamily(x.text, x.works.size), eventTags(x.text), x.works.size, null, null, 'n', 0, [], null, null];
+      if (!evOut[p.key]) evOut[p.key] = [x.title, '', x.link, promoFamily(x.text, x.works.size), eventTags(x.text), x.works.size, null, null, 'n', 0, [], null, null, [], null];
       const eff = effect(R, id, p.s, p.e, { startUnknown: p.flags & 1, ongoing: p.flags & 2 });
       (works[id] || (works[id] = [])).push([p.key, p.s, p.e, p.flags, ...eff]);
     }

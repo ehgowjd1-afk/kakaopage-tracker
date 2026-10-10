@@ -347,26 +347,27 @@ async function renderMemosView() {
 // 기록으로 보충). 'platform'(스탬프 투어 같은 참여형)은 수십 작품이 한 달 내내
 // 같이 걸려 있어 순위 차이를 설명하지 못하므로 목록 표시·그래프 색칠에서 뺀다.
 const PROMO_FAMILY = {
-  benefit: { label: '무료·혜택', tip: '무료 회차·기다무·캐시·할인 같은 리워드가 있는 이벤트' },
-  event: { label: '작품 이벤트', tip: '론칭·완결·시즌·연참·기념처럼 이 작품을 내세운 이벤트' },
-  curation: { label: '기획전·추천', tip: '여러 작품을 묶은 기획전·추천 자리에 노출 (따로 적힌 리워드 없음)' },
+  benefit: { label: '무료·할인 혜택', tip: '3다무·한시한편 같은 기다무 단축, 무료 회차, 할인, 이용권처럼 작품을 더 싸게·무료로 읽게 해준 이벤트 (캐시 추첨이 같이 붙은 경우가 많아요)' },
+  event: { label: '캐시·작품 이벤트', tip: '읽기 혜택 없이 캐시 추첨(뽑기권)이나 론칭·완결·시즌 기념만 있는 1~3작품 이벤트' },
+  curation: { label: '기획전·추천', tip: '읽기 혜택 없이 4작품 이상을 묶은 기획전·추천 (캐시 추첨이 붙기도 해요)' },
   platform: { label: '플랫폼 참여 이벤트', tip: '스탬프 투어처럼 수십 작품이 함께 들어간 참여형 이벤트' },
 };
 const PROMO_SHADED = ['benefit', 'event', 'curation'];
-const REWARD_TAG = /^(\d+다무|기다무|한시한편|무료 회차|캐시|할인|이용권|\d+화 무료|최대 .+ 캐시)$/;
+const REWARD_TAG = /^(\d+다무|기다무|한시한편|무료 회차|캐시|캐시 전원 지급|캐시 추첨|할인|이용권|기타 혜택|\d+화 무료|최대 .+ 캐시)$/;
 const PROMO_SRC = {
   o: '이벤트 페이지에 적힌 기간',
   l: '이벤트 칸에 떠 있던 기간',
   n: '작품 소식 탭에서 본 기간',
+  i: '이벤트 이미지에 적힌 기간',
 };
 
 function promosOfWork(pp, workId) {
   return ((pp && pp.works && pp.works[workId]) || []).map(([key, s, e, flags, b, d, a, sc]) => {
-    const [title, sub, link, family, tags, reach, , , src, , uids, open, close] = (pp.ev && pp.ev[key]) || [];
+    const [title, sub, link, family, tags, reach, , , src, , uids, open, close, rewardTexts, imgRead] = (pp.ev && pp.ev[key]) || [];
     return {
       key, title: title || '(제목 없음)', sub: sub || '', link: eventWebLink(link) || null,
       family: family || 'event', tags: tags || [], reach: reach || 1, s, e, flags, src,
-      uids: uids || [], open, close, eff: { b, d, a, sc },
+      uids: uids || [], open, close, rewardTexts: rewardTexts || [], imgRead, eff: { b, d, a, sc },
     };
   });
 }
@@ -439,9 +440,28 @@ function buildPromoEffect(eff, ongoing) {
   return div;
 }
 
+/** 이벤트 이미지에서 읽은 리워드 문장들. imgRead === 0 이면 아직 못 읽은 이미지 이벤트. */
+function buildRewardLines(texts, imgRead) {
+  if ((!texts || !texts.length) && imgRead !== 0) return null;
+  const div = document.createElement('div');
+  div.className = 'promo-rewards';
+  if (texts && texts.length) {
+    for (const t of texts) {
+      const li = document.createElement('div');
+      li.textContent = `🎁 ${t}`;
+      div.appendChild(li);
+    }
+  } else {
+    div.classList.add('pending');
+    div.textContent = '이벤트 이미지 리워드 확인 전';
+    div.title = '이미지로 된 이벤트라, 이미지를 읽은 뒤에 기간·리워드가 채워져요.';
+  }
+  return div;
+}
+
 /** '캐시' + '최대 3천 캐시' → '최대 3천 캐시' 하나만 (무료 회차 / N화 무료도 같게) */
 function displayTags(tags) {
-  const hasCash = tags.some((t) => /^최대 .+ 캐시$/.test(t));
+  const hasCash = tags.some((t) => /^최대 .+ 캐시$|^캐시 (전원 지급|추첨)$/.test(t));
   const hasEps = tags.some((t) => /^\d+화 무료$/.test(t));
   return tags.filter((t) => !(hasCash && t === '캐시') && !(hasEps && t === '무료 회차'));
 }
@@ -477,6 +497,8 @@ function buildPromoRow(p, pp) {
     if (p.tags.length) subLine.appendChild(buildTagChips(p.tags));
     body.appendChild(subLine);
   }
+  const rw = buildRewardLines(p.rewardTexts, p.imgRead);
+  if (rw) body.appendChild(rw);
   const meta = document.createElement('div');
   meta.className = 'promo-meta';
   const fam = document.createElement('span');
@@ -556,7 +578,7 @@ function buildPromoCard(promos, pp) {
   }
   const hint = document.createElement('div');
   hint.className = 'promo-hint';
-  hint.textContent = '이벤트 칸의 이벤트 페이지를 하나씩 열어 참여 작품을 확인한 기록이에요. 기간은 페이지에 적힌 시각이 있으면 그걸, 없으면 이벤트 칸에 떠 있던 날짜를 써요. '
+  hint.textContent = '이벤트 칸의 이벤트 페이지를 하나씩 열어 참여 작품을 확인한 기록이에요. 기간·리워드는 페이지 글이나 이벤트 이미지에 적힌 걸 쓰고, 적힌 게 없으면 이벤트 칸에 떠 있던 날짜를 써요. '
     + '순위가 바뀐 게 프로모션 때문이라고 단정할 수는 없어요. 같은 시기 새 회차나 다른 노출도 영향을 줘요.';
   box.appendChild(hint);
   return box;
@@ -1209,6 +1231,8 @@ async function renderEventsView(tab) {
         tagRow.style.marginTop = '5px';
         meta.appendChild(tagRow);
       }
+      const rwLines = evA ? buildRewardLines(evA.rt, evA.ir) : null;
+      if (rwLines) meta.appendChild(rwLines);
       if (ev.firstSeen) {
         const seen = document.createElement('div');
         seen.style.cssText = 'font-size:11px;color:var(--text-dim);margin-top:4px;';
@@ -1313,7 +1337,7 @@ function buildRewardAnalysis(ea) {
   hint.className = 'promo-hint';
   hint.textContent = `${ea.first ? mdDay(ea.first) : ''}~${ea.last ? mdDay(ea.last) : ''} 이벤트에 참여한 작품마다 시작 전 7일과 기간 중의 일간 순위 평균을 비교했어요(전체 TOP 300 밖이면 장르 순위). `
     + '5% 넘게 좋아지면 올라감. 맨 위 \'평소\'는 이벤트가 없던 작품들을 같은 방식으로 비교한 값이라, 이것보다 높아야 효과가 있었다고 볼 수 있어요. '
-    + '한 이벤트에 리워드가 여러 개면 각 줄에 모두 들어가요. 리워드는 이벤트 칸 부제목·이벤트 페이지 글에서 읽었어요(이미지 속 글자는 못 읽어요).';
+    + '한 이벤트에 리워드가 여러 개면 각 줄에 모두 들어가요. 리워드는 이벤트 칸 부제목·이벤트 페이지 글, 그리고 이미지로 된 이벤트는 이미지를 직접 읽어서 넣었어요(뽑기권·추첨은 \'캐시 추첨\', 모두 받는 캐시는 \'캐시 전원 지급\').';
   det.appendChild(hint);
 
   const KIND = { family: '이벤트 종류', reward: '리워드', amount: '리워드 크기', occasion: '계기', size: '규모' };
