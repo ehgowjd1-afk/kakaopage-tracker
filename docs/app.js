@@ -2394,7 +2394,7 @@ function buildCommentsBox(comments) {
     row.style.cssText = 'padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;';
     const head = document.createElement('div');
     head.style.cssText = 'color:var(--text-dim);font-size:12px;margin-bottom:4px;';
-    head.textContent = `${c.author || '익명'} · ${c.episode || ''} · 👍${c.likeCount || 0}`;
+    head.textContent = `${c.episode || ''} · 👍${c.likeCount || 0}`;
     const body = document.createElement('div');
     body.style.whiteSpace = 'pre-wrap';
     body.textContent = c.text || '';

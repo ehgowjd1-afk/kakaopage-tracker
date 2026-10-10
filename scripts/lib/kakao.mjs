@@ -420,8 +420,9 @@ export async function scrapeComments(page, workId, { maxScrolls = 5, log = () =>
     const totalText = totalEl ? totalEl.textContent.replace('전체', '').trim() : null;
 
     const cards = Array.from(document.querySelectorAll('div[data-t-obj*="event_comment_id"]'));
+    // The commenter's nickname is deliberately not read: personal info, and the
+    // data is published in a public repo.
     const comments = cards.map((card) => {
-      const author = card.querySelector('.font-small1-bold.line-clamp-1');
       const date = card.querySelector('.font-small2.shrink-0.text-theme-solid-60');
       const text = card.querySelector('.font-medium2.whitespace-pre-wrap');
       const episode = card.querySelector('.font-small2.break-all.text-theme-solid-60.line-clamp-1');
@@ -430,7 +431,6 @@ export async function scrapeComments(page, workId, { maxScrolls = 5, log = () =>
       const likeText = likeImg ? likeImg.parentElement.querySelector('span')?.textContent.trim() : null;
       const replyText = replyImg ? replyImg.parentElement.querySelector('span')?.textContent.trim() : null;
       return {
-        author: author ? author.textContent.trim() : null,
         date: date ? date.textContent.trim() : null,
         text: text ? text.textContent.trim() : null,
         episode: episode ? episode.textContent.trim() : null,
