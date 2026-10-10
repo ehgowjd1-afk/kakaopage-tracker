@@ -4,6 +4,7 @@ import path from 'node:path';
 import { buildSearchIndex } from './build-search-index.mjs';
 import { collectAllMetrics } from './collect-metrics.mjs';
 import { buildWorkDetails } from './build-work-details.mjs';
+import { writePromoSnapshot, buildPromoPeriods } from './build-promo-periods.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -265,6 +266,9 @@ async function main() {
     await saveJson(cachePath, cache); // persist ranked-work details after each category
   }
   await saveJson(path.join(DATA_DIR, 'promotions.json'), promotionsByWork);
+  // Keep today's banners as a dated snapshot and rebuild the per-work promotion
+  // periods the site shades on rank charts (promotions.json only holds today).
+  try { writePromoSnapshot(today, promotionsByWork); buildPromoPeriods(); } catch (e) { console.error('promo-period step failed:', e.message); }
   const refreshMs = DETAIL_REFRESH_DAYS * 24 * 60 * 60 * 1000;
   const staleIds = [...allWorkIds].filter((id) => {
     const entry = cache[id];

@@ -35,7 +35,7 @@ const searchResults = document.getElementById('search-results');
 let indexCache = null;
 let worksCache = null;
 let allLatestCache = null;
-let promotionsCache = null;
+let promoPeriodsCache = null;
 
 async function fetchJson(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -65,9 +65,14 @@ async function getWorksLite() {
   return worksLiteCache;
 }
 
-async function getPromotions() {
-  if (!promotionsCache) promotionsCache = await fetchJson('data/promotions.json').catch(() => ({}));
-  return promotionsCache;
+// Promotion periods per work (scripts/build-promo-periods.mjs):
+//   { first, last, banners: {uid: [title, link, family, reach]},
+//     works: {workId: [[uid, start, end, flags]]} }
+// flags: 1 = may have started earlier, 2 = still running, 4 = may have run longer
+// (the work was outside the daily TOP 300 on that side, so nobody checked).
+async function getPromoPeriods() {
+  if (!promoPeriodsCache) promoPeriodsCache = await fetchJson('data/promo-periods.json').catch(() => ({ banners: {}, works: {} }));
+  return promoPeriodsCache;
 }
 
 async function getAllLatest() {
@@ -315,38 +320,210 @@ async function renderMemosView() {
   app.appendChild(list);
 }
 
-function buildPromotionsBox(promos) {
-  const box = document.createElement('div');
-  box.className = 'panel';
-  const label = document.createElement('div');
-  label.style.cssText = 'font-size:13px;font-weight:700;margin-bottom:2px;';
-  label.textContent = '🎁 진행 중인 프로모션';
-  const hint = document.createElement('div');
-  hint.style.cssText = 'font-size:11px;color:var(--text-dim);margin-bottom:10px;';
-  hint.textContent = '이 작품의 소식 탭에 걸린 프로모션 배너예요 (매일 갱신).';
-  box.appendChild(label);
-  box.appendChild(hint);
-  for (const p of promos) {
-    const row = document.createElement(p.link ? 'a' : 'div');
-    row.style.cssText =
-      'display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;font-size:13px;';
-    if (p.link) { row.href = p.link; row.target = '_blank'; row.rel = 'noopener noreferrer'; row.style.cursor = 'pointer'; }
-    const dot = document.createElement('span');
-    dot.textContent = '🎉';
-    const t = document.createElement('span');
-    t.textContent = p.title || '(제목 없음)';
-    t.style.cssText = 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
-    row.appendChild(dot);
-    row.appendChild(t);
-    if (p.link) {
-      const go = document.createElement('span');
-      go.textContent = '바로가기 ›';
-      go.style.cssText = 'color:var(--accent-ink);font-size:12px;flex-shrink:0;';
-      row.appendChild(go);
-    }
-    box.appendChild(row);
+// ── 프로모션 기간 ──
+// 작품 소식 탭에 걸린 배너를 일간 TOP 300에 든 날마다 확인해 이은 기간이다.
+// 'platform'(스탬프 투어 같은 참여형)은 수십 작품이 한 달 내내 같이 걸려 있어
+// 순위 차이를 설명하지 못하므로 목록 표시·그래프 색칠에서 빼고 카드에만 적는다.
+const PROMO_FAMILY = {
+  benefit: { label: '무료·혜택', tip: '무료 회차·기다무·캐시 같은 혜택 이벤트' },
+  event: { label: '작품 이벤트', tip: '론칭·완결·연참·기념처럼 이 작품을 내세운 이벤트 (작품 이름을 단 2주짜리 이벤트 페이지 포함)' },
+  curation: { label: '기획전·추천', tip: '여러 작품을 묶은 기획전·추천 자리에 노출' },
+  platform: { label: '플랫폼 참여 이벤트', tip: '스탬프 투어처럼 여러 작품이 함께 들어간 참여형 이벤트' },
+};
+const PROMO_SHADED = ['benefit', 'event', 'curation'];
+
+function promosOfWork(pp, workId) {
+  return ((pp && pp.works && pp.works[workId]) || []).map(([uid, s, e, flags]) => {
+    const [title, link, family, reach] = pp.banners[uid] || [];
+    return { uid, title: title || '(제목 없음)', link: link || null, family: family || 'event', reach: reach || 1, s, e, flags };
+  });
+}
+
+/** "2026-09-14" → "9/14" */
+function mdDay(s) {
+  return `${Number(s.slice(5, 7))}/${Number(s.slice(8, 10))}`;
+}
+
+/** '9/1~9/15' · '9/14 하루' · '9/28~ 진행 중' */
+function promoWhen(p) {
+  if (p.flags & 2) return `${mdDay(p.s)}~ 진행 중`;
+  return p.s === p.e ? `${mdDay(p.s)} 하루` : `${mdDay(p.s)}~${mdDay(p.e)}`;
+}
+
+/** 순위 목록 줄에 붙이는 작은 표시: 그날 걸려 있던 프로모션. ended면 그날이 아니라
+ *  직전 3일 안에 끝난 것도 '끝난 직후'로 보여준다(급하락·이탈 확인용). 없으면 null.
+ *  끝 날짜가 불확실한 기간(flags 4: 그 뒤로 순위권 밖이라 못 봄)은 '끝남'으로 치지 않는다. */
+function buildPromoChip(pp, workId, date, { ended = false } = {}) {
+  const all = promosOfWork(pp, workId).filter((p) => PROMO_SHADED.includes(p.family));
+  let list = all.filter((p) => p.s <= date && date <= p.e);
+  let state = 'on';
+  if (!list.length && ended) {
+    const from = shiftDateStr(date, -3);
+    list = all.filter((p) => !(p.flags & 6) && p.e < date && p.e >= from);
+    state = 'ended';
   }
+  if (!list.length) return null;
+  list.sort((a, b) => PROMO_SHADED.indexOf(a.family) - PROMO_SHADED.indexOf(b.family));
+  const chip = document.createElement('span');
+  chip.className = `promo-chip fam-${list[0].family}${state === 'ended' ? ' ended' : ''}`;
+  chip.textContent = state === 'ended'
+    ? '이벤트 끝난 직후'
+    : PROMO_FAMILY[list[0].family].label + (list.length > 1 ? ` +${list.length - 1}` : '');
+  chip.title = list.map((p) => `${PROMO_FAMILY[p.family].label} · ${promoWhen(p)} · ${p.title}`).join('\n');
+  return chip;
+}
+
+/** 프로모션 시작 전 7일 · 기간 중 · 끝난 뒤 7일의 일간 순위 평균.
+ *  collected = 일간 순위를 수집한 날짜들. 그 구간에서 순위권 밖인 날이 절반을
+ *  넘으면 { out: true }. 수집한 날이 없으면 null. */
+function promoRankWindows(dailySeries, collected, p, firstDay) {
+  const rankOf = new Map(dailySeries.filter((x) => !x.estimated && x.rank != null).map((x) => [x.date, x.rank]));
+  const win = (from, to) => {
+    const days = collected.filter((d) => d >= from && d <= to);
+    if (!days.length) return null;
+    const ranks = days.map((d) => rankOf.get(d)).filter((r) => r != null);
+    if (ranks.length * 2 < days.length) return { out: true, n: days.length };
+    return { avg: Math.round(ranks.reduce((a, r) => a + r, 0) / ranks.length), n: days.length };
+  };
+  return {
+    // 수집 첫날부터 걸려 있던 건 언제 시작했는지 몰라서 '시작 전'과 비교하지 않는다
+    before: (p.flags & 1) && p.s === firstDay ? null : win(shiftDateStr(p.s, -7), shiftDateStr(p.s, -1)),
+    during: win(p.s, p.e),
+    after: p.flags & 2 ? null : win(shiftDateStr(p.e, 1), shiftDateStr(p.e, 7)),
+  };
+}
+
+/** '일간 순위: 시작 전 45위 → 기간 중 23위 ▲22 → 끝난 뒤 40위' */
+function buildPromoEffect(w) {
+  if (!w.during) return null;
+  const word = (x) => (x.out ? '순위권 밖' : `${x.avg}위`);
+  const div = document.createElement('div');
+  div.className = 'promo-effect';
+  const add = (text, cls) => {
+    const s = document.createElement('span');
+    if (cls) s.className = cls;
+    s.textContent = text;
+    div.appendChild(s);
+  };
+  add('일간 순위: ');
+  if (w.before) add(`시작 전 ${word(w.before)} → `);
+  add(`기간 중 ${word(w.during)}`);
+  if (w.before && !w.during.out) {
+    if (w.before.out) add(' 순위권 진입', 'd up');
+    else if (w.before.avg !== w.during.avg) {
+      const d = w.before.avg - w.during.avg;
+      add(d > 0 ? ` ▲${d}` : ` ▼${-d}`, d > 0 ? 'd up' : 'd down');
+    }
+  }
+  if (w.after) add(w.after.n >= 3 ? ` → 끝난 뒤 ${word(w.after)}` : ' → 끝난 뒤는 자료 모으는 중');
+  div.title = '시작 전 7일 · 기간 중 · 끝난 뒤 7일의 일간 순위 평균 (순위권 밖인 날이 절반 넘으면 \'순위권 밖\')';
+  return div;
+}
+
+function buildPromoRow(p, pp, effect) {
+  const row = document.createElement('div');
+  row.className = 'promo-row';
+  const sw = document.createElement('span');
+  sw.className = `promo-sw fam-${p.family}`;
+  row.appendChild(sw);
+  const body = document.createElement('div');
+  const t = document.createElement(p.link ? 'a' : 'span');
+  t.className = 'promo-title';
+  t.textContent = p.title;
+  if (p.link) { t.href = p.link; t.target = '_blank'; t.rel = 'noopener noreferrer'; }
+  body.appendChild(t);
+  const meta = document.createElement('div');
+  meta.className = 'promo-meta';
+  const fam = document.createElement('span');
+  fam.textContent = PROMO_FAMILY[p.family].label;
+  fam.title = PROMO_FAMILY[p.family].tip;
+  meta.appendChild(fam);
+  const when = document.createElement('span');
+  when.textContent = promoWhen(p);
+  if (p.flags & 2) when.className = 'live';
+  meta.appendChild(when);
+  if (p.reach > 1) {
+    const r = document.createElement('span');
+    r.textContent = `${p.reach}작품 함께`;
+    meta.appendChild(r);
+  }
+  if (p.flags & 1) {
+    const f = document.createElement('span');
+    f.textContent = p.s === pp.first ? `수집 시작(${mdDay(pp.first)}) 전부터` : '시작은 더 이를 수 있음';
+    f.title = '그 전날엔 이 작품이 일간 TOP 300 밖이라 확인하지 못했어요.';
+    meta.appendChild(f);
+  }
+  if (p.flags & 4) {
+    const f = document.createElement('span');
+    f.textContent = '더 길었을 수 있음';
+    f.title = '다음 날엔 이 작품이 일간 TOP 300 밖이라 확인하지 못했어요.';
+    meta.appendChild(f);
+  }
+  body.appendChild(meta);
+  if (effect) body.appendChild(effect);
+  row.appendChild(body);
+  return row;
+}
+
+/** 상세 화면: 이 작품에 걸렸던 프로모션 목록 + 전·중·후 일간 순위 */
+function buildPromoCard(promos, pp, dailySeries, collected) {
+  const box = document.createElement('div');
+  box.className = 'panel promo-card';
+  box.id = 'promo-card';
+  const head = document.createElement('div');
+  head.className = 'promo-head';
+  head.textContent = '🎁 프로모션 기간';
+  const range = document.createElement('span');
+  range.className = 'promo-range';
+  range.textContent = `${mdDay(pp.first)}~${mdDay(pp.last)} 기록`;
+  head.appendChild(range);
+  box.appendChild(head);
+
+  // 진행 중인 것 먼저, 그다음 최근에 끝난 순
+  const byRecent = (a, b) => (b.flags & 2) - (a.flags & 2) || (a.e < b.e ? 1 : a.e > b.e ? -1 : a.s < b.s ? 1 : -1);
+  const shaded = promos.filter((p) => PROMO_SHADED.includes(p.family)).sort(byRecent);
+  const platform = promos.filter((p) => !PROMO_SHADED.includes(p.family)).sort(byRecent);
+  for (const p of shaded) {
+    box.appendChild(buildPromoRow(p, pp, buildPromoEffect(promoRankWindows(dailySeries, collected, p, pp.first))));
+  }
+  if (!shaded.length) {
+    const none = document.createElement('div');
+    none.className = 'promo-meta';
+    none.textContent = '이 작품만의 이벤트·혜택·기획전 기록은 없어요.';
+    box.appendChild(none);
+  }
+  if (platform.length) {
+    const det = document.createElement('details');
+    const sum = document.createElement('summary');
+    sum.textContent = `플랫폼 참여 이벤트 ${platform.length}건 (스탬프 투어 등 · 그래프엔 칠하지 않아요)`;
+    det.appendChild(sum);
+    for (const p of platform) det.appendChild(buildPromoRow(p, pp, null));
+    box.appendChild(det);
+  }
+  const hint = document.createElement('div');
+  hint.className = 'promo-hint';
+  hint.textContent = '작품 소식 탭에 걸린 배너를 일간 TOP 300에 든 날마다 확인한 기록이에요. 순위권 밖이던 날은 확인하지 못해 실제 기간과 조금 다를 수 있어요. '
+    + '순위가 바뀐 게 프로모션 때문이라고 단정할 수는 없어요. 같은 시기 새 회차나 다른 노출도 영향을 줘요.';
+  box.appendChild(hint);
   return box;
+}
+
+/** 그래프 아래 색 견본: 이 작품 그래프에 칠해진 계열만 */
+function buildPromoLegend(bands) {
+  const fams = PROMO_SHADED.filter((f) => bands.some((b) => b.family === f));
+  if (!fams.length) return null;
+  const div = document.createElement('div');
+  div.className = 'promo-legend';
+  div.appendChild(document.createTextNode('색 구간 = 프로모션 기간:'));
+  for (const f of fams) {
+    const item = document.createElement('span');
+    const sw = document.createElement('span');
+    sw.className = `promo-sw fam-${f}`;
+    item.appendChild(sw);
+    item.appendChild(document.createTextNode(PROMO_FAMILY[f].label));
+    div.appendChild(item);
+  }
+  return div;
 }
 
 function buildMemoBox(workId, title, cat) {
@@ -1115,7 +1292,7 @@ async function renderListView(cat, period, genre = 'all') {
   const isGenre = genre !== 'all';
   const dataPath = isGenre ? `${cat}/genres/${genre}/${period}` : `${cat}/${period}`;
 
-  const [index, works] = await Promise.all([getIndex(), getWorksLite()]);
+  const [index, works, pp] = await Promise.all([getIndex(), getWorksLite(), getPromoPeriods()]);
   const dates = isGenre
     ? (index.genres?.[cat]?.[genre]?.[period]) || []
     : (index[cat] && index[cat][period]) || [];
@@ -1178,7 +1355,7 @@ async function renderListView(cat, period, genre = 'all') {
   const list = document.createElement('ol');
   list.className = 'rank-list';
   for (const item of latest) {
-    list.appendChild(buildRankRow(item, cat, period, works[item.workId]));
+    list.appendChild(buildRankRow(item, cat, period, works[item.workId], buildPromoChip(pp, item.workId, latestDate)));
   }
   body.appendChild(list);
 }
@@ -1192,7 +1369,7 @@ const HIGHLIGHT_TYPES = {
 
 async function renderHighlightsView(cat, period, type) {
   app.innerHTML = '<div class="loading-note">불러오는 중...</div>';
-  const [index] = await Promise.all([getIndex()]);
+  const [index, pp] = await Promise.all([getIndex(), getPromoPeriods()]);
   const dates = (index[cat] && index[cat][period]) || [];
 
   app.innerHTML = '';
@@ -1281,8 +1458,10 @@ async function renderHighlightsView(cat, period, type) {
     } else {
       const list = document.createElement('ol');
       list.className = 'rank-list';
+      // 급하락·이탈은 막 끝난 프로모션도 같이 보여준다(끝나서 빠진 건지 보려고)
+      const ended = type === 'fallers' || type === 'dropped';
       for (const it of rows) {
-        list.appendChild(buildHighlightHistoryRow(it, cat, period));
+        list.appendChild(buildHighlightHistoryRow(it, cat, period, buildPromoChip(pp, it.workId, date, { ended })));
       }
       section.appendChild(list);
     }
@@ -1290,7 +1469,7 @@ async function renderHighlightsView(cat, period, type) {
   }
 }
 
-function buildHighlightHistoryRow(item, cat, period) {
+function buildHighlightHistoryRow(item, cat, period, promoChip) {
   const li = document.createElement('li');
   li.className = 'rank-row';
   li.addEventListener('click', () => navigate(`#/work/${cat}/${period}/${item.workId}`));
@@ -1309,6 +1488,7 @@ function buildHighlightHistoryRow(item, cat, period) {
   const sub = document.createElement('div');
   sub.className = 'rank-sub';
   sub.textContent = item.subCategory || '';
+  if (promoChip) sub.appendChild(promoChip);
   info.appendChild(titleEl);
   info.appendChild(sub);
 
@@ -1484,7 +1664,7 @@ function buildHighlightCard(title, items, rightTextFn, onClick) {
   return card;
 }
 
-function buildRankRow(item, cat, period, workMeta) {
+function buildRankRow(item, cat, period, workMeta, promoChip) {
   const li = document.createElement('li');
   li.className = 'rank-row';
   li.addEventListener('click', () => navigate(`#/work/${cat}/${period}/${item.workId}`));
@@ -1511,6 +1691,7 @@ function buildRankRow(item, cat, period, workMeta) {
   if (item.subCategory) badges.push(item.subCategory);
   if (workMeta && workMeta.author) badges.push(workMeta.author);
   sub.textContent = badges.join(' · ');
+  if (promoChip) sub.appendChild(promoChip);
   info.appendChild(titleEl);
   info.appendChild(sub);
 
@@ -1684,9 +1865,9 @@ async function renderWorkView(cat, period, workId) {
   // comments, rank trend, view trend), so we fetch ONE ~20KB file instead of the
   // ~59MB works.json plus ~220 per-date snapshot requests. Light metadata
   // (author/classification/keywords/rating…) comes from the already-cached lite.
-  const [lite, card, promotions, , cm] = await Promise.all([
-    getWorksLite(), fetchJson(`data/detail/${workId}.json`).catch(() => null), getPromotions(), loadMemoStore(),
-    fetchJson(`data/comments/${workId}.json`).catch(() => null),
+  const [lite, card, pp, , cm, index] = await Promise.all([
+    getWorksLite(), fetchJson(`data/detail/${workId}.json`).catch(() => null), getPromoPeriods(), loadMemoStore(),
+    fetchJson(`data/comments/${workId}.json`).catch(() => null), getIndex().catch(() => ({})),
   ]);
   // Comment analysis (scripts/collect-comments.mjs). When present it replaces the
   // older scraped "인기 댓글"/"댓글 반응 키워드" (BEST 25 only).
@@ -1699,7 +1880,9 @@ async function renderWorkView(cat, period, workId) {
     commentKeywords: card ? card.commentKeywords : [],
     title: liteMeta.title || (card && card.title) || workId,
   };
-  const workPromos = promotions[workId] || [];
+  // Promotion periods: shaded behind every trend chart + listed in their own card.
+  const promos = promosOfWork(pp, workId);
+  const bands = promos.filter((p) => PROMO_SHADED.includes(p.family)).map((p) => ({ s: p.s, e: p.e, family: p.family, title: p.title }));
 
   const seriesByPeriod = {};
   for (const p of PERIODS) {
@@ -1765,6 +1948,23 @@ async function renderWorkView(cat, period, workId) {
     infoDiv.appendChild(metaLine(`다른 형태로도 있음: ${otherVersions.map((v) => `${v.category} <${v.title}>`).join(', ')}`));
   }
 
+  // "진행 중인 프로모션: 신마대제 외 1개 (자세히 ↓)" (누르면 아래 프로모션 기간 카드로)
+  const livePromos = promos.filter((p) => PROMO_SHADED.includes(p.family) && (p.flags & 2));
+  if (livePromos.length) {
+    const line = metaLine('진행 중인 프로모션: ');
+    const a = document.createElement('a');
+    a.href = '#';
+    a.textContent = `${livePromos[0].title}${livePromos.length > 1 ? ` 외 ${livePromos.length - 1}개` : ''} (자세히 ↓)`;
+    a.style.cssText = 'color:var(--accent-ink);text-decoration:underline;';
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('promo-card');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+    line.appendChild(a);
+    infoDiv.appendChild(line);
+  }
+
   // 한 줄 요약: "작품 평가: 호평 60 · 아쉬움 3 · 하차 2 · 👍 캐릭터가 귀엽다 · 👎 …" (누르면 아래 작품 분석으로)
   if (hasCm && cm.ev && cm.ev.used) {
     const link = (text) => {
@@ -1825,8 +2025,6 @@ async function renderWorkView(cat, period, workId) {
   header.appendChild(infoDiv);
   app.appendChild(header);
 
-  if (workPromos.length) app.appendChild(buildPromotionsBox(workPromos));
-
   app.appendChild(buildMemoBox(workId, (latestItem && latestItem.title) || meta.title || null, cat));
 
   if (!hasCm && meta.topComments && meta.topComments.length) {
@@ -1874,14 +2072,14 @@ async function renderWorkView(cat, period, workId) {
 
     const activeSeries = seriesByPeriod[currentPeriod];
     chartBox.innerHTML = '';
-    chartBox.appendChild(buildChart(activeSeries));
+    chartBox.appendChild(buildChart(activeSeries, bands));
     const hasEstimated = activeSeries.some((p) => p.estimated);
     chartNote.textContent = hasEstimated
       ? '※ 맨 왼쪽 점은 수집 시작일의 순위 변동폭으로 역산한 추정치예요.'
       : '';
 
     viewChartBox.innerHTML = '';
-    viewChartBox.appendChild(buildViewCountChart(viewSeries));
+    viewChartBox.appendChild(buildViewCountChart(viewSeries, bands));
   }
 
   for (const p of PERIODS) {
@@ -1907,6 +2105,11 @@ async function renderWorkView(cat, period, workId) {
   app.appendChild(controls);
   app.appendChild(chartBox);
   app.appendChild(chartNote);
+  const legend = buildPromoLegend(bands);
+  if (legend) app.appendChild(legend);
+  if (promos.length) {
+    app.appendChild(buildPromoCard(promos, pp, seriesByPeriod.daily || [], (index[cat] && index[cat].daily) || []));
+  }
   if (viewSeries.some((p) => p.value != null)) {
     const viewLabel = document.createElement('h3');
     viewLabel.style.cssText = 'font-size:13px;color:var(--text-dim);margin:16px 0 8px;';
@@ -1922,7 +2125,7 @@ async function renderWorkView(cat, period, workId) {
     h.textContent = label;
     const box = document.createElement('div');
     box.className = 'chart-box';
-    box.appendChild(buildViewCountChart(series));
+    box.appendChild(buildViewCountChart(series, bands));
     app.appendChild(h);
     app.appendChild(box);
   };
@@ -2480,25 +2683,28 @@ function aggregateSeries(series, granularity, valueKey = 'rank', pickBest = (a, 
   return [...buckets.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
-function buildChart(series) {
+function buildChart(series, bands) {
   return buildLineChart(series, {
     valueKey: 'rank',
     higherIsBetter: false,
     formatValue: (v) => `${v}위`,
     emptyText: '표시할 순위 기록이 없습니다.',
+    bands,
   });
 }
 
-function buildViewCountChart(series) {
+function buildViewCountChart(series, bands) {
   return buildLineChart(series, {
     valueKey: 'value',
     higherIsBetter: true,
     formatValue: formatCount,
     emptyText: '표시할 조회수 기록이 없습니다.',
+    bands,
   });
 }
 
-function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyText }) {
+// bands = [{s, e, family, title}] 프로모션 기간 (없어도 됨)
+function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyText, bands = [] }) {
   const points = series.filter((p) => p[valueKey] != null);
   if (points.length === 0) {
     const div = document.createElement('div');
@@ -2548,6 +2754,40 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
   const svg = document.createElementNS(svgNS, 'svg');
   svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
+  // 프로모션 기간: 그 기간에 든 점들 뒤에 옅은 색 띠를 깐다. 계열이 여럿 겹치는
+  // 날은 높이를 나눠 계열마다 제 띠에 칠한다(반투명을 포개면 색이 섞여 견본과 안 맞는다).
+  // 가로축은 날짜가 아니라 점 순서라, 띠도 그 기간에 든 점들 기준이다.
+  const famsAt = series.map((pt) => {
+    const at = {};
+    for (const b of bands) if (b.s <= pt.date && pt.date <= b.e) (at[b.family] = at[b.family] || []).push(b.title);
+    return at;
+  });
+  const bandKey = (i) => PROMO_SHADED.filter((f) => famsAt[i][f]).map((f) => `${f}:${famsAt[i][f].join('|')}`).join(';');
+  const step = n > 1 ? plotW / (n - 1) : plotW;
+  for (let i = 0; i < n; ) {
+    const k = bandKey(i);
+    if (!k) { i += 1; continue; }
+    let j = i;
+    while (j + 1 < n && bandKey(j + 1) === k) j += 1;
+    const fams = PROMO_SHADED.filter((f) => famsAt[i][f]);
+    const x0 = Math.max(padL, xFor(i) - step / 2);
+    const x1 = Math.min(width - padR, xFor(j) + step / 2);
+    const lane = plotH / fams.length;
+    fams.forEach((f, li) => {
+      const r = document.createElementNS(svgNS, 'rect');
+      r.setAttribute('x', x0);
+      r.setAttribute('y', padT + li * lane);
+      r.setAttribute('width', Math.max(1, x1 - x0));
+      r.setAttribute('height', lane);
+      r.setAttribute('class', `band fam-${f}`);
+      const tt = document.createElementNS(svgNS, 'title');
+      tt.textContent = `${PROMO_FAMILY[f].label}: ${famsAt[i][f].join(', ')}`;
+      r.appendChild(tt);
+      svg.appendChild(r);
+    });
+    i = j + 1;
+  }
+
   const axisColor = 'var(--border)';
   const gridline = document.createElementNS(svgNS, 'line');
   gridline.setAttribute('x1', padL); gridline.setAttribute('x2', width - padR);
@@ -2594,7 +2834,8 @@ function buildLineChart(series, { valueKey, higherIsBetter, formatValue, emptyTe
     c.setAttribute('r', 3);
     c.setAttribute('fill', 'var(--accent-ink)');
     const title = document.createElementNS(svgNS, 'title');
-    title.textContent = `${d.pt.date}: ${formatValue(d.pt[valueKey])}`;
+    const promoTitles = bands.filter((b) => b.s <= d.pt.date && d.pt.date <= b.e).map((b) => b.title);
+    title.textContent = `${d.pt.date}: ${formatValue(d.pt[valueKey])}` + (promoTitles.length ? `\n🎁 ${promoTitles.join(', ')}` : '');
     c.appendChild(title);
     svg.appendChild(c);
 
