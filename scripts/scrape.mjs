@@ -6,6 +6,8 @@ import { collectAllMetrics } from './collect-metrics.mjs';
 import { buildWorkDetails } from './build-work-details.mjs';
 import { writePromoSnapshot, buildPromoPeriods } from './build-promo-periods.mjs';
 import { collectEventDetails } from './collect-event-details.mjs';
+import { fetchBffDetail, isGated, fillGaps } from './lib/bff-detail.mjs';
+import { writeWorksLite as writeLite } from './lib/works-lite.mjs';
 import {
   CATEGORIES,
   PERIODS,
@@ -59,23 +61,22 @@ async function saveJson(filePath, data) {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 }
 
-// Slim companion of works.json for the front-end's broad views (ranking list,
-// keyword analysis, search, memos). Drops the huge synopsis/comment fields
-// (~90% of the size) and is minified, so those views transfer ~0.4MB instead of
-// ~12MB. The full works.json is only fetched on a single work's detail page.
-const WORKS_LITE_FIELDS = [
-  'title', 'author', 'classification', 'keywords', 'viewCount', 'rating',
-  'launchDate', 'serialStatus', 'isCompleted', 'publisher', 'ageRatingDetail',
-  'sameWorkVersions', 'totalCommentText',
-];
-async function writeWorksLite(cache) {
-  const lite = {};
-  for (const [id, o] of Object.entries(cache)) {
-    const s = {};
-    for (const k of WORKS_LITE_FIELDS) if (o[k] !== undefined && o[k] !== null) s[k] = o[k];
-    lite[id] = s;
+const writeWorksLite = (cache) => writeLite(cache, DATA_DIR);
+
+// 19+ works: the page hides publisher / keywords / classification / status
+// behind the adult login, but Kakao's BFF API answers them anonymously with the
+// 19+ edition's own values — fill the gaps from there (lib/bff-detail.mjs).
+let bffFills = 0;
+async function withBffFallback(detail, workId) {
+  if (!isGated(detail)) return detail;
+  try {
+    const bff = await fetchBffDetail(workId);
+    bffFills += 1;
+    return fillGaps(detail, bff);
+  } catch (e) {
+    console.log(`  ! BFF detail for ${workId} failed: ${e.message}`);
+    return detail;
   }
-  await fs.writeFile(path.join(DATA_DIR, 'works-lite.json'), JSON.stringify(lite), 'utf-8');
 }
 
 async function loadJson(filePath, fallback) {
@@ -219,7 +220,7 @@ async function main() {
     let vcDone = 0;
     for (const item of items) {
       if (!item.workId) continue;
-      const detail = await scrapeWorkDetail(page, item.workId, { log: console.log });
+      const detail = await withBffFallback(await scrapeWorkDetail(page, item.workId, { log: console.log }), item.workId);
       if (detail) {
         freshDetailCache.set(item.workId, detail);
         if (detail.viewCount) snapshot.push({ workId: item.workId, viewCount: detail.viewCount });
@@ -288,11 +289,11 @@ async function main() {
   for (const workId of idsToFetch) {
     let detail = freshDetailCache.get(workId);
     if (!detail) {
-      detail = await scrapeWorkDetail(page, workId, { log: console.log });
+      detail = await withBffFallback(await scrapeWorkDetail(page, workId, { log: console.log }), workId);
       await sleep(1200 + Math.random() * 1200);
     }
     const comments = await scrapeComments(page, workId, { log: console.log });
-    let launchDate = cache[workId]?.launchDate ?? null;
+    let launchDate = cache[workId]?.launchDate ?? detail?.launchDate ?? null;
     if (!launchDate) {
       await sleep(800 + Math.random() * 800);
       launchDate = await scrapeLaunchDate(page, workId, { log: console.log });
@@ -302,7 +303,7 @@ async function main() {
         ...detail,
         workId,
         launchDate,
-        totalCommentText: comments?.totalCommentText ?? null,
+        totalCommentText: comments?.totalCommentText ?? detail.totalCommentText ?? null,
         topComments: comments?.topComments ?? [],
         commentKeywords: comments?.keywords ?? [],
         lastChecked: new Date().toISOString(),
@@ -334,7 +335,7 @@ async function main() {
     console.log(`Refreshing view counts for ${droppedIds.length} dropped-out works (${Object.keys(cache).length - rankedToday.size} tracked, rotating)...`);
     let dvDone = 0;
     for (const workId of droppedIds) {
-      const detail = await scrapeWorkDetail(page, workId, { log: console.log });
+      const detail = await withBffFallback(await scrapeWorkDetail(page, workId, { log: console.log }), workId);
       if (detail) {
         const prev = cache[workId] || {};
         cache[workId] = { ...prev, ...detail, workId, viewRefreshedAt: new Date().toISOString() };
@@ -369,6 +370,7 @@ async function main() {
   try { await collectEventDetails(); } catch (e) { console.error('event-details step failed:', e.message); }
   try { buildPromoPeriods(); } catch (e) { console.error('promo-period step failed:', e.message); }
 
+  console.log(`19+/gated detail pages filled from the BFF API: ${bffFills}`);
   console.log('=== Done ===');
   console.table(summary);
 }
