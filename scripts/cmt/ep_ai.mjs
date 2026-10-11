@@ -177,7 +177,7 @@ try {
       try {
         const j = JSON.parse((res.message.content || []).filter((b) => b.type === "text").map((b) => b.text).join(""));
         const ex = [...new Set(j.ex || [])].map((k) => e.top[k - 1]).filter((c) => c && !c.sp).slice(0, 3);
-        e.ai = { s: cut(j.sum, 80), r: cut(j.react, 80), m: (j.mood || []).filter((m) => P.MOODS[m]).slice(0, 3), h: cut(j.hot || "", 60),
+        e.ai = { s: cut(j.sum, 140), r: cut(j.react, 140), m: (j.mood || []).filter((m) => P.MOODS[m]).slice(0, 3), h: cut(j.hot || "", 90),
           ex: ex.map((c) => [cut(c.text, EX_MAX), c.like]) };
       } catch { report.notes.push(`회차 요약 해석 실패 ${cid}`); }
     }
