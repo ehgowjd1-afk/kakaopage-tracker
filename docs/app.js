@@ -2371,18 +2371,18 @@ async function renderWorkView(cat, period, workId) {
       : Promise.resolve(null);
     app.appendChild(buildWorkAnalysisBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
     app.appendChild(epHolder);
-    const aiPromise = loadEpAi(workId);
-    epPromise.then((d) => aiPromise.then((ai) => {
+    Promise.all([epPromise, loadEpAi(workId), getPromoPeriods()]).then(([d, ai, pp]) => {
+      const promos = promosOfWork(pp, workId);
       if (ai) epHolder.appendChild(buildEpAiBox(ai));
-      if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d, { ai }));
-      else addEpisodeCounts(epHolder, workId, cm, ai);
-    }));
+      if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d, { ai, promos }));
+      else addEpisodeCounts(epHolder, workId, cm, ai, promos);
+    });
   } else {
     const epHolder = document.createElement('div');
     app.appendChild(epHolder);
-    loadEpAi(workId).then((ai) => {
+    Promise.all([loadEpAi(workId), getPromoPeriods()]).then(([ai, pp]) => {
       if (ai) epHolder.appendChild(buildEpAiBox(ai));
-      addEpisodeCounts(epHolder, workId, null, ai);
+      addEpisodeCounts(epHolder, workId, null, ai, promosOfWork(pp, workId));
     });
   }
 }
@@ -2435,18 +2435,19 @@ function buildEpAiBox(ai) {
 }
 
 // 회차별 반응 표(data/comments/ep)가 없는 작품: 회차별 댓글 수만 센 표(data/epcounts, 일주일에 한 번 갱신)로 막대를 그린다.
-// epcounts = { at, c: [댓글 수], d: ['YYMMDD'], no: [화 번호|null], x: {순번: 이름}, f: [무료 순번] }
-function addEpisodeCounts(holder, workId, cm, ai) {
+// epcounts = { at, c: [댓글 수], d: ['YYMMDD'], no: [화 번호|null], x: {순번: 이름}, h1/h3/h7: [공개 후 1·3·7일 댓글 수|null] }
+function addEpisodeCounts(holder, workId, cm, ai, promos) {
   fetchJson(`data/epcounts/${workId}.json`).then((ec) => {
     if (!ec || !Array.isArray(ec.c) || !ec.c.length) return;
-    const free = new Set(ec.f || []);
     const episodes = {};
+    const at = (k, i) => (Array.isArray(ec[k]) ? ec[k][i] : null);
     ec.c.forEach((cnt, i) => {
       const d = ec.d && ec.d[i] ? `20${ec.d[i].slice(0, 2)}-${ec.d[i].slice(2, 4)}-${ec.d[i].slice(4, 6)}` : '';
       const label = ec.no && ec.no[i] != null ? `${ec.no[i]}화` : ((ec.x && ec.x[i]) || `${i + 1}번째`);
-      episodes[i] = [i, label, cnt || 0, ec.at, null, null, d, 0, null, null, null, free.has(i) ? 1 : 0];
+      // [11] 무료 여부는 오늘 기준 상태라 과거 회차 판정에 쓰지 않는다(요청서) → 비움
+      episodes[i] = [i, label, cnt || 0, ec.at, null, null, d, 0, null, null, null, null, at('h1', i), at('h3', i), at('h7', i)];
     });
-    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at, ai }));
+    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at, ai, promos }));
   }).catch(() => {});
 }
 
@@ -2744,7 +2745,12 @@ function buildWorkAnalysisBox(cm, onDownload) {
 }
 
 // 회차별 반응 흐름 — r = [order, label, total, scanned, best, mix, releasedAt, engineVersion,
-//   [칭찬 댓글, 불만 댓글, 하차 선언], 대표 칭찬, 대표 불만, 무료(1/0)] (칭찬·불만·하차는 회차마다 공감 상위 30개 기준)
+//   [칭찬 댓글, 불만 댓글, 하차 선언], 대표 칭찬, 대표 불만, (무료 — 오늘 기준이라 판정에 안 씀), 공개 1일, 공개 3일, 공개 7일]
+//   (칭찬·불만·하차는 회차마다 공감 상위 30개 기준)
+// 화제·이탈 판정은 요청서 기준: 직전 5화 중간값 대비 1.5배↑ 급증, 2배↑ 대박, 0.7배↓가 3화 연속이면 이탈 경고.
+//   여러 화를 같은 날 공개한 회차는 비교에서 뺀다. 휴재 후 복귀(공개 간격이 평소의 2배↑, 7일↑)·프로모션 기간은 표시만.
+//   같은 시점 비교: 공개 후 3일 댓글 수가 있으면 그것으로(오래된 회차가 댓글이 오래 쌓여 유리해지는 것을 막음).
+const EP_JUDGE = { base: 5, minBase: 3, boom: 1.5, big: 2, drop: 0.7, dropRun: 3, hiatusX: 2, hiatusMinDays: 7 };
 function buildEpisodeBox(cm, ep, opt = {}) {
   const rows = Object.values(ep.episodes || {}).sort((a, b) => a[0] - b[0]);
   const box = mk('div');
@@ -2760,10 +2766,58 @@ function buildEpisodeBox(cm, ep, opt = {}) {
 
   const evOf = (r) => (Array.isArray(r[8]) ? r[8] : null);
   const IDX = { pos: 0, neg: 1, drop: 2 };
-  const modes = [['count', '댓글 수'], ['pos', '작품 칭찬'], ['neg', '작품 불만'], ['drop', '하차 선언']]
-    .filter(([k]) => k === 'count' || rows.some((r) => evOf(r) && evOf(r)[IDX[k]]));
-  let mode = 'count';
-  const val = (r) => (mode === 'count' ? r[2] : ((evOf(r) || [])[IDX[mode]] || 0));
+  // 같은 시점 비교(공개 3일) 값이 최근 회차 대부분에 있으면 그것을 기본으로
+  const recent = rows.slice(-30);
+  const h3ok = recent.filter((r) => r[13] != null).length >= recent.length * 0.6 && recent.some((r) => r[13] > 0);
+  const modes = [['h3', '공개 3일 댓글'], ['count', '지금까지 댓글'], ['pos', '작품 칭찬'], ['neg', '작품 불만'], ['drop', '하차 선언']]
+    .filter(([k]) => (k === 'h3' ? h3ok : k === 'count' || rows.some((r) => evOf(r) && evOf(r)[IDX[k]])));
+  let mode = h3ok ? 'h3' : 'count';
+  const val = (r) => (mode === 'h3' ? (r[13] || 0) : mode === 'count' ? r[2] : ((evOf(r) || [])[IDX[mode]] || 0));
+
+  // ---- 판정 (요청서 기준) ----
+  const judgeKey = h3ok ? 13 : 2;
+  const judgeName = h3ok ? '공개 3일 댓글' : '지금까지 댓글';
+  const dataDay = Date.parse(`${opt.at || rows[rows.length - 1][3] || ''}T00:00:00Z`) || Date.now();
+  const dayMs = (d) => (d ? Date.parse(`${d}T00:00:00Z`) : null);
+  const sameDay = rows.map((r) => (r[6] ? rows.filter((x) => x[6] === r[6]).length : 1));
+  const gaps = [];
+  rows.forEach((r, i) => { if (i && r[6] && rows[i - 1][6]) gaps.push((dayMs(r[6]) - dayMs(rows[i - 1][6])) / 86400e3); });
+  const usualGap = (() => { const g = gaps.filter((x) => x > 0).sort((a, b) => a - b); return g.length ? g[Math.floor(g.length / 2)] : 7; })();
+  const tagsOf = (r, i) => {
+    const t = [];
+    if (i && r[6] && rows[i - 1][6]) {
+      const g = (dayMs(r[6]) - dayMs(rows[i - 1][6])) / 86400e3;
+      if (g >= Math.max(EP_JUDGE.hiatusX * usualGap, EP_JUDGE.hiatusMinDays)) t.push(`휴재 후 복귀(${Math.round(g)}일 만)`);
+    }
+    if (sameDay[i] > 1) t.push(`같은 날 ${sameDay[i]}화 공개`);
+    for (const p of opt.promos || []) if (r[6] && p.s && r[6] >= p.s && r[6] <= (p.e || p.s)) { t.push(`프로모션: ${p.title}`); break; }
+    return t;
+  };
+  // 비교할 수 있는 회차: 값이 있고, 같은 날 여러 화 공개가 아니고, (지금까지 댓글로 비교하면) 공개 7일이 지난 회차
+  const usable = rows.map((r, i) => r[judgeKey] != null && sameDay[i] < 2 && (judgeKey !== 2 || !r[6] || dataDay - dayMs(r[6]) >= 7 * 86400e3));
+  const med = (arr) => { const s = arr.slice().sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+  const judged = rows.map((r, i) => {
+    if (!usable[i]) return null;
+    const prev = [];
+    for (let k = i - 1; k >= 0 && prev.length < EP_JUDGE.base; k--) if (usable[k]) prev.push(rows[k][judgeKey]);
+    if (prev.length < EP_JUDGE.minBase) return null;
+    const base = med(prev);
+    if (!base) return null;
+    const ratio = r[judgeKey] / base;
+    return { base, ratio, flag: ratio >= EP_JUDGE.big ? '대박' : ratio >= EP_JUDGE.boom ? '급증' : null };
+  });
+  const dropIdx = new Set();
+  const dropRuns = [];
+  { let run = [];
+    rows.forEach((r, i) => {
+      if (!usable[i]) return;
+      if (judged[i] && judged[i].ratio <= EP_JUDGE.drop) run.push(i);
+      else { if (run.length >= EP_JUDGE.dropRun) dropRuns.push(run); run = []; }
+    });
+    if (run.length >= EP_JUDGE.dropRun) dropRuns.push(run);
+    dropRuns.forEach((x) => x.forEach((i) => dropIdx.add(i))); }
+  const FLAG_COLOR = { 대박: '#e5484d', 급증: '#f59e0b', drop: '#3b82f6' };
+  const flagTone = (r, i) => (judged[i] && judged[i].flag ? FLAG_COLOR[judged[i].flag] : dropIdx.has(i) ? FLAG_COLOR.drop : sameDay[i] > 1 ? 'var(--border)' : 'var(--same)');
   // 댓글 수 막대 색: 칭찬이 더 많으면 초록, 불만·하차가 더 많으면 빨강
   const tone = (r) => {
     const e = evOf(r);
@@ -2781,7 +2835,13 @@ function buildEpisodeBox(cm, ep, opt = {}) {
 
   function showDetail(r) {
     detail.innerHTML = '';
-    detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개${r[11] === 1 ? ' · 무료 회차' : ''}`));
+    const ri = rows.indexOf(r);
+    detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개${r[13] != null ? ` (공개 3일 ${r[13].toLocaleString()}개)` : ''}`));
+    const jd = judged[ri], tg = tagsOf(r, ri);
+    if ((jd && (jd.flag || dropIdx.has(ri))) || tg.length) {
+      detail.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin-bottom:4px;',
+        [jd && jd.flag ? `${jd.flag} — ${judgeName}가 직전 5화 보통의 ${jd.ratio.toFixed(1)}배` : '', dropIdx.has(ri) ? '이탈 경고 구간' : '', ...tg].filter(Boolean).join(' · ')));
+    }
     const a = epAiOf(opt.ai, r[1]);
     if (a) {
       detail.appendChild(mk('div', 'font-size:13px;margin:2px 0;', `🤖 댓글로 짐작한 내용: ${a.s}`));
@@ -2829,7 +2889,7 @@ function buildEpisodeBox(cm, ep, opt = {}) {
       rect.setAttribute('width', 8);
       rect.setAttribute('y', H - h);
       rect.setAttribute('height', h);
-      rect.style.fill = mode === 'count' ? tone(r) : mode === 'pos' ? EV_POS : EV_NEG;
+      rect.style.fill = mode === 'h3' || (mode === 'count' && opt.countOnly) ? flagTone(r, i) : mode === 'count' ? tone(r) : mode === 'pos' ? EV_POS : EV_NEG;
       svg.appendChild(rect);
     });
     const pick = (e) => {
@@ -2841,7 +2901,7 @@ function buildEpisodeBox(cm, ep, opt = {}) {
     svg.addEventListener('click', pick);
     chartWrap.innerHTML = '';
     chartWrap.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-bottom:2px;',
-      `최대 ${vmax.toLocaleString()}개${mode === 'count' ? '' : ' (공감 상위 30개 중)'}`));
+      `최대 ${vmax.toLocaleString()}개${mode === 'h3' ? ' (공개 후 3일 동안 달린 댓글)' : mode === 'count' ? ' (지금까지 달린 댓글)' : ' (공감 상위 30개 중)'}`));
     chartWrap.appendChild(svg);
     axis.innerHTML = '';
     axis.appendChild(mk('span', '', rows[0][1]));
@@ -2861,14 +2921,13 @@ function buildEpisodeBox(cm, ep, opt = {}) {
   box.appendChild(tabs);
   box.appendChild(chartWrap);
   box.appendChild(axis);
-  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', opt.countOnly
-    ? '차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'
-    : '댓글 수 막대: 초록 = 칭찬이 더 많은 회차, 빨강 = 불만·하차가 더 많은 회차. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'));
+  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;',
+    (h3ok ? "'공개 3일 댓글' = 공개 후 3일 동안 달린 댓글 수 — 오래된 회차와 최근 회차를 같은 시점으로 비교해요. " : '') +
+    (opt.countOnly ? '' : "'지금까지 댓글' 막대 색: 초록 = 칭찬이 더 많은 회차, 빨강 = 불만·하차가 더 많은 회차. ") +
+    `판정(${judgeName} 기준): 빨강 = 대박(직전 5화 보통의 2배↑), 주황 = 급증(1.5배↑), 파랑 = 이탈 경고(0.7배↓가 3화 연속), 회색 = 같은 날 여러 화 공개라 비교에서 뺌. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.`));
   box.appendChild(detail);
 
-  // 회차 목록 4가지
-  const counts = rows.map((r) => r[2] || 0);
-  const med = (arr) => { const s = arr.slice().sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+  // 회차 목록
   const listSec = (title, note, items, render) => {
     if (!items.length) return;
     box.appendChild(mk('div', CM_SEC, title));
@@ -2885,16 +2944,12 @@ function buildEpisodeBox(cm, ep, opt = {}) {
     row.appendChild(mk('div', `font-size:12px;color:${color};word-break:break-all;`, `${label}${x[2] ? ` (${x[2]})` : ''} 👍${(x[1] || 0).toLocaleString()} “${x[0]}”`));
   };
 
-  // ① 화제가 된 회차: 앞 5화와 뒤 5화 '둘 다'보다 댓글이 1.5배 넘게 달린 회차
-  //    (초반 무료 회차는 원래 댓글이 많아서 한쪽만 비교하면 늘 화제처럼 보인다)
-  const spikes = rows.map((r, i) => {
-    const prev = med(counts.slice(Math.max(0, i - 5), i));
-    const next = med(counts.slice(i + 1, i + 6));
-    if (!prev || !next) return null;
-    return { r, ratio: counts[i] / Math.max(prev, next) };
-  }).filter((x) => x && x.ratio >= 1.5).sort((a, b) => b.ratio - a.ratio).slice(0, 6);
-  listSec('🔥 화제가 된 회차', opt.countOnly ? '앞뒤 회차보다 댓글이 확 늘어난 곳' : '앞뒤 회차보다 댓글이 확 늘어난 곳 — 무슨 장면이었는지는 베스트 댓글로', spikes, ({ r, ratio }, row) => {
-    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개 (앞뒤 회차의 ${ratio.toFixed(1)}배)`));
+  // ① 급증·대박: 직전 5화 보통(중간값)보다 1.5배↑(급증)·2배↑(대박) — 휴재 후 복귀·프로모션 기간이면 함께 표시
+  const spikes = rows.map((r, i) => (judged[i] && judged[i].flag ? { r, i, ...judged[i] } : null)).filter(Boolean).sort((a, b) => b.ratio - a.ratio).slice(0, 8);
+  listSec('🔥 급증·대박 회차', `${judgeName}가 직전 5화 보통보다 1.5배(급증)·2배(대박) 넘게 많은 회차 — 휴재 후 복귀·프로모션 기간이면 함께 표시해요`, spikes, ({ r, i, ratio, flag }, row) => {
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${flag} · ${r[1]} · ${judgeName} ${(r[judgeKey] || 0).toLocaleString()}개 (직전 5화 보통의 ${ratio.toFixed(1)}배)`));
+    const tg = tagsOf(r, i);
+    if (tg.length) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);', tg.join(' · ')));
     const a = epAiOf(opt.ai, r[1]);
     if (a) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `🤖 ${a.s}`));
     else if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `베스트 👍${(r[4][1] || 0).toLocaleString()} “${r[4][2] ? '(스포일러)' : r[4][0]}”`));
@@ -2912,19 +2967,12 @@ function buildEpisodeBox(cm, ep, opt = {}) {
     row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 불만 ${e[1]}건${e[2] ? ` · 하차 ${e[2]}` : ''}`));
     quoteLine(row, r[10], EV_NEG, '대표 불만');
   });
-  // ④ 댓글이 크게 줄어든 지점 (하차 신호): 이 회차까지 4화의 중간값보다 다음 4화가 40% 넘게 적은 곳
-  //    (갓 나온 최신 회차는 댓글이 아직 쌓이는 중이라 뺀다)
-  const falls = [];
-  for (let i = 3; i < rows.length - 8; i++) {
-    const before = med(counts.slice(i - 3, i + 1));
-    const after = med(counts.slice(i + 1, i + 5));
-    if (before >= 20 && after / before <= 0.6) falls.push({ r: rows[i], i, ratio: after / before, paywall: rows[i][11] === 1 && rows[i + 1][11] === 0 });
-  }
-  const kept = [];
-  falls.sort((a, b) => a.ratio - b.ratio).forEach((f) => { if (!kept.some((k) => Math.abs(k.i - f.i) <= 3) && kept.length < 5) kept.push(f); });
-  kept.sort((a, b) => a.i - b.i);
-  listSec('📉 댓글이 크게 줄어든 지점', '이 회차 이후 댓글이 확 줄었어요 — 독자가 빠졌을 수 있는 곳 (무료→유료 경계면 표시)', kept, ({ r, ratio, paywall }, row) => {
-    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} 이후 댓글 ${Math.round((1 - ratio) * 100)}% 감소${paywall ? ' · 무료→유료 경계' : ''}`));
+  // ④ 이탈 경고: 직전 5화 보통의 0.7배 이하가 3화 이상 이어진 구간 (무료 여부는 오늘 기준이라 쓰지 않음)
+  const falls = dropRuns.slice(-6).map((run) => ({ r: rows[run[0]], i: run[0], len: run.length, ratio: Math.min(...run.map((k) => judged[k].ratio)) }));
+  listSec('📉 이탈 경고', `${judgeName}가 직전 5화 보통의 0.7배 이하로 3화 넘게 이어진 구간 — 독자가 빠졌을 수 있는 곳`, falls, ({ r, i, len, ratio }, row) => {
+    row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]}부터 ${len}화 연속 (가장 낮을 때 직전 5화 보통의 ${ratio.toFixed(1)}배)`));
+    const tg = tagsOf(r, i);
+    if (tg.length) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);', tg.join(' · ')));
     quoteLine(row, r[10], EV_NEG, '그 회차 대표 불만');
   });
 

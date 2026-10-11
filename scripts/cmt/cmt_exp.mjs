@@ -156,7 +156,8 @@ function applyAll(out) {
       if (!v.base) { lab.tg = it.tg; lab.cw = it.cw; }
       lab.cx = complaintOf(lab);
       // '불호' 묶음엔 진짜 불만만: 1차 방식은 critic·확신 낮지 않음, 카카오판은 코드 판정(작품·운영·가격)
-      lab.th = th0.filter((id) => themeOf.get(id).bucket !== "dislike" || (v.base ? lab.tn === "critic" && lab.cf !== "lo" : ["work", "ops", "price"].includes(lab.cx)));
+      // '불호' 묶음엔 서사·캐릭터·(웹툰) 작화 불만(work)만 — 휴재·가격·문장 불만은 진지해도 불호가 아니다(사용자 원칙)
+      lab.th = th0.filter((id) => themeOf.get(id).bucket !== "dislike" || (v.base ? lab.tn === "critic" && lab.cf !== "lo" : lab.cx === "work"));
       labels[vi][wi][it.n] = lab;
     }
   }

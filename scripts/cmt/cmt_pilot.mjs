@@ -201,7 +201,9 @@ function applyThemes(works, out) {
       w.themes = (AI.parseJson(res.message).themes || []).slice(0, CFG.themeMax).map((t, i) => ({
         id: "T" + (i + 1), bucket: AI.BUCKETS[t.bucket] ? t.bucket : "talk", label: cut(t.label, 60), def: cut(t.def, 160),
         seed: [...new Set((t.refs || []).filter((n) => valid.has(n)))].slice(0, 5)
-      }));
+      })).map((t) => AI.rebucket(t, w.webtoon));
+      const moved = w.themes.filter((t) => t.moved).length;
+      if (moved) report.notes.push(`${w.title}: 서사·캐릭터${w.webtoon ? "·작화" : ""}가 아닌 불호 묶음 ${moved}개를 '많이 하는 말'로 옮김`);
     } catch (e) { report.notes.push(`1단계 해석 실패: ${w.title} ${e.message}`); }
   }
   return usd;

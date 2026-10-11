@@ -6,7 +6,11 @@
 // docs/data/epcounts/{id}.json — 숫자와 회차 이름만(댓글 원문·닉네임 없음):
 //   { v, at: 'YYYY-MM-DD' 마지막으로 센 날, full: 전 회차를 센 날, cc: 그때 작품 전체 댓글 수,
 //     c: [회차별 댓글 수 (답글 제외 — 카카오 total_count)], d: [공개일 'YYMMDD'], no: [화 번호, 없으면 null],
-//     x: { 순번: '외전 1화' … 화 번호가 없는 회차의 이름 }, f: [무료 회차 순번] }
+//     x: { 순번: '외전 1화' … 화 번호가 없는 회차의 이름 }, g: 같은 날 함께 공개된 회차 수(2 이상인 회차만 {순번: 수}),
+//     h1/h3/h7: [공개 후 24시간·72시간·7일 안에 달린 댓글 수] — '같은 시점 비교'용(요청서: 오래된 회차는 댓글이 오래 쌓여 유리하므로).
+//       작품 댓글을 처음부터 끝까지 넘기며 세는 작품(S)만 작성 시각으로 계산된다. 회차마다 따로 세는 큰 작품(E)은 없음.
+//       공개된 지 그 기간이 안 지난 회차는 null(아직 쌓이는 중). }
+//   '지금 무료' 같은 오늘 기준 상태는 저장하지 않는다(과거 회차 판정에 쓰면 틀림 — 요청서).
 //   순번은 읽는 순서(1화 쪽이 0). 작가 인사·내용 없는 댓글도 한 개로 센다(분석에서만 뺌).
 // docs/data/epcounts/state.json — 진행 기록(마지막 실행, 채운 작품 수, 남은 작품 수, 요청 수).
 //
@@ -38,8 +42,9 @@ const HEADERS = {
 const GAP_MS = 2000;
 const RECENT_DAYS = 60;        // 갱신 때 다시 세는 최근 회차 범위
 const FULL_EVERY_DAYS = 28;    // 전 회차 다시 세기 주기
-const S_MAX_COMMENTS = 50000;  // S(최신순 넘기기)는 댓글이 이만큼 이하이고 쪽수가 회차 수보다 적은 작품만 (최대 500쪽)
-const V = 1;
+const S_MAX_COMMENTS = 50000;
+const WINDOWS = [['h1', 1], ['h3', 3], ['h7', 7]];   // 공개 후 며칠 안에 달린 댓글을 셀지  // S(최신순 넘기기)는 댓글이 이만큼 이하이고 쪽수가 회차 수보다 적은 작품만 (최대 500쪽)
+const V = 2;   // 2: 공개 후 1·3·7일 댓글 수, 같은 날 공개 수, 오늘 기준 무료 표시 뺌
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const readJson = (f, fb) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return fb; } };
@@ -81,7 +86,7 @@ async function commentPage(params) {
   });
   if (j.result_code !== 0) throw new Error(`comment code ${j.result_code}`);
   // 닉네임·프로필 사진은 받는 즉시 버린다 — 회차 id와 댓글 번호만 남김
-  return { total: Number(j.total_count) || 0, end: !!j.is_end, list: (j.comment_list || []).map((c) => ({ uid: c.comment_uid, single: c.single_id })) };
+  return { total: Number(j.total_count) || 0, end: !!j.is_end, list: (j.comment_list || []).map((c) => ({ uid: c.comment_uid, single: c.single_id, at: c.create_dt || '' })) };
 }
 
 // 회차 목록(읽는 순서) — product/list는 최신부터 오므로 order_value로 정렬
@@ -110,19 +115,30 @@ export async function episodes(id) {
 // E: 회차 하나의 댓글 수
 const countOne = async (id, pid) => (await commentPage({ seriesid: String(id), singleid: pid, sort_opt: 'like', size: '1' })).total;
 
-// S: 작품 댓글을 최신순으로 끝까지 넘기며 회차별로 센다. 합이 작품 전체 수와 맞지 않으면 null.
-async function countBySeries(id, maxPages) {
+// S: 작품 댓글을 최신순으로 끝까지 넘기며 회차별로 센다. 작성 시각으로 공개 후 1·3·7일 안의 수도 센다.
+// rel: 회차 id → 공개 시각(ms). 합이 작품 전체 수와 맞지 않으면 null.
+const ms = (s) => { const t = Date.parse(String(s || '').replace(' ', 'T') + (/[zZ+]/.test(String(s)) ? '' : '+09:00')); return Number.isFinite(t) ? t : null; };
+async function countBySeries(id, maxPages, rel) {
   const by = new Map();
-  let last = null, total = null, seen = 0;
+  const win = Object.fromEntries(WINDOWS.map(([k]) => [k, new Map()]));
+  let last = null, total = null, seen = 0, oldest = Infinity;
   for (let p = 0; p < maxPages; p++) {
     const params = { seriesid: String(id), sort_opt: 'latest', size: '100' };
     if (last) params.last_comment_uid = String(last);
     const j = await commentPage(params);
     if (total == null) total = j.total;
-    for (const c of j.list) { seen++; if (c.single) by.set(String(c.single), (by.get(String(c.single)) || 0) + 1); }
+    for (const c of j.list) {
+      seen++;
+      if (!c.single) continue;
+      const k = String(c.single);
+      by.set(k, (by.get(k) || 0) + 1);
+      const r = rel.get(k), a = ms(c.at);
+      if (a != null && a < oldest) oldest = a;
+      if (r != null && a != null) for (const [w, days] of WINDOWS) if (a - r <= days * 86400e3) win[w].set(k, (win[w].get(k) || 0) + 1);
+    }
     if (!j.list.length || j.end) {
       const ok = Math.abs(seen - total) <= Math.max(2, total * 0.01);
-      return ok ? { by, total } : null;
+      return ok ? { by, total, win, oldest } : null;
     }
     last = j.list[j.list.length - 1].uid;
   }
@@ -149,9 +165,22 @@ async function countWork(w, old, full, today) {
   const counts = new Array(eps.length).fill(null);
   let method = 'E';
   const pages = Math.ceil((w.cc || 0) / 100);
-  if ((full || !old) && w.cc <= S_MAX_COMMENTS && pages + 1 < eps.length) {
-    const r = await countBySeries(w.id, pages + 20);
-    if (r) { eps.forEach((e, i) => { counts[i] = r.by.get(e.pid) || 0; }); method = 'S'; }
+  let win = null;
+  if (w.cc <= S_MAX_COMMENTS && pages + 1 < eps.length) {
+    const rel = new Map(eps.map((e) => [e.pid, ms(e.at)]));
+    const r = await countBySeries(w.id, pages + 20, rel);
+    if (r) {
+      eps.forEach((e, i) => { counts[i] = r.by.get(e.pid) || 0; });
+      method = 'S';
+      // 공개된 지 그 기간이 안 지난 회차는 아직 쌓이는 중 → null
+      const now = Date.now();
+      win = Object.fromEntries(WINDOWS.map(([k, days]) => [k, eps.map((e) => {
+        const t = ms(e.at);
+        // 댓글 기능이 생기기 전에 공개된 회차(작품의 가장 오래된 댓글보다 이른 회차)는 같은 시점 비교가 안 됨 → null
+        if (t == null || t < r.oldest - 86400e3) return null;
+        return now - t >= days * 86400e3 ? (r.win[k].get(e.pid) || 0) : null;
+      })]));
+    }
   }
   if (method === 'E') {
     for (let i = eps.length - 1; i >= 0; i--) {   // 최신 회차부터 — 끊기면 오른쪽(최근)이 먼저 채워진다
@@ -163,10 +192,13 @@ async function countWork(w, old, full, today) {
   }
   const x = {};
   const no = eps.map((e, i) => { const n = epNo(e.title); if (n == null) x[i] = episodeLabel(e.title, w.title) || e.title; return n; });
+  const d = eps.map((e) => ymd(e.at));
+  const sameDay = {};
+  d.forEach((day, i) => { const k = d.filter((y) => y === day).length; if (day && k > 1) sameDay[i] = k; });
   return {
-    v: V, at: today, full: full || !old ? today : old.full, cc: w.cc, m: method,
-    c: counts, d: eps.map((e) => ymd(e.at)), no, ...(Object.keys(x).length ? { x } : {}),
-    f: eps.map((e, i) => (e.free ? i : -1)).filter((i) => i >= 0),
+    v: V, at: today, full: method === 'S' || full || !old ? today : old.full, cc: w.cc, m: method,
+    c: counts, d, no, ...(Object.keys(x).length ? { x } : {}), ...(Object.keys(sameDay).length ? { g: sameDay } : {}),
+    ...(win || {}),
   };
 }
 
@@ -215,7 +247,9 @@ export async function run({ minutes = 290, stopUtc = null, ids = null, dry = fal
     if (old) {
       const slot = ids || (Number(w.id) + dayIdx) % 7 === 0;
       const dueFull = !old.full || daysBetween(old.full, today) >= FULL_EVERY_DAYS;
-      if (slot && (w.cc !== old.cc || dueFull)) refresh.push({ w, old, full: dueFull });
+      // 저장 형식이 바뀐 파일(옛 버전)은 요일과 상관없이 전부 다시 센다
+      if (old.v !== V) refresh.push({ w, old: null, full: true });
+      else if (slot && (w.cc !== old.cc || dueFull)) refresh.push({ w, old, full: dueFull });
     } else if (ids || !deep.has(w.id)) backfill.push(w);
   }
   const tier = (w) => (now.has(w.id) ? 0 : ever.has(w.id) ? 1 : 2);
