@@ -11,7 +11,11 @@
  * ⑥ 결과 파일: 숫자·표시·묶음만(댓글 원문 없음 — 근거는 댓글 번호와 댓글 uid). 이 달 AI 사용액은 state/ai_state.json 에 더한다.
  *
  *   node scripts/cmt/cmt_pilot.mjs --ids 56243215,66476840 --out cmt_pilot_out.json
- *        [--limit-usd 30] [--cap-usd 2] [--wait-min 100] [--needs auto|all|none] [--collect-only] [--summary FILE]
+ *        [--limit-usd 30] [--cap-usd 2] [--wait-min 100] [--needs auto|all|none] [--method new|old] [--collect-only] [--summary FILE]
+ *   --method new(기본, 2026-10-12 정답표 측정으로 고름): 1단계 새 묶음 규칙(B) + 2단계 카카오판(K, 생각량 low)
+ *     + 확신 '높음'이 아닌 불만 후보만 Sonnet 재확인. 불호 묶음엔 재확인까지 통과한 서사·캐릭터·(웹툰)작화 불만만.
+ *     (정답표 489개: '진짜 불만' 정밀도 SSS급 30%→89%, 잊혀진 들판 75%→98%, 놓침은 원래 수준 유지)
+ *   --method old: 1차 시범 방식 그대로.
  *   이어받기는 없다: 다시 돌리면 댓글을 새로 모아 표본이 바뀌므로, 지난 AI 결과를 붙이면 엉뚱한 댓글에 붙는다.
  *   돈: AI 일괄을 보내는 즉시 예상 비용을 이 달 사용액에 먼저 더하고, 결과를 받으면 실제 금액으로 맞춘다.
  *   CMT_MOCK=1 이면 AI 대신 가짜 답으로 끝까지 돌려 본다 (돈 안 듦, 시험용).
@@ -23,22 +27,26 @@ import { CFG } from "./cmt_config.mjs";
 import { isFiller } from "../lib/cmt-filter.mjs";
 import * as AI from "./cmt_ai.mjs";
 import { judge } from "./cmt_judge.mjs";
+import { episodeContext, episodeLine, versionLine, commentWhen } from "./cmt_ctx.mjs";
 import { createBatcher, costOf as rawCost } from "./batch.mjs";
 
 const STATE = "state/ai_state.json";   // 카카오 트래커 자기 장부 (리디·네이버와 따로)
-const HAIKU = { model: "claude-haiku-5-5", effort: "medium" };
+const HAIKU = { model: "claude-haiku-5-5", effort: "medium" };   // --method new 에선 low (아래)
 const SONNET = { model: "claude-sonnet-5-5", effort: "medium" };
-const EST_PER_COMMENT = 0.0001;   // 2단계: 댓글 1개당 예상(일괄, 여유 있게)
-const EST_THEME_WORK = 0.15;      // 1단계: 작품 1개당 예상(Sonnet 일괄)
-const EST_NEEDS_WORK = 0.15;      // 3단계: 작품 1개당 예상(Sonnet 일괄)
+const EST_RECHECK = 0.0025;       // 재확인: 후보 댓글 1개당 예상(Sonnet 일괄, 여유 있게)
+const RECHECK_CHUNK = 20;
+const EST_PER_COMMENT = 0.00006;  // 2단계: 댓글 1개당 예상(일괄, 여유 있게 — 실측 low $0.000036, medium $0.000039~0.000077)
+const EST_THEME_WORK = 0.12;      // 1단계: 작품 1개당 예상(Sonnet 일괄, 실측 $0.073)
+const EST_NEEDS_WORK = 0.1;       // 3단계: 작품 1개당 예상(Sonnet 일괄, 실측 $0.057)
 const MOCK = !!process.env.CMT_MOCK;
 
 // ---- 명령줄 ----
-const args = { ids: [], limitUsd: 30, capUsd: 2, waitMin: 100, needs: "auto", out: "cmt_pilot_out.json", collectOnly: false, summary: null };
+const args = { ids: [], limitUsd: 30, capUsd: 2, waitMin: 100, needs: "auto", method: "new", out: "cmt_pilot_out.json", collectOnly: false, summary: null };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i], v = () => process.argv[++i];
   if (k === "--ids") args.ids = v().split(",").map((s) => s.trim()).filter(Boolean);
   else if (k === "--needs") args.needs = v();
+  else if (k === "--method") args.method = v();
   else if (k === "--limit-usd") args.limitUsd = Number(v());
   else if (k === "--cap-usd") args.capUsd = Number(v());
   else if (k === "--wait-min") args.waitMin = Number(v());
@@ -50,6 +58,9 @@ for (let i = 2; i < process.argv.length; i++) {
 for (const k of ["limitUsd", "capUsd", "waitMin"]) if (!Number.isFinite(args[k]) || args[k] <= 0) throw new Error(`${k} 값이 숫자가 아닙니다`);
 if (!args.ids.length || args.ids.length > 3 || args.ids.some((x) => !/^\d{5,12}$/.test(x))) throw new Error("--ids 에 작품 번호 1~3개를 쉼표로 넣어 주세요");
 if (!["auto", "all", "none"].includes(args.needs)) throw new Error("--needs 는 auto(월간 상위 작품만)·all·none 중 하나");
+if (!["new", "old"].includes(args.method)) throw new Error("--method 는 new 또는 old");
+const NEW = args.method === "new";
+if (NEW) HAIKU.effort = "low";
 const T_START = Date.now();
 
 const HOUR = 3600e3;
@@ -96,6 +107,19 @@ function chooseEpisodes(num) {
 }
 
 // ---------------- ① 수집 ----------------
+// 같은 작품의 다른 판(원작 소설·웹툰판) — 트래커 works.json 의 sameWorkVersions (한 번만 읽음)
+let VERSIONS = null;
+function versionsOf(id) {
+  if (!VERSIONS) {
+    VERSIONS = new Map();
+    try {
+      const wj = JSON.parse(readFileSync("docs/data/works.json", "utf8"));
+      const all = Array.isArray(wj) ? wj : (wj.works || Object.values(wj));
+      for (const x of all) VERSIONS.set(String(x.workId || x.id), (x.sameWorkVersions || []).map((v) => ({ category: v.category, title: v.title })));
+    } catch { /* 없으면 사실 줄 없이 */ }
+  }
+  return VERSIONS.get(String(id)) || [];
+}
 async function collect(id) {
   const w = await fetchWork(id);
   // 제목에 'N화'가 거의 없는 작품(옛 e북식 제목 등)은 상품 순서를 화 번호로 쓴다
@@ -105,6 +129,8 @@ async function collect(id) {
   }
   if (w.truncated) report.notes.push(`${w.title}: 회차가 너무 많아 가장 오래된 회차 일부를 못 받음(초반 화가 실제 1화가 아닐 수 있음)`);
   const num = w.episodes.filter((e) => e.no != null);
+  w.ec = episodeContext(w.episodes);
+  w.versions = versionsOf(id);
   chooseEpisodes(num);
   log(`■ ${w.title} (${id}) — 회차 ${w.episodes.length}개, 분석 ${num.filter((e) => e.analyzed).length}화`);
   for (const e of num.filter((x) => x.analyzed)) {
@@ -158,7 +184,10 @@ function mockAnswer(customId, body) {
   // 불호 강제 시험: T4(불호)를 과몰입(char)·확신 낮음(lo)에도 붙여 본다 (프로그램이 빼야 함)
   if (customId.startsWith("h-")) return { comments: ns.map((n, i) => ({ n, th: [["T1"], ["T2"], ["T3", "T4"], ["T4"], [], ["T1", "T9"]][i % 6],
     tn: ["praise", "miss", "char", "critic", "other", "tease"][i % 6], nd: i % 3 ? [] : ["rom_progress"], st: i % 3 ? "none" : "met", nn: i % 7 ? "" : "수위·씬",
-    ac: ["none", "stay", "churn", "pay"][i % 4], cf: ["hi", "mid", "lo", "lo", "hi", "mid"][i % 6] })) };
+    ac: ["none", "stay", "churn", "pay"][i % 4], cf: ["hi", "mid", "lo", "lo", "hi", "mid"][i % 6],
+    // 새 방식(카카오판) 칸: 대상·측면 — T4(불호)에 붙은 critic 중 대상이 작중이면 코드가 빼야 함
+    tg: ["craft", "ops", "story", "craft", "other", "story"][i % 6], cw: ["art", "ops", "none", "repeat", "none", "none"][i % 6] })) };
+  if (customId.startsWith("r-")) return { items: ns.map((n, i) => ({ n, target: "craft", complaint: ["yes", "no", "border"][i % 3], kind: "work", aspect: "repeat" })) };
   return { needs: [{ axis: "romance", need: "관계 진전", state: "met", evidence: "가짜", size: "중", why: "가짜", refs: ns.slice(0, 3).concat([999999]) }] };
 }
 const clip = (t, n) => cut(t.trim().replace(/\s+/g, " "), n);
@@ -181,9 +210,41 @@ function themeText(w, perTop = CFG.themeTop, perRest = CFG.themeRest) {
   }
   return lines.join("\n");
 }
+// 새 방식 1단계 입력: 초반·중간·최근이 1/3씩(최근 10화에 쏠리지 않게), 원작 유무·휴재/복귀 같은 코드 사실을 붙인다
+function themeTextB(w) {
+  const lines = [`[작품] ${w.title} / ${w.webtoon ? "웹툰" : "웹소설"}${w.genre ? " / " + w.genre : ""}`];
+  const vl = versionLine(w);
+  if (vl) lines.push(`[작품 사실] ${vl}`);
+  lines.push(`[작품 소개] ${w.desc || "-"}`, "", "[댓글 표본] 초반·중간·최근 회차가 비슷한 양이 되게 고름(내용 없는 댓글 제외). 번호 [좋아요] 본문");
+  const per = CFG.synthMaxChars * 0.85 / 3;
+  for (const part of ["초반", "중간", "최근"]) {
+    const pe = w.episodes.filter((e) => e.analyzed && e.part === part);
+    for (const e of pe) {
+      const cs = w.sample.filter((c) => c.ep === e.id);
+      const top = cs.filter((c) => c.pick === "top"), rest = cs.filter((c) => c.pick !== "top");
+      const mixed = [];
+      for (let i = 0; i < Math.max(top.length, rest.length); i++) { if (top[i]) mixed.push(top[i]); if (rest[i]) mixed.push(rest[i]); }
+      const ecl = episodeLine(w.ec && w.ec.get(String(e.id)));
+      lines.push(`== ${e.no}화 [${part}] (${String(e.reg).slice(0, 10)})${ecl ? " · " + ecl : ""} ==`);
+      let used = 0;
+      for (const c of mixed) {
+        const l = `#${c.n} [${c.like}] ${clip(c.text, CFG.themeTextMax)}`;
+        if (used + l.length > per / pe.length) break;
+        lines.push(l);
+        used += l.length + 1;
+      }
+    }
+  }
+  return lines.join("\n");
+}
 function themeRequests(works) {
   return works.map((w, wi) => {
     if (!w.sample.length) { report.notes.push(`${w.title}: 분석할 댓글이 없어 건너뜀`); return null; }
+    if (NEW) {
+      const t = themeTextB(w);
+      log(`  1단계 자료: ${w.title} ${t.length.toLocaleString()}자 (새 묶음 규칙)`);
+      return { custom_id: `t-${wi}`, params: AI.buildThemeParamsK(SONNET, t) };
+    }
     let top = CFG.themeTop, rest = CFG.themeRest, t = themeText(w, top, rest);
     while (t.length > CFG.synthMaxChars && top + rest > 12) { top = Math.ceil(top * 0.8); rest = Math.floor(rest * 0.8); t = themeText(w, top, rest); }
     log(`  1단계 자료: ${w.title} ${t.length.toLocaleString()}자`);
@@ -218,7 +279,10 @@ function classifyRequests(works) {
     for (const e of w.episodes.filter((x) => x.analyzed)) {
       const cs = w.sample.filter((c) => c.ep === e.id);
       for (let k = 0; k < cs.length; k += CFG.chunk) {
-        reqs.push({ custom_id: `h-${wi}-${e.id}-${k / CFG.chunk}`, params: AI.buildClassifyParams(HAIKU, wb, e, cs.slice(k, k + CFG.chunk), CFG.textMax, w.themes) });
+        const part = cs.slice(k, k + CFG.chunk);
+        reqs.push({ custom_id: `h-${wi}-${e.id}-${k / CFG.chunk}`, params: NEW
+          ? AI.buildClassifyParamsK(HAIKU, { ...wb, genre: w.genre }, e, part, CFG.textMax, w.themes, {})
+          : AI.buildClassifyParams(HAIKU, wb, e, part, CFG.textMax, w.themes) });
       }
     }
   });
@@ -239,18 +303,63 @@ function applyLabels(works, out) {
       if (!c) continue;
       const b = { th: [...new Set((it.th || []).map((x) => String(x).trim().toUpperCase()).filter((x) => themeOf.has(x)))].slice(0, 2),
         tn: it.tn, nd: [...new Set(it.nd || [])].slice(0, 3), st: it.st, nn: cut(it.nn, 20), ac: it.ac, cf: it.cf };
+      if (NEW) { b.tg = it.tg; b.cw = it.cw; b.cx = AI.complaintOf(b); }
       // 속뜻과 맞추기: 과몰입·애정 투정·연재 아쉬움엔 이탈 신호 없음, 연재 아쉬움엔 서사 니즈 없음
       if (["char", "tease", "miss", "nudge"].includes(b.tn) && b.ac === "churn") b.ac = "none";
       if (b.tn === "miss") b.nd = [];
       if (!b.nd.length && !b.nn) b.st = "none";
       // '불호' 묶음엔 확신 있는 진짜 작품 불만(critic)만 — 겉말 불평이 불호로 세지지 않게
       const before = b.th.length;
-      b.th = b.th.filter((id) => themeOf.get(id).bucket !== "dislike" || (b.tn === "critic" && b.cf !== "lo"));
+      // 새 방식: 서사·캐릭터·(웹툰)작화 불만(cx=work)만 — 확신 높음이 아니면 재확인 뒤 다시 거른다(applyRecheck)
+      b.th = b.th.filter((id) => themeOf.get(id).bucket !== "dislike" || (NEW ? b.cx === "work" : b.tn === "critic" && b.cf !== "lo"));
       if (b.th.length < before) report.dropped++;
       c.lab = b;
     }
   }
   return { usd, failed };
+}
+
+// ---------------- ④-2 재확인 (새 방식) ----------------
+// 확신 '높음'이 아닌 critic만 Sonnet이 다시 판정 → 최종 불만 lab.fc = work(불호 후보)/ops/price/text, 아니면 null
+function recheckRequests(works) {
+  const reqs = [];
+  works.forEach((w, wi) => {
+    const q = (w.sample || []).filter((c) => c.lab && c.lab.tn === "critic" && c.lab.cf !== "hi");
+    for (let k = 0; k < q.length; k += RECHECK_CHUNK) {
+      const items = q.slice(k, k + RECHECK_CHUNK).map((c) => {
+        const e = w.episodes.find((x) => x.id === c.ep), ec = w.ec && w.ec.get(String(c.ep));
+        return { n: c.n, no: c.no, like: c.like, text: c.text, epLine: episodeLine(ec), when: e ? commentWhen(c.at, e, ec) : "" };
+      });
+      reqs.push({ custom_id: `r-${wi}-${k / RECHECK_CHUNK}`, params: AI.buildRecheckParams(SONNET, { title: w.title, webtoon: w.webtoon, genre: w.genre, desc: w.desc }, items, CFG.textMax, versionLine(w)) });
+    }
+  });
+  return reqs;
+}
+function applyRecheck(works, out) {
+  let usd = 0;
+  for (const [cid, res] of out) {
+    const w = works[Number(cid.split("-")[1])];
+    if (!w || res.type !== "succeeded") { report.notes.push(`재확인 실패 ${cid}`); continue; }
+    usd += costOf(SONNET.model, res.message.usage || {});
+    let parsed; try { parsed = AI.parseJson(res.message); } catch { report.notes.push(`재확인 해석 실패 ${cid}`); continue; }
+    const byN = new Map(w.sample.map((c) => [c.n, c]));
+    for (const it of parsed.items || []) { const c = byN.get(it.n); if (c && c.lab) c.lab.rc = it.complaint, c.lab.rk = it.kind; }
+  }
+  return usd;
+}
+// 최종 불만과 불호 묶음 정리: 확신 높음은 그대로, 나머지는 재확인이 '불만'이라 한 것만
+function finalizeComplaints(w) {
+  const themeOf = new Map((w.themes || []).map((t) => [t.id, t]));
+  for (const c of w.sample || []) {
+    const b = c.lab;
+    if (!b) continue;
+    let fc = null;
+    if (["work", "ops", "price", "text"].includes(b.cx)) fc = b.cf === "hi" ? b.cx : b.rc === "yes" ? (["work", "ops", "price"].includes(b.rk) ? b.rk : b.cx) : null;
+    b.fc = fc;
+    const before = b.th.length;
+    b.th = b.th.filter((id) => themeOf.get(id).bucket !== "dislike" || fc === "work");
+    if (b.th.length < before) report.dropped++;
+  }
 }
 
 // 묶음별 개수·좋아요·회차 (분석한 댓글 안에서 센다)
@@ -328,7 +437,7 @@ function applyNeeds(works, out) {
 const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, "utf8")) : {};
 state.spend ||= {};
 const report = { version: 1, platform: "kakaopage", generated_at: new Date().toISOString(), cfg: CFG, models: { haiku: HAIKU, sonnet: SONNET },
-  cost: { theme: 0, haiku: 0, needs: 0 }, batches: {}, notes: [], dropped: 0, scrubbed: 0 };
+  method: args.method, cost: { theme: 0, haiku: 0, recheck: 0, needs: 0 }, batches: {}, notes: [], dropped: 0, scrubbed: 0 };
 let works = [];
 // 공개되는 결과에 댓글 원문이 그대로 실리지 않게: AI가 쓴 글이 어떤 댓글과 공백 빼고 12자 넘게 겹치면 가린다
 const GRAM = 12;
@@ -404,6 +513,15 @@ try {
     if (a.failed) report.notes.push(`2단계 실패한 묶음 ${a.failed}개`);
     return a.usd;
   });
+  if (NEW) {
+    const rreqs = recheckRequests(works);
+    if (rreqs.length) {
+      const nq = works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab && c.lab.tn === "critic" && c.lab.cf !== "hi").length, 0);
+      if (!MOCK) recheck(nq * EST_RECHECK + nNeeds * EST_NEEDS_WORK, "재확인");
+      await stage("2-2단계(Sonnet) 불만 후보 재확인", rreqs, nq * EST_RECHECK, "recheck", (out) => applyRecheck(works, out));
+    }
+    for (const w of works) finalizeComplaints(w);
+  }
   for (const w of works) { judge(w); themeStats(w); }
   save();
 
@@ -418,12 +536,14 @@ try {
   process.exitCode = 1;
 } finally {
   save();
-  const usd = report.cost.theme + report.cost.haiku + report.cost.needs;
+  const usd = report.cost.theme + report.cost.haiku + (report.cost.recheck || 0) + report.cost.needs;
   const lines = [`## 카카오 회차 댓글 분석 시범 (반복 반응)`, `- 작품: ${works.map((w) => w.title).join(", ")}`, `- 카카오 요청 ${K.requests}번`,
     `- 표시한 댓글 ${works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab).length, 0)}개, 반복 반응 묶음 ${works.map((w) => (w.themes || []).length).join("·")}개`,
     `- '불호' 묶음에서 뺀 겉말 불평 ${report.dropped}개, 원문과 겹쳐 가린 글 ${report.scrubbed || 0}개`,
     `- 니즈 맵: ${report.needs && report.needs.works.length ? report.needs.works.map((x) => x.title + (x.rank ? `(${x.rank})` : "")).join(", ") : `만들지 않음 (월간 웹툰·웹소설 1~${CFG.needsTopRank}위 작품만)`}`,
-    `- AI 비용 $${usd.toFixed(3)} (묶음 찾기 $${report.cost.theme.toFixed(3)} + 표시 $${report.cost.haiku.toFixed(3)} + 니즈 맵 $${report.cost.needs.toFixed(3)}) / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
+    `- 방식: ${args.method}${NEW ? ' (새 묶음 규칙 + 카카오판 표시 + 불만 재확인)' : ''}`,
+    ...(NEW ? [`- 최종 불만: ${['work', 'ops', 'price', 'text'].map((k) => `${{ work: '불호 후보(서사·캐릭터·작화)', ops: '운영', price: '가격', text: '문장·오탈자' }[k]} ${works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab && c.lab.fc === k).length, 0)}`).join(' · ')}`] : []),
+    `- AI 비용 $${usd.toFixed(3)} (묶음 찾기 $${report.cost.theme.toFixed(3)} + 표시 $${report.cost.haiku.toFixed(3)} + 재확인 $${(report.cost.recheck || 0).toFixed(3)} + 니즈 맵 $${report.cost.needs.toFixed(3)}) / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
     ...report.notes.map((n) => "- " + n), ...(report.error ? ["- 오류: " + report.error] : [])];
   log(lines.join("\n"));
   if (args.summary) appendFileSync(args.summary, lines.join("\n") + "\n");

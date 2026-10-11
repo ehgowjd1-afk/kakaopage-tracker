@@ -24,7 +24,8 @@ export function judge(w) {
       if (needs[d][c.lab.st] != null) needs[d][c.lab.st]++;
     }
     const by = (key) => cs.reduce((o, c) => (c.lab[key] != null && (o[c.lab[key]] = (o[c.lab[key]] || 0) + 1), o), {});
-    const critic = (c) => (c.lab.tn ? c.lab.tn === "critic" : c.lab.ty === "complain");
+    // 새 방식(--method new): 재확인까지 거친 최종 불만(fc)만 센다 — 운영·가격·문장 불만도 포함(논쟁·불만 비율용)
+    const critic = (c) => (c.lab.fc !== undefined ? c.lab.fc != null : c.lab.tn ? c.lab.tn === "critic" : c.lab.ty === "complain");
     e.ai = { n: cs.length, ty: by("ty"), tn: by("tn"), ax: by("ax"), ev: by("ev"), needs,
       critic: cnt(critic),
       churn: cnt((c) => c.lab.ac === "churn" && c.lab.tn !== "tease"), pay: cnt((c) => c.lab.ac === "pay"), stay: cnt((c) => c.lab.ac === "stay"), share: cnt((c) => c.lab.ac === "share"),
