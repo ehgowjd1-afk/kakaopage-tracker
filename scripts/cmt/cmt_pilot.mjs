@@ -20,6 +20,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } fr
 import { fetchWork, fetchEpisodeComments, KakaoBlocked, cut } from "./kakao_cmt.mjs";
 import * as K from "./kakao_cmt.mjs";
 import { CFG } from "./cmt_config.mjs";
+import { isFiller } from "../lib/cmt-filter.mjs";
 import * as AI from "./cmt_ai.mjs";
 import { judge } from "./cmt_judge.mjs";
 import { createBatcher, costOf as rawCost } from "./batch.mjs";
@@ -124,7 +125,8 @@ function pickSample(w) {
   let n = 0;
   w.sample = [];
   for (const e of w.episodes.filter((x) => x.analyzed)) {
-    const ok = (c) => c.text.trim();
+    // 내용 없는 댓글('웅장', '수고하셨습니다', '1등' …)은 분석 표본에서 뺀다 — 회차 댓글 수(total)에는 그대로 들어 있음
+    const ok = (c) => c.text.trim() && !isFiller(c.text);
     const byLike = [...e._like.filter(ok)].sort((a, b) => b.like - a.like || String(a.cid).localeCompare(String(b.cid)));
     const top = byLike.slice(0, CFG.topLiked).map((c) => ({ ...c, pick: "top" }));
     const topIds = new Set(top.map((c) => c.cid));

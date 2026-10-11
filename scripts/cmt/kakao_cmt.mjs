@@ -70,8 +70,8 @@ export function epNo(title) {
   return null;
 }
 
-// 작가 본인뿐 아니라 그림·각색 작가·출판사도 다른 닉네임으로 인사를 남긴다 — collect-comments.mjs 와 같은 기준
-const AUTHOR_NOTE = /작가입니다|글쓴이\s?\S{1,12}입니다|(작화|각색|글|그림|채색|콘티|선화)\s?(파트|부분)?[을를]?\s?(담당|맡)|맡은\s?\S{1,12}입니다|출간한\s?\S{1,20}입니다|출판사입니다|편집(부|자)입니다|(미디어|출판|스튜디오|에이전시|엔터|컴퍼니|담당자)\S{0,3}입니다/;
+// 작가 본인뿐 아니라 그림·각색 작가·출판사도 다른 닉네임으로 인사를 남긴다 — collect-comments.mjs 와 같은 기준(lib/cmt-filter.mjs)
+import { AUTHOR_NOTE } from '../lib/cmt-filter.mjs';
 // 카카오는 이모티콘을 본문에 '(이모티콘)' 자리표시로 남긴다 — 빼고, 이모티콘만 단 댓글은 빈 글이 되어 표본에서 빠진다
 const clean = (s) => String(s || '').replace(/\(이모티콘\)/g, ' ').replace(/\s+/g, ' ').trim();
 
