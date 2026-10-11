@@ -10,7 +10,9 @@
  * ⑤ docs/data/epai/{id}.json + index.json — 요약·분석 글, 예시 베스트 댓글 2~3개(원문 150자까지, 사용자 결정), 숫자.
  *    닉네임은 받지 않는다. 이 달 AI 사용액은 state/ai_state.json에 더한다(카카오 월 한도 $30).
  *
- *   node scripts/cmt/ep_ai.mjs --top 20 --scope sample [--ids 1,2] [--cap-usd 5] [--limit-usd 30] [--wait-min 100] [--summary FILE]
+ *   node scripts/cmt/ep_ai.mjs --top 20 --scope sample [--ids 1,2] [--cap-usd 5] [--limit-usd 30] [--wait-min 100] [--stop-utc HH:MM] [--refresh] [--summary FILE]
+ *   이미 요약한 회차는 그대로 두고(다시 받지 않음) 새 회차만 더한다 — --refresh 면 다시 요약.
+ *   --stop-utc: 이 시각(UTC)이 되면 댓글 받기를 멈추고 그때까지 받은 회차만 요약한다(나머지는 다음 실행에서 이어서).
  *   CMT_MOCK=1 이면 AI 대신 가짜 답.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from "node:fs";
@@ -29,7 +31,7 @@ const EST_EP = 0.0006, EST_WORK = 0.06;   // 예상(일괄, 여유 있게)
 const TOP_N = 30, TEXT_MAX = 200, EX_MAX = 150;
 const MOCK = !!process.env.CMT_MOCK;
 
-const args = { top: 20, ids: null, scope: "sample", capUsd: 5, limitUsd: 30, waitMin: 100, summary: null };
+const args = { top: 20, ids: null, scope: "sample", capUsd: 5, limitUsd: 30, waitMin: 100, stopUtc: null, refresh: false, summary: null };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i], v = () => process.argv[++i];
   if (k === "--top") args.top = Number(v());
@@ -39,12 +41,21 @@ for (let i = 2; i < process.argv.length; i++) {
   else if (k === "--limit-usd") args.limitUsd = Number(v());
   else if (k === "--wait-min") args.waitMin = Number(v());
   else if (k === "--summary") args.summary = v();
+  else if (k === "--stop-utc") args.stopUtc = v();
+  else if (k === "--refresh") args.refresh = true;
   else throw new Error("모르는 옵션: " + k);
 }
 if (!["sample", "all"].includes(args.scope)) throw new Error("--scope 는 sample 또는 all");
 if (args.ids && args.ids.some((x) => !/^\d{5,12}$/.test(x))) throw new Error("--ids 는 작품 번호");
 for (const k of ["top", "capUsd", "limitUsd", "waitMin"]) if (!Number.isFinite(args[k]) || args[k] <= 0) throw new Error(`${k} 값이 숫자가 아닙니다`);
-const T_START = Date.now();
+if (args.stopUtc && !/^\d{1,2}:\d{2}$/.test(args.stopUtc)) throw new Error("--stop-utc 는 HH:MM");
+let STOP_AT = Infinity;
+if (args.stopUtc) {
+  const [h, m] = args.stopUtc.split(":").map(Number);
+  const d = new Date(); d.setUTCHours(h, m, 0, 0);
+  if (d.getTime() < Date.now()) d.setUTCDate(d.getUTCDate() + 1);
+  STOP_AT = d.getTime();
+}
 const MONTH = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 7);
 const TODAY = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
 const log = (...a) => console.log(...a);
@@ -53,12 +64,14 @@ const med = (a) => { const s = [...a].sort((x, y) => x - y); return s.length ? s
 
 // ---------------- 대상 작품 ----------------
 function targets() {
-  if (args.ids) return args.ids.map((id) => ({ id, rank: null }));
-  const out = [];
+  const out = [], rankOf = new Map();
   for (const [dir, name] of [["webtoon", "웹툰"], ["webnovel", "웹소설"]]) {
-    for (const x of readJson(`docs/data/${dir}/monthly/latest.json`, [])) if (x.rank <= args.top) out.push({ id: String(x.workId), rank: `${name} 월간 ${x.rank}위` });
+    for (const x of readJson(`docs/data/${dir}/monthly/latest.json`, [])) {
+      if (!rankOf.has(String(x.workId))) rankOf.set(String(x.workId), `${name} 월간 ${x.rank}위`);
+      if (!args.ids && x.rank <= args.top) out.push({ id: String(x.workId), rank: `${name} 월간 ${x.rank}위` });
+    }
   }
-  return out;
+  return args.ids ? args.ids.map((id) => ({ id, rank: rankOf.get(id) || null })) : out;
 }
 
 // 회차별 댓글 수: 반응 표(comments/ep) → 없으면 epcounts. 화 번호 → 댓글 수
@@ -75,7 +88,6 @@ function knownCounts(id) {
 
 function chooseEpisodes(eps, counts) {
   const num = eps.filter((e) => e.no != null);
-  if (args.scope === "all") return num;
   const pick = new Map();
   const add = (e, why) => { if (e && !pick.has(e.id)) pick.set(e.id, { ...e, why }); };
   num.slice(0, 3).forEach((e) => add(e, "초반"));
@@ -93,6 +105,7 @@ function chooseEpisodes(eps, counts) {
   spikes.sort((a, b) => b.r - a.r).slice(0, 5).forEach(({ e, r }) => add({ ...e, ratio: Math.round(r * 10) / 10 }, "화제"));
   drops.sort((a, b) => a.r - b.r).slice(0, 3).forEach(({ e }) => add(e, "급감"));
   num.slice(-10).forEach((e) => add(e, "최근"));
+  if (args.scope === "all") return num.map((e) => pick.get(e.id) || e);
   return [...pick.values()].sort((a, b) => a.no - b.no);
 }
 
@@ -129,17 +142,24 @@ function mockAnswer(cid) {
   return { work: { overview: "가짜 개요", strengths: [{ point: "가짜 강점", eps: ["1화"] }], weaknesses: [], turning: [{ point: "가짜 전환점", eps: ["2화"] }], drops: [] },
     reader: { traits: [{ point: "가짜 특징", eps: ["1화"] }], live: "가짜", source: "가짜", money: "가짜", community: "가짜" } };
 }
-const { stage } = createBatcher({ mock: MOCK, mockAnswer, waitMin: args.waitMin, tStart: T_START, charge, report, log });
+let stage = null;
 const costOf = (model, u) => (MOCK ? 0 : rawCost(model, u));
 
 const works = [];
 const lines = [];
+let stoppedAt = null;
 try {
   for (const t of targets()) {
+    if (Date.now() > STOP_AT) { stoppedAt ||= t.id; break; }
     const w = await fetchWork(t.id);
     const counts = knownCounts(t.id);
+    const old = args.refresh ? null : readJson(path.join(OUT, `${t.id}.json`), null);
     const eps = chooseEpisodes(w.episodes, counts).map((e) => ({ ...e, label: `${e.no}화`, total: counts.get(e.no) ?? null }));
     for (const e of eps) {
+      // 이미 요약한 회차는 그대로 쓴다 (댓글을 다시 받지 않음)
+      const prev = old && old.eps && old.eps[e.label];
+      if (prev && prev.s) { e.keep = prev; e.top = []; continue; }
+      if (Date.now() > STOP_AT) { e.top = []; e.skipped = true; stoppedAt ||= t.id; continue; }
       try {
         const r = await fetchTopLiked(t.id, e.id, TOP_N + 10, w.authors);
         e.total ??= r.total;
@@ -155,6 +175,8 @@ try {
     log(`■ ${w.title}${t.rank ? ` (${t.rank})` : ""} — 회차 ${eps.length}개 (${[...new Set(eps.map((e) => e.why).filter(Boolean))].join("·") || "전체"})`);
   }
   const nEp = works.reduce((t, w) => t + w.eps.filter((e) => e.top.length >= 3).length, 0);
+  if (stoppedAt) report.notes.push(`--stop-utc ${args.stopUtc} 에 댓글 받기를 멈춤 — 남은 회차는 다음 실행에서 이어서`);
+  ({ stage } = createBatcher({ mock: MOCK, mockAnswer, waitMin: args.waitMin, tStart: Date.now(), charge, report, log }));
   const est = nEp * EST_EP + works.length * EST_WORK;
   const spent0 = state.spend[MONTH] || 0;
   log(`작품 ${works.length}개, 회차 ${nEp}개, 카카오 요청 ${K.requests}번 — 예상 $${est.toFixed(2)} (상한 $${args.capUsd}) / 이 달 사용 $${spent0.toFixed(2)} (한도 $${args.limitUsd})`);
@@ -167,7 +189,7 @@ try {
     if (e.top.length < 3) return;
     reqs.push({ custom_id: `e${wi}-${ei}`, params: P.buildEpParams(HAIKU, { title: w.title, webtoon: w.webtoon, genre: w.genre, desc: w.desc }, e, e.top, TEXT_MAX) });
   }));
-  await stage("1단계(Haiku) 회차 요약", reqs, nEp * EST_EP, "ep", (out) => {
+  if (reqs.length) await stage("1단계(Haiku) 회차 요약", reqs, nEp * EST_EP, "ep", (out) => {
     let usd = 0;
     for (const [cid, res] of out) {
       const [wi, ei] = cid.slice(1).split("-").map(Number);
@@ -185,13 +207,23 @@ try {
   });
 
   // ④ 작품·독자 분석
+  for (const w of works) for (const e of w.eps) if (!e.ai && e.keep) e.ai = { s: e.keep.s, r: e.keep.r, m: e.keep.m || [], h: e.keep.h || "", ex: e.keep.ex || [] };
+  const MAX_LINES = 450;
   const wreqs = works.map((w, wi) => {
-    const done = w.eps.filter((e) => e.ai);
+    let done = w.eps.filter((e) => e.ai);
     if (!done.length) return null;
-    w.stats = readerStats(w.eps);
+    if (done.length > MAX_LINES) {
+      const tagged = done.filter((e) => e.why), rest = done.filter((e) => !e.why);
+      const step = rest.length / Math.max(1, MAX_LINES - tagged.length);
+      const spaced = rest.filter((_, i) => Math.floor(i / step) !== Math.floor((i - 1) / step));
+      done = [...tagged, ...spaced].sort((a, b) => a.no - b.no);
+    }
+    const fresh = readerStats(w.eps);
+    const oldStats = (readJson(path.join(OUT, `${w.id}.json`), {}) || {}).stats;
+    w.stats = fresh.n >= ((oldStats && oldStats.n) || 0) ? fresh : oldStats;
     const text = [`[작품] ${w.title} / ${w.webtoon ? "웹툰" : "웹소설"}${w.genre ? " / " + w.genre : ""}${w.rank ? ` / ${w.rank}` : ""}`, `[작품 소개] ${w.desc || "-"}`,
       `[독자 통계] 회차마다 공감 상위 댓글 ${w.stats.n}개 기준: 공개 하루 안에 단 댓글 ${w.stats.livePct}%, 공개 1년 뒤 단 댓글 ${w.stats.latePct}%, 스포일러 표시 ${w.stats.spoilerPct}%, 댓글당 답글 평균 ${w.stats.replyAvg}개, 결제·소장 언급 ${w.stats.payMentions}개, 하차 언급 ${w.stats.dropMentions}개`,
-      `[전체 회차] ${w.episodes.length}개`, "", "[회차별] 회차 (공개일 · 댓글 수 · 고른 이유) 내용 / 반응 / 분위기"];
+      `[전체 회차] ${w.episodes.length}개 (아래는 그중 요약이 있는 ${done.length}개)`, "", "[회차별] 회차 (공개일 · 댓글 수 · 고른 이유) 내용 / 반응 / 분위기"];
     for (const e of done) text.push(`${e.label} (${String(e.reg).slice(0, 10)} · ${e.total ?? "-"}개${e.ratio ? ` · 앞뒤의 ${e.ratio}배` : ""} · ${e.why || ""}) ${e.ai.s} / ${e.ai.r} / ${e.ai.m.map((m) => P.MOODS[m]).join(",")}${e.ai.h ? " / 화제: " + e.ai.h : ""}`);
     return { custom_id: `w${wi}`, params: P.buildWorkParams(SONNET, text.join("\n")) };
   }).filter(Boolean);
@@ -220,18 +252,21 @@ try {
   const index = readJson(path.join(OUT, "index.json"), { ids: {} });
   let saved = 0;
   for (const w of works) {
+    for (const e of w.eps) if (!e.ai && e.keep) e.ai = { s: e.keep.s, r: e.keep.r, m: e.keep.m || [], h: e.keep.h || "", ex: e.keep.ex || [] };
     const eps = w.eps.filter((e) => e.ai);
     if (!eps.length) continue;
+    const old = readJson(path.join(OUT, `${w.id}.json`), null) || {};
     writeFileSync(path.join(OUT, `${w.id}.json`), JSON.stringify({
-      v: 1, at: TODAY, scope: args.scope, rank: w.rank, model: { ep: HAIKU.model, work: SONNET.model },
+      v: 1, at: TODAY, scope: args.scope, rank: w.rank || old.rank || null, model: { ep: HAIKU.model, work: SONNET.model },
       eps: Object.fromEntries(eps.map((e) => [e.label, { at: String(e.reg).slice(0, 10), n: e.total, why: e.why || "", ...e.ai }])),
-      stats: w.stats || null, work: w.analysis ? w.analysis.work : null, reader: w.analysis ? w.analysis.reader : null,
+      stats: w.stats || old.stats || null, work: w.analysis ? w.analysis.work : old.work || null, reader: w.analysis ? w.analysis.reader : old.reader || null,
     }));
     index.ids[w.id] = TODAY;
     saved++;
   }
   writeFileSync(path.join(OUT, "index.json"), JSON.stringify(index));
-  lines.push(`## 회차 요약·작품 분석 (AI)`, `- 작품 ${works.length}개 중 저장 ${saved}개, 회차 요약 ${works.reduce((t, w) => t + w.eps.filter((e) => e.ai).length, 0)}개, 작품 분석 ${works.filter((w) => w.analysis).length}개`,
+  lines.push(`## 회차 요약·작품 분석 (AI)`, `- 작품 ${works.length}개 중 저장 ${saved}개, 회차 요약 ${works.reduce((t, w) => t + w.eps.filter((e) => e.ai).length, 0)}개(이번에 새로 ${works.reduce((t, w) => t + w.eps.filter((e) => e.ai && !e.keep).length, 0)}개), 작품 분석 ${works.filter((w) => w.analysis).length}개`,
+    `- 아직 못 받은 회차 ${works.reduce((t, w) => t + w.eps.filter((e) => e.skipped).length, 0)}개${stoppedAt ? " (시간이 되어 멈춤 — 다음 실행에서 이어서)" : ""}`,
     `- 카카오 요청 ${K.requests}번`, `- AI 비용 회차 $${(report.cost.ep || 0).toFixed(3)} + 작품 $${(report.cost.work || 0).toFixed(3)} / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
     ...report.notes.slice(0, 20).map((n) => "- " + n), ...(report.error ? ["- 오류: " + report.error] : []));
   log(lines.join("\n"));

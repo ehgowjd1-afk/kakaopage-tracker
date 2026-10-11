@@ -22,6 +22,10 @@ on:
         description: "작품 번호를 직접 지정(쉼표, 비우면 순위 상위 N)"
         type: string
         default: ""
+      stop_utc:
+        description: "댓글 받기를 멈출 시각(UTC, 비우면 끝까지) — 예) 15:50 = 00:50 KST, 새벽 회차 수 작업과 안 겹치게"
+        type: string
+        default: ""
       cap_usd:
         description: "이번 실행 비용 상한(달러)"
         type: string
@@ -62,9 +66,11 @@ jobs:
           SCOPE: ${{ inputs.scope }}
           IDS: ${{ inputs.ids }}
           CAP_USD: ${{ inputs.cap_usd }}
+          STOP_UTC: ${{ inputs.stop_utc }}
         run: |
-          set -- --top "$TOP" --scope "$SCOPE" --cap-usd "$CAP_USD" --limit-usd 30 --wait-min 100 --summary "$GITHUB_STEP_SUMMARY"
+          set -- --top "$TOP" --scope "$SCOPE" --cap-usd "$CAP_USD" --limit-usd 30 --wait-min 120 --summary "$GITHUB_STEP_SUMMARY"
           if [ -n "$IDS" ]; then set -- "$@" --ids "$IDS"; fi
+          if [ -n "$STOP_UTC" ]; then set -- "$@" --stop-utc "$STOP_UTC"; fi
           node scripts/cmt/ep_ai.mjs "$@"
 
       - name: 저장(커밋)
