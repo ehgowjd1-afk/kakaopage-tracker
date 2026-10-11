@@ -1,5 +1,21 @@
 [
   {
+    "date": "2026-10-11",
+    "workId": "70825900",
+    "title": "몬스터 컴퍼니 타이쿤",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFlO6I/dJMcaamAX6D/bA6pQ9fABRTkNy71BZrGU1&filename=th3"
+  },
+  {
+    "date": "2026-10-11",
+    "workId": "70167163",
+    "title": "세종대왕이 퇴직금을 안 준다",
+    "category": "웹소설",
+    "subCategory": "판타지",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bRQTg7/dJMcairur8z/EXV2CaQprDqMzEp8L36jrk&filename=th3"
+  },
+  {
     "date": "2026-10-10",
     "workId": "70229719",
     "title": "라면 한 그릇에 종결템 받아옴",
@@ -822,37 +838,5 @@
     "category": "웹소설",
     "subCategory": "무협",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkQzEK/dJMcaix0Qx7/WpKGrPgDKCu7wXpw0pGtE0&filename=th3"
-  },
-  {
-    "date": "2026-09-10",
-    "workId": "70463695",
-    "title": "황제의 그림자",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dF9HZA/dJMb998KQkT/jRKaeSlwrO92faeHAk3ss1&filename=th3"
-  },
-  {
-    "date": "2026-09-10",
-    "workId": "70397358",
-    "title": "깨알 부부",
-    "category": "웹소설",
-    "subCategory": "로맨스",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=U3HbQ/dJMb998HFAB/q54cTHIXLT6lcZbi9Spma1&filename=th3"
-  },
-  {
-    "date": "2026-09-10",
-    "workId": "69199641",
-    "title": "EX급 메테오가 던전을 박살냄",
-    "category": "웹소설",
-    "subCategory": "판타지",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cWRZuJ/dJMcafgXlZz/rmElKZBReXKV1yT8WQTME0&filename=th3"
-  },
-  {
-    "date": "2026-09-10",
-    "workId": "70447166",
-    "title": "노예 남주를 길들여 버렸다",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cbGCU3/dJMcagz3Ih1/LtVYkcjHGGzDawBNfYbFqK&filename=th3"
   }
 ]
