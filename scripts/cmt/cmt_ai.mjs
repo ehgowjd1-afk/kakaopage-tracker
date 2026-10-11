@@ -194,6 +194,151 @@ export function buildClassifyParams(cfg, work, ep, comments, textMax, themes) {
   return req;
 }
 
+// ---------------- 2단계 카카오판 (정밀도 개선 시험, 2026-10-11) ----------------
+// 1차 시범 검토(검토자 4명): '진짜 불만'으로 본 것 중 SSS급 44~46%, 잊혀진 들판 73~77%만 진짜였다.
+// 오판 60개 중 35개가 '대상 혼동'(작중 인물·선악 논쟁을 작품 비판으로), 나머지는 인용·설정 질문·독자 반박·칭찬 오독.
+// 그래서: ① 무엇을 향한 말인지(tg)·무엇에 대한 것인지(cw)를 속뜻보다 먼저 적게 하고, 진짜 불만 판정은 코드가 한다
+// (complaintOf, 아래) ② 카카오 댓글 문화에 맞춘 속뜻 규칙 ③ 헷갈리는 짝 예시 ④ 코드로 계산한 맥락(cmt_ctx.mjs).
+// 리디판 규칙에서 '웃음·ㅠ 없는 건조한 짧은 관찰도 critic 후보'와 '휴재에 화내도 miss'는 뺐다(카카오에선 오판·누락의 원인).
+export const TARGETS = { story: "작중 인물·사건·설정", craft: "작품을 만든 방식", adapt: "원작 대비 각색", ops: "연재 운영", price: "가격·결제", reader: "다른 독자", other: "그 밖·알 수 없음" };
+export const ASPECTS = { pace: "진도·늘어짐", repeat: "재탕·같은 장면 반복", logic: "개연성·설정 구멍", design: "인물 설계·캐붕·장르 기대", art: "작화·그림체", direction: "연출", text: "문장·오타·식자", rating: "수위·피폐 정도", adapt: "원작 대비 변경·생략", ops: "휴재·지각·분량", price: "가격", none: "해당 없음" };
+export const ACTIONS_K = { ...ACTIONS, later: "완결 뒤 몰아보기·연재 따라가기 중단" };
+
+export const CLASSIFY_SCHEMA_K = {
+  type: "object", additionalProperties: false, required: ["comments"],
+  properties: {
+    comments: {
+      type: "array",
+      items: {
+        type: "object", additionalProperties: false,
+        // 출력 순서 = 판단 순서: 무엇을 향한 말인지 먼저, 속뜻은 그다음
+        required: ["n", "tg", "cw", "tn", "th", "nd", "st", "nn", "ac", "cf"],
+        properties: {
+          n: { type: "integer" },
+          tg: { type: "string", enum: E(TARGETS) },
+          cw: { type: "string", enum: E(ASPECTS) },
+          tn: { type: "string", enum: E(TONES) },
+          th: { type: "array", items: { type: "string" } },
+          nd: { type: "array", items: { type: "string", enum: E(NEEDS) } },
+          st: { type: "string", enum: E(STATES) },
+          nn: { type: "string" },
+          ac: { type: "string", enum: E(ACTIONS_K) },
+          cf: { type: "string", enum: E(CONFS) }
+        }
+      }
+    }
+  }
+};
+
+const K_HEAD = `당신은 한국 웹소설·웹툰 플랫폼 카카오페이지의 '회차 댓글'을 하나하나 읽고 표시를 붙이는 분석가입니다. 해석보다 '이 댓글이 무엇을 향해 무슨 말을 하는지'를 정확히 잡는 것이 목표입니다.
+
+댓글마다 아래 칸을 이 순서대로 채웁니다. 값은 반드시 정해진 코드로 씁니다.
+
+- tg 대상(하나): 이 댓글의 말·감정이 무엇을 향하는가 — ${list(TARGETS)}
+- cw 측면(하나): 작품·운영·가격을 탓하거나 칭찬할 때 그 대상 — ${list(ASPECTS)}. 측면이 없거나 tg가 story·reader·other면 none.
+- tn 속뜻(겉말이 아니라 속뜻 기준 하나): ${list(TONES)}
+- th 반복 반응: 입력의 [반복 반응 목록]에서 이 댓글이 해당하는 묶음 번호(T1, T2 …) 0~2개. 댓글의 주된 말이 어떤 묶음의 기준(def) 범위 안에 들면 넣는다 — 표현이 똑같지 않아도, 다른 회차의 같은 반응이어도. 회차가 붙은 묶음('27화: …')은 그 장면 이야기일 때만. 구체적인 말이 없거나 맞는 묶음이 정말 없을 때만 []. 묶음 이름의 단어만 보고 넣지 말고, 댓글이 그 기준대로의 말을 하는지 본다. (불호) 묶음은 tn=critic일 때만.
+- nd 니즈 코드(0~3개, 댓글 문장에 직접 나온 것만): ${list(NEEDS)}
+- st 니즈 상태: ${list(STATES)}
+- nn 목록에 없는 바람의 짧은 이름(댓글 문장을 베끼지 말고 니즈 이름으로). 없으면 ""
+- ac 행동 신호: ${list(ACTIONS_K)}
+- cf 확신도: ${list(CONFS)}`;
+
+const K_TARGET = `
+## 1. 대상(tg) 먼저 — 같은 분노라도 무엇을 향했는지에 따라 뜻이 다르다
+- story: 작중 인물의 행동·성격, 작중 사건, 작중 세계의 선악·종교·정치·체제를 두고 하는 말. 인물에게 화내기·욕·응원·걱정·훈수, 악역 미워하기, 독자끼리 작중 누가 옳은지 다투기는 아무리 진지하고 논리적이어도 story다.
+- craft: 작품을 만든 방식 — 전개·구성·개연성·설정 모순, 인물 설계(주인공·남주·여주를 역할로 부르며 설계를 평가: '주인공 매력이 하나도 없다'), 장르 기대(이 장르라면 있어야 할 전개가 없다), 작화·그림체 변화·연출·문장·오타, 수위·피폐 정도, 작가. 여러 화에 걸친 전개를 탓하거나('N화째', '요즘 전개'), 작가·작품이 인물의 잘못을 미화한다고 할 때도 craft. 작품·장면에 대한 칭찬도 craft.
+- adapt: 원작(웹툰이면 원작 소설)과 비교한 각색 — 바뀐 점·생략·추가·순화, 원작 장면 재현. '원작이랑 왜 달라요?', '원작엔 이 장면 없었는데'처럼 질문이어도 바뀐 점을 짚으면 adapt.
+- ops: 휴재·지각·분량·공지·연재 주기·시즌·완결 일정.
+- price: 가격·결제·소장권·대여·값어치.
+- reader: 다른 독자를 향한 말 — 반박·설명·옹호·스포 경고·댓글 매너. 단, 다른 독자에게 '하차했다·비추·수위 주의'를 알리는 말은 작품 이야기다(craft, cw=rating 등).
+- other: 그 밖(다른 작품·플랫폼 이야기, 인사, 맥락 없는 말).
+- 다른 판(웹툰판·소설판)의 그림·연출·각색 이야기는 이 작품의 만듦새 이야기가 아니다(tg=other). 다만 두 판이 함께 쓰는 줄거리·인물 설계를 탓하면 이 작품 이야기(craft)이고, 각색 작품이 원작과 달라진 점을 짚으면 adapt.`;
+
+const K_RULES = `
+## 2. 속뜻(tn)
+- 겉말이 불평·욕·항의여도 속뜻이 '좋다' 또는 '더 보고 싶다'면 critic이 아니다.
+- critic 진짜 불만: tg가 craft·adapt·ops·price이고, 좋다는 말·부탁·투정 말투 없이 진지하게 탓할 때만. 질문 형태라도 바뀐 점·그림 변화·설정 모순을 탓하는 뜻이면 critic(cf=mid). 비꼬는 짧은 말도 작품을 탓하는 뜻이면 critic. tg가 story·reader·other인데 critic을 고르지 않는다.
+- char 캐릭터 과몰입: tg=story인 화·욕·놀림·걱정·편들기·훈수·작중 선악 논쟁. 외모를 욕해도 작화 불만이 아니다.
+- tease 애정 투정·반어·밈: 절단 투정('여기서 끊어요?'), 금지어 끼워 넣기('X 얘기 그만해' 하며 X 반복 = X가 좋다), '적당히 하세요', 외모를 '흉기·반칙'으로, 가격 죄책감('몇백 원에 이걸 봐도 되나' = 가성비 극찬), 하차 농담('하차각ㅋㅋ').
+- miss 연재 아쉬움: 휴재·시즌 끝·분량·기다림에 대한 비명·애원·시위 구호('결사반대', '이제 무슨 낙으로 살아', '벌써 끝?'). 휴재·지각을 진지하게 비판하며 책임을 묻는 말(공지 없는 잦은 휴재, 약속을 안 지킴, '무책임하다')은 critic + tg=ops.
+- nudge 애정 섞인 지적·진도 투정: 좋다는 말이나 부탁과 함께 하는 지적, 투정 말투의 진도 불평('진도 언제 나가요ㅠㅠ').
+- praise 칭찬·환호: 짧은 감탄, 복귀 환영, 소장 자랑, '잘 만든 것 같다·괜찮네 + 계속 볼게', 원작·작중 명대사를 그대로 옮겨 적은 댓글(명대사 인용 = 칭찬).
+- theory 추리·예측: 아직 일어나지 않은 구체적 사건을 짐작할 때만.
+- fan 독자끼리·작품 밖: tg=reader인 반박·설명·옹호(작가를 옹호하면 praise), 다른 작품 이야기.
+- other 단순·중립: 정보 질문, 탓하지 않는 설정 궁금증('왜 하필 그 무기를 골랐을까?'), 맥락 없는 말.
+- 여러 감정이 섞이면 주된 감정으로. 좋다는 말·부탁과 지적이 함께 있으면 nudge.
+- ac: later = 끝나면 한꺼번에 보겠다는 식으로 연재를 따라 읽기를 멈추는 말 / churn = 이 작품을 진지하게 그만 보겠다는 말(하차·너무 어둡거나 잔인해서 못 보겠다).`;
+
+// 예시는 시범 표본(SSS급·잊혀진 들판)에 없는 장르·상황으로 지어 썼다 — 채점할 댓글을 베끼면 점수가 부풀기 때문
+const K_EXAMPLES = `
+## 헷갈리는 짝 (겉은 비슷해도 판정이 다름 — 지어낸 예시)
+- 악당 두목에게 '저놈 언제 벌 받냐 열받네' → story / char  ↔  '작가가 악당의 잘못을 자꾸 감싸줘서 보기 불편함' → craft / design / critic
+- 독자끼리 '형이 먼저 배신했잖아' '아니 동생이 먼저 속였지' 하며 다툼 → story / char  ↔  '각성 이유가 한 줄도 없이 갑자기 최강이 됨, 앞뒤가 안 맞음' → craft / logic / critic
+- 회귀한 주인공에게 '바보야 그쪽 아니라고' → story / char  ↔  '회귀했는데 주인공이 아는 걸 하나도 안 써먹네, 회귀물 맞나' → craft / design / critic
+- 신입 사원 주인공에게 '답답해서 내가 출근하고 싶다ㅋㅋ' → story / char  ↔  '주인공 말투가 너무 오글거려서 못 보겠다, 여기서 접음' → craft / design / critic(ac=churn)
+- '원작 그 결투를 컬러로 보니 소름' → adapt / praise  ↔  '원작 핵심 대사를 빼버리면 어떡하나' → adapt / adapt / critic
+- '원작에선 형이었는데 왜 동생으로 바꿨지?' → adapt / adapt / critic(cf=mid)  ↔  '왜 하필 그 무기를 골랐을까?' → story / none / other
+- 작중 대사를 그대로 옮겨 적은 댓글 → story / praise  ↔  '그 설정은 앞에서 이미 설명됐어요' (다른 독자에게) → reader / fan
+- '휴재라니 일주일을 어떻게 버텨ㅠ' → ops / miss  ↔  '세 번째 연기인데 사과 한 줄 없네, 독자를 뭘로 보는지' → ops / ops / critic
+- '다음 이야기 언제 나와요ㅠㅠ 궁금해 죽겠네' → craft / pace / nudge  ↔  '지난 화를 그대로 다시 보여주고 끝, 돈 내고 회상만 봤다' → craft / repeat / critic
+- '몇백 원에 이런 걸 봐도 되나' → price / tease  ↔  '이 분량에 이 가격은 좀…' (진지) → price / price / critic
+- '막내 너무 짠하다ㅠ 꼭 살아남아라' → story / char  ↔  '고문 장면이 너무 길고 잔인해서 접어요, 비위 약한 분들 비추' → craft / rating / critic(ac=churn)
+- '다 끝나면 한 번에 정주행할게요' → ops / miss(ac=later)  ↔  '다음 주까지 어떻게 기다려ㅠ' → ops / miss(ac=stay)
+- '요즘 인물 얼굴이 화마다 달라 보여요' → craft / art / critic(cf=mid)  ↔  '채색 미쳤다 배경화면 감' → craft / art / praise
+- 남의 비판에 '그 장면이 있어야 결말이 산다'고 반박 → reader / fan  ↔  남의 비판에 동조해 같은 비판을 덧붙임 → craft / critic`;
+
+// 니즈·상태 규칙은 1차 방식(CLASSIFY_SYSTEM)과 똑같이 — 속뜻 판정만 바꾸고 니즈 표시는 그대로 비교되게
+const K_TAIL = "\n\n" + CLASSIFY_SYSTEM.slice(CLASSIFY_SYSTEM.indexOf("## 니즈(nd)"), CLASSIFY_SYSTEM.indexOf("## 상태(st)·행동(ac)")).trim() + `
+
+## 상태(st)·행동(ac)
+- st: met=이 화에서 채워져 좋아함 / ask=앞으로 이렇게 되길 바람 / lack=진짜 피로감('지친다', '언제까지 끌어', '또 이 패턴')이 있을 때만 / split=독자끼리 갈림이 드러남 / none=니즈 없음. 절단·기다림 반응엔 met 금지, 놀림·관전엔 lack 금지.
+- ac: pay=소장·결제·원작 구매 언급 / stay=다음 화 기다림 / share=영업·주변 사람 언급 / later·churn은 위 기준 / none. '사랑해요·응원해요'만으로는 붙이지 않는다.
+
+## 출력
+입력의 댓글 번호(#n)마다 하나씩, 빠짐없이 JSON으로 답한다. 지어내지 않는다.`;
+
+// opts.examples: 헷갈리는 짝 예시를 넣을지 (시험에서 따로 켜고 끈다)
+export function classifySystemK(opts = {}) {
+  return K_HEAD + K_TARGET + K_RULES + (opts.examples ? K_EXAMPLES : "") + K_TAIL;
+}
+
+// 카카오판 요청. opts: { examples, ctx: { work: '한 줄', ep: '한 줄', when: (c) => '작성 시점' } }
+export function buildClassifyParamsK(cfg, work, ep, comments, textMax, themes, opts = {}) {
+  const ctx = opts.ctx || null;
+  const head = `[작품] ${work.title} / ${work.webtoon ? "웹툰" : "웹소설"}${work.bl ? " / BL" : ""}${work.genre ? " / " + work.genre : ""}\n` +
+    (ctx && ctx.work ? `[작품 사실] ${ctx.work}\n` : "") +
+    `[작품 소개] ${work.desc || "-"}\n[회차] ${ep.no}화${ep.part ? " (" + ep.part + ")" : ""} (공개 ${String(ep.reg || "").slice(0, 10)})` +
+    (ctx && ctx.ep ? `\n[회차 사실] ${ctx.ep}` : "") + "\n\n" +
+    `[반복 반응 목록]\n` + themes.map((t) => `${t.id} (${BUCKETS[t.bucket]}) ${t.label} — 기준: ${t.def}`).join("\n");
+  const line = (c) => {
+    const tags = [`좋아요 ${c.like}`, c.best ? "베스트" : "", c.sp ? "스포" : "", ctx && ctx.when ? ctx.when(c) : ""].filter(Boolean).join("·");
+    return `#${c.n} [${tags}] ${cut(c.text.trim().replace(/\s+/g, " "), textMax)}`;
+  };
+  const body = head + "\n\n[댓글]\n" + comments.map(line).join("\n") + "\n\n위 댓글에 규칙대로 표시를 붙여 JSON으로 답하세요.";
+  const req = {
+    model: cfg.model,
+    max_tokens: 32000,
+    system: [{ type: "text", text: classifySystemK(opts), cache_control: { type: "ephemeral" } }],
+    messages: [{ role: "user", content: body }],
+    output_config: { format: { type: "json_schema", schema: CLASSIFY_SCHEMA_K } }
+  };
+  if (cfg.effort) req.output_config.effort = cfg.effort;
+  return req;
+}
+
+// 진짜 불만 판정은 코드가 한다: 속뜻 critic이면서 작품(만듦새·각색)·운영·가격을 향한 것만.
+// 작중 인물·다른 독자를 향한 critic은 세지 않고 'down'으로 남긴다(재확인 대상).
+export function complaintOf(lab) {
+  if (!lab) return null;
+  if (!lab.tg) return lab.tn === "critic" ? "work" : null;   // 1차 방식(base)
+  if (lab.tn !== "critic") return null;
+  if (lab.tg === "craft" || lab.tg === "adapt") return "work";
+  if (lab.tg === "ops") return "ops";
+  if (lab.tg === "price") return "price";
+  return "down";
+}
+
 // ---------------- 3단계: 참고용 니즈 맵 (Sonnet) ----------------
 export const NEEDS_SCHEMA = {
   type: "object", additionalProperties: false, required: ["needs"],

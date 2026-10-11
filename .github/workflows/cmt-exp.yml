@@ -1,0 +1,93 @@
+name: 회차 댓글 분석 정밀도 시험
+
+# scripts/cmt/cmt_exp.mjs 를 손으로만 돌립니다 (자동 실행 없음). 매일 도는 수집과는 완전히 따로입니다.
+# 시범 때 고른 댓글 목록(state/cmt/*.json — 번호·uid·시각·좋아요만, 원문 없음)을 카카오에서 uid로 다시 받아
+# 같은 댓글에 여러 방식(변형)을 한 번의 AI 일괄로 돌려 비교합니다 (닉네임은 받지 않음).
+# 결과(댓글 번호별 표시 — 원문 없음)는 하루만 보관하는 실행 결과물로 올리고,
+# 저장소에는 이 달 AI 사용액(state/ai_state.json)만 커밋합니다. 이 트래커의 월 AI 한도는 $30 (--limit-usd).
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: "댓글 목록 파일 (state/cmt/ 안)"
+        type: string
+        default: "state/cmt/pilot1.json"
+      variants:
+        description: "변형(쉼표로, 최대 8개) — base / K / KC / KF / KCF, 뒤에 @low·@high"
+        type: string
+        default: "base,base,K,KC,KCF"
+      cap_usd:
+        description: "이번 시험 비용 상한(달러) — 예상이 넘으면 보내지 않음"
+        type: string
+        default: "1.5"
+
+permissions:
+  contents: write
+
+# AI 작업끼리 겹치지 않게 (돈 기록 파일을 같이 씀)
+concurrency:
+  group: ai-kakao
+  cancel-in-progress: false
+
+jobs:
+  exp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 130
+    steps:
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 노드 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Claude SDK 설치
+        run: |
+          mkdir -p /tmp/sdk && cd /tmp/sdk && npm init -y >/dev/null && npm install --no-audit --no-fund @anthropic-ai/sdk@0.128.0
+          ln -s /tmp/sdk/node_modules "$GITHUB_WORKSPACE/node_modules"
+
+      # 입력값은 환경 변수로 넘긴다 (명령줄에 바로 붙이지 않음). 형식이 이상하면 스크립트가 멈춘다.
+      - name: 시험 실행
+        timeout-minutes: 120
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SPEC: ${{ inputs.spec }}
+          VARIANTS: ${{ inputs.variants }}
+          CAP_USD: ${{ inputs.cap_usd }}
+        run: >
+          node scripts/cmt/cmt_exp.mjs --spec "$SPEC" --variants "$VARIANTS" --cap-usd "$CAP_USD"
+          --limit-usd 30 --wait-min 100
+          --out cmt_exp_out.json --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: 결과 올리기 (하루 보관)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cmt-exp-out
+          path: cmt_exp_out.json
+          retention-days: 1
+          if-no-files-found: ignore
+
+      - name: AI 사용액 저장(커밋)
+        if: always()
+        run: |
+          rm -f node_modules
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
+          git add state/ai_state.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "바뀐 내용이 없어 커밋하지 않습니다."
+            exit 0
+          fi
+          git commit -q -m "회차 댓글 정밀도 시험: AI 사용액 기록"
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:master; then echo "저장 완료"; exit 0; fi
+            echo "다른 수집과 겹쳤습니다. 합치고 다시 시도 ($i/5)"
+            git fetch -q origin master && git rebase -q origin/master || { git rebase --abort 2>/dev/null || true; }
+            sleep $((i * 5))
+          done
+          echo "저장 실패"; exit 1
