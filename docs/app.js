@@ -2371,8 +2371,28 @@ async function renderWorkView(cat, period, workId) {
       : Promise.resolve(null);
     app.appendChild(buildWorkAnalysisBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
     app.appendChild(epHolder);
-    epPromise.then((d) => { if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d)); });
+    epPromise.then((d) => { if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d)); else addEpisodeCounts(epHolder, workId, cm); });
+  } else {
+    const epHolder = document.createElement('div');
+    app.appendChild(epHolder);
+    addEpisodeCounts(epHolder, workId, null);
   }
+}
+
+// 회차별 반응 표(data/comments/ep)가 없는 작품: 회차별 댓글 수만 센 표(data/epcounts, 일주일에 한 번 갱신)로 막대를 그린다.
+// epcounts = { at, c: [댓글 수], d: ['YYMMDD'], no: [화 번호|null], x: {순번: 이름}, f: [무료 순번] }
+function addEpisodeCounts(holder, workId, cm) {
+  fetchJson(`data/epcounts/${workId}.json`).then((ec) => {
+    if (!ec || !Array.isArray(ec.c) || !ec.c.length) return;
+    const free = new Set(ec.f || []);
+    const episodes = {};
+    ec.c.forEach((cnt, i) => {
+      const d = ec.d && ec.d[i] ? `20${ec.d[i].slice(0, 2)}-${ec.d[i].slice(2, 4)}-${ec.d[i].slice(4, 6)}` : '';
+      const label = ec.no && ec.no[i] != null ? `${ec.no[i]}화` : ((ec.x && ec.x[i]) || `${i + 1}번째`);
+      episodes[i] = [i, label, cnt || 0, ec.at, null, null, d, 0, null, null, null, free.has(i) ? 1 : 0];
+    });
+    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at }));
+  }).catch(() => {});
 }
 
 function metaLine(text) {
@@ -2670,16 +2690,17 @@ function buildWorkAnalysisBox(cm, onDownload) {
 
 // 회차별 반응 흐름 — r = [order, label, total, scanned, best, mix, releasedAt, engineVersion,
 //   [칭찬 댓글, 불만 댓글, 하차 선언], 대표 칭찬, 대표 불만, 무료(1/0)] (칭찬·불만·하차는 회차마다 공감 상위 30개 기준)
-function buildEpisodeBox(cm, ep) {
+function buildEpisodeBox(cm, ep, opt = {}) {
   const rows = Object.values(ep.episodes || {}).sort((a, b) => a[0] - b[0]);
   const box = mk('div');
   box.className = 'chart-box';
   box.style.marginTop = '16px';
-  box.appendChild(mk('h3', CM_H3, '회차별 반응 흐름'));
+  box.appendChild(mk('h3', CM_H3, opt.countOnly ? '회차별 댓글 수' : '회차별 반응 흐름'));
   const total = Math.max(cm.epTotal || 0, rows.length);
-  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;',
-    `회차 ${rows.length.toLocaleString()}/${total.toLocaleString()}개 분석 · 댓글 수는 그 회차 전체, 칭찬·불만·하차는 회차마다 공감 상위 30개 댓글 기준` +
-    (rows.length < total ? ' · 나머지 회차는 매일 조금씩 채워져요' : '')));
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:10px;', opt.countOnly
+    ? `회차 ${rows.length.toLocaleString()}개 · 그 회차에 달린 댓글 수(답글 제외) · ${opt.at} 기준, 일주일에 한 번 갱신`
+    : `회차 ${rows.length.toLocaleString()}/${total.toLocaleString()}개 분석 · 댓글 수는 그 회차 전체, 칭찬·불만·하차는 회차마다 공감 상위 30개 댓글 기준` +
+      (rows.length < total ? ' · 나머지 회차는 매일 조금씩 채워져요' : '')));
   if (!rows.length) return box;
 
   const evOf = (r) => (Array.isArray(r[8]) ? r[8] : null);
@@ -2705,7 +2726,7 @@ function buildEpisodeBox(cm, ep) {
 
   function showDetail(r) {
     detail.innerHTML = '';
-    detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개`));
+    detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개${r[11] === 1 ? ' · 무료 회차' : ''}`));
     const e = evOf(r);
     if (e) {
       detail.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:6px;',
@@ -2775,7 +2796,9 @@ function buildEpisodeBox(cm, ep) {
   box.appendChild(tabs);
   box.appendChild(chartWrap);
   box.appendChild(axis);
-  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', '댓글 수 막대: 초록 = 칭찬이 더 많은 회차, 빨강 = 불만·하차가 더 많은 회차. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'));
+  box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;', opt.countOnly
+    ? '차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'
+    : '댓글 수 막대: 초록 = 칭찬이 더 많은 회차, 빨강 = 불만·하차가 더 많은 회차. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.'));
   box.appendChild(detail);
 
   // 회차 목록 4가지
@@ -2805,7 +2828,7 @@ function buildEpisodeBox(cm, ep) {
     if (!prev || !next) return null;
     return { r, ratio: counts[i] / Math.max(prev, next) };
   }).filter((x) => x && x.ratio >= 1.5).sort((a, b) => b.ratio - a.ratio).slice(0, 6);
-  listSec('🔥 화제가 된 회차', '앞뒤 회차보다 댓글이 확 늘어난 곳 — 무슨 장면이었는지는 베스트 댓글로', spikes, ({ r, ratio }, row) => {
+  listSec('🔥 화제가 된 회차', opt.countOnly ? '앞뒤 회차보다 댓글이 확 늘어난 곳' : '앞뒤 회차보다 댓글이 확 늘어난 곳 — 무슨 장면이었는지는 베스트 댓글로', spikes, ({ r, ratio }, row) => {
     row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개 (앞뒤 회차의 ${ratio.toFixed(1)}배)`));
     if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `베스트 👍${(r[4][1] || 0).toLocaleString()} “${r[4][2] ? '(스포일러)' : r[4][0]}”`));
   });
