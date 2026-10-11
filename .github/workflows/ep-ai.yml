@@ -1,0 +1,88 @@
+name: 회차 요약·작품·독자 분석 (AI)
+
+# scripts/cmt/ep_ai.mjs 를 손으로만 돌립니다 (자동 실행 없음). 매일 수집과는 따로입니다.
+# 월간 순위 웹툰·웹소설 각각 상위 N작품의 회차마다 공감 많은 댓글 30개를 읽고(닉네임은 받지 않음),
+# AI가 '댓글로 짐작한 이 화 내용'·독자 반응(Haiku)과 작품·독자 분석(Sonnet)을 씁니다.
+# 결과는 docs/data/epai/ 에 커밋합니다 — 요약·분석 글과 요약을 뒷받침하는 예시 베스트 댓글 2~3개(원문, 사용자 결정).
+# 이 트래커의 월 AI 한도는 $30 (--limit-usd). 카카오 요청 사이 2초.
+
+on:
+  workflow_dispatch:
+    inputs:
+      top:
+        description: "월간 순위 웹툰·웹소설 각각 상위 몇 작품"
+        type: string
+        default: "20"
+      scope:
+        description: "회차 범위 — sample(초반·화제·급감·최근 약 20화) / all(전 회차)"
+        type: choice
+        options: [sample, all]
+        default: sample
+      ids:
+        description: "작품 번호를 직접 지정(쉼표, 비우면 순위 상위 N)"
+        type: string
+        default: ""
+      cap_usd:
+        description: "이번 실행 비용 상한(달러)"
+        type: string
+        default: "5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-kakao
+  cancel-in-progress: false
+
+jobs:
+  epai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 노드 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Claude SDK 설치
+        run: |
+          mkdir -p /tmp/sdk && cd /tmp/sdk && npm init -y >/dev/null && npm install --no-audit --no-fund @anthropic-ai/sdk@0.128.0
+          ln -s /tmp/sdk/node_modules "$GITHUB_WORKSPACE/node_modules"
+
+      - name: 회차 요약·분석
+        timeout-minutes: 330
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOP: ${{ inputs.top }}
+          SCOPE: ${{ inputs.scope }}
+          IDS: ${{ inputs.ids }}
+          CAP_USD: ${{ inputs.cap_usd }}
+        run: |
+          set -- --top "$TOP" --scope "$SCOPE" --cap-usd "$CAP_USD" --limit-usd 30 --wait-min 100 --summary "$GITHUB_STEP_SUMMARY"
+          if [ -n "$IDS" ]; then set -- "$@" --ids "$IDS"; fi
+          node scripts/cmt/ep_ai.mjs "$@"
+
+      - name: 저장(커밋)
+        if: always()
+        run: |
+          rm -f node_modules
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
+          git add docs/data/epai state/ai_state.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "바뀐 내용이 없어 커밋하지 않습니다."
+            exit 0
+          fi
+          git commit -q -m "회차 요약·작품·독자 분석 (AI) 갱신"
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:master; then echo "저장 완료"; exit 0; fi
+            echo "다른 수집과 겹쳤습니다. 합치고 다시 시도 ($i/5)"
+            git fetch -q origin master && git rebase -q origin/master || { git rebase --abort 2>/dev/null || true; }
+            sleep $((i * 5))
+          done
+          echo "저장 실패"; exit 1

@@ -2371,17 +2371,72 @@ async function renderWorkView(cat, period, workId) {
       : Promise.resolve(null);
     app.appendChild(buildWorkAnalysisBox(cm, () => epPromise.then(() => downloadCommentExcel(title, cm, epData))));
     app.appendChild(epHolder);
-    epPromise.then((d) => { if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d)); else addEpisodeCounts(epHolder, workId, cm); });
+    const aiPromise = loadEpAi(workId);
+    epPromise.then((d) => aiPromise.then((ai) => {
+      if (ai) epHolder.appendChild(buildEpAiBox(ai));
+      if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d, { ai }));
+      else addEpisodeCounts(epHolder, workId, cm, ai);
+    }));
   } else {
     const epHolder = document.createElement('div');
     app.appendChild(epHolder);
-    addEpisodeCounts(epHolder, workId, null);
+    loadEpAi(workId).then((ai) => {
+      if (ai) epHolder.appendChild(buildEpAiBox(ai));
+      addEpisodeCounts(epHolder, workId, null, ai);
+    });
   }
+}
+
+// AI 회차 요약·작품 분석·독자 분석 (data/epai, 월간 상위 작품만 — scripts/cmt/ep_ai.mjs).
+// 회차 본문은 읽지 않고 그 회차의 공감 많은 댓글로 짐작한 것. 예시 댓글은 원문 그대로(닉네임 없음).
+const EP_MOODS = { laugh: '웃음', touch: '감동·눈물', flutter: '설렘', anger: '인물에게 분노', chill: '소름·긴장', shock: '충격·반전', cheer: '응원', theory: '추리', complain: '작품·연재 불만', wait: '기다림·아쉬움' };
+let EPAI_INDEX = null;
+function loadEpAi(workId) {
+  if (!EPAI_INDEX) EPAI_INDEX = fetchJson('data/epai/index.json').catch(() => ({ ids: {} }));
+  return EPAI_INDEX.then((ix) => (ix && ix.ids && ix.ids[workId] ? fetchJson(`data/epai/${workId}.json`).catch(() => null) : null));
+}
+const epAiOf = (ai, label) => {
+  if (!ai || !ai.eps) return null;
+  if (ai.eps[label]) return ai.eps[label];
+  const m = String(label || '').match(/^(\d+)화/);
+  return m ? ai.eps[`${m[1]}화`] || null : null;
+};
+function buildEpAiBox(ai) {
+  const box = mk('div');
+  box.className = 'chart-box';
+  box.style.marginTop = '16px';
+  box.appendChild(mk('h3', CM_H3, '🤖 AI 작품·독자 분석'));
+  const n = Object.keys(ai.eps || {}).length;
+  box.appendChild(mk('div', CM_NOTE + 'margin-bottom:8px;',
+    `${ai.at} 기준 · 회차 ${n}개의 공감 많은 댓글로 본 분석이에요(본문은 읽지 않음). 회차별 요약은 아래 '회차별' 차트에서 회차를 누르면 보여요.`));
+  const sec = (t) => box.appendChild(mk('div', CM_SEC, t));
+  const points = (arr) => (arr || []).forEach((p) => box.appendChild(mk('div', CM_ROW, `• ${p.point}${p.eps && p.eps.length ? ` (${p.eps.join(', ')})` : ''}`)));
+  const w = ai.work, r = ai.reader;
+  if (w) {
+    if (w.overview) box.appendChild(mk('div', 'font-size:14px;margin:4px 0 8px;', w.overview));
+    if (w.strengths && w.strengths.length) { sec('👍 독자가 좋아한 것'); points(w.strengths); }
+    if (w.weaknesses && w.weaknesses.length) { sec('👎 아쉬워한 것'); points(w.weaknesses); }
+    if (w.turning && w.turning.length) { sec('🔥 화제·전환점'); points(w.turning); }
+    if (w.drops && w.drops.length) { sec('📉 댓글이 줄어든 지점'); points(w.drops); }
+  }
+  if (r) {
+    sec('👥 독자 분석');
+    points(r.traits);
+    for (const [k, label] of [['live', '실시간 vs 몰아보기'], ['source', '원작 독자'], ['money', '결제·하차'], ['community', '댓글 분위기']]) {
+      if (r[k]) box.appendChild(mk('div', CM_ROW, `${label}: ${r[k]}`));
+    }
+  }
+  if (ai.stats) {
+    const st = ai.stats;
+    box.appendChild(mk('div', CM_NOTE + 'margin-top:6px;',
+      `통계(회차마다 공감 상위 댓글 ${st.n}개): 공개 하루 안 ${st.livePct}% · 1년 뒤 ${st.latePct}% · 스포일러 ${st.spoilerPct}% · 답글 평균 ${st.replyAvg}개 · 결제 언급 ${st.payMentions} · 하차 언급 ${st.dropMentions}`));
+  }
+  return box;
 }
 
 // 회차별 반응 표(data/comments/ep)가 없는 작품: 회차별 댓글 수만 센 표(data/epcounts, 일주일에 한 번 갱신)로 막대를 그린다.
 // epcounts = { at, c: [댓글 수], d: ['YYMMDD'], no: [화 번호|null], x: {순번: 이름}, f: [무료 순번] }
-function addEpisodeCounts(holder, workId, cm) {
+function addEpisodeCounts(holder, workId, cm, ai) {
   fetchJson(`data/epcounts/${workId}.json`).then((ec) => {
     if (!ec || !Array.isArray(ec.c) || !ec.c.length) return;
     const free = new Set(ec.f || []);
@@ -2391,7 +2446,7 @@ function addEpisodeCounts(holder, workId, cm) {
       const label = ec.no && ec.no[i] != null ? `${ec.no[i]}화` : ((ec.x && ec.x[i]) || `${i + 1}번째`);
       episodes[i] = [i, label, cnt || 0, ec.at, null, null, d, 0, null, null, null, free.has(i) ? 1 : 0];
     });
-    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at }));
+    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at, ai }));
   }).catch(() => {});
 }
 
@@ -2727,6 +2782,16 @@ function buildEpisodeBox(cm, ep, opt = {}) {
   function showDetail(r) {
     detail.innerHTML = '';
     detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개${r[11] === 1 ? ' · 무료 회차' : ''}`));
+    const a = epAiOf(opt.ai, r[1]);
+    if (a) {
+      detail.appendChild(mk('div', 'font-size:13px;margin:2px 0;', `🤖 댓글로 짐작한 내용: ${a.s}`));
+      detail.appendChild(mk('div', 'font-size:13px;margin:2px 0;', `독자 반응: ${a.r}${a.h ? ` · 화제: ${a.h}` : ''}`));
+      if (a.m && a.m.length) detail.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-bottom:4px;', a.m.map((m) => EP_MOODS[m] || m).join(' · ')));
+      (a.ex || []).forEach((x) => {
+        detail.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-top:4px;', `예시 베스트 댓글 👍${(x[1] || 0).toLocaleString()}`));
+        detail.appendChild(commentBody(x[0]));
+      });
+    }
     const e = evOf(r);
     if (e) {
       detail.appendChild(mk('div', 'color:var(--text-dim);font-size:12px;margin-bottom:6px;',
@@ -2830,7 +2895,9 @@ function buildEpisodeBox(cm, ep, opt = {}) {
   }).filter((x) => x && x.ratio >= 1.5).sort((a, b) => b.ratio - a.ratio).slice(0, 6);
   listSec('🔥 화제가 된 회차', opt.countOnly ? '앞뒤 회차보다 댓글이 확 늘어난 곳' : '앞뒤 회차보다 댓글이 확 늘어난 곳 — 무슨 장면이었는지는 베스트 댓글로', spikes, ({ r, ratio }, row) => {
     row.appendChild(mk('div', 'font-size:13px;font-weight:600;', `${r[1]} · 댓글 ${(r[2] || 0).toLocaleString()}개 (앞뒤 회차의 ${ratio.toFixed(1)}배)`));
-    if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `베스트 👍${(r[4][1] || 0).toLocaleString()} “${r[4][2] ? '(스포일러)' : r[4][0]}”`));
+    const a = epAiOf(opt.ai, r[1]);
+    if (a) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `🤖 ${a.s}`));
+    else if (r[4]) row.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);word-break:break-all;', `베스트 👍${(r[4][1] || 0).toLocaleString()} “${r[4][2] ? '(스포일러)' : r[4][0]}”`));
   });
   // ② 칭찬이 많았던 회차
   const good = rows.filter((r) => evOf(r) && evOf(r)[0] > 0).sort((a, b) => evOf(b)[0] - evOf(a)[0] || b[2] - a[2]).slice(0, 6).map((r) => ({ r }));

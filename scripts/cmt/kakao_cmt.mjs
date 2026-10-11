@@ -111,6 +111,19 @@ export async function fetchWork(id) {
   };
 }
 
+// 한 회차의 공감 많은 댓글 n개(최대 100, 요청 1번) — 회차 요약(ep_ai.mjs)용. 작가 인사는 빼고, 닉네임은 남기지 않는다.
+export async function fetchTopLiked(seriesId, productId, n, authors = []) {
+  const j = await commentPage({ seriesid: String(seriesId), singleid: String(productId), size: String(Math.min(100, n)), sort_opt: 'like' });
+  const isAuthor = (c) => authors.includes(String(c.user_name || '').trim()) || AUTHOR_NOTE.test(c.comment || '');
+  return {
+    total: Number(j.total_count) || 0,
+    list: (j.comment_list || []).filter((c) => !isAuthor(c)).map((c) => ({
+      cid: c.comment_uid, text: clean(c.comment), at: c.create_dt || '', like: c.like_count | 0,
+      best: !!c.is_best, sp: !!(c.is_spoiler || c.spoiler === 'Y'), rc: c.reply_count | 0,
+    })),
+  };
+}
+
 // 한 회차의 표본 재료: 좋아요순 1쪽(최대 100) + 최신순 몇 쪽(최대 poolPages×100).
 // 작가 본인 댓글(닉네임 = 작가 이름)은 빼고, 닉네임은 남기지 않는다.
 export async function fetchEpisodeComments(seriesId, productId, authors, poolPages) {
