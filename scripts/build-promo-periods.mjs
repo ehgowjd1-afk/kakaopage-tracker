@@ -68,6 +68,21 @@ function plausibleImagePeriod(ir, e, first, latest) {
   return true;
 }
 
+// A period printed as text on an HTML event page (collect-event-details
+// textPeriod) is the organiser's own, but pages get reused: it must start within
+// a week of first being listed (or before records began) and overlap the days
+// the event was listed (3 days' slack), else the listing days are used.
+function plausibleTextPeriod(open, close, e, first) {
+  const s = open ? open.slice(0, 10) : null;
+  const c = close ? close.slice(0, 10) : null;
+  if (!s || (c && c < s)) return false;
+  if (e.firstSeen && e.firstSeen !== first && Math.abs(dayDiff(s, e.firstSeen)) > 7) return false;
+  if (e.firstSeen === first && dayDiff(e.firstSeen, s) > 7) return false;
+  if (c && e.firstSeen && dayDiff(c, e.firstSeen) > 3) return false;
+  if (e.lastSeen && dayDiff(e.lastSeen, s) > 3) return false;
+  return true;
+}
+
 // ── 소식-tab snapshots ──
 
 // promotions.json shape ({workId: [{bannerUid, title, link}]}, one key per work
@@ -346,11 +361,13 @@ export function buildPromoPeriods() {
   for (const e of listed) {
     const d = details[e.key] || {};
     const ir = imageReads[e.key] || null;
-    // period: HTML page 'open'/'close' > dates printed on the event image > the
-    // days the event sat in the 이벤트 tab. An image date far from when the event
-    // was actually listed is treated as a misread and ignored.
+    // period: HTML page 'open'/'close' (schedule stamps, or the period printed on
+    // the page) > dates printed on the event image > the days the event sat in the
+    // 이벤트 tab. An image date far from when the event was actually listed is
+    // treated as a misread and ignored.
     let open = d.open || null;
     let close = d.close || null;
+    if (d.period === 'text' && !plausibleTextPeriod(open, close, e, first)) { open = null; close = null; }
     let src = open || close ? 'o' : 'l';
     if (!open && !close && ir && ir.start && plausibleImagePeriod(ir, e, first, latest)) {
       open = `${ir.start}${ir.start_time ? ` ${ir.start_time}` : ''}`;
