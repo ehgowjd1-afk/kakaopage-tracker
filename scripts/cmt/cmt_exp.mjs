@@ -9,6 +9,7 @@
  *        [--cap-usd 1.5] [--limit-usd 30] [--wait-min 100] [--summary FILE]
  * 변형 이름: base = 1차 시범 그대로 / K = 대상·측면 칸 + 카카오판 속뜻 규칙 / C = 공짜 맥락(휴재·원작·작성 시점) /
  *            F = 헷갈리는 짝 예시. 뒤에 @low·@high 를 붙이면 Haiku 생각량을 바꾼다(기본 medium, 예: KCF@low).
+ * --recheck 2:sonnet@low,haiku@high 를 붙이면 변형 2번의 '확신 높음이 아닌 불만 후보'만 모델마다 다시 판정한다(두 번째 일괄).
  * CMT_MOCK=1 이면 AI 대신 가짜 답 (돈 안 듦).
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from "node:fs";
@@ -25,11 +26,12 @@ const HAIKU = "claude-haiku-5-5";
 const EST_PER_COMMENT = 0.00008;   // 변형 1개 × 댓글 1개 예상(일괄, 여유 있게 — 1차 실측 $0.000039)
 const MOCK = !!process.env.CMT_MOCK;
 
-const args = { spec: null, variants: [], limitUsd: 30, capUsd: 1.5, waitMin: 100, out: "cmt_exp_out.json", summary: null };
+const args = { spec: null, variants: [], recheck: "", limitUsd: 30, capUsd: 1.5, waitMin: 100, out: "cmt_exp_out.json", summary: null };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i], v = () => process.argv[++i];
   if (k === "--spec") args.spec = v();
   else if (k === "--variants") args.variants = v().split(",").map((s) => s.trim()).filter(Boolean);
+  else if (k === "--recheck") args.recheck = v().trim();
   else if (k === "--limit-usd") args.limitUsd = Number(v());
   else if (k === "--cap-usd") args.capUsd = Number(v());
   else if (k === "--wait-min") args.waitMin = Number(v());
@@ -47,6 +49,16 @@ const VARIANTS = args.variants.map((name) => {
   return { name, base: letters === "base", ctx: letters.includes("C"), examples: letters.includes("F"), effort: m[2] || "medium" };
 });
 if (!VARIANTS.length || VARIANTS.length > 8) throw new Error("--variants 는 1~8개");
+// 재확인: '변형번호:모델@생각량,…' — 그 변형에서 확신 높음이 아닌 불만 후보만 다시 판정 (예: 0:sonnet@low,haiku@high)
+const MODELS = { sonnet: "claude-sonnet-5-5", haiku: "claude-haiku-5-5" };
+const EST_RECHECK = { sonnet: 0.0025, haiku: 0.0004 };   // 후보 댓글 1개당 예상(일괄, 여유 있게)
+let RECHECK = null;
+if (args.recheck) {
+  const m = args.recheck.match(/^(\d):((?:sonnet|haiku)@(?:low|medium|high)(?:,(?:sonnet|haiku)@(?:low|medium|high)){0,3})$/);
+  if (!m || Number(m[1]) >= VARIANTS.length) throw new Error("--recheck 형식: 변형번호:sonnet@low,haiku@high (변형번호는 0부터)");
+  RECHECK = { from: Number(m[1]), models: m[2].split(",").map((x) => { const [mk, effort] = x.split("@"); return { name: x, key: mk, model: MODELS[mk], effort }; }) };
+  if (VARIANTS[RECHECK.from].base) throw new Error("재확인은 카카오판(K…) 변형에서만");
+}
 const T_START = Date.now();
 const MONTH = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 7);
 const log = (...a) => console.log(...a);
@@ -163,6 +175,7 @@ function charge(usd, label) {
 }
 function mockAnswer(customId, body) {
   const ns = [...body.matchAll(/#(\d+) \[/g)].map((m) => Number(m[1]));
+  if (customId.startsWith("r")) return { items: ns.map((n, i) => ({ n, target: ["craft", "story", "ops"][i % 3], complaint: ["yes", "no", "border"][i % 3], kind: ["work", "none", "ops"][i % 3], aspect: ["pace", "none", "ops"][i % 3] })) };
   const vi = Number(customId.match(/^v(\d+)/)[1]);
   const base = VARIANTS[vi].base;
   return { comments: ns.map((n, i) => ({ n, th: [["T1"], ["T2"], ["T3", "T4"], [], ["T1"]][i % 5], tn: ["praise", "char", "critic", "critic", "other"][(i + vi) % 5],
@@ -178,6 +191,60 @@ function save(labels) {
     labels: labels ? VARIANTS.map((_, vi) => labels[vi][wi]) : null,
   }));
   writeFileSync(args.out, JSON.stringify(report));
+}
+
+// 재확인: 확신 '높음'이 아닌 불만 후보(속뜻 critic)만 모델마다 다시 판정
+const RECHECK_CHUNK = 20;
+async function runRecheck(spent0) {
+  const vi = RECHECK.from;
+  const queue = works.map((w, wi) => w.sample.filter((c) => {
+    const l = result.labels[vi][wi][c.n];
+    return l && l.tn === "critic" && l.cf !== "hi";
+  }));
+  const nQ = queue.reduce((t, q) => t + q.length, 0);
+  report.recheck = { from: vi, models: RECHECK.models.map((m) => m.name), queue: queue.map((q) => q.map((c) => c.n)), verdicts: RECHECK.models.map(() => works.map(() => ({}))) };
+  if (!nQ) { report.notes.push("재확인할 후보가 없음"); return; }
+  const est = RECHECK.models.reduce((t, m) => t + nQ * EST_RECHECK[m.key], 0);
+  const runSoFar = (state.spend[MONTH] || 0) - spent0;
+  log(`재확인 후보 ${nQ}개 × 모델 ${RECHECK.models.length}개 — 예상 $${est.toFixed(2)}`);
+  if (!MOCK && runSoFar + est > args.capUsd) throw new Error(`재확인: 이번 상한을 넘을 것 같아 보내지 않습니다 (지금까지 $${runSoFar.toFixed(3)})`);
+  if (!MOCK && (state.spend[MONTH] || 0) + est > args.limitUsd) throw new Error("재확인: 이 달 한도를 넘을 것 같아 보내지 않습니다");
+  const reqs = [], reqNs = new Map();
+  RECHECK.models.forEach((m, mi) => queue.forEach((q, wi) => {
+    const w = works[wi];
+    for (let k = 0; k < q.length; k += RECHECK_CHUNK) {
+      const items = q.slice(k, k + RECHECK_CHUNK).map((c) => {
+        const e = w.episodes.find((x) => x.id === c.ep);
+        const ec = w.ec.get(String(c.ep));
+        return { n: c.n, no: c.no, like: c.like, text: c.text, epLine: episodeLine(ec), when: e ? commentWhen(c.at, e, ec) : "" };
+      });
+      const custom_id = `r${mi}-w${wi}-${k / RECHECK_CHUNK}`;
+      reqNs.set(custom_id, new Set(items.map((x) => x.n)));
+      reqs.push({ custom_id, params: AI.buildRecheckParams({ model: m.model, effort: m.effort }, { title: w.title, webtoon: w.webtoon, genre: w.genre, desc: w.desc }, items, CFG.textMax, versionLine(w)) });
+    }
+  }));
+  await stage(`재확인(${RECHECK.models.map((m) => m.name).join(", ")})`, reqs, est, "recheck", (out) => {
+    let usd = 0;
+    for (const [cid, res] of out) {
+      const m = cid.match(/^r(\d+)-w(\d+)-/);
+      if (!m || res.type !== "succeeded") { report.notes.push(`재확인 실패 ${cid} (${res.type})`); continue; }
+      const mi = Number(m[1]), wi = Number(m[2]), M = RECHECK.models[mi];
+      const u = res.message.usage || {};
+      const c$ = MOCK ? 0 : rawCost(M.model, u);
+      usd += c$;
+      const U = (report.usage["recheck:" + M.name] ||= { in: 0, out: 0, cacheRead: 0, cacheWrite: 0, usd: 0 });
+      U.in += u.input_tokens || 0; U.out += u.output_tokens || 0; U.cacheRead += u.cache_read_input_tokens || 0; U.cacheWrite += u.cache_creation_input_tokens || 0; U.usd += c$;
+      let parsed;
+      try { parsed = AI.parseJson(res.message); } catch { report.notes.push(`재확인 해석 실패 ${cid}`); continue; }
+      const valid = new Set(reqNs.get(cid) || []);
+      for (const it of parsed.items || []) {
+        if (!valid.has(it.n)) continue;
+        valid.delete(it.n);
+        report.recheck.verdicts[mi][wi][it.n] = { complaint: it.complaint, kind: it.kind, target: it.target, aspect: it.aspect };
+      }
+    }
+    return usd;
+  });
 }
 
 let result = null;
@@ -196,6 +263,7 @@ try {
     result.failed.forEach((f, vi) => { if (f) report.notes.push(`${VARIANTS[vi].name}: 실패한 요청 ${f}개`); });
     return result.usd;
   });
+  if (RECHECK) await runRecheck(spent0);
 } catch (e) {
   report.error = e instanceof KakaoBlocked ? "카카오가 요청을 막아 멈췄습니다" : e.message;
   console.error("오류:", e.message);
@@ -209,6 +277,11 @@ try {
       const cnt = (k) => all.filter((l) => l.cx === k).length;
       const u = report.usage[v.name + "#" + vi] || { usd: 0 };
       return `- ${v.name}: 표시 ${all.length}개 · 작품 불만 ${cnt("work")} · 운영 ${cnt("ops")} · 가격 ${cnt("price")} · 대상이 작중·독자라 뺀 것 ${cnt("down")} · $${u.usd.toFixed(3)}`;
+    }) : []),
+    ...(report.recheck ? report.recheck.models.map((name, mi) => {
+      const v = works.flatMap((_, wi) => Object.values(report.recheck.verdicts[mi][wi] || {}));
+      const u = report.usage["recheck:" + name] || { usd: 0 };
+      return `- 재확인 ${name}: 후보 ${report.recheck.queue.flat().length}개 중 불만 ${v.filter((x) => x.complaint === "yes").length} · 경계 ${v.filter((x) => x.complaint === "border").length} · 아님 ${v.filter((x) => x.complaint === "no").length} · $${u.usd.toFixed(3)}`;
     }) : []),
     ...report.notes.map((n) => "- " + n), ...(report.error ? ["- 오류: " + report.error] : []),
     `- 이 달 AI 사용 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`];

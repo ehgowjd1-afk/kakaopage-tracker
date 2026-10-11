@@ -266,7 +266,7 @@ const K_RULES = `
 - praise 칭찬·환호: 짧은 감탄, 복귀 환영, 소장 자랑, '잘 만든 것 같다·괜찮네 + 계속 볼게', 원작·작중 명대사를 그대로 옮겨 적은 댓글(명대사 인용 = 칭찬).
 - theory 추리·예측: 아직 일어나지 않은 구체적 사건을 짐작할 때만.
 - fan 독자끼리·작품 밖: tg=reader인 반박·설명·옹호(작가를 옹호하면 praise), 다른 작품 이야기.
-- other 단순·중립: 정보 질문, 탓하지 않는 설정 궁금증('왜 하필 그 무기를 골랐을까?'), 맥락 없는 말.
+- other 단순·중립: 정보 질문, 탓하지 않는 설정 궁금증('왜 하필 그 무기를 골랐을까?'), 오타·맞춤법 제보(cw=text — 탓하는 말이 없으면 critic 아님), 맥락 없는 말.
 - 여러 감정이 섞이면 주된 감정으로. 좋다는 말·부탁과 지적이 함께 있으면 nudge.
 - ac: later = 끝나면 한꺼번에 보겠다는 식으로 연재를 따라 읽기를 멈추는 말 / churn = 이 작품을 진지하게 그만 보겠다는 말(하차·너무 어둡거나 잔인해서 못 보겠다).`;
 
@@ -337,6 +337,69 @@ export function complaintOf(lab) {
   if (lab.tg === "ops") return "ops";
   if (lab.tg === "price") return "price";
   return "down";
+}
+
+// ---------------- 2단계 뒤 재확인 (정밀도 개선 시험) ----------------
+// 1차 시험: 확신도 '높음'으로 잡힌 불만은 90~98%가 진짜, '중간·낮음'은 절반 정도만 진짜였다.
+// 그래서 확신 높음은 그대로 두고, 나머지 불만 후보만 더 꼼꼼한 모델이 한 번 더 판정한다(정답표 기준서와 같은 기준).
+export const RECHECK_SCHEMA = {
+  type: "object", additionalProperties: false, required: ["items"],
+  properties: {
+    items: {
+      type: "array",
+      items: {
+        type: "object", additionalProperties: false, required: ["n", "target", "complaint", "kind", "aspect"],
+        properties: {
+          n: { type: "integer" },
+          target: { type: "string", enum: E(TARGETS) },
+          complaint: { type: "string", enum: ["yes", "no", "border"] },
+          kind: { type: "string", enum: ["work", "ops", "price", "none"] },
+          aspect: { type: "string", enum: E(ASPECTS) }
+        }
+      }
+    }
+  }
+};
+
+export const RECHECK_SYSTEM = `당신은 카카오페이지 회차 댓글 가운데 '작품·운영·가격 불만 후보'로 잡힌 것을 다시 판정하는 검토자입니다. 기획 보고서에 '불만'으로 셀지를 정합니다. 너무 많이 세도(인물에게 화낸 말, 작중 논쟁을 불만으로) 안 되고, 너무 적게 세도(인물 이야기·질문·다른 독자에게 하는 경고 형태로 쓴 진짜 불만을 빼서) 안 됩니다.
+
+댓글마다:
+- target: 말이 향하는 곳 — ${list(TARGETS)}
+- complaint: yes / no / border
+- kind: yes·border면 work(작품·각색) / ops(운영) / price(가격), no면 none
+- aspect: ${list(ASPECTS)}
+
+## yes
+- 작품을 만든 방식(전개·구성·개연성·인물 설계·장르 기대·작화·연출·문장·수위나 피폐 정도), 원작 대비 각색, 연재 운영(휴재·지각·분량·공지), 가격을 진지하게 탓함 — 좋다는 말·부탁·ㅠ·투정 말투 없이. 비꼬는 반어도 탓하는 뜻이면 yes.
+- 질문 형태라도 탓하는 뜻이면 yes(원작과 바뀐 점을 따지는 질문, 그림이 달라졌다며 묻는 질문).
+- 인물 이야기 형태라도 yes: 역할(주인공·남주·여주)로 인물 설계·장르 기대를 탓함, 여러 화에 걸친 전개를 탓함('N화째', '요즘 전개'), 작가·작품이 인물 잘못을 미화한다고 함.
+- 다른 독자에게 하차·비추·수위 주의를 알림, 진지한 하차 선언.
+- 휴재·지각을 진지하게 비판하며 책임을 물음. '결제가 아깝다', '이 분량에 이 가격'(진지).
+## no
+- 작중 인물에게 화·욕·훈수, 악역 미워하기, 작중 선악·종교·정치 논쟁, 작중 전개 예측·걱정 (아무리 진지해도).
+- 애정 섞인 지적·진도 조르기(좋다는 말·ㅠ·부탁과 함께, 투정 말투). 휴재·완결에 대한 비명·애원.
+- 명대사·원작 문장 인용, 칭찬, 작가 옹호, 다른 독자에게 반박·설명.
+- 탓하지 않는 설정 궁금증·가벼운 의문, 오타 제보, 추리.
+## border
+- 둘 다로 읽혀 갈리는 것만(가벼운 말투의 지적, 반어인지 칭찬인지 모호함 등). 남발하지 않는다.
+
+입력의 [회차 사실]은 판단에 참고만 한다. 댓글 번호(#n)마다 하나씩 JSON으로 답한다.`;
+
+// 재확인 요청 하나: 같은 작품의 후보 댓글 여러 개. items: [{n, no, text, like, when, epLine}]
+export function buildRecheckParams(cfg, work, items, textMax, versionNote) {
+  const body = `[작품] ${work.title} / ${work.webtoon ? "웹툰" : "웹소설"}${work.genre ? " / " + work.genre : ""}` +
+    (versionNote ? `\n[작품 사실] ${versionNote}` : "") + `\n[작품 소개] ${work.desc || "-"}\n\n[다시 판정할 댓글]\n` +
+    items.map((c) => `#${c.n} [${c.no}화${c.epLine ? " · " + c.epLine : ""}${c.when ? " · " + c.when : ""} · 좋아요 ${c.like}] ${cut(c.text.trim().replace(/\s+/g, " "), textMax)}`).join("\n") +
+    "\n\n위 댓글을 기준대로 다시 판정해 JSON으로 답하세요.";
+  const req = {
+    model: cfg.model,
+    max_tokens: 16000,
+    system: [{ type: "text", text: RECHECK_SYSTEM, cache_control: { type: "ephemeral" } }],
+    messages: [{ role: "user", content: body }],
+    output_config: { format: { type: "json_schema", schema: RECHECK_SCHEMA } }
+  };
+  if (cfg.effort) req.output_config.effort = cfg.effort;
+  return req;
 }
 
 // ---------------- 3단계: 참고용 니즈 맵 (Sonnet) ----------------

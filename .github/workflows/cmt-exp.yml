@@ -17,6 +17,10 @@ on:
         description: "변형(쉼표로, 최대 8개) — base / K / KC / KF / KCF, 뒤에 @low·@high"
         type: string
         default: "base,base,K,KC,KCF"
+      recheck:
+        description: "재확인(선택) — 변형번호:모델@생각량,… 예) 0:sonnet@low,haiku@high (비우면 안 함)"
+        type: string
+        default: ""
       cap_usd:
         description: "이번 시험 비용 상한(달러) — 예상이 넘으면 보내지 않음"
         type: string
@@ -58,10 +62,11 @@ jobs:
           SPEC: ${{ inputs.spec }}
           VARIANTS: ${{ inputs.variants }}
           CAP_USD: ${{ inputs.cap_usd }}
-        run: >
-          node scripts/cmt/cmt_exp.mjs --spec "$SPEC" --variants "$VARIANTS" --cap-usd "$CAP_USD"
-          --limit-usd 30 --wait-min 100
-          --out cmt_exp_out.json --summary "$GITHUB_STEP_SUMMARY"
+          RECHECK: ${{ inputs.recheck }}
+        run: |
+          set -- --spec "$SPEC" --variants "$VARIANTS" --cap-usd "$CAP_USD" --limit-usd 30 --wait-min 100 --out cmt_exp_out.json --summary "$GITHUB_STEP_SUMMARY"
+          if [ -n "$RECHECK" ]; then set -- "$@" --recheck "$RECHECK"; fi
+          node scripts/cmt/cmt_exp.mjs "$@"
 
       - name: 결과 올리기 (하루 보관)
         if: always()
