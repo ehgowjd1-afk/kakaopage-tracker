@@ -19,6 +19,11 @@ on:
         description: "이번 시범 비용 상한(달러) — 예상이 넘으면 보내지 않음"
         type: string
         default: "2"
+      needs:
+        description: "니즈 맵(참고용) — auto: 월간 웹툰·웹소설 1~10위 작품만 / all / none"
+        type: choice
+        options: [auto, all, none]
+        default: auto
 
 permissions:
   contents: write
@@ -57,8 +62,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           IDS: ${{ inputs.ids }}
           CAP_USD: ${{ inputs.cap_usd }}
+          NEEDS: ${{ inputs.needs }}
         run: >
-          node scripts/cmt/cmt_pilot.mjs --ids "$IDS" --cap-usd "$CAP_USD"
+          node scripts/cmt/cmt_pilot.mjs --ids "$IDS" --cap-usd "$CAP_USD" --needs "$NEEDS"
           --limit-usd 30 --wait-min 100
           --out cmt_pilot_out.json --summary "$GITHUB_STEP_SUMMARY"
 

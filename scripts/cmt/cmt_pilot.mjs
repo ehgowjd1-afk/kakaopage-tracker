@@ -7,11 +7,11 @@
  * ③ 1단계 AI(Sonnet, 일괄): 작품마다 '반복되는 반응' 묶음(좋다는 말 / 많이 하는 말 / 불호)을 정한다.
  * ④ 2단계 AI(Haiku, 일괄): 댓글마다 해당 묶음 + 속뜻 + 직접 드러난 니즈만 표시. 개수·좋아요·회차는 프로그램이 센다.
  *         불호 묶음엔 속뜻이 '진짜 불만'이고 확신이 낮지 않은 댓글만 들어가게 프로그램이 강제한다.
- * ⑤ 3단계 AI(Sonnet, 일괄): 참고용 니즈 맵.
+ * ⑤ 3단계 AI(Sonnet, 일괄): 참고용 니즈 맵 — 월간 순위 웹툰·웹소설 각각 1~10위 작품만(CFG.needsTopRank, --needs auto).
  * ⑥ 결과 파일: 숫자·표시·묶음만(댓글 원문 없음 — 근거는 댓글 번호와 댓글 uid). 이 달 AI 사용액은 state/ai_state.json 에 더한다.
  *
  *   node scripts/cmt/cmt_pilot.mjs --ids 56243215,66476840 --out cmt_pilot_out.json
- *        [--limit-usd 30] [--cap-usd 2] [--wait-min 100] [--collect-only] [--summary FILE]
+ *        [--limit-usd 30] [--cap-usd 2] [--wait-min 100] [--needs auto|all|none] [--collect-only] [--summary FILE]
  *   이어받기는 없다: 다시 돌리면 댓글을 새로 모아 표본이 바뀌므로, 지난 AI 결과를 붙이면 엉뚱한 댓글에 붙는다.
  *   돈: AI 일괄을 보내는 즉시 예상 비용을 이 달 사용액에 먼저 더하고, 결과를 받으면 실제 금액으로 맞춘다.
  *   CMT_MOCK=1 이면 AI 대신 가짜 답으로 끝까지 돌려 본다 (돈 안 듦, 시험용).
@@ -33,10 +33,11 @@ const EST_NEEDS_WORK = 0.15;      // 3단계: 작품 1개당 예상(Sonnet 일�
 const MOCK = !!process.env.CMT_MOCK;
 
 // ---- 명령줄 ----
-const args = { ids: [], limitUsd: 30, capUsd: 2, waitMin: 100, out: "cmt_pilot_out.json", collectOnly: false, summary: null };
+const args = { ids: [], limitUsd: 30, capUsd: 2, waitMin: 100, needs: "auto", out: "cmt_pilot_out.json", collectOnly: false, summary: null };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i], v = () => process.argv[++i];
   if (k === "--ids") args.ids = v().split(",").map((s) => s.trim()).filter(Boolean);
+  else if (k === "--needs") args.needs = v();
   else if (k === "--limit-usd") args.limitUsd = Number(v());
   else if (k === "--cap-usd") args.capUsd = Number(v());
   else if (k === "--wait-min") args.waitMin = Number(v());
@@ -47,12 +48,26 @@ for (let i = 2; i < process.argv.length; i++) {
 }
 for (const k of ["limitUsd", "capUsd", "waitMin"]) if (!Number.isFinite(args[k]) || args[k] <= 0) throw new Error(`${k} 값이 숫자가 아닙니다`);
 if (!args.ids.length || args.ids.length > 3 || args.ids.some((x) => !/^\d{5,12}$/.test(x))) throw new Error("--ids 에 작품 번호 1~3개를 쉼표로 넣어 주세요");
+if (!["auto", "all", "none"].includes(args.needs)) throw new Error("--needs 는 auto(월간 상위 작품만)·all·none 중 하나");
 const T_START = Date.now();
 
 const HOUR = 3600e3;
 const MONTH = new Date(Date.now() + 9 * HOUR).toISOString().slice(0, 7);
 const log = (...a) => console.log(...a);
 const PART = { early: "초반", mid: "중간", recent: "최근" };
+
+// 니즈 맵 대상: 트래커가 매일 받는 월간 순위(웹툰·웹소설 각각)에서 needsTopRank 위 안의 작품
+function monthlyTop(n) {
+  const top = new Map();
+  for (const [dir, name] of [["webtoon", "웹툰"], ["webnovel", "웹소설"]]) {
+    const f = `docs/data/${dir}/monthly/latest.json`;
+    if (!existsSync(f)) continue;
+    for (const x of JSON.parse(readFileSync(f, "utf8"))) if (x.rank <= n) top.set(String(x.workId), `${name} 월간 ${x.rank}위`);
+  }
+  return top;
+}
+const TOP = monthlyTop(CFG.needsTopRank);
+const needsOn = (w) => args.needs === "all" || (args.needs === "auto" && TOP.has(String(w.id)));
 
 // 같은 씨앗이면 늘 같은 순서로 섞기 (다시 돌려도 같은 표본)
 function shuffle(arr, seed) {
@@ -283,7 +298,7 @@ function needsText(w, perEp = CFG.needsPerEp) {
 }
 function needsRequests(works) {
   return works.map((w, wi) => {
-    if (!w.sample.some((c) => c.lab)) return null;
+    if (!needsOn(w) || !w.sample.some((c) => c.lab)) return null;
     let per = CFG.needsPerEp, t = needsText(w, per);
     while (t.length > CFG.synthMaxChars && per > 8) { per = Math.floor(per * 0.8); t = needsText(w, per); }
     log(`  3단계 자료: ${w.title} ${t.length.toLocaleString()}자`);
@@ -360,7 +375,10 @@ try {
   const live = works.filter((w) => w.sample.length);
   if (!live.length) throw new Error("분석할 댓글을 하나도 받지 못해 AI를 부르지 않습니다");
   const nC = works.reduce((t, w) => t + w.sample.length, 0);
-  const est = nC * EST_PER_COMMENT + live.length * (EST_THEME_WORK + EST_NEEDS_WORK);
+  const nNeeds = live.filter(needsOn).length;
+  report.needs = { mode: args.needs, topRank: CFG.needsTopRank, works: live.filter(needsOn).map((w) => ({ id: w.id, title: w.title, rank: TOP.get(String(w.id)) || null })) };
+  log(`니즈 맵: ${nNeeds ? report.needs.works.map((x) => `${x.title}${x.rank ? `(${x.rank})` : ""}`).join(", ") : `대상 없음 (${args.needs === "none" ? "끔" : `월간 웹툰·웹소설 1~${CFG.needsTopRank}위만`})`}`);
+  const est = nC * EST_PER_COMMENT + live.length * EST_THEME_WORK + nNeeds * EST_NEEDS_WORK;
   const spent0 = state.spend[MONTH] || 0;
   log(`예상 비용 $${est.toFixed(2)} (상한 $${args.capUsd}) / 이 달 사용 $${spent0.toFixed(2)} (한도 $${args.limitUsd})`);
   if (est > args.capUsd) throw new Error("예상 비용이 시범 상한을 넘어 보내지 않습니다");
@@ -376,7 +394,7 @@ try {
   save();
   if (!works.some((w) => w.themes && w.themes.length)) throw new Error("반복 반응 묶음을 하나도 받지 못했습니다");
 
-  if (!MOCK) recheck(nC * EST_PER_COMMENT + live.length * EST_NEEDS_WORK, "2단계");
+  if (!MOCK) recheck(nC * EST_PER_COMMENT + nNeeds * EST_NEEDS_WORK, "2단계");
   await stage("2단계(Haiku) 댓글 표시", classifyRequests(works), nC * EST_PER_COMMENT, "haiku", (out) => {
     const a = applyLabels(works, out);
     if (a.failed) report.notes.push(`2단계 실패한 묶음 ${a.failed}개`);
@@ -385,8 +403,11 @@ try {
   for (const w of works) { judge(w); themeStats(w); }
   save();
 
-  if (!MOCK) recheck(live.length * EST_NEEDS_WORK, "3단계");
-  await stage("3단계(Sonnet) 참고용 니즈 맵", needsRequests(works), live.length * EST_NEEDS_WORK, "needs", (out) => applyNeeds(works, out));
+  const nReqs = needsRequests(works);
+  if (nReqs.length) {
+    if (!MOCK) recheck(nReqs.length * EST_NEEDS_WORK, "3단계");
+    await stage("3단계(Sonnet) 참고용 니즈 맵", nReqs, nReqs.length * EST_NEEDS_WORK, "needs", (out) => applyNeeds(works, out));
+  } else log("3단계(니즈 맵) 건너뜀: 대상 작품 없음");
 } catch (e) {
   report.error = e instanceof KakaoBlocked ? "카카오가 요청을 막아 멈췄습니다" : e.message;
   console.error("오류:", e.message);
@@ -397,6 +418,7 @@ try {
   const lines = [`## 카카오 회차 댓글 분석 시범 (반복 반응)`, `- 작품: ${works.map((w) => w.title).join(", ")}`, `- 카카오 요청 ${K.requests}번`,
     `- 표시한 댓글 ${works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab).length, 0)}개, 반복 반응 묶음 ${works.map((w) => (w.themes || []).length).join("·")}개`,
     `- '불호' 묶음에서 뺀 겉말 불평 ${report.dropped}개, 원문과 겹쳐 가린 글 ${report.scrubbed || 0}개`,
+    `- 니즈 맵: ${report.needs && report.needs.works.length ? report.needs.works.map((x) => x.title + (x.rank ? `(${x.rank})` : "")).join(", ") : `만들지 않음 (월간 웹툰·웹소설 1~${CFG.needsTopRank}위 작품만)`}`,
     `- AI 비용 $${usd.toFixed(3)} (묶음 찾기 $${report.cost.theme.toFixed(3)} + 표시 $${report.cost.haiku.toFixed(3)} + 니즈 맵 $${report.cost.needs.toFixed(3)}) / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
     ...report.notes.map((n) => "- " + n), ...(report.error ? ["- 오류: " + report.error] : [])];
   log(lines.join("\n"));
