@@ -26,12 +26,13 @@ const EST = { theme: 0.15, perComment: 0.00006, recheck: { sonnet: 0.0025, haiku
 const THEME_CHARS = 60000, THEME_TEXT = 150, CHUNK = 25, RECHECK_CHUNK = 20;
 const MOCK = !!process.env.CMT_MOCK;
 
-const args = { spec: null, reps: 2, effort: "low", recheck: "sonnet@medium", capUsd: 2, limitUsd: 30, waitMin: 100, out: "cmt_exp1_out.json", summary: null };
+const args = { spec: null, reps: 2, effort: "low", themeEffort: "high", recheck: "sonnet@medium", capUsd: 2, limitUsd: 30, waitMin: 100, out: "cmt_exp1_out.json", summary: null };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i], v = () => process.argv[++i];
   if (k === "--spec") args.spec = v();
   else if (k === "--reps") args.reps = Number(v());
   else if (k === "--effort") args.effort = v();
+  else if (k === "--theme-effort") args.themeEffort = v();
   else if (k === "--recheck") args.recheck = v();
   else if (k === "--cap-usd") args.capUsd = Number(v());
   else if (k === "--limit-usd") args.limitUsd = Number(v());
@@ -42,7 +43,7 @@ for (let i = 2; i < process.argv.length; i++) {
 }
 if (!args.spec || !/^state\/cmt\/[\w-]+\.json$/.test(args.spec) || !existsSync(args.spec)) throw new Error("--spec 은 state/cmt/ 안의 표본 목록 파일");
 if (!(args.reps >= 1 && args.reps <= 3)) throw new Error("--reps 는 1~3");
-if (!["low", "medium", "high"].includes(args.effort)) throw new Error("--effort 는 low·medium·high");
+if (!["low", "medium", "high"].includes(args.effort) || !["low", "medium", "high"].includes(args.themeEffort)) throw new Error("--effort·--theme-effort 는 low·medium·high");
 const RC = args.recheck === "none" ? null : (() => {
   const m = String(args.recheck).match(/^(sonnet|haiku)@(low|medium|high)$/);
   if (!m) throw new Error("--recheck 는 sonnet@medium 같은 형식 또는 none");
@@ -123,6 +124,16 @@ function scrubberFor(w) {
   return (s) => { const t = norm(s); for (let i = 0; i + 12 <= t.length; i++) if (grams.has(t.slice(i, i + 12))) return "(댓글 원문과 겹쳐 가림)"; return s; };
 }
 
+
+// 묶음마다 근거 댓글(1단계 refs)이 나온 회차 — 2단계가 짧은 반응을 회차 맥락으로 읽게
+function withHints(themes, sample) {
+  const noOf = new Map(sample.map((c) => [c.n, c.no]));
+  return themes.map((t) => {
+    const eps = [...new Set((t.seed || []).map((n) => noOf.get(n)).filter((x) => x != null))].sort((a, b) => a - b);
+    return eps.length ? { ...t, hint: eps.map((x) => `${x}화`).join("·") } : t;
+  });
+}
+
 // ---------------- 돈 ----------------
 const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, "utf8")) : {};
 state.spend ||= {};
@@ -169,7 +180,7 @@ try {
 
   // ① 1단계: 반복 반응 묶음 (반복마다 따로)
   const treqs = [];
-  for (let r = 0; r < args.reps; r++) works.forEach((w, wi) => treqs.push({ custom_id: `t${r}-${wi}`, params: AI.buildThemeParamsK({ model: SONNET, effort: "medium" }, themeText(w)) }));
+  for (let r = 0; r < args.reps; r++) works.forEach((w, wi) => treqs.push({ custom_id: `t${r}-${wi}`, params: AI.buildThemeParamsK({ model: SONNET, effort: args.themeEffort }, themeText(w)) }));
   log(`  1단계 자료: ${works.map((w) => `${w.title} ${themeText(w).length.toLocaleString()}자`).join(", ")}`);
   await stage("1단계(Sonnet) 새 묶음 규칙", treqs, args.reps * works.length * EST.theme, "theme", (out) => {
     let usd = 0;
@@ -194,7 +205,7 @@ try {
   // ② 2단계: 묶음마다 댓글 표시 (카카오판 K)
   const hreqs = [], chunkNs = new Map();
   for (let r = 0; r < args.reps; r++) works.forEach((w, wi) => {
-    const themes = runs[r][wi].themes;
+    const themes = withHints(runs[r][wi].themes, w.sample);
     if (!themes.length) return;
     const wb = { title: w.title, webtoon: w.webtoon, bl: w.bl, desc: w.desc, genre: w.genre };
     for (const e of w.episodes) {
