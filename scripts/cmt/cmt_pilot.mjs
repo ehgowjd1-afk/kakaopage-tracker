@@ -15,6 +15,8 @@
  *   --method new(기본, 2026-10-12 정답표 측정으로 고름): 1단계 새 묶음 규칙(B) + 2단계 카카오판(K, 생각량 low)
  *     + 확신 '높음'이 아닌 불만 후보만 Sonnet 재확인. 불호 묶음엔 재확인까지 통과한 서사·캐릭터·(웹툰)작화 불만만.
  *     (정답표 489개: '진짜 불만' 정밀도 SSS급 30%→89%, 잊혀진 들판 75%→98%, 놓침은 원래 수준 유지)
+ *     + 빠진 반응 채우기(cmt_fill.mjs): 2단계 뒤 묶음 없는 댓글만 다시 읽혀 새 묶음 보태기·좁은 기준 넓히기(Sonnet)
+ *       → 묶음 없던 댓글만 다시 표시(Haiku). 확신 '낮음'으로 붙은 묶음은 떼고(검토에서 절반 넘게 틀림), 댓글 0개 묶음은 뺀다.
  *   --method old: 1차 시범 방식 그대로.
  *   이어받기는 없다: 다시 돌리면 댓글을 새로 모아 표본이 바뀌므로, 지난 AI 결과를 붙이면 엉뚱한 댓글에 붙는다.
  *   돈: AI 일괄을 보내는 즉시 예상 비용을 이 달 사용액에 먼저 더하고, 결과를 받으면 실제 금액으로 맞춘다.
@@ -29,6 +31,7 @@ import * as AI from "./cmt_ai.mjs";
 import { judge } from "./cmt_judge.mjs";
 import { episodeContext, episodeLine, versionLine, commentWhen } from "./cmt_ctx.mjs";
 import { createBatcher, costOf as rawCost } from "./batch.mjs";
+import * as FILL from "./cmt_fill.mjs";
 
 const STATE = "state/ai_state.json";   // 카카오 트래커 자기 장부 (리디·네이버와 따로)
 const HAIKU = { model: "claude-haiku-5-5", effort: "medium" };   // --method new 에선 low (아래)
@@ -38,6 +41,8 @@ const RECHECK_CHUNK = 20;
 const EST_PER_COMMENT = 0.00006;  // 2단계: 댓글 1개당 예상(일괄, 여유 있게 — 실측 low $0.000036, medium $0.000039~0.000077)
 const EST_THEME_WORK = 0.12;      // 1단계: 작품 1개당 예상(Sonnet 일괄, 실측 $0.073)
 const EST_NEEDS_WORK = 0.1;       // 3단계: 작품 1개당 예상(Sonnet 일괄, 실측 $0.057)
+const EST_FILL_WORK = 0.05;       // 빠진 반응 찾기: 작품 1개당 예상(Sonnet 일괄)
+const EST_FILL_PER_COMMENT = 0.00003;   // 묶음 없던 댓글 다시 표시: 1개당 예상(Haiku 일괄)
 const MOCK = !!process.env.CMT_MOCK;
 
 // ---- 명령줄 ----
@@ -187,6 +192,10 @@ function mockAnswer(customId, body) {
     ac: ["none", "stay", "churn", "pay"][i % 4], cf: ["hi", "mid", "lo", "lo", "hi", "mid"][i % 6],
     // 새 방식(카카오판) 칸: 대상·측면 — T4(불호)에 붙은 critic 중 대상이 작중이면 코드가 빼야 함
     tg: ["craft", "ops", "story", "craft", "other", "story"][i % 6], cw: ["art", "ops", "none", "repeat", "none", "none"][i % 6] })) };
+  // 빠진 반응 채우기: 없는 번호(T99)·불호로 잘못 둔 휴재 묶음은 프로그램이 걸러야 함
+  if (customId.startsWith("f-")) return { themes: [{ bucket: "talk", label: "가짜 보탠 묶음", def: "가짜", refs: ns.slice(0, 3) }, { bucket: "dislike", label: "잦은 휴재 비판", def: "가짜(옮겨져야 함)", refs: ns.slice(3, 5) }],
+    widen: [{ id: "T3", label: "가짜 넓힌 묶음", def: "가짜 넓힘" }, { id: "T99", label: "없는 번호", def: "무시돼야 함" }] };
+  if (customId.startsWith("g-")) return { comments: ns.map((n, i) => ({ n, th: [["T6"], [], ["T7", "T4"], ["T99"]][i % 4] })) };
   if (customId.startsWith("r-")) return { items: ns.map((n, i) => ({ n, target: "craft", complaint: ["yes", "no", "border"][i % 3], kind: "work", aspect: "repeat" })) };
   return { needs: [{ axis: "romance", need: "관계 진전", state: "met", evidence: "가짜", size: "중", why: "가짜", refs: ns.slice(0, 3).concat([999999]) }] };
 }
@@ -313,6 +322,7 @@ function applyLabels(works, out) {
       // 새 방식: 서사·캐릭터·(웹툰)작화 불만(cx=work)만 — 확신 높음이 아니면 재확인 뒤 다시 거른다(applyRecheck)
       b.th = b.th.filter((id) => themeOf.get(id).bucket !== "dislike" || (NEW ? b.cx === "work" : b.tn === "critic" && b.cf !== "lo"));
       if (b.th.length < before) report.dropped++;
+      if (NEW && b.cf === "lo" && b.th.length) { b.thLo = b.th; b.th = []; }
       c.lab = b;
     }
   }
@@ -327,6 +337,58 @@ function withHints(themes, sample) {
     const eps = [...new Set((t.seed || []).map((n) => noOf.get(n)).filter((x) => x != null))].sort((a, b) => a - b);
     return eps.length ? { ...t, hint: eps.map((x) => `${x}화`).join("·") } : t;
   });
+}
+
+// ---------------- ④-1 빠진 반응 채우기 (새 방식, cmt_fill.mjs) ----------------
+function fillRequests(works) {
+  const reqs = [];
+  works.forEach((w, wi) => {
+    if (!w.themes || !w.themes.length) return;
+    w.fillCands = FILL.unbundled(w.sample, (c) => c.lab).map((c) => ({ ...c, tn: c.lab.tn }));
+    const cnt = (id) => w.sample.filter((c) => c.lab && c.lab.th.includes(id)).length;
+    const { text, picked } = FILL.fillText(w, w.themes, cnt, w.fillCands);
+    log(`  빠진 반응 자료: ${w.title} — 묶음 없는 댓글 ${w.fillCands.length}개 중 ${picked}개, ${text.length.toLocaleString()}자`);
+    reqs.push({ custom_id: `f-${wi}`, params: AI.buildFillParamsK(SONNET, text) });
+  });
+  return reqs;
+}
+function applyFill(works, out) {
+  let usd = 0;
+  for (const [cid, res] of out) {
+    const w = works[Number(cid.split("-")[1])];
+    if (!w || res.type !== "succeeded") { report.notes.push(`빠진 반응 찾기 실패 ${cid}`); continue; }
+    usd += costOf(SONNET.model, res.message.usage || {});
+    try {
+      const m = FILL.mergeFill(w.themes, AI.parseJson(res.message), new Set(w.sample.map((c) => c.n)), w.webtoon);
+      w.themes = m.themes;
+      w.fillStat = { cands: w.fillCands.length, added: m.added, widened: m.widened, tagged: 0 };
+    } catch (e) { report.notes.push(`빠진 반응 해석 실패: ${w.title} ${e.message}`); }
+  }
+  return usd;
+}
+function fillLabelRequests(works) {
+  const reqs = [];
+  works.forEach((w, wi) => {
+    if (!w.fillStat || !(w.fillStat.added + w.fillStat.widened)) return;
+    const themes = withHints(w.themes, w.sample);
+    FILL.fillLabelChunks(w.fillCands).forEach((part, k) => {
+      reqs.push({ custom_id: `g-${wi}-${k}`, ns: part.map((c) => c.n),
+        params: AI.buildFillLabelParamsK(HAIKU, { title: w.title, webtoon: w.webtoon, genre: w.genre }, part, themes, CFG.textMax) });
+    });
+  });
+  return reqs;
+}
+function applyFillLabels(works, out, nsOf) {
+  let usd = 0;
+  for (const [cid, res] of out) {
+    const w = works[Number(cid.split("-")[1])];
+    if (!w || res.type !== "succeeded") { report.notes.push(`묶음 다시 표시 실패 ${cid}`); continue; }
+    usd += costOf(HAIKU.model, res.message.usage || {});
+    let parsed; try { parsed = AI.parseJson(res.message); } catch { report.notes.push(`묶음 다시 표시 해석 실패 ${cid}`); continue; }
+    const byN = new Map(w.sample.map((c) => [c.n, c]));
+    w.fillStat.tagged += FILL.applyFillLabels(parsed, new Set(nsOf.get(cid) || []), w.themes, (n) => (byN.get(n) || {}).lab);
+  }
+  return usd;
 }
 
 // ---------------- ④-2 재확인 (새 방식) ----------------
@@ -447,7 +509,7 @@ function applyNeeds(works, out) {
 const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, "utf8")) : {};
 state.spend ||= {};
 const report = { version: 1, platform: "kakaopage", generated_at: new Date().toISOString(), cfg: CFG, models: { haiku: HAIKU, sonnet: SONNET },
-  method: args.method, cost: { theme: 0, haiku: 0, recheck: 0, needs: 0 }, batches: {}, notes: [], dropped: 0, scrubbed: 0 };
+  method: args.method, cost: { theme: 0, haiku: 0, fill: 0, fillLabel: 0, recheck: 0, needs: 0 }, batches: {}, notes: [], dropped: 0, scrubbed: 0 };
 let works = [];
 // 공개되는 결과에 댓글 원문이 그대로 실리지 않게: AI가 쓴 글이 어떤 댓글과 공백 빼고 12자 넘게 겹치면 가린다
 const GRAM = 12;
@@ -501,7 +563,7 @@ try {
   const nNeeds = live.filter(needsOn).length;
   report.needs = { mode: args.needs, topRank: CFG.needsTopRank, works: live.filter(needsOn).map((w) => ({ id: w.id, title: w.title, rank: TOP.get(String(w.id)) || null })) };
   log(`니즈 맵: ${nNeeds ? report.needs.works.map((x) => `${x.title}${x.rank ? `(${x.rank})` : ""}`).join(", ") : `대상 없음 (${args.needs === "none" ? "끔" : `월간 웹툰·웹소설 1~${CFG.needsTopRank}위만`})`}`);
-  const est = nC * EST_PER_COMMENT + live.length * EST_THEME_WORK + nNeeds * EST_NEEDS_WORK;
+  const est = nC * EST_PER_COMMENT + live.length * EST_THEME_WORK + nNeeds * EST_NEEDS_WORK + (NEW ? live.length * EST_FILL_WORK + nC * 0.5 * EST_FILL_PER_COMMENT : 0);
   const spent0 = state.spend[MONTH] || 0;
   log(`예상 비용 $${est.toFixed(2)} (상한 $${args.capUsd}) / 이 달 사용 $${spent0.toFixed(2)} (한도 $${args.limitUsd})`);
   if (est > args.capUsd) throw new Error("예상 비용이 시범 상한을 넘어 보내지 않습니다");
@@ -524,6 +586,18 @@ try {
     return a.usd;
   });
   if (NEW) {
+    const freqs = fillRequests(works);
+    if (freqs.length) {
+      if (!MOCK) recheck(freqs.length * EST_FILL_WORK, "빠진 반응 찾기");
+      await stage("2-1단계(Sonnet) 빠진 반응 찾기", freqs, freqs.length * EST_FILL_WORK, "fill", (out) => applyFill(works, out));
+      const greqs = fillLabelRequests(works), nsOf = new Map(greqs.map((r) => [r.custom_id, r.ns]));
+      const ng = greqs.reduce((t, r) => t + r.ns.length, 0);
+      if (greqs.length) {
+        if (!MOCK) recheck(ng * EST_FILL_PER_COMMENT, "묶음 다시 표시");
+        await stage("2-1단계(Haiku) 묶음 없던 댓글 다시 표시", greqs.map(({ ns, ...r }) => r), ng * EST_FILL_PER_COMMENT, "fillLabel", (out) => applyFillLabels(works, out, nsOf));
+      }
+      for (const w of works) if (w.fillStat) report.notes.push(`${w.title}: 묶음 없던 댓글 ${w.fillStat.cands}개 → 새 묶음 ${w.fillStat.added}개·넓힌 묶음 ${w.fillStat.widened}개, 다시 붙은 댓글 ${w.fillStat.tagged}개`);
+    }
     const rreqs = recheckRequests(works);
     if (rreqs.length) {
       const nq = works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab && c.lab.tn === "critic" && c.lab.cf !== "hi").length, 0);
@@ -532,7 +606,15 @@ try {
     }
     for (const w of works) finalizeComplaints(w);
   }
-  for (const w of works) { judge(w); themeStats(w); }
+  for (const w of works) {
+    judge(w);
+    themeStats(w);
+    // 댓글이 하나도 안 붙은 묶음은 뺀다 (특히 불호 — 억지 불호 후보로 보이지 않게, 2026-10-12 검토)
+    if (NEW) {
+      const empty = (w.themes || []).filter((t) => !t.count);
+      if (empty.length) { w.themes = w.themes.filter((t) => t.count); report.notes.push(`${w.title}: 댓글이 안 붙은 묶음 ${empty.length}개를 뺌(${empty.map((t) => AI.BUCKETS[t.bucket]).join("·")})`); }
+    }
+  }
   save();
 
   const nReqs = needsRequests(works);
@@ -546,14 +628,14 @@ try {
   process.exitCode = 1;
 } finally {
   save();
-  const usd = report.cost.theme + report.cost.haiku + (report.cost.recheck || 0) + report.cost.needs;
+  const usd = report.cost.theme + report.cost.haiku + (report.cost.fill || 0) + (report.cost.fillLabel || 0) + (report.cost.recheck || 0) + report.cost.needs;
   const lines = [`## 카카오 회차 댓글 분석 시범 (반복 반응)`, `- 작품: ${works.map((w) => w.title).join(", ")}`, `- 카카오 요청 ${K.requests}번`,
     `- 표시한 댓글 ${works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab).length, 0)}개, 반복 반응 묶음 ${works.map((w) => (w.themes || []).length).join("·")}개`,
     `- '불호' 묶음에서 뺀 겉말 불평 ${report.dropped}개, 원문과 겹쳐 가린 글 ${report.scrubbed || 0}개`,
     `- 니즈 맵: ${report.needs && report.needs.works.length ? report.needs.works.map((x) => x.title + (x.rank ? `(${x.rank})` : "")).join(", ") : `만들지 않음 (월간 웹툰·웹소설 1~${CFG.needsTopRank}위 작품만)`}`,
     `- 방식: ${args.method}${NEW ? ' (새 묶음 규칙 + 카카오판 표시 + 불만 재확인)' : ''}`,
     ...(NEW ? [`- 최종 불만: ${['work', 'ops', 'price', 'text'].map((k) => `${{ work: '불호 후보(서사·캐릭터·작화)', ops: '운영', price: '가격', text: '문장·오탈자' }[k]} ${works.reduce((t, w) => t + (w.sample || []).filter((c) => c.lab && c.lab.fc === k).length, 0)}`).join(' · ')}`] : []),
-    `- AI 비용 $${usd.toFixed(3)} (묶음 찾기 $${report.cost.theme.toFixed(3)} + 표시 $${report.cost.haiku.toFixed(3)} + 재확인 $${(report.cost.recheck || 0).toFixed(3)} + 니즈 맵 $${report.cost.needs.toFixed(3)}) / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
+    `- AI 비용 $${usd.toFixed(3)} (묶음 찾기 $${report.cost.theme.toFixed(3)} + 표시 $${report.cost.haiku.toFixed(3)} + 빠진 반응 채우기 $${((report.cost.fill || 0) + (report.cost.fillLabel || 0)).toFixed(3)} + 재확인 $${(report.cost.recheck || 0).toFixed(3)} + 니즈 맵 $${report.cost.needs.toFixed(3)}) / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,
     ...report.notes.map((n) => "- " + n), ...(report.error ? ["- 오류: " + report.error] : [])];
   log(lines.join("\n"));
   if (args.summary) appendFileSync(args.summary, lines.join("\n") + "\n");
