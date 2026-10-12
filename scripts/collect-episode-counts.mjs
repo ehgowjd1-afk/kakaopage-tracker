@@ -21,7 +21,9 @@
 // 순서
 //   ① 갱신: 이미 센 작품은 일주일에 한 번(작품마다 요일을 나눔), 댓글이 늘었을 때만 최근 60일 회차와 새 회차를 다시 센다.
 //      4주에 한 번은 전 회차를 다시 센다(옛 회차에 늦게 달린 댓글·삭제 반영).
-//   ② 백필: 아직 없는 작품 — 지금 순위권 → 순위(TOP 300)에 든 적 있는 작품 → 나머지, 같은 층에선 댓글 많은 순.
+//   ② 백필: 아직 없는 작품 — 지금 순위권 → 순위(TOP 300)에 든 적 있는 작품 → 나머지. 같은 층에선 댓글이 적은(빨리 끝나는) 작품부터
+//      — 댓글이 아주 많은 작품은 회차마다 따로 세야 해서 한 작품에 수백~수천 요청이 들고, 첫날 밤 9작품밖에 못 채웠다(2026-10-12).
+//      남은 시간 안에 못 끝낼 만큼 큰 작품은 건너뛰고 다음 날 다시 본다(중간에 끊기면 그 작품은 저장되지 않으므로).
 //      일간 TOP 100 작품은 댓글 분석 작업(collect-comments.mjs)이 회차 표(data/comments/ep)를 이미 만들므로 건너뛴다.
 // 실행: node scripts/collect-episode-counts.mjs [--minutes 290] [--stop-utc 21:30] [--ids 1,2] [--dry]
 import fs from 'node:fs';
@@ -253,15 +255,18 @@ export async function run({ minutes = 290, stopUtc = null, ids = null, dry = fal
     } else if (ids || !deep.has(w.id)) backfill.push(w);
   }
   const tier = (w) => (now.has(w.id) ? 0 : ever.has(w.id) ? 1 : 2);
-  backfill.sort((a, b) => tier(a) - tier(b) || b.cc - a.cc);
+  backfill.sort((a, b) => tier(a) - tier(b) || a.cc - b.cc);
   console.log(`episode counts: refresh ${refresh.length}, backfill ${backfill.length} (now ${backfill.filter((w) => tier(w) === 0).length}, ever ranked ${backfill.filter((w) => tier(w) === 1).length}), stop at ${new Date(deadline).toISOString()}`);
   if (dry) return;
 
-  let done = 0, failed = 0, stopped = null;
+  let done = 0, failed = 0, skipped = 0, stopped = null;
   const queue = [...refresh.map((r) => ({ ...r, kind: 'refresh' })), ...backfill.map((w) => ({ w, old: null, full: true, kind: 'backfill' }))];
   for (const job of queue) {
     // 작품 하나가 끝날 때까지 걸릴 시간을 대략 남겨 둔다 (큰 작품은 회차 수 × 2초)
     if (Date.now() + 10 * 60e3 > deadline) { stopped = 'time'; break; }
+    // 대략 몇 번 요청이 들지: 댓글 쪽수(100개당 1번), 댓글이 아주 많으면 회차 수만큼(모르니 넉넉히 1,500)
+    const est = (job.w.cc <= S_MAX_COMMENTS ? Math.ceil(job.w.cc / 100) : 1500) + 10;
+    if (Date.now() + est * GAP_MS * 1.3 > deadline) { skipped++; continue; }
     try {
       const r = await countWork(job.w, job.old, job.full, today);
       if (r) fs.writeFileSync(path.join(OUT, `${job.w.id}.json`), JSON.stringify(r));
@@ -275,7 +280,7 @@ export async function run({ minutes = 290, stopUtc = null, ids = null, dry = fal
     }
   }
   const remaining = backfill.length - Math.max(0, done - refresh.length);
-  const state = { lastRun: today, minutes: Math.round((Date.now() - t0) / 60e3), done, failed, requests, stopped, refresh: refresh.length, backfillLeft: Math.max(0, remaining),
+  const state = { lastRun: today, minutes: Math.round((Date.now() - t0) / 60e3), done, failed, skipped, requests, stopped, refresh: refresh.length, backfillLeft: Math.max(0, remaining),
     files: fs.readdirSync(OUT).filter((f) => f !== 'state.json').length };
   fs.writeFileSync(STATE, JSON.stringify(state, null, 1));
   console.log(`episode counts: ${JSON.stringify(state)}`);
