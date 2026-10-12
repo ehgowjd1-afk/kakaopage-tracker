@@ -7,14 +7,14 @@
  *   ㉡ Haiku: 묶음이 없던 댓글만 보완된 목록으로 묶음 번호를 다시 붙인다.
  * 확신 '낮음'으로 붙은 묶음은 검토에서 절반 넘게 틀려 2단계에서 떼고(pilot/exp1 쪽), 여기서 한 번 더 본다.
  * 1차 시험 검토(2026-10-12): 큰 반응 빠짐·실행마다 다른 구성은 메워졌지만, 다시 붙이기가 가장 가까운 묶음에 억지로 넣고
- * 불호 묶음을 분량·가격까지 넓혔다 → 불호는 넓히지 않고, 다시 붙이기는 확신 '높음'만, 6개 미만 새 묶음은 도로 뺀다.
+ * 불호 묶음을 분량·가격까지 넓혔다 → 불호는 넓히지 않고, 다시 붙이기는 확신 '높음'만, 8개 미만 새 묶음은 도로 뺀다.
  */
 import { cut } from "./kakao_cmt.mjs";
 import * as AI from "./cmt_ai.mjs";
 import { isFiller } from "../lib/cmt-filter.mjs";
 import { versionLine } from "./cmt_ctx.mjs";
 
-export const FILL = { maxComments: 320, maxChars: 42000, textMax: 150, minLen: 6, labelChunk: 40, maxNew: 6, maxWiden: 4, minAdded: 6 };
+export const FILL = { maxComments: 320, maxChars: 42000, textMax: 150, minLen: 6, labelChunk: 40, maxNew: 6, maxWiden: 4, minAdded: 8 };
 
 // 묶음 없는 댓글 가운데 내용 있는 것 — labelOf(c) 가 그 댓글의 표시(lab)를 돌려준다
 export function unbundled(sample, labelOf) {
