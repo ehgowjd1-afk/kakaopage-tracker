@@ -25,6 +25,15 @@ on:
         description: "재확인 모델 — sonnet@medium / haiku@high / none"
         type: string
         default: "sonnet@medium"
+      fill:
+        description: "빠진 반응 채우기(묶음 없는 댓글에서 묶음 보태기)"
+        type: choice
+        options: ["on", "off"]
+        default: "on"
+      from_run:
+        description: "이전 시험 실행 번호 — 넣으면 그 결과(하루 보관)에 빠진 반응 채우기만 돌림"
+        type: string
+        default: ""
       cap_usd:
         description: "이번 시험 비용 상한(달러) — 예상이 넘으면 보내지 않음"
         type: string
@@ -32,6 +41,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 # AI 작업끼리 겹치지 않게 (돈 기록 파일을 같이 씀)
 concurrency:
@@ -58,6 +68,16 @@ jobs:
           mkdir -p /tmp/sdk && cd /tmp/sdk && npm init -y >/dev/null && npm install --no-audit --no-fund @anthropic-ai/sdk@0.128.0
           ln -s /tmp/sdk/node_modules "$GITHUB_WORKSPACE/node_modules"
 
+      - name: 이전 결과 받기
+        if: ${{ inputs.from_run != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FROM_RUN: ${{ inputs.from_run }}
+        run: |
+          [[ "$FROM_RUN" =~ ^[0-9]+$ ]] || { echo "실행 번호는 숫자"; exit 1; }
+          mkdir -p /tmp/prev && gh run download "$FROM_RUN" -n cmt-exp1-out -D /tmp/prev -R "$GITHUB_REPOSITORY"
+          ls -la /tmp/prev
+
       # 입력값은 환경 변수로 넘긴다 (명령줄에 바로 붙이지 않음). 형식이 이상하면 스크립트가 멈춘다.
       - name: 시험 실행
         timeout-minutes: 120
@@ -68,8 +88,11 @@ jobs:
           EFFORT: ${{ inputs.effort }}
           CAP_USD: ${{ inputs.cap_usd }}
           RECHECK: ${{ inputs.recheck }}
+          FILL: ${{ inputs.fill }}
+          FROM: ${{ inputs.from_run != '' && '/tmp/prev/cmt_exp1_out.json' || '' }}
         run: >
-          node scripts/cmt/cmt_exp1.mjs --spec "$SPEC" --reps "$REPS" --effort "$EFFORT" --recheck "$RECHECK"
+          node scripts/cmt/cmt_exp1.mjs --spec "$SPEC" --reps "$REPS" --effort "$EFFORT" --recheck "$RECHECK" --fill "$FILL"
+          ${FROM:+--from "$FROM"}
           --cap-usd "$CAP_USD" --limit-usd 30 --wait-min 100
           --out cmt_exp1_out.json --summary "$GITHUB_STEP_SUMMARY"
 
