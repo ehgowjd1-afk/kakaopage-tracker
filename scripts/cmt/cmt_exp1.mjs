@@ -164,7 +164,7 @@ function mockAnswer(cid, body) {
     { bucket: "dislike", label: "같은 장면 반복에 실망", def: "가짜", refs: ns.slice(7, 9) }] };
   if (cid.startsWith("f")) return { themes: [{ bucket: "talk", label: "가짜 보탠 묶음", def: "가짜", refs: ns.slice(0, 3) }, { bucket: "dislike", label: "잦은 휴재 비판", def: "가짜(옮겨져야 함)", refs: ns.slice(3, 5) }],
     widen: [{ id: "T1", label: "가짜 넓힌 묶음", def: "가짜 넓힘" }, { id: "T99", label: "없는 번호", def: "무시돼야 함" }] };
-  if (cid.startsWith("g")) return { comments: ns.map((n, i) => ({ n, th: [["T5"], [], ["T6", "T4"], ["T99"]][i % 4] })) };
+  if (cid.startsWith("g")) return { comments: ns.map((n, i) => ({ n, th: [["T5"], [], ["T6", "T4"], ["T99"], ["T1"]][i % 5], cf: ["hi", "hi", "hi", "hi", "mid"][i % 5] })) };
   if (cid.startsWith("r")) return { items: ns.map((n, i) => ({ n, target: "craft", complaint: ["yes", "no", "border"][i % 3], kind: "work", aspect: "repeat" })) };
   return { comments: ns.map((n, i) => ({ n, tg: ["story", "craft", "ops"][i % 3], cw: ["none", "repeat", "ops"][i % 3], tn: ["char", "critic", "miss"][i % 3],
     th: [["T1"], ["T4"], ["T2"]][i % 3], nd: [], st: "none", nn: "", ac: "none", cf: ["hi", "mid", "lo"][i % 3] })) };
@@ -340,7 +340,7 @@ try {
       FILL.fillLabelChunks(fCands.get(`${r}-${wi}`)).forEach((part, k) => {
         const custom_id = `g${r}-${wi}-${k}`;
         gNs.set(custom_id, new Set(part.map((c) => c.n)));
-        greqs.push({ custom_id, params: AI.buildFillLabelParamsK({ model: HAIKU, effort: args.effort }, { title: w.title, webtoon: w.webtoon, genre: w.genre }, part, themes, CFG.textMax) });
+        greqs.push({ custom_id, params: AI.buildFillLabelParamsK({ model: HAIKU, effort: "medium" }, { title: w.title, webtoon: w.webtoon, genre: w.genre }, part, themes, CFG.textMax) });
       });
     });
     const ng = [...gNs.values()].reduce((t, x) => t + x.size, 0);
@@ -355,6 +355,12 @@ try {
         run.fillStat.tagged = (run.fillStat.tagged || 0) + FILL.applyFillLabels(parsed, new Set(gNs.get(cid) || []), run.themes, (n) => run.labels[n]);
       }
       return usd;
+    });
+    for (const rw of runs) rw.forEach((run) => {
+      if (!run.fillStat) return;
+      const p = FILL.pruneSmallAdded(run.themes, Object.values(run.labels));
+      run.themes = p.themes;
+      run.fillStat.pruned = p.pruned;
     });
   }
 } catch (e) {
@@ -373,7 +379,7 @@ try {
       const b = (k) => x.themes.filter((t) => t.bucket === k).length;
       const f = x.fillStat;
       return `- 반복 ${r + 1} ${x.title}: 묶음 ${x.themes.length}개(좋다 ${b("like")}·많이 ${b("talk")}·불호 ${b("dislike")}), 표시 ${Object.keys(x.labels).length}개, 재확인 ${Object.keys(x.recheck).length}개` +
-        (f ? `, ④ 묶음 없던 댓글 ${f.cands}개 → 새 묶음 ${f.added}·넓힘 ${f.widened}·다시 붙음 ${f.tagged || 0}개` : "") +
+        (f ? `, ④ 묶음 없던 댓글 ${f.cands}개 → 새 묶음 ${f.added}(작아서 뺌 ${f.pruned || 0})·넓힘 ${f.widened}·다시 붙음 ${f.tagged || 0}개` : "") +
         `, 묶음 없는 댓글 ${Object.values(x.labels).filter((l) => !l.th.length).length}개`;
     })),
     `- AI 비용 ${Object.entries(report.usage).map(([k, u]) => `${k} $${u.usd.toFixed(3)}`).join(" + ")} / 이 달 합계 $${(state.spend[MONTH] || 0).toFixed(2)}`,

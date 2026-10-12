@@ -6,13 +6,15 @@
  *      회차·장면에 너무 좁게 묶인 기존 묶음의 기준을 넓힌다.
  *   ㉡ Haiku: 묶음이 없던 댓글만 보완된 목록으로 묶음 번호를 다시 붙인다.
  * 확신 '낮음'으로 붙은 묶음은 검토에서 절반 넘게 틀려 2단계에서 떼고(pilot/exp1 쪽), 여기서 한 번 더 본다.
+ * 1차 시험 검토(2026-10-12): 큰 반응 빠짐·실행마다 다른 구성은 메워졌지만, 다시 붙이기가 가장 가까운 묶음에 억지로 넣고
+ * 불호 묶음을 분량·가격까지 넓혔다 → 불호는 넓히지 않고, 다시 붙이기는 확신 '높음'만, 6개 미만 새 묶음은 도로 뺀다.
  */
 import { cut } from "./kakao_cmt.mjs";
 import * as AI from "./cmt_ai.mjs";
 import { isFiller } from "../lib/cmt-filter.mjs";
 import { versionLine } from "./cmt_ctx.mjs";
 
-export const FILL = { maxComments: 320, maxChars: 42000, textMax: 150, minLen: 6, labelChunk: 40, maxNew: 6, maxWiden: 4 };
+export const FILL = { maxComments: 320, maxChars: 42000, textMax: 150, minLen: 6, labelChunk: 40, maxNew: 6, maxWiden: 4, minAdded: 6 };
 
 // 묶음 없는 댓글 가운데 내용 있는 것 — labelOf(c) 가 그 댓글의 표시(lab)를 돌려준다
 export function unbundled(sample, labelOf) {
@@ -68,11 +70,12 @@ export function mergeFill(themes, parsed, validNs, webtoon) {
   let widened = 0;
   for (const x of (parsed.widen || []).slice(0, FILL.maxWiden)) {
     const t = byId.get(String(x.id || "").trim().toUpperCase());
-    if (!t || !x.def) continue;
+    if (!t || !x.def || t.bucket === "dislike") continue;
     t.label = cut(x.label || t.label, 60);
     t.def = cut(x.def, 160);
     t.widened = true;
     widened++;
+    Object.assign(t, AI.rebucket(t, webtoon));
   }
   const maxId = Math.max(0, ...out.map((t) => Number(String(t.id).slice(1)) || 0));
   const added = (parsed.themes || []).slice(0, FILL.maxNew).map((t, i) => AI.rebucket({
@@ -98,6 +101,7 @@ export function applyFillLabels(parsed, validNs, themes, labelOfN) {
     validNs.delete(it.n);
     const lab = labelOfN(it.n);
     if (!lab || (lab.th || []).length) continue;
+    if (it.cf !== "hi") continue;
     const th = [...new Set((it.th || []).map((x) => String(x).trim().toUpperCase()).filter((x) => themeOf.has(x)))]
       .filter((id) => themeOf.get(id).bucket !== "dislike" || lab.cx === "work").slice(0, 2);
     if (!th.length) continue;
@@ -106,4 +110,12 @@ export function applyFillLabels(parsed, validNs, themes, labelOfN) {
     tagged++;
   }
   return tagged;
+}
+
+// 새로 보탠 묶음 가운데 다시 붙이기 뒤 댓글이 FILL.minAdded 개 미만인 것은 도로 뺀다 (labels: 표시 목록)
+export function pruneSmallAdded(themes, labels) {
+  const small = new Set(themes.filter((t) => t.added && labels.filter((l) => l && l.th.includes(t.id)).length < FILL.minAdded).map((t) => t.id));
+  if (!small.size) return { themes, pruned: 0 };
+  for (const l of labels) if (l && l.th.some((id) => small.has(id))) { l.th = l.th.filter((id) => !small.has(id)); if (!l.th.length) delete l.fill; }
+  return { themes: themes.filter((t) => !small.has(t.id)), pruned: small.size };
 }

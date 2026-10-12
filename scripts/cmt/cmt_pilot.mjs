@@ -195,7 +195,7 @@ function mockAnswer(customId, body) {
   // 빠진 반응 채우기: 없는 번호(T99)·불호로 잘못 둔 휴재 묶음은 프로그램이 걸러야 함
   if (customId.startsWith("f-")) return { themes: [{ bucket: "talk", label: "가짜 보탠 묶음", def: "가짜", refs: ns.slice(0, 3) }, { bucket: "dislike", label: "잦은 휴재 비판", def: "가짜(옮겨져야 함)", refs: ns.slice(3, 5) }],
     widen: [{ id: "T3", label: "가짜 넓힌 묶음", def: "가짜 넓힘" }, { id: "T99", label: "없는 번호", def: "무시돼야 함" }] };
-  if (customId.startsWith("g-")) return { comments: ns.map((n, i) => ({ n, th: [["T6"], [], ["T7", "T4"], ["T99"]][i % 4] })) };
+  if (customId.startsWith("g-")) return { comments: ns.map((n, i) => ({ n, th: [["T6"], [], ["T7", "T4"], ["T99"], ["T1"]][i % 5], cf: ["hi", "hi", "hi", "hi", "mid"][i % 5] })) };
   if (customId.startsWith("r-")) return { items: ns.map((n, i) => ({ n, target: "craft", complaint: ["yes", "no", "border"][i % 3], kind: "work", aspect: "repeat" })) };
   return { needs: [{ axis: "romance", need: "관계 진전", state: "met", evidence: "가짜", size: "중", why: "가짜", refs: ns.slice(0, 3).concat([999999]) }] };
 }
@@ -373,7 +373,7 @@ function fillLabelRequests(works) {
     const themes = withHints(w.themes, w.sample);
     FILL.fillLabelChunks(w.fillCands).forEach((part, k) => {
       reqs.push({ custom_id: `g-${wi}-${k}`, ns: part.map((c) => c.n),
-        params: AI.buildFillLabelParamsK(HAIKU, { title: w.title, webtoon: w.webtoon, genre: w.genre }, part, themes, CFG.textMax) });
+        params: AI.buildFillLabelParamsK({ ...HAIKU, effort: "medium" }, { title: w.title, webtoon: w.webtoon, genre: w.genre }, part, themes, CFG.textMax) });
     });
   });
   return reqs;
@@ -596,7 +596,12 @@ try {
         if (!MOCK) recheck(ng * EST_FILL_PER_COMMENT, "묶음 다시 표시");
         await stage("2-1단계(Haiku) 묶음 없던 댓글 다시 표시", greqs.map(({ ns, ...r }) => r), ng * EST_FILL_PER_COMMENT, "fillLabel", (out) => applyFillLabels(works, out, nsOf));
       }
-      for (const w of works) if (w.fillStat) report.notes.push(`${w.title}: 묶음 없던 댓글 ${w.fillStat.cands}개 → 새 묶음 ${w.fillStat.added}개·넓힌 묶음 ${w.fillStat.widened}개, 다시 붙은 댓글 ${w.fillStat.tagged}개`);
+      for (const w of works) {
+        if (!w.fillStat) continue;
+        const p = FILL.pruneSmallAdded(w.themes, w.sample.map((c) => c.lab));
+        w.themes = p.themes;
+        report.notes.push(`${w.title}: 묶음 없던 댓글 ${w.fillStat.cands}개 → 새 묶음 ${w.fillStat.added}개(작아서 뺌 ${p.pruned}개)·넓힌 묶음 ${w.fillStat.widened}개, 다시 붙은 댓글 ${w.fillStat.tagged}개`);
+      }
     }
     const rreqs = recheckRequests(works);
     if (rreqs.length) {
