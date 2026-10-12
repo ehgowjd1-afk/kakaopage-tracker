@@ -243,7 +243,7 @@ function themeRequests(works) {
     if (NEW) {
       const t = themeTextB(w);
       log(`  1단계 자료: ${w.title} ${t.length.toLocaleString()}자 (새 묶음 규칙)`);
-      return { custom_id: `t-${wi}`, params: AI.buildThemeParamsK(SONNET, t) };
+      return { custom_id: `t-${wi}`, params: AI.buildThemeParamsK({ ...SONNET, effort: "high" }, t) };
     }
     let top = CFG.themeTop, rest = CFG.themeRest, t = themeText(w, top, rest);
     while (t.length > CFG.synthMaxChars && top + rest > 12) { top = Math.ceil(top * 0.8); rest = Math.floor(rest * 0.8); t = themeText(w, top, rest); }
@@ -281,7 +281,7 @@ function classifyRequests(works) {
       for (let k = 0; k < cs.length; k += CFG.chunk) {
         const part = cs.slice(k, k + CFG.chunk);
         reqs.push({ custom_id: `h-${wi}-${e.id}-${k / CFG.chunk}`, params: NEW
-          ? AI.buildClassifyParamsK(HAIKU, { ...wb, genre: w.genre }, e, part, CFG.textMax, w.themes, {})
+          ? AI.buildClassifyParamsK(HAIKU, { ...wb, genre: w.genre }, e, part, CFG.textMax, withHints(w.themes, w.sample), {})
           : AI.buildClassifyParams(HAIKU, wb, e, part, CFG.textMax, w.themes) });
       }
     }
@@ -317,6 +317,16 @@ function applyLabels(works, out) {
     }
   }
   return { usd, failed };
+}
+
+
+// 묶음마다 근거 댓글(1단계 refs)이 나온 회차 — 2단계가 짧은 반응을 회차 맥락으로 읽게
+function withHints(themes, sample) {
+  const noOf = new Map(sample.map((c) => [c.n, c.no]));
+  return themes.map((t) => {
+    const eps = [...new Set((t.seed || []).map((n) => noOf.get(n)).filter((x) => x != null))].sort((a, b) => a - b);
+    return eps.length ? { ...t, hint: eps.map((x) => `${x}화`).join("·") } : t;
+  });
 }
 
 // ---------------- ④-2 재확인 (새 방식) ----------------
