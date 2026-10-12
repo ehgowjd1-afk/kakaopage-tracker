@@ -504,6 +504,22 @@ export function rebucket(t, webtoon) {
   return t;
 }
 
+// 묶음 표시 마지막 거름 (코드, 돈 안 듦 — 2026-10-12 새 작품 최종 시험 검토):
+//  ① 회차가 붙은 묶음('288화: …')엔 그 회차 앞뒤 1화 댓글만 — 다른 회차의 비슷한 말이 끌려 들어오는 오류가 반복됨
+//  ② 좋다는 말 묶음엔 속뜻이 '진짜 작품 불만'인 댓글을 넣지 않는다 — '필력이 평범'이 '필력 좋다'로 가는 뒤집힘
+const PINNED_RE = /^\s*(\d+)\s*화\s*[:：]/;
+export function guardThemes(th, themes, lab, no) {
+  const byId = new Map(themes.map((t) => [t.id, t]));
+  return th.filter((id) => {
+    const t = byId.get(id);
+    if (!t) return false;
+    const m = String(t.label || "").match(PINNED_RE);
+    if (m && no != null && Math.abs(no - Number(m[1])) > 1) return false;
+    if (t.bucket === "like" && lab.tn === "critic") return false;
+    return true;
+  });
+}
+
 // ---------------- 2단계 뒤 재확인 (정밀도 개선 시험) ----------------
 // 1차 시험: 확신도 '높음'으로 잡힌 불만은 90~98%가 진짜, '중간·낮음'은 절반 정도만 진짜였다.
 // 그래서 확신 높음은 그대로 두고, 나머지 불만 후보만 더 꼼꼼한 모델이 한 번 더 판정한다(정답표 기준서와 같은 기준).

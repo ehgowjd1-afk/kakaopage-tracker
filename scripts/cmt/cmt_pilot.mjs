@@ -17,6 +17,8 @@
  *     (정답표 489개: '진짜 불만' 정밀도 SSS급 30%→89%, 잊혀진 들판 75%→98%, 놓침은 원래 수준 유지)
  *     + 빠진 반응 채우기(cmt_fill.mjs): 2단계 뒤 묶음 없는 댓글만 다시 읽혀 새 묶음 보태기·좁은 기준 넓히기(Sonnet)
  *       → 묶음 없던 댓글만 다시 표시(Haiku). 확신 '낮음'으로 붙은 묶음은 떼고(검토에서 절반 넘게 틀림), 댓글 0개 묶음은 뺀다.
+ *     + 마지막 거름(AI.guardThemes): 회차가 붙은 묶음엔 그 회차 앞뒤 1화만, 좋다는 말 묶음엔 진짜 불만 속뜻 댓글을 넣지 않는다.
+ *     (새 작품 2개 최종 시험, 정답표 244개: 최종 불만 정밀도 100%·97%, 놓침 75~85%)
  *   --method old: 1차 시범 방식 그대로.
  *   이어받기는 없다: 다시 돌리면 댓글을 새로 모아 표본이 바뀌므로, 지난 AI 결과를 붙이면 엉뚱한 댓글에 붙는다.
  *   돈: AI 일괄을 보내는 즉시 예상 비용을 이 달 사용액에 먼저 더하고, 결과를 받으면 실제 금액으로 맞춘다.
@@ -612,6 +614,15 @@ try {
     for (const w of works) finalizeComplaints(w);
   }
   for (const w of works) {
+    if (NEW) {
+      let cut = 0;
+      for (const c of w.sample || []) {
+        if (!c.lab || !c.lab.th.length) continue;
+        const th = AI.guardThemes(c.lab.th, w.themes || [], c.lab, c.no);
+        if (th.length < c.lab.th.length) { cut += c.lab.th.length - th.length; c.lab.th = th; }
+      }
+      if (cut) report.notes.push(`${w.title}: 회차가 안 맞거나 칭찬 묶음에 들어간 불만 표시 ${cut}개를 뗌`);
+    }
     judge(w);
     themeStats(w);
     // 댓글이 하나도 안 붙은 묶음은 뺀다 (특히 불호 — 억지 불호 후보로 보이지 않게, 2026-10-12 검토)
