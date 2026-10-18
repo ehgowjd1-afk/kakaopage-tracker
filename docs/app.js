@@ -2348,10 +2348,10 @@ async function renderWorkView(cat, period, workId) {
   const epPromise = hasCm && cm.epScanned
     ? fetchJson(`data/comments/ep/${workId}.json`).catch(() => null)
     : Promise.resolve(null);
-  Promise.all([epPromise, loadEpAi(workId), getPromoPeriods()]).then(([d, ai, pp]) => {
+  Promise.all([epPromise, loadEpAi(workId), getPromoPeriods(), loadEpLen(workId)]).then(([d, ai, pp, len]) => {
     const promos = promosOfWork(pp, workId);
-    if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d, { ai, promos }));
-    else addEpisodeCounts(epHolder, workId, hasCm ? cm : null, ai, promos);
+    if (d && d.episodes) epHolder.appendChild(buildEpisodeBox(cm, d, { ai, promos, len }));
+    else addEpisodeCounts(epHolder, workId, hasCm ? cm : null, ai, promos, len);
     if (ai) aiHolder.appendChild(buildEpAiBox(ai));
   });
 }
@@ -2360,6 +2360,18 @@ async function renderWorkView(cat, period, workId) {
 // 회차 본문은 읽지 않고 그 회차의 공감 많은 댓글로 짐작한 것. 예시 댓글은 원문 그대로(닉네임 없음).
 const EP_MOODS = { laugh: '웃음', touch: '감동·눈물', flutter: '설렘', anger: '인물에게 분노', chill: '소름·긴장', shock: '충격·반전', cheer: '응원', theory: '추리', complain: '작품·연재 불만', wait: '기다림·아쉬움' };
 let EPAI_INDEX = null;
+// 회차 분량(data/eplen, 웹툰만, 매주 월요일 — scripts/collect-episode-length.mjs): 회차 이름 → [이미지 장 수, KB]
+let EPLEN_INDEX = null;
+function loadEpLen(workId) {
+  if (!EPLEN_INDEX) EPLEN_INDEX = fetchJson('data/eplen/index.json').catch(() => ({ ids: {} }));
+  return EPLEN_INDEX.then((ix) => (ix && ix.ids && ix.ids[workId] ? fetchJson(`data/eplen/${workId}.json`).catch(() => null) : null))
+    .then((j) => {
+      if (!j || !Array.isArray(j.e)) return null;
+      const byLabel = {};
+      for (const [, label, pages, kb] of j.e) if (label) byLabel[label] = [pages, kb];
+      return { at: j.at, byLabel };
+    });
+}
 function loadEpAi(workId) {
   if (!EPAI_INDEX) EPAI_INDEX = fetchJson('data/epai/index.json').catch(() => ({ ids: {} }));
   return EPAI_INDEX.then((ix) => (ix && ix.ids && ix.ids[workId] ? fetchJson(`data/epai/${workId}.json`).catch(() => null) : null));
@@ -2405,7 +2417,7 @@ function buildEpAiBox(ai) {
 
 // 회차별 반응 표(data/comments/ep)가 없는 작품: 회차별 댓글 수만 센 표(data/epcounts, 일주일에 한 번 갱신)로 막대를 그린다.
 // epcounts = { at, c: [댓글 수], d: ['YYMMDD'], no: [화 번호|null], x: {순번: 이름}, h1/h3/h7: [공개 후 1·3·7일 댓글 수|null] }
-function addEpisodeCounts(holder, workId, cm, ai, promos) {
+function addEpisodeCounts(holder, workId, cm, ai, promos, len) {
   fetchJson(`data/epcounts/${workId}.json`).then((ec) => {
     if (!ec || !Array.isArray(ec.c) || !ec.c.length) return;
     const episodes = {};
@@ -2416,7 +2428,7 @@ function addEpisodeCounts(holder, workId, cm, ai, promos) {
       // [11] 무료 여부는 오늘 기준 상태라 과거 회차 판정에 쓰지 않는다(요청서) → 비움
       episodes[i] = [i, label, cnt || 0, ec.at, null, null, d, 0, null, null, null, null, at('h1', i), at('h3', i), at('h7', i)];
     });
-    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at, ai, promos }));
+    holder.appendChild(buildEpisodeBox(cm || {}, { episodes }, { countOnly: true, at: ec.at, ai, promos, len }));
   }).catch(() => {});
 }
 
@@ -2497,9 +2509,12 @@ function buildEpisodeBox(cm, ep, opt = {}) {
   // 같은 시점 비교(공개 3일) 값이 최근 회차 대부분에 있으면 그것을 기본으로
   const recent = rows.slice(-30);
   const h3ok = recent.filter((r) => r[13] != null).length >= recent.length * 0.6 && recent.some((r) => r[13] > 0);
-  const modes = [['h3', '공개 3일 댓글'], ['count', '지금까지 댓글']].filter(([k]) => k !== 'h3' || h3ok);
+  // 회차 분량: 회차 이름으로 맞춘다(웹툰만). 트레일러처럼 1장짜리는 분량 비교에서 뺀다.
+  const lenOf = (r) => (opt.len && opt.len.byLabel[r[1]]) || null;
+  const lenOk = !!opt.len && rows.filter((r) => lenOf(r)).length >= rows.length * 0.5;
+  const modes = [['h3', '공개 3일 댓글'], ['count', '지금까지 댓글'], ['len', '회차 분량']].filter(([k]) => (k === 'h3' ? h3ok : k === 'len' ? lenOk : true));
   let mode = h3ok ? 'h3' : 'count';
-  const val = (r) => (mode === 'h3' ? (r[13] || 0) : r[2]);
+  const val = (r) => (mode === 'h3' ? (r[13] || 0) : mode === 'len' ? ((lenOf(r) || [])[0] > 1 ? lenOf(r)[0] : 0) : r[2]);
 
   // ---- 판정 (요청서 기준) ----
   const judgeKey = h3ok ? 13 : 2;
@@ -2556,6 +2571,8 @@ function buildEpisodeBox(cm, ep, opt = {}) {
     detail.innerHTML = '';
     const ri = rows.indexOf(r);
     detail.appendChild(mk('div', 'font-weight:600;margin-bottom:4px;', `${r[1]}${r[6] ? ` · ${r[6]} 공개` : ''} · 댓글 ${(r[2] || 0).toLocaleString()}개${r[13] != null ? ` (공개 3일 ${r[13].toLocaleString()}개)` : ''}`));
+    const ln = lenOf(r);
+    if (ln && ln[0] > 1) detail.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin-bottom:4px;', `분량 ${ln[0].toLocaleString()}장${ln[1] ? ` · ${(ln[1] / 1024).toFixed(1)}MB` : ''}`));
     const jd = judged[ri], tg = tagsOf(r, ri);
     if ((jd && (jd.flag || dropIdx.has(ri))) || tg.length) {
       detail.appendChild(mk('div', 'font-size:12px;color:var(--text-dim);margin-bottom:4px;',
@@ -2596,7 +2613,7 @@ function buildEpisodeBox(cm, ep, opt = {}) {
       rect.setAttribute('width', 8);
       rect.setAttribute('y', H - h);
       rect.setAttribute('height', h);
-      rect.style.fill = flagTone(r, i);
+      rect.style.fill = mode === 'len' ? 'var(--c-curation)' : flagTone(r, i);
       svg.appendChild(rect);
     });
     const pick = (e) => {
@@ -2608,7 +2625,7 @@ function buildEpisodeBox(cm, ep, opt = {}) {
     svg.addEventListener('click', pick);
     chartWrap.innerHTML = '';
     chartWrap.appendChild(mk('div', 'font-size:11px;color:var(--text-dim);margin-bottom:2px;',
-      `최대 ${vmax.toLocaleString()}개${mode === 'h3' ? ' (공개 후 3일 동안 달린 댓글)' : ' (지금까지 달린 댓글)'}`));
+      mode === 'len' ? `최대 ${vmax.toLocaleString()}장 (회차 이미지 장 수 · ${opt.len.at} 기준, 매주 월요일 갱신)` : `최대 ${vmax.toLocaleString()}개${mode === 'h3' ? ' (공개 후 3일 동안 달린 댓글)' : ' (지금까지 달린 댓글)'}`));
     chartWrap.appendChild(svg);
     axis.innerHTML = '';
     axis.appendChild(mk('span', '', rows[0][1]));
@@ -2630,6 +2647,7 @@ function buildEpisodeBox(cm, ep, opt = {}) {
   box.appendChild(axis);
   box.appendChild(mk('div', CM_NOTE + 'margin-top:4px;',
     (h3ok ? "'공개 3일 댓글' = 공개 후 3일 동안 달린 댓글 수 — 오래된 회차와 최근 회차를 같은 시점으로 비교해요. " : '') +
+    (lenOk ? "'회차 분량' = 그 회차 이미지 장 수(카카오가 주는 값) — 회차 길이를 비교해요. " : '') +
     `막대 색은 댓글 수의 크기만 나타내요(반응이 좋았는지 나빴는지가 아님). 판정(${judgeName} 기준): 빨강 = 대박(직전 5화 보통의 2배↑), 주황 = 급증(1.5배↑), 파랑 = 이탈 경고(0.7배↓가 3화 연속), 회색 = 같은 날 여러 화 공개라 비교에서 뺌. 차트 위에 마우스를 올리거나 누르면 그 회차를 보여줘요.`));
   box.appendChild(detail);
 
