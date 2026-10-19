@@ -35,23 +35,6 @@
   },
   {
     "rank": 3,
-    "workId": "60914825",
-    "title": "픽 미 업!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vGOrx/dJMcagfn5uP/v4Gm3XB4GTkeHzm5Huwz30&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 4,
     "workId": "70776768",
     "title": "미친 빌런이 정신을 되찾음",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sXk12/dJMcaiypTtP/AxEnTxHRHaSdrIwq28HZpK&filename=th3",
@@ -68,6 +51,23 @@
     }
   },
   {
+    "rank": 4,
+    "workId": "60914825",
+    "title": "픽 미 업!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vGOrx/dJMcagfn5uP/v4Gm3XB4GTkeHzm5Huwz30&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
     "rank": 5,
     "workId": "60910969",
     "title": "무한의 마법사",
@@ -80,8 +80,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -103,23 +103,6 @@
   },
   {
     "rank": 7,
-    "workId": "70348054",
-    "title": "먼치킨 스킬 도둑이 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bu4quW/dJMcab6NFcQ/2aADzRmKESKqNbiXeFxEh0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 8,
     "workId": "59264548",
     "title": "검술명가 막내아들",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIY7Se/dJMcafOdBhm/vPuuMtQlcV1AXYo9XaXC40&filename=th3",
@@ -129,14 +112,14 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 9,
+    "rank": 8,
     "workId": "70279940",
     "title": "아카데미의 무기복제자",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dXadUJ/dJMcaaUmxdM/FbtEDfTCEWkLKUEvI9iSOk&filename=th3",
@@ -148,12 +131,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 10,
+    "rank": 9,
     "workId": "61614855",
     "title": "철혈검가 사냥개의 회귀",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lb2hF/dJMcabP38pl/MugMG0XcD7aOvzOFgdjWtk&filename=th3",
@@ -163,14 +146,14 @@
     "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 11,
+    "rank": 10,
     "workId": "56413106",
     "title": "얼어붙은 플레이어의 귀환",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bjNeSE/dJMcadajphO/52v8JgxDPRqYp1jxP3bnS1&filename=th3",
@@ -182,8 +165,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 11,
+    "workId": "70348054",
+    "title": "먼치킨 스킬 도둑이 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bu4quW/dJMcab6NFcQ/2aADzRmKESKqNbiXeFxEh0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
     }
   },
   {
@@ -222,23 +222,6 @@
   },
   {
     "rank": 14,
-    "workId": "68258823",
-    "title": "환생자의 스트리밍",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=B6A6N/dJMcaaF2704/ImxWyqbREsg4gHGMHolYw0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 15,
     "workId": "64257452",
     "title": "변경백 서자는 황제였다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bxum7g/dJMcagTuCoS/fKGmIKzTKcWKYF5UQPgtqK&filename=th3",
@@ -248,119 +231,51 @@
     "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 1
+    }
+  },
+  {
+    "rank": 15,
+    "workId": "68258823",
+    "title": "환생자의 스트리밍",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=B6A6N/dJMcaaF2704/ImxWyqbREsg4gHGMHolYw0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
     "rank": 16,
-    "workId": "69613701",
-    "title": "후계자는 모르겠고 힐링이나 하렵니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hmWR6/dJMcaicZuqb/SUe9fHwRzkhecbFA9fOIE1&filename=th3",
+    "workId": "70842032",
+    "title": "돈지랄 네크로맨서 ",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vkrW7/dJMcajcYJ4v/DRiBsmnEKYmafC7yW6RHYk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
-    "waitFreeType": "3다무",
+    "waitFreeType": "기다무",
     "ageRating": null,
-    "isNewRelease": false,
+    "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 9
     }
   },
   {
     "rank": 17,
-    "workId": "68486653",
-    "title": "망나니 1왕자가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jOm0Z/dJMcaiLz7MV/4aO3AXnmRg8EcqLCIRcKdk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 18,
-    "workId": "59365151",
-    "title": "소설 속 엑스트라",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cK4pn/dJMcabiPdGZ/adkdnkmRUvrN49TXfmWIPK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 19,
-    "workId": "67696572",
-    "title": "천재 대장장이의 게임",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dXZca/dJMcajhA4Ve/94wACseGekAvG31YJRNVQ1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 20,
-    "workId": "68303310",
-    "title": "나 혼자 EX급 소환수",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sL5s3/dJMcaduLYr1/2SKjK00tKd6teNKQgQAaEK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 21,
-    "workId": "53216022",
-    "title": "묵향 다크레이디",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bERMKy/dJMcaiv8YiA/hHkolt87H9YYQnSrB2cd2k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 22,
-    "workId": "65125886",
-    "title": "회귀검가의 서자가 사는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qq2YC/dJMb9P7lKpd/4uKOjwF4H8Z7f28a3p7le1&filename=th3",
+    "workId": "69613701",
+    "title": "후계자는 모르겠고 힐링이나 하렵니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hmWR6/dJMcaicZuqb/SUe9fHwRzkhecbFA9fOIE1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -374,10 +289,95 @@
     }
   },
   {
+    "rank": 18,
+    "workId": "68486653",
+    "title": "망나니 1왕자가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jOm0Z/dJMcaiLz7MV/4aO3AXnmRg8EcqLCIRcKdk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 19,
+    "workId": "59365151",
+    "title": "소설 속 엑스트라",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cK4pn/dJMcabiPdGZ/adkdnkmRUvrN49TXfmWIPK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 20,
+    "workId": "67696572",
+    "title": "천재 대장장이의 게임",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dXZca/dJMcajhA4Ve/94wACseGekAvG31YJRNVQ1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 21,
+    "workId": "68303310",
+    "title": "나 혼자 EX급 소환수",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sL5s3/dJMcaduLYr1/2SKjK00tKd6teNKQgQAaEK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 22,
+    "workId": "53216022",
+    "title": "묵향 다크레이디",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bERMKy/dJMcaiv8YiA/hHkolt87H9YYQnSrB2cd2k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
     "rank": 23,
-    "workId": "53190884",
-    "title": "도굴왕",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ui5dA/dJMcaaKNEGK/dDCrx8sd8yldDO4VoRJork&filename=th3",
+    "workId": "65703020",
+    "title": "전설급 영웅은 아카데미 우등생",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g1pzb/dJMb9LKHmZ9/xk21VKSHb93iDLFscHOKIK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -392,36 +392,36 @@
   },
   {
     "rank": 24,
-    "workId": "65703020",
-    "title": "전설급 영웅은 아카데미 우등생",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g1pzb/dJMb9LKHmZ9/xk21VKSHb93iDLFscHOKIK&filename=th3",
+    "workId": "65125886",
+    "title": "회귀검가의 서자가 사는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qq2YC/dJMb9P7lKpd/4uKOjwF4H8Z7f28a3p7le1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 25,
+    "workId": "53190884",
+    "title": "도굴왕",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ui5dA/dJMcaaKNEGK/dDCrx8sd8yldDO4VoRJork&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 25,
-    "workId": "70842032",
-    "title": "돈지랄 네크로맨서 ",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vkrW7/dJMcajcYJ4v/DRiBsmnEKYmafC7yW6RHYk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 252
+      "type": "down",
+      "amount": 2
     }
   },
   {
@@ -437,8 +437,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -454,63 +454,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 28,
-    "workId": "69300599",
-    "title": "검술 고인물의 게임방송",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=snPJZ/dJMcadPD3Xa/oyqg5oC4S7NIxt0u7Zkxx0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 29,
-    "workId": "62727430",
-    "title": "네크로맨서 학교의 소환천재",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJThzT/dJMcaij9JjT/cf25fKGkMCE42hLKl8Fesk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 30,
-    "workId": "70511208",
-    "title": "노가다 김씨, 자동사냥으로 꿀 빱니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zG8Lc/dJMcacLqjTb/u8hm4nAavBPsvq1TRXTFy0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 31,
+    "rank": 28,
     "workId": "62302584",
     "title": "2레벨로 회귀한 무신",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bnKnNQ/dJMcah0tk0e/Ncgojo8KTp6pkBiTIj0rR1&filename=th3",
@@ -523,6 +472,57 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 29,
+    "workId": "69300599",
+    "title": "검술 고인물의 게임방송",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=snPJZ/dJMcadPD3Xa/oyqg5oC4S7NIxt0u7Zkxx0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 30,
+    "workId": "62727430",
+    "title": "네크로맨서 학교의 소환천재",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJThzT/dJMcaij9JjT/cf25fKGkMCE42hLKl8Fesk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 31,
+    "workId": "70511208",
+    "title": "노가다 김씨, 자동사냥으로 꿀 빱니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zG8Lc/dJMcacLqjTb/u8hm4nAavBPsvq1TRXTFy0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
@@ -539,8 +539,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -556,8 +556,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -573,8 +573,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -590,8 +590,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -607,8 +607,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -622,10 +622,10 @@
     "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -641,8 +641,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -675,12 +675,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 41,
+    "workId": "60061481",
+    "title": "헬무트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=k6t4L/dJMcacdNU0m/QsKOZyqgeYc9ebWsPx0jTK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 42,
     "workId": "52697368",
     "title": "두 번 사는 랭커",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2xIRd/dJMcafGlVGT/C4jAOGV7miVRvhkFjt5Jk0&filename=th3",
@@ -697,23 +714,6 @@
     }
   },
   {
-    "rank": 42,
-    "workId": "60061481",
-    "title": "헬무트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=k6t4L/dJMcacdNU0m/QsKOZyqgeYc9ebWsPx0jTK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
     "rank": 43,
     "workId": "56760327",
     "title": "후작가의 역대급 막내아들",
@@ -724,34 +724,17 @@
     "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 44,
-    "workId": "68131425",
-    "title": "뱀파이어 로드로 사는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHTQ7y/dJMcagrbt1m/YqmzSngaisSmioEzYrOTPK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 45,
-    "workId": "66921235",
-    "title": "멸망급 데스나이트가 회귀함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byoGtU/dJMcabRmKSF/lRMgtJ2e41Wkbti2g8zQVk&filename=th3",
+    "workId": "65947762",
+    "title": "이 나라를 없앨 예정인데요",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cid4aa/dJMcaadVlMW/2zWbebA1hIK9Am4w5tYK60&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -760,15 +743,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 45,
+    "workId": "65986358",
+    "title": "블랙 헤이즈",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dbWnsB/dJMcabJOs11/GbNoMrhQzjjCyyZ3M8U67K&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
     "rank": 46,
-    "workId": "65947762",
-    "title": "이 나라를 없앨 예정인데요",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cid4aa/dJMcaadVlMW/2zWbebA1hIK9Am4w5tYK60&filename=th3",
+    "workId": "62909356",
+    "title": "만년 후 미래에서 레벨업",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIg2UD/dJMb998pE3N/ba1hhR6h7iamJ5A91mDCNk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -783,9 +783,9 @@
   },
   {
     "rank": 47,
-    "workId": "62909356",
-    "title": "만년 후 미래에서 레벨업",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIg2UD/dJMb998pE3N/ba1hhR6h7iamJ5A91mDCNk&filename=th3",
+    "workId": "66921235",
+    "title": "멸망급 데스나이트가 회귀함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byoGtU/dJMcabRmKSF/lRMgtJ2e41Wkbti2g8zQVk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -795,24 +795,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
     "rank": 48,
-    "workId": "65986358",
-    "title": "블랙 헤이즈",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dbWnsB/dJMcabJOs11/GbNoMrhQzjjCyyZ3M8U67K&filename=th3",
+    "workId": "68131425",
+    "title": "뱀파이어 로드로 사는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHTQ7y/dJMcagrbt1m/YqmzSngaisSmioEzYrOTPK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 4
     }
   },
   {
@@ -828,8 +828,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -845,8 +845,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -862,8 +862,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -879,8 +879,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -894,10 +894,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -913,8 +913,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -930,8 +930,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -945,10 +945,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -962,10 +962,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -981,25 +981,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 59,
-    "workId": "54097394",
-    "title": "해골병사는 던전을 지키지 못했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bvptqa/dJMcag7e6cK/FlCr3EkAfIj0xMmmo8uDj1&filename=th3",
+    "workId": "63451062",
+    "title": "재능만렙 플레이어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjTS9a/hAFPK8Ruhj/aGNL3WBQTyFDoZ8BNEWuKK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -1015,25 +1015,25 @@
     "isNewRelease": false,
     "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 61,
-    "workId": "63451062",
-    "title": "재능만렙 플레이어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjTS9a/hAFPK8Ruhj/aGNL3WBQTyFDoZ8BNEWuKK&filename=th3",
+    "workId": "54097394",
+    "title": "해골병사는 던전을 지키지 못했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bvptqa/dJMcag7e6cK/FlCr3EkAfIj0xMmmo8uDj1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 2
     }
   },
   {
@@ -1047,10 +1047,10 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1064,10 +1064,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1089,40 +1089,6 @@
   },
   {
     "rank": 65,
-    "workId": "64612703",
-    "title": "나 혼자만 레벨업 : 라그나로크",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yI60N/dJMb9WFjjLb/1ZXjsGMvuxXg50jRYM60D0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 66,
-    "workId": "65747016",
-    "title": "용살자의 클래스가 다른 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vd8VF/dJMcahQopSx/KbM4bCjAEck6bdFo2DaoNK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 67,
     "workId": "62263340",
     "title": "환생한 암살자는 검술 천재",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mEni1/dJMcadOCRYn/VYsMz8diXtzjbijUp90AZ0&filename=th3",
@@ -1135,6 +1101,40 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 66,
+    "workId": "64612703",
+    "title": "나 혼자만 레벨업 : 라그나로크",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yI60N/dJMb9WFjjLb/1ZXjsGMvuxXg50jRYM60D0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 67,
+    "workId": "65747016",
+    "title": "용살자의 클래스가 다른 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vd8VF/dJMcahQopSx/KbM4bCjAEck6bdFo2DaoNK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
@@ -1151,8 +1151,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1166,10 +1166,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1185,8 +1185,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1202,12 +1202,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 72,
+    "workId": "57451201",
+    "title": "역대급 창기사의 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GDRUU/dJMcafyOYSF/YDxaUM1ZhWmxLnWrQkH980&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 12
+    }
+  },
+  {
+    "rank": 73,
     "workId": "65719709",
     "title": "회귀한 천재 플레이어의 신화급 무기창조",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9Xre8/dJMcaipn2iZ/2kQaXI7g4khC5sz2aqNlH0&filename=th3",
@@ -1219,12 +1236,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 73,
+    "rank": 74,
     "workId": "68079301",
     "title": "몰락한 명가의 플레이어",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkbdIX/dJMcadbYLzt/4PHNZBEboohw2HhYVK8D9K&filename=th3",
@@ -1236,25 +1253,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 74,
-    "workId": "63330355",
-    "title": "용사 파티 때려치웁니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9eEvX/dJMcad3LfAN/VTd91hCL7PSeQxSQKz74IK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
@@ -1270,12 +1270,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 76,
+    "workId": "63330355",
+    "title": "용사 파티 때려치웁니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9eEvX/dJMcad3LfAN/VTd91hCL7PSeQxSQKz74IK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 77,
+    "workId": "66447366",
+    "title": "개념 잡는 마법 천재",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=3E4rZ/dJMcaijSp8u/7ep6EaXQY6BUsKzR7I9iA0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 12
+    }
+  },
+  {
+    "rank": 78,
     "workId": "69460106",
     "title": "아포칼립스엔 고인물이 필요해요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pFwVF/dJMcadP1uq7/LsNwSbh5HbHvyEO7T01KS1&filename=th3",
@@ -1288,11 +1322,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 2
     }
   },
   {
-    "rank": 77,
+    "rank": 79,
     "workId": "64227839",
     "title": "마법학교 앞점멸 천재가 되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bb34gW/hAKLEQkREB/lRWHGfujbBOl8YNAQZ4FZK&filename=th3",
@@ -1305,48 +1339,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 78,
-    "workId": "68645379",
-    "title": "회귀자가 다 만들어줌",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=l9sOz/dJMcaih6FKW/tbv21KtzbY0UzZ5hGujGt0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 79,
-    "workId": "64096846",
-    "title": "용사파티 대마법사의 환생",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=m8QJ7/dJMb9c2sJuH/J4aV4gVLTgr2xvBh6oARJK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
+      "amount": 2
     }
   },
   {
     "rank": 80,
-    "workId": "64424193",
-    "title": "룬의 아이들 ",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DFiem/hAJrN8V6bc/LKbCUOyChhkkCC5ZjJaz5k&filename=th3",
+    "workId": "68645379",
+    "title": "회귀자가 다 만들어줌",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=l9sOz/dJMcaih6FKW/tbv21KtzbY0UzZ5hGujGt0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -1361,6 +1361,57 @@
   },
   {
     "rank": 81,
+    "workId": "69099128",
+    "title": "불탄 사막의 모래술사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjAW2Y/dJMcafl8wFi/VOCuwaWqz21KwDc7kLLIjk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 82,
+    "workId": "64096846",
+    "title": "용사파티 대마법사의 환생",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=m8QJ7/dJMb9c2sJuH/J4aV4gVLTgr2xvBh6oARJK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 83,
+    "workId": "64424193",
+    "title": "룬의 아이들 ",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DFiem/hAJrN8V6bc/LKbCUOyChhkkCC5ZjJaz5k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 84,
     "workId": "67918035",
     "title": "공작가의 역대급 신동",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9mmRc/dJMb81ms3M2/dZTyBN76OKKJKohKHdOaIk&filename=th3",
@@ -1373,28 +1424,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
-    "rank": 82,
-    "workId": "69099128",
-    "title": "불탄 사막의 모래술사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjAW2Y/dJMcafl8wFi/VOCuwaWqz21KwDc7kLLIjk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 83,
+    "rank": 85,
     "workId": "69510272",
     "title": "주인공이 컨셉충이면 곤란한가요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=odHbV/dJMcah6flhM/wfMNQzsAFYIlbznmPk9PYk&filename=th3",
@@ -1411,24 +1445,7 @@
     }
   },
   {
-    "rank": 84,
-    "workId": "57451201",
-    "title": "역대급 창기사의 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GDRUU/dJMcafyOYSF/YDxaUM1ZhWmxLnWrQkH980&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 85,
+    "rank": 86,
     "workId": "68706674",
     "title": "귀환자의 히든 공략 스트리밍",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KfB0q/dJMcag5N1JY/sHHuSz40giEAkHRJ6K1MWK&filename=th3",
@@ -1440,12 +1457,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 86,
+    "rank": 87,
     "workId": "68867493",
     "title": "제약회사 회장님은 절대독마",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bXcN64/dJMcacDynsl/C7cmTHMI6MZTmJNNxnaKP1&filename=th3",
@@ -1458,14 +1475,48 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 87,
+    "rank": 88,
     "workId": "60180921",
     "title": "홈 플레이트의 빌런",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cYbJxO/hAJmyjgORo/L2f40rpl94bfTBTCsVe9vK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 89,
+    "workId": "61725025",
+    "title": "스킬빨로 레벨업",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqe1hJ/dJMb9V7ttkt/KfhXAtNyUmE3rKTjSZhN3k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 90,
+    "workId": "62916616",
+    "title": "만렙 플레이어의 100번째 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ugMVC/dJMcaa6m7BY/TVkRofuKkDqbVbvpt4oK91&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -1479,41 +1530,7 @@
     }
   },
   {
-    "rank": 88,
-    "workId": "61725025",
-    "title": "스킬빨로 레벨업",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqe1hJ/dJMb9V7ttkt/KfhXAtNyUmE3rKTjSZhN3k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 89,
-    "workId": "66447366",
-    "title": "개념 잡는 마법 천재",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=3E4rZ/dJMcaijSp8u/7ep6EaXQY6BUsKzR7I9iA0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 90,
+    "rank": 91,
     "workId": "66085559",
     "title": "탑랭커의 작가지망생활백서",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bymOo2/dJMcafLWpuc/ZNZKhPHkrmA3dDWrIHxR10&filename=th3",
@@ -1525,25 +1542,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 91,
-    "workId": "62916616",
-    "title": "만렙 플레이어의 100번째 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ugMVC/dJMcaa6m7BY/TVkRofuKkDqbVbvpt4oK91&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -1565,6 +1565,57 @@
   },
   {
     "rank": 93,
+    "workId": "68929124",
+    "title": "역대급 천재 랭커의 귀환",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpdvrm/dJMcaco2kVL/n4u1DrUSXjXQIFZMa4owoK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 94,
+    "workId": "69253338",
+    "title": "검공가에 환생한 검제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bzYgp7/dJMcajvyEC9/5vO7DrE7K9DdwCnIHFqP61&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 95,
+    "workId": "67512254",
+    "title": "공작가에는 미친개가 산다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rTlcb/dJMb9W6oTjl/3hGTZGmUeJcqUd5ekfgLl1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 96,
     "workId": "68187457",
     "title": "드래곤을 유괴하다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IcjWe/dJMcaf1MPNU/P9AJg7Lip2yt4kNTkkVIE1&filename=th3",
@@ -1577,58 +1628,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 94,
-    "workId": "68929124",
-    "title": "역대급 천재 랭커의 귀환",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpdvrm/dJMcaco2kVL/n4u1DrUSXjXQIFZMa4owoK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 95,
-    "workId": "69253338",
-    "title": "검공가에 환생한 검제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bzYgp7/dJMcajvyEC9/5vO7DrE7K9DdwCnIHFqP61&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 96,
-    "workId": "67512254",
-    "title": "공작가에는 미친개가 산다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rTlcb/dJMb9W6oTjl/3hGTZGmUeJcqUd5ekfgLl1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
@@ -1644,8 +1644,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1661,8 +1661,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1678,8 +1678,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1712,8 +1712,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1761,7 +1761,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -1778,7 +1778,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -1786,77 +1786,9 @@
   },
   {
     "rank": 106,
-    "workId": "70632794",
-    "title": "SSS급 성기사로 전직했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YQNIZ/dJMcahy9gJ1/MjMOy13CtpQWLZFOnQLCX0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 107,
     "workId": "69294229",
     "title": "아싸 찐따 네크로맨서",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wbCVM/dJMcafGTO26/zdJZZcjLirAufVKkerRV61&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 108,
-    "workId": "69317406",
-    "title": "성갑혼장전-회귀 성혼사의 SSS급 기갑 소환",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LqrRf/dJMcaftoG7z/MpiHvmyL257BZEG7Alc0U1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 109,
-    "workId": "69949760",
-    "title": "바람의 마도사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcgNf1/dJMcabE3uBj/ZpMHK8Wrol3pkutu6crArk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 110,
-    "workId": "69994254",
-    "title": "랭킹 1위, 방랑자로 전생하다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QIoPb/dJMcahMjCdG/zQR1TH6azSocI6eT7PSmkK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -1870,7 +1802,92 @@
     }
   },
   {
+    "rank": 107,
+    "workId": "70632794",
+    "title": "SSS급 성기사로 전직했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YQNIZ/dJMcahy9gJ1/MjMOy13CtpQWLZFOnQLCX0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 108,
+    "workId": "69949760",
+    "title": "바람의 마도사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcgNf1/dJMcabE3uBj/ZpMHK8Wrol3pkutu6crArk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 109,
+    "workId": "62396267",
+    "title": "용을 삼킨 마법사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=clWabB/hAM55RQ9rj/XYi2cAKiGemsj8L30IZN61&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 110,
+    "workId": "69317406",
+    "title": "성갑혼장전-회귀 성혼사의 SSS급 기갑 소환",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LqrRf/dJMcaftoG7z/MpiHvmyL257BZEG7Alc0U1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
     "rank": 111,
+    "workId": "69994254",
+    "title": "랭킹 1위, 방랑자로 전생하다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QIoPb/dJMcahMjCdG/zQR1TH6azSocI6eT7PSmkK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 112,
     "workId": "65275943",
     "title": "검신급 공무원의 회귀",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cWsx9r/hAJjF3Aw6t/LoG01kgYeqaI4qoXuyKLn0&filename=th3",
@@ -1884,23 +1901,6 @@
     "change": {
       "type": "down",
       "amount": 1
-    }
-  },
-  {
-    "rank": 112,
-    "workId": "66881777",
-    "title": "멸망한 왕국의 3왕자가 회귀했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YbyO7/hALR3OvNsk/gP1BqQNlCwGWt8z0oeURRK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
     }
   },
   {
@@ -1922,60 +1922,9 @@
   },
   {
     "rank": 114,
-    "workId": "62396267",
-    "title": "용을 삼킨 마법사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=clWabB/hAM55RQ9rj/XYi2cAKiGemsj8L30IZN61&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 115,
-    "workId": "69687435",
-    "title": "종말 검신 : 최강 각성자의 귀환",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mAUGZ/dJMcabkRnh8/SupoX5rEM5iuSX71BmZe50&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 116,
-    "workId": "60701535",
-    "title": "마법학교 마법사로 살아가는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hiI3y/hAdNY04AwG/KLmmneGk7X8vU9FN4hdUOk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 117,
-    "workId": "52141727",
-    "title": "원존: 용의 비상",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQLdnm/hAd40dfZeY/n42XP2X4Sh9hKNIy0eR4sk&filename=th3",
+    "workId": "66881777",
+    "title": "멸망한 왕국의 3왕자가 회귀했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YbyO7/hALR3OvNsk/gP1BqQNlCwGWt8z0oeURRK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -1989,7 +1938,41 @@
     }
   },
   {
-    "rank": 118,
+    "rank": 115,
+    "workId": "60701535",
+    "title": "마법학교 마법사로 살아가는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hiI3y/hAdNY04AwG/KLmmneGk7X8vU9FN4hdUOk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 116,
+    "workId": "69687435",
+    "title": "종말 검신 : 최강 각성자의 귀환",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mAUGZ/dJMcabkRnh8/SupoX5rEM5iuSX71BmZe50&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 117,
     "workId": "67477518",
     "title": "히어로가 집착하는 악당이 되었다 ",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dSb23r/dJMcacIahc1/KE7wDlmGf1qXVJxMo9Xcbk&filename=th3",
@@ -2001,8 +1984,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
+    }
+  },
+  {
+    "rank": 118,
+    "workId": "64897059",
+    "title": "아카데미의 천재 테이머",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4bFn5/hALR6qS5lK/XnHkIFqrVV9XjWKshjGDj0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -2018,15 +2018,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 120,
-    "workId": "69079268",
-    "title": "모르는 만화에 빙의했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZClST/dJMcadWjYLL/rH2cOvHmyqEQDLBGImFKDk&filename=th3",
+    "workId": "52141727",
+    "title": "원존: 용의 비상",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQLdnm/hAd40dfZeY/n42XP2X4Sh9hKNIy0eR4sk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2035,15 +2035,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 3
     }
   },
   {
     "rank": 121,
-    "workId": "64897059",
-    "title": "아카데미의 천재 테이머",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4bFn5/hALR6qS5lK/XnHkIFqrVV9XjWKshjGDj0&filename=th3",
+    "workId": "69079268",
+    "title": "모르는 만화에 빙의했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZClST/dJMcadWjYLL/rH2cOvHmyqEQDLBGImFKDk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2069,8 +2069,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2086,8 +2086,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2103,29 +2103,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 125,
-    "workId": "58489471",
-    "title": "재능 삼킨 마법사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gaylV/dJMb9OHhce9/T1jVKCTq6YEPolFZgJO4U1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 126,
     "workId": "64859917",
     "title": "나 혼자 부활한다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Rhkh8/hAMCbEUeqi/XRJsslAXPnpFPVpOb1vPNk&filename=th3",
@@ -2137,8 +2120,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
+    }
+  },
+  {
+    "rank": 126,
+    "workId": "66395617",
+    "title": "무신의 후계자가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ClqrX/hAL13UXqRK/vBysXUmNKvkgFfXdoUkKVk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -2154,25 +2154,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 128,
-    "workId": "66395617",
-    "title": "무신의 후계자가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ClqrX/hAL13UXqRK/vBysXUmNKvkgFfXdoUkKVk&filename=th3",
+    "workId": "58489471",
+    "title": "재능 삼킨 마법사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gaylV/dJMb9OHhce9/T1jVKCTq6YEPolFZgJO4U1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
@@ -2194,6 +2194,40 @@
   },
   {
     "rank": 130,
+    "workId": "57140255",
+    "title": "8클래스 마법사의 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dfuSq/hAd4YfpEfI/5wKGW7PwKewMQjsT0uXKP1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 131,
+    "workId": "66693270",
+    "title": "미래에서 온 연애편지",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ny73q/dJMcafnjBFq/buqd1TZWjXijX2FS7a6cx1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 132,
     "workId": "58502656",
     "title": "1레벨 플레이어",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dcWMQY/dJMcadghdk4/hSKEDI1e8HYrEMemDDSpB0&filename=th3",
@@ -2210,7 +2244,41 @@
     }
   },
   {
-    "rank": 131,
+    "rank": 133,
+    "workId": "66821873",
+    "title": "멸망한 세계에서 온 검신",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFdSSm/dJMb9NBBIaF/fwBul0tZTuTsqGoNDQCB6K&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 134,
+    "workId": "65103162",
+    "title": "나 혼자만 레벨업 [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bf6bX3/dJMcabJzeMv/KJJfGhvC6DaRb492Ru5WR1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 135,
     "workId": "54801072",
     "title": "밥만 먹고 레벨업",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GXiLT/hAKLEWR4Bq/3fazGLDgqVSK4OMa3i3Of0&filename=th3",
@@ -2222,46 +2290,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 132,
-    "workId": "57140255",
-    "title": "8클래스 마법사의 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dfuSq/hAd4YfpEfI/5wKGW7PwKewMQjsT0uXKP1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 133,
-    "workId": "66693270",
-    "title": "미래에서 온 연애편지",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ny73q/dJMcafnjBFq/buqd1TZWjXijX2FS7a6cx1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 3
+      "amount": 4
     }
   },
   {
-    "rank": 134,
+    "rank": 136,
     "workId": "56520811",
     "title": "마탄의 사수",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=3Qm4d/hzXalZz5eN/zcQLe4YNj69huF9GKKJdX0&filename=th3",
@@ -2278,58 +2312,7 @@
     }
   },
   {
-    "rank": 135,
-    "workId": "66821873",
-    "title": "멸망한 세계에서 온 검신",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFdSSm/dJMb9NBBIaF/fwBul0tZTuTsqGoNDQCB6K&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 136,
-    "workId": "65103162",
-    "title": "나 혼자만 레벨업 [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bf6bX3/dJMcabJzeMv/KJJfGhvC6DaRb492Ru5WR1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
     "rank": 137,
-    "workId": "62851300",
-    "title": "진화 특성으로 최강 네크로맨서",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bn5kJE/dJMb8Y4dgum/bvVkdNjD7jRDnaB8xTkbKk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 138,
     "workId": "57710234",
     "title": "엔딩메이커",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cDWBF1/dJMb997gx3X/njGMi5sLfvnXv7mu82UzK0&filename=th3",
@@ -2346,10 +2329,10 @@
     }
   },
   {
-    "rank": 139,
-    "workId": "67231957",
-    "title": "패왕영애",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cU0305/dJMcagytjk3/kqbz6yWnk4JvlB73JQKzWk&filename=th3",
+    "rank": 138,
+    "workId": "47067277",
+    "title": "스타크래프트 에쒸비 [독점]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dH8k7B/dJMb9YpAVHJ/BHEF6gbTmULcGmXCLSi7EK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2358,8 +2341,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 139,
+    "workId": "62851300",
+    "title": "진화 특성으로 최강 네크로맨서",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bn5kJE/dJMb8Y4dgum/bvVkdNjD7jRDnaB8xTkbKk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
@@ -2375,8 +2375,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2398,26 +2398,9 @@
   },
   {
     "rank": 142,
-    "workId": "47067277",
-    "title": "스타크래프트 에쒸비 [독점]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dH8k7B/dJMb9YpAVHJ/BHEF6gbTmULcGmXCLSi7EK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 143,
-    "workId": "63056941",
-    "title": "백작가 막내아들은 플레이어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bRrCww/hAd4t0WR62/PmsciwQjTm76aPDQU6VtRK&filename=th3",
+    "workId": "67231957",
+    "title": "패왕영애",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cU0305/dJMcagytjk3/kqbz6yWnk4JvlB73JQKzWk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2431,7 +2414,7 @@
     }
   },
   {
-    "rank": 144,
+    "rank": 143,
     "workId": "58239966",
     "title": "만렙부터 레벨업",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cNpwV1/hAC1OMRUuL/YJpDuqZUlUQEAYkAQicMC0&filename=th3",
@@ -2443,29 +2426,80 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 145,
-    "workId": "68121828",
-    "title": "회귀한 엑스트라가 천재가 됨",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baVAKS/dJMcacuM8Y3/jf0X7pebyYwsBniw7oycw1&filename=th3",
+    "rank": 144,
+    "workId": "68924574",
+    "title": "최약체 마왕의 스승이 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j0RH4/dJMcacb3zo7/C6d0np71x8bKC8jiuMVhQ0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 145,
+    "workId": "63056941",
+    "title": "백작가 막내아들은 플레이어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bRrCww/hAd4t0WR62/PmsciwQjTm76aPDQU6VtRK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
       "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
     "rank": 146,
+    "workId": "66127705",
+    "title": "무기 먹는 서자님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yVUft/dJMcag5e7xx/B0qVPR1KBZ5tbRZqf795t1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 147,
+    "workId": "60491815",
+    "title": "전직고수",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ty5rE/dJMcaioJToR/wdIDemkWmppoZeHaeo4tNK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 148,
     "workId": "51595620",
     "title": "책을 읽으면 경험이 쌓여",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBDaRz/dJMb9P0uR9s/k58NDbKMFhNY45GBnMfmRK&filename=th3",
@@ -2482,75 +2516,24 @@
     }
   },
   {
-    "rank": 147,
-    "workId": "66127705",
-    "title": "무기 먹는 서자님",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yVUft/dJMcag5e7xx/B0qVPR1KBZ5tbRZqf795t1&filename=th3",
+    "rank": 149,
+    "workId": "47196143",
+    "title": "달빛조각사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IVqpt/hAd4E2jTqT/Xk6yLbJTuiWUP5joai3byk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFree": false,
+    "waitFreeType": null,
     "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 148,
-    "workId": "68924574",
-    "title": "최약체 마왕의 스승이 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j0RH4/dJMcacb3zo7/C6d0np71x8bKC8jiuMVhQ0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 149,
-    "workId": "60491815",
-    "title": "전직고수",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ty5rE/dJMcaioJToR/wdIDemkWmppoZeHaeo4tNK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
     "rank": 150,
-    "workId": "56065304",
-    "title": "말단 병사에서 군주까지",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8znGB/hAC1RoTbo3/sdf0mmAXF6ysYw7UDzwF50&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 151,
     "workId": "68196510",
     "title": "던전 미식가 ",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yYIwf/dJMcahLXRUF/GT7gfXXZIb6peGvLAuvIY0&filename=th3",
@@ -2567,24 +2550,7 @@
     }
   },
   {
-    "rank": 152,
-    "workId": "47196143",
-    "title": "달빛조각사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IVqpt/hAd4E2jTqT/Xk6yLbJTuiWUP5joai3byk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 153,
+    "rank": 151,
     "workId": "65668709",
     "title": "우리 교황님 좀 말려주세요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fQops/dJMcabo2GYS/nfrUpphg5lLQ88spXFvPN1&filename=th3",
@@ -2596,12 +2562,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 6
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 154,
+    "rank": 152,
+    "workId": "56065304",
+    "title": "말단 병사에서 군주까지",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8znGB/hAC1RoTbo3/sdf0mmAXF6ysYw7UDzwF50&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 153,
     "workId": "60477730",
     "title": "무공으로 레벨업하는 마왕님",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=B3AzW/hAHIqHhjfB/Ue38FXkQ7QoNJ0uZbKILu1&filename=th3",
@@ -2618,6 +2601,23 @@
     }
   },
   {
+    "rank": 154,
+    "workId": "61293729",
+    "title": "용사 동생은 아카데미 고인물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBDeIB/hAKLzVnxCu/9r8mek5g6kuoSvLeqjAXf1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
     "rank": 155,
     "workId": "68152126",
     "title": "월야환담 [19세 완전판]",
@@ -2630,46 +2630,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 156,
-    "workId": "61293729",
-    "title": "용사 동생은 아카데미 고인물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBDeIB/hAKLzVnxCu/9r8mek5g6kuoSvLeqjAXf1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 157,
-    "workId": "69316193",
-    "title": "종말 세계의 최강 NPC",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bR9smf/dJMcaa0YA2L/pIpzUVx5AZLJxxPQnMK7Qk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 158,
+    "rank": 156,
     "workId": "52503510",
     "title": "엘피스 전기: 더 라스트",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=clDVds/hAd4NSungO/g1U8RVxT1ZBeITSzfsm2nk&filename=th3",
@@ -2681,8 +2647,42 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 157,
+    "workId": "68121828",
+    "title": "회귀한 엑스트라가 천재가 됨",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baVAKS/dJMcacuM8Y3/jf0X7pebyYwsBniw7oycw1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
-      "amount": 1
+      "amount": 12
+    }
+  },
+  {
+    "rank": 158,
+    "workId": "66756725",
+    "title": "마법군주",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5HkZp/dJMb9aXWS1q/hYk7AN1oetd4K0y7rsrU10&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -2698,12 +2698,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 160,
+    "workId": "69316193",
+    "title": "종말 세계의 최강 NPC",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bR9smf/dJMcaa0YA2L/pIpzUVx5AZLJxxPQnMK7Qk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 161,
     "workId": "58909608",
     "title": "잠만 자도 랭커",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wxG3H/hAC1OFHnwv/udkrpi90xk18MkL6QkQIy1&filename=th3",
@@ -2716,45 +2733,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 161,
-    "workId": "66756725",
-    "title": "마법군주",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5HkZp/dJMb9aXWS1q/hYk7AN1oetd4K0y7rsrU10&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 162,
-    "workId": "65065223",
-    "title": "명가의 역대급 재능천재로 환생했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jA4sU/dJMb9MitX66/MUG2wsmKI5VsZdq00woKD0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 163,
+    "rank": 162,
     "workId": "56810312",
     "title": "[코믹] 어둠의 실력자가 되고 싶어서!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b91M3k/hALRVQrqVg/LXYQ2ohKKpRF22fzEyN2Lk&filename=th3",
@@ -2767,28 +2750,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 164,
-    "workId": "53360069",
-    "title": "포갓레인저",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PEZoM/dJMcagNR47h/xhxfhTzZ4fAHWJYfmTaBpK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 165,
+    "rank": 163,
     "workId": "66473526",
     "title": "미친 세계의 엑스트라",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cOdMgL/dJMcafTGPID/1OQDAQ3Uak6eEdp1tGIvG0&filename=th3",
@@ -2800,12 +2766,63 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 164,
+    "workId": "65065223",
+    "title": "명가의 역대급 재능천재로 환생했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jA4sU/dJMb9MitX66/MUG2wsmKI5VsZdq00woKD0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
       "amount": 2
     }
   },
   {
+    "rank": 165,
+    "workId": "61981944",
+    "title": "올 마스터 네크로맨서",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nt0Aa/hAKLJcQi7D/6xvUIkINMepAmlkKfPDrW1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
     "rank": 166,
+    "workId": "59272421",
+    "title": "뉴비가 너무 강함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hz75Z/hzXapOrZhd/oKf8uHhzoez8KB1K0CdTQ1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 167,
     "workId": "65240565",
     "title": "뽑기왕",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2QbcK/dJMcadhEfSe/D5GZ5G2rfN4qThteW74kM1&filename=th3",
@@ -2818,14 +2835,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 167,
-    "workId": "61981944",
-    "title": "올 마스터 네크로맨서",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nt0Aa/hAKLJcQi7D/6xvUIkINMepAmlkKfPDrW1&filename=th3",
+    "rank": 168,
+    "workId": "53874927",
+    "title": "마존현세강림기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c6fqe/hAdNU5IYf2/Vbb6kKbMRDPQm1bpv2Cckk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2839,27 +2856,10 @@
     }
   },
   {
-    "rank": 168,
-    "workId": "59272421",
-    "title": "뉴비가 너무 강함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hz75Z/hzXapOrZhd/oKf8uHhzoez8KB1K0CdTQ1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
     "rank": 169,
-    "workId": "53874927",
-    "title": "마존현세강림기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c6fqe/hAdNU5IYf2/Vbb6kKbMRDPQm1bpv2Cckk&filename=th3",
+    "workId": "68935764",
+    "title": "회귀자는 그만 강해지고 싶다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AuYgE/dJMcadVPNx4/g1R86k1NLUYkZ8QiHUk5KK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2874,9 +2874,9 @@
   },
   {
     "rank": 170,
-    "workId": "65792991",
-    "title": "메인 히로인들이 나를 죽이려 한다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ivLoT/dJMcafemF7I/C3kKRBzaDo5D7m3pARoq50&filename=th3",
+    "workId": "56677367",
+    "title": "지옥에서 돌아온 성좌님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nYqWK/hAd4s10YdM/ydOvvgUGtnXVkNPqKqxyQ0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2885,15 +2885,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 4
     }
   },
   {
     "rank": 171,
-    "workId": "68935764",
-    "title": "회귀자는 그만 강해지고 싶다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AuYgE/dJMcadVPNx4/g1R86k1NLUYkZ8QiHUk5KK&filename=th3",
+    "workId": "65414765",
+    "title": "신화 속 대마법사의 재림",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSnPQp/hAFrPwjIRZ/e5DWF79WcOIPYKwhNUNDdK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 172,
+    "workId": "65792991",
+    "title": "메인 히로인들이 나를 죽이려 한다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ivLoT/dJMcafemF7I/C3kKRBzaDo5D7m3pARoq50&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2907,7 +2924,24 @@
     }
   },
   {
-    "rank": 172,
+    "rank": 173,
+    "workId": "50465822",
+    "title": "이차원 용병",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NKISx/hAKLzurV5q/9SPKOVkRcmEr90GID4HRh0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 174,
     "workId": "58410114",
     "title": "흙수저에서 최강 투신으로",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcDPAz/hAC1U0dJ9e/JRMQPa9SHKqGVF8kajKJfk&filename=th3",
@@ -2924,44 +2958,10 @@
     }
   },
   {
-    "rank": 173,
-    "workId": "65414765",
-    "title": "신화 속 대마법사의 재림",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSnPQp/hAFrPwjIRZ/e5DWF79WcOIPYKwhNUNDdK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 174,
-    "workId": "56677367",
-    "title": "지옥에서 돌아온 성좌님",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nYqWK/hAd4s10YdM/ydOvvgUGtnXVkNPqKqxyQ0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
     "rank": 175,
-    "workId": "50465822",
-    "title": "이차원 용병",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NKISx/hAKLzurV5q/9SPKOVkRcmEr90GID4HRh0&filename=th3",
+    "workId": "69471377",
+    "title": "절대 엘드미아 에가를 건드리지 마라",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBkJlc/dJMcadvWyy8/SjY1BjrKKj7WNYqhUpjzmK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -2970,8 +2970,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -2987,29 +2987,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 177,
-    "workId": "69471377",
-    "title": "절대 엘드미아 에가를 건드리지 마라",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBkJlc/dJMcadvWyy8/SjY1BjrKKj7WNYqhUpjzmK&filename=th3",
+    "workId": "61139680",
+    "title": "나 빼고 다 귀환자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cww3uu/hAC1R3uUmd/IPHspeQY1LgKkEJ5E9weYK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 6
     }
   },
   {
     "rank": 178,
+    "workId": "55541933",
+    "title": "정령 농사꾼",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JSASF/hAdNRt790l/oeYdAYKgfG0dFsATWlcaE1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 179,
     "workId": "59442718",
     "title": "검빨로 레벨업",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=kxSnU/hAd4nfmm68/oEGPdbiZAknLKrV4DWsRy0&filename=th3",
@@ -3021,24 +3038,7 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 179,
-    "workId": "61152564",
-    "title": "전생의 프로가 꿀 빠는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=xs6Zf/hAdNRASUM1/yMk02YcDeuQaZpd85tSVA1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
@@ -3055,8 +3055,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -3078,9 +3078,9 @@
   },
   {
     "rank": 182,
-    "workId": "55541933",
-    "title": "정령 농사꾼",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JSASF/hAdNRt790l/oeYdAYKgfG0dFsATWlcaE1&filename=th3",
+    "workId": "61152564",
+    "title": "전생의 프로가 꿀 빠는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=xs6Zf/hAdNRASUM1/yMk02YcDeuQaZpd85tSVA1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3090,14 +3090,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
+      "amount": 3
     }
   },
   {
     "rank": 183,
-    "workId": "61139680",
-    "title": "나 빼고 다 귀환자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cww3uu/hAC1R3uUmd/IPHspeQY1LgKkEJ5E9weYK&filename=th3",
+    "workId": "68317091",
+    "title": "코어 올마스터: 한계 찢고 왕의 길로",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHbOsP/dJMcafeaQaZ/tEAM1SwI12LPIWruklvn61&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3107,14 +3107,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 5
     }
   },
   {
     "rank": 184,
-    "workId": "66537557",
-    "title": "올 스킬 마스터",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bL4KQW/hAJmIl1u4G/wPLub6ISwRNYDAEpaNeTW0&filename=th3",
+    "workId": "62579741",
+    "title": "대장장이 지그",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bx8mt7/hAHIoo7WQv/yLIeGdGvIJcKvda6RKO6ZK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3123,8 +3123,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -3140,15 +3140,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 186,
-    "workId": "62579741",
-    "title": "대장장이 지그",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bx8mt7/hAHIoo7WQv/yLIeGdGvIJcKvda6RKO6ZK&filename=th3",
+    "workId": "66537557",
+    "title": "올 스킬 마스터",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bL4KQW/hAJmIl1u4G/wPLub6ISwRNYDAEpaNeTW0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3158,48 +3158,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 2
     }
   },
   {
     "rank": 187,
-    "workId": "58274684",
-    "title": "부서진 성좌의 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bOlLnc/hzXalL3nF5/oV7EwcvlVhzzIQ93mGVNnK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 188,
-    "workId": "68317091",
-    "title": "코어 올마스터: 한계 찢고 왕의 길로",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHbOsP/dJMcafeaQaZ/tEAM1SwI12LPIWruklvn61&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 189,
-    "workId": "61903926",
-    "title": "31번째 말은 게임판을 뒤엎는다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PcgsJ/hAd4RnouRQ/XtcC8HaKplg5aj1zvt3Smk&filename=th3",
+    "workId": "65719412",
+    "title": "강철대제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lsBxq/hAJrRQ3cHb/W8B0K2Smmdc9xnBMcL1Qq1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3209,14 +3175,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 3
     }
   },
   {
-    "rank": 190,
-    "workId": "65719412",
-    "title": "강철대제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lsBxq/hAJrRQ3cHb/W8B0K2Smmdc9xnBMcL1Qq1&filename=th3",
+    "rank": 188,
+    "workId": "58274684",
+    "title": "부서진 성좌의 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bOlLnc/hzXalL3nF5/oV7EwcvlVhzzIQ93mGVNnK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3230,7 +3196,24 @@
     }
   },
   {
-    "rank": 191,
+    "rank": 189,
+    "workId": "69286875",
+    "title": "아카데미 환생영웅",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4GPsT/dJMcagZ5p3l/SkCMUzcp2K6FxuQKG4Bvwk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 190,
     "workId": "54728055",
     "title": "더 라이브",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bpArc5/hAd4LHaq4L/20q4jZ57FxVk7Q0M6SFZOk&filename=th3",
@@ -3243,14 +3226,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 1
     }
   },
   {
-    "rank": 192,
-    "workId": "69286875",
-    "title": "아카데미 환생영웅",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4GPsT/dJMcagZ5p3l/SkCMUzcp2K6FxuQKG4Bvwk&filename=th3",
+    "rank": 191,
+    "workId": "59685331",
+    "title": "신급으로 레벨업!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mk8Hn/dJMb85I2Buz/8A6NDfNWN8dqC95iySzYtK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3259,15 +3242,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 5
     }
   },
   {
-    "rank": 193,
-    "workId": "59073259",
-    "title": "엄마는 내 성좌",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQbqHO/dJMcaawWA7W/NGVdegVQAx8qfxmvPRbrU1&filename=th3",
+    "rank": 192,
+    "workId": "61903926",
+    "title": "31번째 말은 게임판을 뒤엎는다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PcgsJ/hAd4RnouRQ/XtcC8HaKplg5aj1zvt3Smk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3278,6 +3261,23 @@
     "change": {
       "type": "down",
       "amount": 3
+    }
+  },
+  {
+    "rank": 193,
+    "workId": "53146570",
+    "title": "리턴 서바이벌",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=igz4v/hAd4sgDI14/G8jAN0iZtrzObjOg0nawP0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -3299,40 +3299,6 @@
   },
   {
     "rank": 195,
-    "workId": "53146570",
-    "title": "리턴 서바이벌",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=igz4v/hAd4sgDI14/G8jAN0iZtrzObjOg0nawP0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 196,
-    "workId": "59685331",
-    "title": "신급으로 레벨업!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mk8Hn/dJMb85I2Buz/8A6NDfNWN8dqC95iySzYtK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 197,
     "workId": "60536199",
     "title": "시간이 머문 집",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c5U3Tr/hAM54L29db/ec8tlhByg1Rkk2tVTSQPK0&filename=th3",
@@ -3344,12 +3310,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 198,
+    "rank": 196,
     "workId": "54957639",
     "title": "8서클 마법사의 환생",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5bpBn/hAd49aaIpX/rNJtZ6WXsoUAZJ4XHoQV9K&filename=th3",
@@ -3361,8 +3327,42 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 197,
+    "workId": "59073259",
+    "title": "엄마는 내 성좌",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQbqHO/dJMcaawWA7W/NGVdegVQAx8qfxmvPRbrU1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
-      "amount": 1
+      "amount": 4
+    }
+  },
+  {
+    "rank": 198,
+    "workId": "63528392",
+    "title": "회귀한 마왕은 착하게 산다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dUpbb/hAd4SM3j7F/eBbU0CEQYWjZziU0DlrNS0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -3378,15 +3378,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 200,
-    "workId": "63528392",
-    "title": "회귀한 마왕은 착하게 산다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dUpbb/hAd4SM3j7F/eBbU0CEQYWjZziU0DlrNS0&filename=th3",
+    "workId": "63647635",
+    "title": "올 힘 마법사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qEjvY/hAJrMWsOJk/ogXEQo4Xfh1CCxaQFntgp0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3395,8 +3395,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 7
     }
   },
   {
@@ -3412,29 +3412,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 202,
-    "workId": "53159236",
-    "title": "나는 될놈이다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iT2hW/hAJq9wXzzH/PdTqkvxbLzv8NL2bN3B0KK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 203,
     "workId": "61042489",
     "title": "블랙 베히모스",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ky2mQ/hAd4IDEEzG/Aok8HMV5qHRbp6rd1pd8O1&filename=th3",
@@ -3446,12 +3429,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 204,
+    "rank": 203,
     "workId": "60616519",
     "title": "내 부하들이 미친듯이 유능하다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b0imxO/hAd4KIfzgE/v8nGTXSCZ6glR3gKu82YQK&filename=th3",
@@ -3464,11 +3447,62 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 1
+    }
+  },
+  {
+    "rank": 204,
+    "workId": "53159236",
+    "title": "나는 될놈이다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iT2hW/hAJq9wXzzH/PdTqkvxbLzv8NL2bN3B0KK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
     }
   },
   {
     "rank": 205,
+    "workId": "53665498",
+    "title": "FFF급 관심용사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g1alq/hAd4AZTKhS/3ciqsJmeBaoNsD8SBHz6dK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 206,
+    "workId": "67384362",
+    "title": "S급 집사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bzy7nK/dJMcabqV8T6/OHtMeqwKNIqm3NOON24Lmk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 207,
     "workId": "62963853",
     "title": "레벨업하기 싫은 천마님",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qbVHg/hzXavA6IOC/egLXBE8QKYgkgOb2FW1Qq0&filename=th3",
@@ -3481,45 +3515,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 206,
-    "workId": "53665498",
-    "title": "FFF급 관심용사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g1alq/hAd4AZTKhS/3ciqsJmeBaoNsD8SBHz6dK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 207,
-    "workId": "63647635",
-    "title": "올 힘 마법사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qEjvY/hAJrMWsOJk/ogXEQo4Xfh1CCxaQFntgp0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
+      "amount": 2
     }
   },
   {
     "rank": 208,
+    "workId": "66645274",
+    "title": "초월급 엑스트라의 공략집",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HUlKy/dJMcafTj5He/FXA0cXyyHmNseGiBBzzkJ1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 209,
     "workId": "68019458",
     "title": "강철의 열제 [개정판]",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=A2BLL/dJMb99Lux2V/OqcupgL4VTO7WgBiD0dazk&filename=th3",
@@ -3536,7 +3553,7 @@
     }
   },
   {
-    "rank": 209,
+    "rank": 210,
     "workId": "64366140",
     "title": "초월자의 채널을 구독했다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bN5xhf/dJMcaeTwAMd/339Z35FyJtPKzwpktLkkVk&filename=th3",
@@ -3548,15 +3565,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 210,
-    "workId": "66645274",
-    "title": "초월급 엑스트라의 공략집",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HUlKy/dJMcafTj5He/FXA0cXyyHmNseGiBBzzkJ1&filename=th3",
+    "rank": 211,
+    "workId": "52902073",
+    "title": "나는 마도왕이다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=whZxB/hAd4qXq7rd/nD29fU3fqxfILs1PD8XlAk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -3565,12 +3582,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 211,
+    "rank": 212,
     "workId": "55822637",
     "title": "나 혼자 만렙 귀환자",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ns8FO/hAd4vj9S2k/IIaaUu3tHk4CGlXdgFuPWk&filename=th3",
@@ -3583,11 +3600,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 212,
+    "rank": 213,
     "workId": "56907739",
     "title": "식사하고 가세요!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b6umxw/hAdNRt8lY0/BwDScZtE1LWYYW892PNLh1&filename=th3",
@@ -3599,12 +3616,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 213,
+    "rank": 214,
     "workId": "68049129",
     "title": "강철의 열제 [19세 완전판]",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bxRrMg/dJMcabieV4v/Zjx8FfSBx19AIUMgQG0CI0&filename=th3",
@@ -3617,62 +3634,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 214,
-    "workId": "52902073",
-    "title": "나는 마도왕이다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=whZxB/hAd4qXq7rd/nD29fU3fqxfILs1PD8XlAk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 10
+      "amount": 1
     }
   },
   {
     "rank": 215,
-    "workId": "67384362",
-    "title": "S급 집사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bzy7nK/dJMcabqV8T6/OHtMeqwKNIqm3NOON24Lmk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 216,
-    "workId": "54527564",
-    "title": "킬 더 히어로",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oTpaF/hAC1U0dE5H/bALanvrTQPj88xQInVeCHK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 217,
     "workId": "65408452",
     "title": "최강 고인물, 귀환하다!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DTDlF/hALRUKCHdZ/5E6NQnoqY6YFWQHkoVikdK&filename=th3",
@@ -3684,12 +3650,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 218,
+    "rank": 216,
     "workId": "54748024",
     "title": "나 홀로 버그로 꿀빠는 플레이어",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bRuhNi/hAFrQvcgR9/851qH2S2KKKqb2RDuVK4wk&filename=th3",
@@ -3706,7 +3672,58 @@
     }
   },
   {
+    "rank": 217,
+    "workId": "54527564",
+    "title": "킬 더 히어로",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oTpaF/hAC1U0dE5H/bALanvrTQPj88xQInVeCHK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 218,
+    "workId": "65929178",
+    "title": "재앙급 네크로맨서가 은퇴하는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dEBBNp/hAJq52jCUz/tYY0waLJJqhQ8ukXIqpnw1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
     "rank": 219,
+    "workId": "68474379",
+    "title": "마왕18세",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fwi8S/dJMcahi0doO/Bz2EoWNwfKskzkTCr4K0ck&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 220,
     "workId": "66625219",
     "title": "슈퍼 탱커",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bb4OOK/hAJjK5lGIP/AUbHggd4mYKBtsZIuaCQg1&filename=th3",
@@ -3723,23 +3740,6 @@
     }
   },
   {
-    "rank": 220,
-    "workId": "65929178",
-    "title": "재앙급 네크로맨서가 은퇴하는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dEBBNp/hAJq52jCUz/tYY0waLJJqhQ8ukXIqpnw1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
     "rank": 221,
     "workId": "57708549",
     "title": "오늘부터 플레이어",
@@ -3752,12 +3752,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 222,
+    "workId": "60827566",
+    "title": "리라이프 플레이어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dZF4y/hAd4Ow5yvI/h6k6Nq3kS94tiCRn0iJkv0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 223,
     "workId": "67479044",
     "title": "늙은 죄수는 고독에 산다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bKsMX4/dJMb99S43Ze/3YFwCM2xpaYQloMoRQyOwk&filename=th3",
@@ -3774,24 +3791,24 @@
     }
   },
   {
-    "rank": 223,
-    "workId": "68474379",
-    "title": "마왕18세",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fwi8S/dJMcahi0doO/Bz2EoWNwfKskzkTCr4K0ck&filename=th3",
+    "rank": 224,
+    "workId": "57464612",
+    "title": "책 먹는 마법사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqZIg0/hAd43AZ5mQ/Nju63KbWecE0hl5nVzU68k&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 8
     }
   },
   {
-    "rank": 224,
+    "rank": 225,
     "workId": "61269335",
     "title": "지옥에서 돌아온 한대성",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5M7Ti/hAd4H5Psr8/OVXDqFcqhGTmlkkdHRYeik&filename=th3",
@@ -3808,58 +3825,7 @@
     }
   },
   {
-    "rank": 225,
-    "workId": "55815081",
-    "title": "혼자 레벨업 합니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bY6jOm/hAJrdToXI4/aAA1d5RCpbpOXfvEk5xbU1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
     "rank": 226,
-    "workId": "64899070",
-    "title": "사령왕 카르나크",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpRN7/hAFsDJo0G9/nSSCpKD0aeTPkNIzs2k3Kk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 227,
-    "workId": "63302358",
-    "title": "SSS급 창고 캐릭터로 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgcq2F/hAFrNLZ0CB/G52ZlgMB876KCOgWILqT41&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 228,
     "workId": "60441950",
     "title": "뽑기로 강해진 10성급 플레이어",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bocRtp/dJMb9NhiHVt/3M0oXy7Bn4jch13H1RDjBk&filename=th3",
@@ -3871,12 +3837,63 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 227,
+    "workId": "55815081",
+    "title": "혼자 레벨업 합니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bY6jOm/hAJrdToXI4/aAA1d5RCpbpOXfvEk5xbU1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 228,
+    "workId": "63302358",
+    "title": "SSS급 창고 캐릭터로 살아남기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgcq2F/hAFrNLZ0CB/G52ZlgMB876KCOgWILqT41&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
     "rank": 229,
+    "workId": "64899070",
+    "title": "사령왕 카르나크",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpRN7/hAFsDJo0G9/nSSCpKD0aeTPkNIzs2k3Kk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 230,
     "workId": "60659272",
     "title": "회귀했더니 가문이 망했다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HjP61/hAd4fn6VAR/AncN1RFu9519RA4ANkwQR0&filename=th3",
@@ -3888,80 +3905,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
-    }
-  },
-  {
-    "rank": 230,
-    "workId": "60827566",
-    "title": "리라이프 플레이어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dZF4y/hAd4Ow5yvI/h6k6Nq3kS94tiCRn0iJkv0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
     }
   },
   {
     "rank": 231,
-    "workId": "65484513",
-    "title": "구조 조정에서 살아남는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CNwTP/hAJrb2puFx/PEYoV6l0B6zw5wKdWhJY0k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 232,
-    "workId": "57464612",
-    "title": "책 먹는 마법사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqZIg0/hAd43AZ5mQ/Nju63KbWecE0hl5nVzU68k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 233,
-    "workId": "61413001",
-    "title": "나 홀로 무공",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgOZzT/hAHIoW3kWP/LUPoK8u71u0z0LCbE52xR1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 234,
     "workId": "53440960",
     "title": "Retry: 다시 한번 최강 신선으로",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNw1FE/hAdNZFFpNg/7IKxgTFSXKx3nQ3xd7W2y1&filename=th3",
@@ -3973,20 +3922,20 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 7
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 235,
-    "workId": "66324872",
-    "title": "최강 던전을 위하여",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Pzh2U/dJMcaaRnF8c/Eki8GmTijD6oDK7iC7fZE0&filename=th3",
+    "rank": 232,
+    "workId": "61413001",
+    "title": "나 홀로 무공",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgOZzT/hAHIoW3kWP/LUPoK8u71u0z0LCbE52xR1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -3995,24 +3944,24 @@
     }
   },
   {
-    "rank": 236,
-    "workId": "57925268",
-    "title": "뽑기로 강해진 SSS급 헌터",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CLbob/dJMb9hW15TB/6iKQjKKViroGail4OIYzx0&filename=th3",
+    "rank": 233,
+    "workId": "65484513",
+    "title": "구조 조정에서 살아남는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CNwTP/hAJrb2puFx/PEYoV6l0B6zw5wKdWhJY0k&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 2
     }
   },
   {
-    "rank": 237,
+    "rank": 234,
     "workId": "60708678",
     "title": "닥터 플레이어",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RIqxx/hAd4kXdN55/a0q65S4DMJEZRWyKycc1K1&filename=th3",
@@ -4024,12 +3973,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 13
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 238,
+    "rank": 235,
+    "workId": "53360069",
+    "title": "포갓레인저",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PEZoM/dJMcagNR47h/xhxfhTzZ4fAHWJYfmTaBpK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 71
+    }
+  },
+  {
+    "rank": 236,
     "workId": "55413287",
     "title": "다른 세계에서 주워왔습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FdWlv/hAFrIQRgJF/zEEZucQEd0sDCVGr8m03h1&filename=th3",
@@ -4046,24 +4012,7 @@
     }
   },
   {
-    "rank": 239,
-    "workId": "48708331",
-    "title": "드림사이드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=esURN/hAd4dDNE5c/sek3mJvmysoSkqKaJUZ4WK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 240,
+    "rank": 237,
     "workId": "55950133",
     "title": "나 홀로 주문 사용자",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdcZnY/hAFPMswqzO/jPgknR60mnn75j9FlK51k1&filename=th3",
@@ -4076,11 +4025,113 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 238,
+    "workId": "57925268",
+    "title": "뽑기로 강해진 SSS급 헌터",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CLbob/dJMb9hW15TB/6iKQjKKViroGail4OIYzx0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 239,
+    "workId": "54269969",
+    "title": "나 홀로 로그인",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fPc2l/hAd4a78kLY/qK5pKxhAH2M4BxpEY2KwaK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 240,
+    "workId": "48708331",
+    "title": "드림사이드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=esURN/hAd4dDNE5c/sek3mJvmysoSkqKaJUZ4WK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
   {
     "rank": 241,
+    "workId": "66324872",
+    "title": "최강 던전을 위하여",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Pzh2U/dJMcaaRnF8c/Eki8GmTijD6oDK7iC7fZE0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 242,
+    "workId": "68151564",
+    "title": "월야환담 [개정판]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fKP8C/dJMb99SNGAk/fKGxXnZLZKqYtPjdiGFbk0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 243,
+    "workId": "65925388",
+    "title": "던전밥 [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cDexlt/hAJrOUuEil/dQzW6d1ZWqylF6LeBdrla0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 244,
     "workId": "64907378",
     "title": "만렙 회귀자입니다만?",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=4xqtt/hAJrI7hH4D/N67dU86D955pURgZyOIzJ1&filename=th3",
@@ -4097,75 +4148,7 @@
     }
   },
   {
-    "rank": 242,
-    "workId": "68151564",
-    "title": "월야환담 [개정판]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fKP8C/dJMb99SNGAk/fKGxXnZLZKqYtPjdiGFbk0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 243,
-    "workId": "65925388",
-    "title": "던전밥 [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cDexlt/hAJrOUuEil/dQzW6d1ZWqylF6LeBdrla0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 244,
-    "workId": "54269969",
-    "title": "나 홀로 로그인",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fPc2l/hAd4a78kLY/qK5pKxhAH2M4BxpEY2KwaK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
     "rank": 245,
-    "workId": "66116309",
-    "title": "악당에게 사랑받는 운명입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bi30cU/hALR2WlNJE/ZABqRgFgHEKyzyuqPoCLkK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 246,
     "workId": "66934132",
     "title": "턴제의 마법사",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tVYsf/dJMb9Nhiv2p/0u7FIKa62w9ZNt3mZuN84k&filename=th3",
@@ -4177,29 +4160,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 247,
-    "workId": "64630721",
-    "title": "평생운 강화에 쓰다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g9M3i/hAFsyA1OV8/Ddigh1R8kgFfr1tR1900c1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 248,
+    "rank": 246,
     "workId": "53297964",
     "title": "신으로 태어났습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqOoT/hAd4VbUUqL/QSo2RHCweSKeFj7JkwXGfk&filename=th3",
@@ -4211,12 +4177,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 249,
+    "rank": 247,
     "workId": "57066277",
     "title": "99만 전생이 날 도와줘",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ddIBrI/hzXatQO5C6/MWHex5BvkSqkPwGnDCNtBk&filename=th3",
@@ -4228,29 +4194,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 248,
+    "workId": "64630721",
+    "title": "평생운 강화에 쓰다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g9M3i/hAFsyA1OV8/Ddigh1R8kgFfr1tR1900c1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 250,
-    "workId": "69311846",
-    "title": "추방당한 전생 중기사는 게임 지식으로 무쌍한다 [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vObfv/dJMcaix3o69/H9p2s5oE0n8xh8Ii01v5wK&filename=th3",
+    "rank": 249,
+    "workId": "66116309",
+    "title": "악당에게 사랑받는 운명입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bi30cU/hALR2WlNJE/ZABqRgFgHEKyzyuqPoCLkK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
+    "waitFree": true,
+    "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 8
+      "type": "down",
+      "amount": 4
     }
   },
   {
-    "rank": 251,
+    "rank": 250,
     "workId": "61330734",
     "title": "약먹는 천재마법사",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2OzBi/hAC1S2oWu2/F05ToKWGygcQfJ2K5ZUWe0&filename=th3",
@@ -4262,8 +4245,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
+    }
+  },
+  {
+    "rank": 251,
+    "workId": "58710388",
+    "title": "힐통령 - 태양의 사제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cXalPo/hAd4W2XB38/TQ3M6JRRsZi7pwQ09XDLe0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
     }
   },
   {
@@ -4279,12 +4279,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 253,
+    "workId": "69311846",
+    "title": "추방당한 전생 중기사는 게임 지식으로 무쌍한다 [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vObfv/dJMcaix3o69/H9p2s5oE0n8xh8Ii01v5wK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
       "amount": 3
     }
   },
   {
-    "rank": 253,
+    "rank": 254,
     "workId": "61399272",
     "title": "최강인데 또 레벨업",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkChEn/hAd43159zK/kR1GTif56qxUV2mFlMDGP0&filename=th3",
@@ -4297,11 +4314,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 254,
+    "rank": 255,
     "workId": "59061428",
     "title": "쥐뿔도 없는 회귀",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=BAh5P/hAFPMME531/IMWdcRneJWAioLAkLk1Ze0&filename=th3",
@@ -4314,48 +4331,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 255,
-    "workId": "58710388",
-    "title": "힐통령 - 태양의 사제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cXalPo/hAd4W2XB38/TQ3M6JRRsZi7pwQ09XDLe0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
       "amount": 1
     }
   },
   {
     "rank": 256,
-    "workId": "67815647",
-    "title": "[코믹] 어둠의 실력자가 되고 싶어서! [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bGKqsN/dJMcaijorhF/n1aJT28kmZ5KMmhIo0EG50&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 257,
-    "workId": "60832522",
-    "title": "마왕은 학원에 간다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=czykrT/hAC1LPJ32R/7Rkn5K8BMgrYdySC09bYO0&filename=th3",
+    "workId": "57781183",
+    "title": "BJ대마도사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d23Q5B/hAC1NtVbxU/neqX7NsPgEpa5fFOGpTBIk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -4365,7 +4348,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 4
+    }
+  },
+  {
+    "rank": 257,
+    "workId": "61702020",
+    "title": "F급 사주 헌터",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rRU5k/hAJrLJ9ePu/ftkDp9fdHEZYTSzaJtJNx0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -4381,114 +4381,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 259,
-    "workId": "61702020",
-    "title": "F급 사주 헌터",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rRU5k/hAJrLJ9ePu/ftkDp9fdHEZYTSzaJtJNx0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 260,
-    "workId": "57781183",
-    "title": "BJ대마도사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d23Q5B/hAC1NtVbxU/neqX7NsPgEpa5fFOGpTBIk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 261,
-    "workId": "63075812",
-    "title": "나는 EX급 헌터다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8ePjS/hAKLFOXCxO/LpOUBVFk7eGZEjnjbS4Xn1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 262,
-    "workId": "62371262",
-    "title": "산타 인더스트리",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9KWPW/hAJmDYWzLF/Zr1QzTNxkkqHdH9KiX6VD1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 263,
-    "workId": "54997280",
-    "title": "아크",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2u3Y1/hAd4VpsHfY/iPWBvwJYyloC8D0WlnfJ01&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 264,
-    "workId": "67688609",
-    "title": "하프블러드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c0f0qK/dJMb9eF2F7s/RmFIuc2X0ak4bMk02BiDkk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 265,
+    "rank": 259,
+    "workId": "67815647",
+    "title": "[코믹] 어둠의 실력자가 되고 싶어서! [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bGKqsN/dJMcaijorhF/n1aJT28kmZ5KMmhIo0EG50&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 260,
+    "workId": "60832522",
+    "title": "마왕은 학원에 간다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=czykrT/hAC1LPJ32R/7Rkn5K8BMgrYdySC09bYO0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 261,
     "workId": "50799464",
     "title": "정령사: 나타르 전기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JoaUo/hAd4CcmFWQ/4cgtJfKUyJvQZf6JaB2g2K&filename=th3",
@@ -4500,29 +4432,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 10
+      "type": "up",
+      "amount": 4
     }
   },
   {
-    "rank": 266,
-    "workId": "51374555",
-    "title": "전생했더니 슬라임이었던 건에 대하여 [코믹]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpNYtD/hAL13U1tFe/VfqeMc3skMhqq4AnRBiYG1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 267,
+    "rank": 262,
     "workId": "67991554",
     "title": "아카데미 흑막의 딸이 되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DeZAo/dJMcaaDF1fb/IP5kLjCeJTsnr6fFAS4Ysk&filename=th3",
@@ -4535,6 +4450,91 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 263,
+    "workId": "60525874",
+    "title": "탑에 갇혀 고인물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bF3WqZ/hAFrOKGNye/Klxs7SV9YfmkERZJrfHu3K&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 264,
+    "workId": "62371262",
+    "title": "산타 인더스트리",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9KWPW/hAJmDYWzLF/Zr1QzTNxkkqHdH9KiX6VD1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 265,
+    "workId": "54997280",
+    "title": "아크",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2u3Y1/hAd4VpsHfY/iPWBvwJYyloC8D0WlnfJ01&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 266,
+    "workId": "63075812",
+    "title": "나는 EX급 헌터다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8ePjS/hAKLFOXCxO/LpOUBVFk7eGZEjnjbS4Xn1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 267,
+    "workId": "51374555",
+    "title": "전생했더니 슬라임이었던 건에 대하여 [코믹]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpNYtD/hAL13U1tFe/VfqeMc3skMhqq4AnRBiYG1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
@@ -4549,27 +4549,27 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 269,
-    "workId": "60525874",
-    "title": "탑에 갇혀 고인물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bF3WqZ/hAFrOKGNye/Klxs7SV9YfmkERZJrfHu3K&filename=th3",
+    "workId": "67688609",
+    "title": "하프블러드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c0f0qK/dJMb9eF2F7s/RmFIuc2X0ak4bMk02BiDkk&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
+      "amount": 5
     }
   },
   {
@@ -4585,8 +4585,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -4602,12 +4602,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 272,
+    "workId": "68406343",
+    "title": "책벌레의 하극상 제4부 [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1YNfo/dJMcagAAv7i/SqlMZcqCpkgHOhFqDkbcV1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 273,
     "workId": "61939066",
     "title": "엑스트라가 너무 강함",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=egVtXE/hAHItDC2o2/bTKTqXhyQNDkX1zTGpnKX0&filename=th3",
@@ -4624,7 +4641,7 @@
     }
   },
   {
-    "rank": 273,
+    "rank": 274,
     "workId": "64990914",
     "title": "후작가의 마법 천재",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mo1F5/hAFPPhWvNj/w89RdbDzNXzHweNAHjZKmk&filename=th3",
@@ -4641,27 +4658,10 @@
     }
   },
   {
-    "rank": 274,
-    "workId": "68406343",
-    "title": "책벌레의 하극상 제4부 [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1YNfo/dJMcagAAv7i/SqlMZcqCpkgHOhFqDkbcV1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
     "rank": 275,
-    "workId": "59245562",
-    "title": "운빨",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWQO72/hAd40xw9Tc/rMVmCYIWKTIVUOlxhQa2UK&filename=th3",
+    "workId": "66282540",
+    "title": "마력이 0.06인 내가 스킬레벨만으로 최강 헌터가 되어 새총의 위대함을 증명한 건에 대하여",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6247X/hAKLFn6Xoz/k2KUqy0Sp9iWEkg6Aozhs1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -4670,8 +4670,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -4687,8 +4687,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -4704,29 +4704,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 278,
-    "workId": "66282540",
-    "title": "마력이 0.06인 내가 스킬레벨만으로 최강 헌터가 되어 새총의 위대함을 증명한 건에 대하여",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6247X/hAKLFn6Xoz/k2KUqy0Sp9iWEkg6Aozhs1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 279,
     "workId": "61625443",
     "title": "회귀했는데 FFF급 부두술사",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eqAZa/hAd4O4Wbag/jBsMHQkfwJEzqmk1a9xPG1&filename=th3",
@@ -4738,12 +4721,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 6
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 280,
+    "rank": 279,
     "workId": "58800646",
     "title": "이 용사 실화냐",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bTjeYk/hAd4VbUSZU/SFAY8LnQbH8dKu04hqW1s1&filename=th3",
@@ -4760,10 +4743,10 @@
     }
   },
   {
-    "rank": 281,
-    "workId": "61776733",
-    "title": "나홀로 무한 전직",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eboN7/hAd4bFZRmx/WwwuBUM01NEbvwRXTSFZhK&filename=th3",
+    "rank": 280,
+    "workId": "59245562",
+    "title": "운빨",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWQO72/hAd40xw9Tc/rMVmCYIWKTIVUOlxhQa2UK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -4772,12 +4755,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 5
     }
   },
   {
-    "rank": 282,
+    "rank": 281,
     "workId": "55591955",
     "title": "대군으로 살어리랏다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bvFtSM/hAd4yVk4Gk/Y90GhjvLvKmfidGTLr0291&filename=th3",
@@ -4790,11 +4773,79 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 282,
+    "workId": "60659589",
+    "title": "독 먹는 힐러",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bx7xSJ/hAd4t0WSCr/L3ueLnyXtKQzjf5v1JtNgK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 3
     }
   },
   {
     "rank": 283,
+    "workId": "61776733",
+    "title": "나홀로 무한 전직",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eboN7/hAd4bFZRmx/WwwuBUM01NEbvwRXTSFZhK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 284,
+    "workId": "66662374",
+    "title": "그녀의 소환수 [19세 완전판]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=br1Lmg/dJMb9YC9FqR/DQ9P6hnunKkdlStU7b5yV1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "자율심의 19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 285,
+    "workId": "65413896",
+    "title": "마법소녀 아저씨",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bd4SbV/hAFrKuXyQ1/ckAINj0jD9bJTXT3sPBMv0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 286,
     "workId": "58343390",
     "title": "지옥에서 독식",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mJ0cw/hAd4wi23FA/ZhbsP10bjYh92z7yhEPmG1&filename=th3",
@@ -4811,57 +4862,6 @@
     }
   },
   {
-    "rank": 284,
-    "workId": "66662374",
-    "title": "그녀의 소환수 [19세 완전판]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=br1Lmg/dJMb9YC9FqR/DQ9P6hnunKkdlStU7b5yV1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "자율심의 19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 285,
-    "workId": "60659589",
-    "title": "독 먹는 힐러",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bx7xSJ/hAd4t0WSCr/L3ueLnyXtKQzjf5v1JtNgK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 286,
-    "workId": "65413896",
-    "title": "마법소녀 아저씨",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bd4SbV/hAFrKuXyQ1/ckAINj0jD9bJTXT3sPBMv0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
     "rank": 287,
     "workId": "61206244",
     "title": "신들의 알바나라",
@@ -4874,29 +4874,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 288,
-    "workId": "65552792",
-    "title": "나는 스켈레톤을 키운다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pyGl7/hAJrIM69aC/rTynK40XMOwu4wRtRHd7V0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 289,
+    "rank": 288,
     "workId": "59347619",
     "title": "SSS급 특성을 받았지만 적당히 살고 싶다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2e29b/hAd4SGh5Zf/qVW9r8sbqYVpk7SNznJfz1&filename=th3",
@@ -4909,48 +4892,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 290,
+    "rank": 289,
     "workId": "58870225",
     "title": "전투종족으로 환생한 나의 공무원 생활기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jeKSi/hAC1UlCq1H/dEubM5UkW7gVg5FZhkQ4Gk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 291,
-    "workId": "58865631",
-    "title": "귀환용사의 골목식당",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cbe5jD/hAdNTrWols/N9SAucWx6jCNpquLgcvryk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 292,
-    "workId": "66561580",
-    "title": "아카데미의 검술 강사가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WgL7Y/hAJmEDXNyD/GOxckPz7hbUTpvylgdtkaK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -4964,41 +4913,75 @@
     }
   },
   {
-    "rank": 293,
-    "workId": "66422887",
-    "title": "환생했는데 제7왕자라 내맘대로 마술을 연마합니다[단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bPmwEu/hAKLIFh3Bg/LfMAcOwfuuHgF3hW3L3bnk&filename=th3",
+    "rank": 290,
+    "workId": "65552792",
+    "title": "나는 스켈레톤을 키운다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pyGl7/hAJrIM69aC/rTynK40XMOwu4wRtRHd7V0&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 291,
+    "workId": "61335525",
+    "title": "소드마스터로 회귀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBd4q2/hAC1TAfnMy/aWU2ecWNArugzmAnG5kxFK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 7
+    }
+  },
+  {
+    "rank": 292,
+    "workId": "58865631",
+    "title": "귀환용사의 골목식당",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cbe5jD/hAdNTrWols/N9SAucWx6jCNpquLgcvryk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 293,
+    "workId": "66561580",
+    "title": "아카데미의 검술 강사가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WgL7Y/hAJmEDXNyD/GOxckPz7hbUTpvylgdtkaK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
     "rank": 294,
-    "workId": "65288247",
-    "title": "하이큐!! [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hNiF7/hAJmPrtpD7/B0ua2arfRxJZ6AIIu49mJk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 295,
     "workId": "62711709",
     "title": "회귀한 아포칼립스의 폭군",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cedcAw/hAKLzVhoYm/ph3GlWb3YSlQI7HW1vg5T0&filename=th3",
@@ -5011,31 +4994,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 296,
-    "workId": "63025860",
-    "title": "빌어먹을 마검들",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oXi8S/hAC1N7R3IB/KMNHC3Y4dD8G4UbVkX4IuK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 297,
-    "workId": "62384089",
-    "title": "회귀했더니 최강 네크로맨서",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dsoDwS/hAd4oyyx5U/a8xHSXF2A7thjIYOijX4L0&filename=th3",
+    "rank": 295,
+    "workId": "51913499",
+    "title": "바람이 머무는 난",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c9iiH2/dJMb9OtKC0d/G7wXh1ZyZ3eQounl5ZqVB1&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -5049,10 +5015,27 @@
     }
   },
   {
-    "rank": 298,
-    "workId": "61335525",
-    "title": "소드마스터로 회귀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBd4q2/hAC1TAfnMy/aWU2ecWNArugzmAnG5kxFK&filename=th3",
+    "rank": 296,
+    "workId": "66422887",
+    "title": "환생했는데 제7왕자라 내맘대로 마술을 연마합니다[단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bPmwEu/hAKLIFh3Bg/LfMAcOwfuuHgF3hW3L3bnk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 297,
+    "workId": "63025860",
+    "title": "빌어먹을 마검들",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oXi8S/hAC1N7R3IB/KMNHC3Y4dD8G4UbVkX4IuK&filename=th3",
     "category": "웹툰",
     "subCategory": "판타지",
     "waitFree": true,
@@ -5066,24 +5049,7 @@
     }
   },
   {
-    "rank": 299,
-    "workId": "65155592",
-    "title": "입학은 괜히 해 가지고",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cX2eC7/hAJrQKGMmf/7velcTYLMp1EdbQTwTZkCk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "판타지",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 300,
+    "rank": 298,
     "workId": "53096912",
     "title": "정령의 펜던트",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oRrzO/hAd4f2HbK6/zMKHjQxG2dCsiwjUyivGq1&filename=th3",
@@ -5095,8 +5061,42 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 299,
+    "workId": "62384089",
+    "title": "회귀했더니 최강 네크로맨서",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dsoDwS/hAd4oyyx5U/a8xHSXF2A7thjIYOijX4L0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 300,
+    "workId": "65155592",
+    "title": "입학은 괜히 해 가지고",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cX2eC7/hAJrQKGMmf/7velcTYLMp1EdbQTwTZkCk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "판타지",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   }
 ]
