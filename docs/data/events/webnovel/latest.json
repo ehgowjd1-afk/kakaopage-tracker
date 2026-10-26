@@ -1,17 +1,66 @@
 [
   {
+    "bannerUid": "218016",
+    "title": "카카오페이지 10월의 명작",
+    "subtitle": "감상만 해도 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XtH2d/dJMcafuZvxT/puRFR4dlbj8Xlm47VjhNa0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=aeb7b9888907200dec1d384b81de1624"
+  },
+  {
+    "bannerUid": "218031",
+    "title": "YES or YES",
+    "subtitle": "웹툰 원작 골라보기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=h7yU8/dJMcabF207Q/Ccn6kJo5AF36f53jIJEjK0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=166b158e3b402999175b3dd6c8a7dbac"
+  },
+  {
+    "bannerUid": "218064",
+    "title": "꼭 봐야할 무협 모으는 계정",
+    "subtitle": "인생 무협 추천!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cGiIYv/dJMcaiLXLkv/JQLnJYMOuhTmcfnRTK3CW0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=a63df8a7c498b67fd24c968ae1ae13ce"
+  },
+  {
+    "bannerUid": "218038",
+    "title": "백화 작가 로캣단 론칭!",
+    "subtitle": "신작 보면 캐시백!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AALUx/dJMcajc4X31/AgjHgqZ1E9feImmYPpo44K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=90ce4997f0baaa2a6bc1f56b599a2dfe"
+  },
+  {
+    "bannerUid": "218287",
+    "title": "운명 징크스",
+    "subtitle": "기다무 전환 기념!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Jpolv/dJMcagtV2XV/0ONY5J1yskJorSWZokNYxk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19416/"
+  },
+  {
+    "bannerUid": "217884",
+    "title": "남궁세가 막내아들은 전생헌터",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ndGpB/dJMcablWIQ9/KxktgfzjVb7x4Kdeo300mK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19391/"
+  },
+  {
+    "bannerUid": "218368",
+    "title": "북부 전선의 미친 창잡이",
+    "subtitle": "완결 기념 이벤트!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j1eAT/dJMcahGk765/sZd30jR7JIyACJK1NENwg0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19417/"
+  },
+  {
+    "bannerUid": "218014",
+    "title": "11월 Top-Tier 신작 티저",
+    "subtitle": "최대 1천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bfibWf/dJMcafIGtCv/mQL0eL0vkKO5roYDuYfknk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=b37d4f5132f80043a99f0d592db221a6"
+  },
+  {
     "bannerUid": "218012",
     "title": "아침짹!도 카카페에서만",
     "subtitle": "카카페 독점 공개!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eGALr/dJMcaiFkT5B/DdwZ8A2G4AyXh1vkuV98jk&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=77514df930cad8d7ada0d07498595c36"
-  },
-  {
-    "bannerUid": "218233",
-    "title": "스페셜 오픈런 최대 5천캐시 선물",
-    "subtitle": "전원 캐시 선물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bxas2z/dJMcag8sd1J/3k5i2mUAHBZEKG8vhmC1U0&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=632ab35ca77a4a5e1c0ed69861c1b5a0"
   },
   {
     "bannerUid": "218235",
@@ -217,13 +266,6 @@
     "link": "https://page.kakao.com/landing/series/list/page/landing/19336/"
   },
   {
-    "bannerUid": "216874",
-    "title": "꼭 봐야할 무협 모으는 계정",
-    "subtitle": "인생 무협 추천",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cbOWBP/dJMcajjTfpJ/fAkaqtycGStV58Olnt8dpK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7fd78c7074f6c1e6e0dd47c0cda444ff"
-  },
-  {
     "bannerUid": "216672",
     "title": "판/현/무 3분기 결산",
     "subtitle": "최대 3천 캐시!",
@@ -231,39 +273,11 @@
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=840c4911b576f3c970c79042c2512ddd"
   },
   {
-    "bannerUid": "217097",
-    "title": "가시 돋친 나비를 건드리지 마세요",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bUOCJF/dJMcacSnV14/FWnexvxKtvk12a7Qu7eEbK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19325/"
-  },
-  {
-    "bannerUid": "216553",
-    "title": "이 빙의, 어딘가 잘못된 것 같다",
-    "subtitle": "5연참 시작!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pyuMS/dJMcadKzjoC/Xyze0krOrCSfsqYidzUQN1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7c3253753c7bf0abcf9cb7e1b962350f"
-  },
-  {
-    "bannerUid": "217095",
-    "title": "또 봐도 또 봐도 무료",
-    "subtitle": "또또또 무료로 보자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2Bmak/dJMcadYfInq/Nj2czitAyk3K9FCC7ETQe0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19324/"
-  },
-  {
     "bannerUid": "217099",
     "title": "재벌가 역대급 천재 헌터",
     "subtitle": "완결 기념 이벤트!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KoHIQ/dJMcafICjwo/eLHOsHaUC0n0RoEP2Vpapk&filename=th3",
     "link": "https://page.kakao.com/landing/series/list/page/landing/19326/"
-  },
-  {
-    "bannerUid": "216547",
-    "title": "띵동! 로판 연재작 알림이",
-    "subtitle": "최신화까지 따라잡기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=BaWKW/dJMcacZgSlB/C1SkrCyzqkkzBq7lIvJTEK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=0e8ed055eda02638c0cad627760d304e"
   },
   {
     "bannerUid": "216532",
@@ -355,13 +369,6 @@
     "subtitle": "최대 3천 캐시!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cf5FU/dJMcab66zkM/hPYNHeF6LKA3JfMC4zFhbk&filename=th3",
     "link": "https://page.kakao.com/landing/series/list/page/landing/19235/"
-  },
-  {
-    "bannerUid": "215618",
-    "title": "사도세자가 수원역을 숨김",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=OkGbj/dJMb99VF2tt/sC9gfsk6sook0NkwGAqhgk&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19218/"
   },
   {
     "bannerUid": "215716",
