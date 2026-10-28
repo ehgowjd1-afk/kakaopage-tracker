@@ -10,7 +10,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "same",
       "amount": null
@@ -44,7 +44,7 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "same",
       "amount": null
@@ -69,23 +69,6 @@
   },
   {
     "rank": 5,
-    "workId": "68335357",
-    "title": "사랑받는 언니 대신 괴물과 결혼했는데",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=4voXh/dJMcahpvIc9/jlkPLk7BHPLwP8jsKP60ak&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 6,
     "workId": "70850523",
     "title": "남주의 비서가 일을 너무 잘함",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eEkhR/dJMcaid2Kik/BAhUC4xuPVfb56uT8rgj10&filename=th3",
@@ -102,7 +85,7 @@
     }
   },
   {
-    "rank": 7,
+    "rank": 6,
     "workId": "68301756",
     "title": "고립된 후작 영애는 먹고살고 싶어서",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dWnyyV/dJMcacvRMGR/mrYQriXnxH2BCamYufjV71&filename=th3",
@@ -114,12 +97,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 8,
+    "rank": 7,
     "workId": "60903181",
     "title": "사천당가의 시비로 살아남기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cNLDI/hAdNZySqhA/nomFyVa7cfKkyZAcJgRj91&filename=th3",
@@ -131,12 +114,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 9,
+    "rank": 8,
     "workId": "64490150",
     "title": "악당가의 최강 집사",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cd46zZ/hAFsBqUcTF/lat7MHTVTQTnZmDWqy1uwk&filename=th3",
@@ -148,8 +131,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 9,
+    "workId": "52429082",
+    "title": "야수의 전부인이 되겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dzIEFo/hyqE660vYC/OSz8oUQ3ReKw1r2rQZZYn0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -188,23 +188,6 @@
   },
   {
     "rank": 12,
-    "workId": "52429082",
-    "title": "야수의 전부인이 되겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dzIEFo/hyqE660vYC/OSz8oUQ3ReKw1r2rQZZYn0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 13,
     "workId": "70332628",
     "title": "아빠 몰래 북부대공을 농부로 키우면",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YBU6W/dJMcafnEkzY/QZqwhZlSXHYIoIQl2oIUjk&filename=th3",
@@ -216,12 +199,63 @@
     "isNewRelease": false,
     "hasNewEpisode": true,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
+    "rank": 13,
+    "workId": "68335357",
+    "title": "사랑받는 언니 대신 괴물과 결혼했는데",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=4voXh/dJMcahpvIc9/jlkPLk7BHPLwP8jsKP60ak&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
     "rank": 14,
+    "workId": "70819513",
+    "title": "남주가 여동생 말고 날 노린다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bJYPb0/dJMcab62nRo/7tiifjf7twiuKl0VkxwwJK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 15,
+    "workId": "70825851",
+    "title": "폐급 공작의 딸이 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Dl7SL/dJMcacSaK8J/g8WujKxovAjz4n0uDlbouk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 16,
     "workId": "63838467",
     "title": "너에게 빼앗을 왕관",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byV6co/dJMcaaRzTsg/JQqq0F5K23LXTk2rooXshk&filename=th3",
@@ -233,56 +267,22 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 15,
-    "workId": "70819513",
-    "title": "남주가 여동생 말고 날 노린다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bJYPb0/dJMcab62nRo/7tiifjf7twiuKl0VkxwwJK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
+      "type": "down",
       "amount": 2
     }
   },
   {
-    "rank": 16,
-    "workId": "70265198",
-    "title": "바람은 불을 잠재우고 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
     "rank": 17,
-    "workId": "70825851",
-    "title": "폐급 공작의 딸이 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Dl7SL/dJMcacSaK8J/g8WujKxovAjz4n0uDlbouk&filename=th3",
+    "workId": "62961130",
+    "title": "남궁세가 손녀딸의 귀환",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uCk8y/hAKLEQifIs/g2eswkzTbemlVCPScBmKyK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "up",
       "amount": 2
@@ -307,40 +307,23 @@
   },
   {
     "rank": 19,
-    "workId": "62961130",
-    "title": "남궁세가 손녀딸의 귀환",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uCk8y/hAKLEQifIs/g2eswkzTbemlVCPScBmKyK&filename=th3",
+    "workId": "70265198",
+    "title": "바람은 불을 잠재우고 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 20,
-    "workId": "55893633",
-    "title": "뱀 가문의 막내딸입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dfUVjz/hyF28ifQCA/7bhIuLdt4CWnxlEF470r90&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 3
     }
   },
   {
-    "rank": 21,
+    "rank": 20,
     "workId": "64190457",
     "title": "황제와 비밀 연애 중인데 나는 그걸 몰라",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vUhqj/hAFsCpIXjg/OVi0g8khJ2WINx6WjtRt3k&filename=th3",
@@ -357,24 +340,24 @@
     }
   },
   {
-    "rank": 22,
-    "workId": "65754723",
-    "title": "다시 쓰는 결혼 계약서 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 21,
+    "workId": "55893633",
+    "title": "뱀 가문의 막내딸입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dfUVjz/hyF28ifQCA/7bhIuLdt4CWnxlEF470r90&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 23,
+    "rank": 22,
     "workId": "70813340",
     "title": "귀환한 남편이 이혼을 안 한다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bzMwTo/dJMcaaGYhsS/kXRKiqwRT0KZkpU5L2lTI0&filename=th3",
@@ -391,24 +374,7 @@
     }
   },
   {
-    "rank": 24,
-    "workId": "70299680",
-    "title": "위장 취업에 성공한 독,한 왕녀입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=VoP9z/dJMb99N8aQd/oYJoAakk0KzjdKpX0Sxbu0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 25,
+    "rank": 23,
     "workId": "55563592",
     "title": "랭커를 위한 바른 생활 안내서",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dAFENJ/dJMcab7efw8/eLGtvUonwrH72zj4ZwMxAK&filename=th3",
@@ -421,11 +387,28 @@
     "hasNewEpisode": true,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 2
     }
   },
   {
-    "rank": 26,
+    "rank": 24,
+    "workId": "65754723",
+    "title": "다시 쓰는 결혼 계약서 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 25,
     "workId": "62646168",
     "title": "막내가 뭔갈 많이 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ha1Wo/dJMcahiCpqM/xae0YX4sBTbqZPKNYD4ilK&filename=th3",
@@ -442,24 +425,7 @@
     }
   },
   {
-    "rank": 27,
-    "workId": "68107269",
-    "title": "몰락 교단의 천재 조향사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dl4BOh/dJMcadiZYMR/yRxyHDSgcbelr7hSfhRaSk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 28,
+    "rank": 26,
     "workId": "70749555",
     "title": "1세대 소환사가 돌아왔다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bhdjJf/dJMcaiE8ZSf/jdKiICJ2lkTV9i8wfug950&filename=th3",
@@ -471,32 +437,15 @@
     "isNewRelease": false,
     "hasNewEpisode": true,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 2
     }
   },
   {
-    "rank": 29,
-    "workId": "64749181",
-    "title": "덮치고 싶지 않아! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 30,
-    "workId": "67654503",
-    "title": "아빠를 교체하는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eKzfej/dJMcab5f71N/v05oKbzGLgxk4avU6qdInk&filename=th3",
+    "rank": 27,
+    "workId": "68107269",
+    "title": "몰락 교단의 천재 조향사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dl4BOh/dJMcadiZYMR/yRxyHDSgcbelr7hSfhRaSk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -510,7 +459,7 @@
     }
   },
   {
-    "rank": 31,
+    "rank": 28,
     "workId": "70835659",
     "title": "흑화한 가족을 구하러 온 튼튼한 막내딸입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Isf8X/dJMcajxrXan/idryWc52aJ0fdCKjdQka8k&filename=th3",
@@ -527,6 +476,57 @@
     }
   },
   {
+    "rank": 29,
+    "workId": "67654503",
+    "title": "아빠를 교체하는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eKzfej/dJMcab5f71N/v05oKbzGLgxk4avU6qdInk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 30,
+    "workId": "64749181",
+    "title": "덮치고 싶지 않아! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 31,
+    "workId": "70299680",
+    "title": "위장 취업에 성공한 독,한 왕녀입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=VoP9z/dJMb99N8aQd/oYJoAakk0KzjdKpX0Sxbu0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
     "rank": 32,
     "workId": "69427264",
     "title": "흑화한 여주가 압도적으로 편함",
@@ -539,46 +539,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 33,
-    "workId": "70354513",
-    "title": "남주가 민폐 악녀에게 미쳐 버렸어요",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJQ6kL/dJMcaf12D4z/0E5H2lLDrg5ScqyCutrCSk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 34,
-    "workId": "66133314",
-    "title": "릴리에타의 귀환",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GZJNv/dJMcahwbSZ9/rFwgkjVuvWW4VSGCUhXGKk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 35,
     "workId": "70840727",
     "title": "아기님이 숨길 힘이 없음!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baAgFu/dJMcab6S5Pj/KmFsV3KvyE08ZdK4vxjen1&filename=th3",
@@ -591,6 +557,40 @@
     "hasNewEpisode": true,
     "change": {
       "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 34,
+    "workId": "70354513",
+    "title": "남주가 민폐 악녀에게 미쳐 버렸어요",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJQ6kL/dJMcaf12D4z/0E5H2lLDrg5ScqyCutrCSk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 35,
+    "workId": "66133314",
+    "title": "릴리에타의 귀환",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GZJNv/dJMcahwbSZ9/rFwgkjVuvWW4VSGCUhXGKk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
@@ -607,25 +607,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 37,
-    "workId": "60558545",
-    "title": "이 결혼은 어차피 망하게 되어 있다 [19세 완전판]",
-    "thumbnail": null,
+    "workId": "70728801",
+    "title": "대공을 황제로 만들고 도망칩니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Vyetj/dJMcaf89ZQY/K7e5sLPJ5kTqI4LNZ0lGwk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
+      "amount": 11
     }
   },
   {
@@ -641,8 +641,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -664,9 +664,26 @@
   },
   {
     "rank": 40,
-    "workId": "57543412",
-    "title": "남주들과 외딴섬에 갇혀버렸다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=OTdA4/dJMcagz9ATp/pqqvcNuxXmr4ySipp9o53K&filename=th3",
+    "workId": "66981502",
+    "title": "호랑이 가문의 아기 살쾡이",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZVMGn/dJMb9PMXIn0/EiERptCb5ouOsHRPU3SRDk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 41,
+    "workId": "58840311",
+    "title": "막내 공녀의 총애를 독차지했더니, 모두 내게 집착한다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHL4wg/hAJjKqz6zW/vWwWIJMXWE6B10yS83iRm0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -680,41 +697,41 @@
     }
   },
   {
-    "rank": 41,
-    "workId": "66981502",
-    "title": "호랑이 가문의 아기 살쾡이",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZVMGn/dJMb9PMXIn0/EiERptCb5ouOsHRPU3SRDk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
     "rank": 42,
-    "workId": "58840311",
-    "title": "막내 공녀의 총애를 독차지했더니, 모두 내게 집착한다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHL4wg/hAJjKqz6zW/vWwWIJMXWE6B10yS83iRm0&filename=th3",
+    "workId": "60558545",
+    "title": "이 결혼은 어차피 망하게 되어 있다 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 5
     }
   },
   {
     "rank": 43,
+    "workId": "70877428",
+    "title": "전쟁영웅의 비밀을 나만 알아",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cueWsh/dJMcagf8X5n/8uXG2obU2yFkhh9cByJCr1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": true,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 44,
     "workId": "70463907",
     "title": "전남친과 내게 만나는 상대가 있는 게 문제",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2pwHR/dJMcacRLf85/ov6Wc9NNQeDYMkNAQzX3t0&filename=th3",
@@ -731,41 +748,41 @@
     }
   },
   {
-    "rank": 44,
-    "workId": "70265813",
-    "title": "바람은 불을 잠재우고",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LeIEx/dJMcafOuU1z/0q1xCBC1Rxtp5cd5piQB0K&filename=th3",
+    "rank": 45,
+    "workId": "57543412",
+    "title": "남주들과 외딴섬에 갇혀버렸다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=OTdA4/dJMcagz9ATp/pqqvcNuxXmr4ySipp9o53K&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 45,
-    "workId": "70877428",
-    "title": "전쟁영웅의 비밀을 나만 알아",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cueWsh/dJMcagf8X5n/8uXG2obU2yFkhh9cByJCr1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 25
+      "type": "down",
+      "amount": 5
     }
   },
   {
     "rank": 46,
+    "workId": "50543644",
+    "title": "레이디 신데렐라",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FXP2L/hyuhtEeJST/h2nJ4quEpmdkOwLbRhMqEk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 47,
     "workId": "65527616",
     "title": "힘숨찐 어린이가 아빠를 찾습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=brQcuC/dJMcac2PFKB/wANBk4BSfED7979rSN9ZX0&filename=th3",
@@ -782,10 +799,10 @@
     }
   },
   {
-    "rank": 47,
-    "workId": "50543644",
-    "title": "레이디 신데렐라",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FXP2L/hyuhtEeJST/h2nJ4quEpmdkOwLbRhMqEk&filename=th3",
+    "rank": 48,
+    "workId": "55527274",
+    "title": "악녀라서 편하고 좋은데요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=04f5K/hyF23mZIyA/jgOdPazuC4flfkNVIRiohK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -794,25 +811,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 48,
-    "workId": "70728801",
-    "title": "대공을 황제로 만들고 도망칩니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Vyetj/dJMcaf89ZQY/K7e5sLPJ5kTqI4LNZ0lGwk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": true,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
+      "type": "up",
+      "amount": 9
     }
   },
   {
@@ -826,10 +826,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -845,25 +845,25 @@
     "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 51,
-    "workId": "62762648",
-    "title": "남주가 제 건강에 집착합니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBcB5H/hAdNWPF9zH/cAF21X3geuVlJ8lHzV9fT0&filename=th3",
+    "workId": "66220743",
+    "title": "남주의 친딸이지만 서브남주랑 살래요!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ka3W6/dJMcaiCc815/FUdj1oMhxUSHeEkyAvG5T0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -879,8 +879,8 @@
     "isNewRelease": false,
     "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -902,91 +902,6 @@
   },
   {
     "rank": 54,
-    "workId": "66220743",
-    "title": "남주의 친딸이지만 서브남주랑 살래요!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ka3W6/dJMcaiCc815/FUdj1oMhxUSHeEkyAvG5T0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 55,
-    "workId": "52903324",
-    "title": "이번 생은 가주가 되겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9Vx9a/hySXGzS16M/jVvcgEbkThb6AFLijCfgxK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 56,
-    "workId": "70725168",
-    "title": "기억을 잃었더니 본능만이 남아있었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zJUQQ/dJMcaaNCCDA/Kobyzwx3GvOGukfPwoYm5k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 57,
-    "workId": "55527274",
-    "title": "악녀라서 편하고 좋은데요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=04f5K/hyF23mZIyA/jgOdPazuC4flfkNVIRiohK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 15
-    }
-  },
-  {
-    "rank": 58,
-    "workId": "70044226",
-    "title": "전 남친이 내 아이를 낳았다는데 이게 무슨 소리인가요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NCtHV/dJMcabygNU7/v36uEH4XUlkxOEILckvkc1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 59,
     "workId": "65109157",
     "title": "그렇게 악녀가 되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fu0UG/dJMcaiLzrdd/by8ECjkrTiM4jXDjk2cdn0&filename=th3",
@@ -999,7 +914,92 @@
     "hasNewEpisode": true,
     "change": {
       "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 55,
+    "workId": "62762648",
+    "title": "남주가 제 건강에 집착합니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBcB5H/hAdNWPF9zH/cAF21X3geuVlJ8lHzV9fT0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 56,
+    "workId": "70265813",
+    "title": "바람은 불을 잠재우고",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LeIEx/dJMcafOuU1z/0q1xCBC1Rxtp5cd5piQB0K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
       "amount": 12
+    }
+  },
+  {
+    "rank": 57,
+    "workId": "70725168",
+    "title": "기억을 잃었더니 본능만이 남아있었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zJUQQ/dJMcaaNCCDA/Kobyzwx3GvOGukfPwoYm5k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 58,
+    "workId": "52903324",
+    "title": "이번 생은 가주가 되겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9Vx9a/hySXGzS16M/jVvcgEbkThb6AFLijCfgxK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 59,
+    "workId": "70044226",
+    "title": "전 남친이 내 아이를 낳았다는데 이게 무슨 소리인가요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NCtHV/dJMcabygNU7/v36uEH4XUlkxOEILckvkc1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -1015,29 +1015,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 61,
-    "workId": "56908119",
-    "title": "빙의자를 위한 특혜",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fI6UJ/hAJrQxx7P3/c5mhUkTnsb51YlBtgag5Sk&filename=th3",
+    "workId": "67961673",
+    "title": "여신들을 위하여 : 프시케를 위하여 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "up",
+      "amount": 2
     }
   },
   {
     "rank": 62,
+    "workId": "66442464",
+    "title": "상수리나무 아래 [리커버판][19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 63,
     "workId": "65104589",
     "title": "시간치료사 세레스",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zGW6i/dJMcabL8Ps8/pggaFFr0MuaKdklN50ZgA1&filename=th3",
@@ -1050,48 +1067,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 63,
-    "workId": "67961673",
-    "title": "여신들을 위하여 : 프시케를 위하여 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
       "amount": 1
     }
   },
   {
     "rank": 64,
-    "workId": "66442464",
-    "title": "상수리나무 아래 [리커버판][19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 65,
-    "workId": "59854139",
-    "title": "아빠가 힘을 숨김",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=r3RP3/dJMb8WrROdL/954SbYDfqie3KQrvtLc2u0&filename=th3",
+    "workId": "56908119",
+    "title": "빙의자를 위한 특혜",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fI6UJ/hAJrQxx7P3/c5mhUkTnsb51YlBtgag5Sk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1101,7 +1084,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 3
+    }
+  },
+  {
+    "rank": 65,
+    "workId": "68833988",
+    "title": "어느 날 엄마를 주웠다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNT8Bs/dJMcafsexk1/I4kKoMtF1LLXZ7GJFObWY0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -1115,34 +1115,17 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 67,
-    "workId": "65549369",
-    "title": "여주가 다 해 먹음",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cQtVSG/hAJrNgF5Ul/ulbxshhDaRzSmpttXkcGp1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 68,
-    "workId": "68833988",
-    "title": "어느 날 엄마를 주웠다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNT8Bs/dJMcafsexk1/I4kKoMtF1LLXZ7GJFObWY0&filename=th3",
+    "workId": "59854139",
+    "title": "아빠가 힘을 숨김",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=r3RP3/dJMb8WrROdL/954SbYDfqie3KQrvtLc2u0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1151,8 +1134,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 68,
+    "workId": "53811972",
+    "title": "아기는 악당을 키운다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Geuvs/dJMcafLFk9o/5lpZujLgC9evNUQWZ6Qu11&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -1168,22 +1168,22 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 6
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 70,
-    "workId": "53811972",
-    "title": "아기는 악당을 키운다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Geuvs/dJMcafLFk9o/5lpZujLgC9evNUQWZ6Qu11&filename=th3",
+    "workId": "65549369",
+    "title": "여주가 다 해 먹음",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cQtVSG/hAJrNgF5Ul/ulbxshhDaRzSmpttXkcGp1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 3
@@ -1202,12 +1202,63 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 72,
+    "workId": "70924702",
+    "title": "기억을 잃은 전남편을 주웠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jblD4/dJMcahGbsB2/2ruHT33IZAEEAXgtUHkX2K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 73,
+    "workId": "65340686",
+    "title": "남편이 최애인데 이혼당할 것 같다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dFJULk/hAJjEQ7O5O/3nFSYCXFARPZhbBFbo5xqk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 74,
+    "workId": "59496683",
+    "title": "점괘보는 공녀님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FZKLG/hAdNTyhuoW/uNk4ln7cBrJVzCnBUMTlv0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 75,
     "workId": "65754692",
     "title": "다시 쓰는 결혼 계약서",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Q0kpp/dJMb9QE6dEd/jCfoO4wKaQzK8MSikZWX0k&filename=th3",
@@ -1224,57 +1275,6 @@
     }
   },
   {
-    "rank": 73,
-    "workId": "59496683",
-    "title": "점괘보는 공녀님",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FZKLG/hAdNTyhuoW/uNk4ln7cBrJVzCnBUMTlv0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 74,
-    "workId": "54442787",
-    "title": "누군가 내 몸에 빙의했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBGIDd/dJMcahYAKiK/wZGiKBBXyz5CwvfQPSYVr1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 75,
-    "workId": "70924702",
-    "title": "기억을 잃은 전남편을 주웠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jblD4/dJMcahGbsB2/2ruHT33IZAEEAXgtUHkX2K&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
     "rank": 76,
     "workId": "65481466",
     "title": "흔한 영애의 미식보고서",
@@ -1287,8 +1287,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -1304,12 +1304,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 78,
+    "workId": "54442787",
+    "title": "누군가 내 몸에 빙의했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bBGIDd/dJMcahYAKiK/wZGiKBBXyz5CwvfQPSYVr1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 79,
     "workId": "69946624",
     "title": "다시 쓰는 폐급 엔딩",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bIKlPW/dJMcajpt3JQ/eye119gka9Sm9j2Q0tmu5K&filename=th3",
@@ -1319,14 +1336,14 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 79,
+    "rank": 80,
     "workId": "63467942",
     "title": "황자의 보모, 특기는 암살입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8C3TO/hAd4gf4Z2y/Vhkmua2xaeBqJEhUXhcCq0&filename=th3",
@@ -1339,45 +1356,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 80,
-    "workId": "53032081",
-    "title": "일어나지 않은 것들에 관하여",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bm8Inl/hyqDwSUvdp/Hj99qhG40xw1IKnEfuIsu1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 16
-    }
-  },
-  {
-    "rank": 81,
-    "workId": "65340686",
-    "title": "남편이 최애인데 이혼당할 것 같다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dFJULk/hAJjEQ7O5O/3nFSYCXFARPZhbBFbo5xqk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 82,
+    "rank": 81,
     "workId": "63243048",
     "title": "남편은 분명 성기사였는데",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9g3iC/dJMb9Nn4wSl/hxFWhpkqkRitCalz4giI20&filename=th3",
@@ -1389,29 +1372,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 83,
-    "workId": "66117712",
-    "title": "악당 공녀님이 정체를 숨김",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gyScU/hAJmMa28h0/aWKQL6uXBeMIlONT27j3Ok&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 84,
+    "rank": 82,
     "workId": "59829564",
     "title": "BJ악역영애",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HjzL0/hAKLz2H07j/vCupBNL7oOrL61ALCjkGKk&filename=th3",
@@ -1424,28 +1390,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 2
     }
   },
   {
-    "rank": 85,
-    "workId": "63454887",
-    "title": "저택은 봄을 기다린다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=chYm6y/hAHItcvpVa/IBkIe81fsu787zMcqKfFyK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 86,
+    "rank": 83,
     "workId": "56372295",
     "title": "처음이라 몰랐던 것들",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQiBGT/hzCs7TTFVe/88EaqXyze7SOkGgD4ccOAk&filename=th3",
@@ -1462,7 +1411,126 @@
     }
   },
   {
+    "rank": 84,
+    "workId": "63454887",
+    "title": "저택은 봄을 기다린다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=chYm6y/hAHItcvpVa/IBkIe81fsu787zMcqKfFyK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 85,
+    "workId": "66117712",
+    "title": "악당 공녀님이 정체를 숨김",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gyScU/hAJmMa28h0/aWKQL6uXBeMIlONT27j3Ok&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 86,
+    "workId": "69501495",
+    "title": "빙하기가 왔다고요? 나 지금 결혼했는데?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lC3L2/dJMcagl8buk/K3s5ZVxjgIksxoGHLFW55k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
     "rank": 87,
+    "workId": "67483902",
+    "title": "이기적 구원자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdynKw/dJMb996UqIS/bYAJkqWeQnx7w78KAwuv2K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 88,
+    "workId": "53032081",
+    "title": "일어나지 않은 것들에 관하여",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bm8Inl/hyqDwSUvdp/Hj99qhG40xw1IKnEfuIsu1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 89,
+    "workId": "49302258",
+    "title": "검을 든 꽃",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=udY6k/hAKLzu5Csy/HZnJtP8MzKoMsQzYNWNb9K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 90,
+    "workId": "68073449",
+    "title": "무협지 악녀의 하인으로 살아남기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ilx6p/dJMcaiYzvPF/ClB2TzhXYQkKMZXvYiQgA1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 91,
     "workId": "69764253",
     "title": "유배지의 일곱 살 촌장님",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tbr2s/dJMcacDPYVC/P24XpGpKXk6Mn9nWfr87o0&filename=th3",
@@ -1479,75 +1547,24 @@
     }
   },
   {
-    "rank": 88,
-    "workId": "69501495",
-    "title": "빙하기가 왔다고요? 나 지금 결혼했는데?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lC3L2/dJMcagl8buk/K3s5ZVxjgIksxoGHLFW55k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 89,
-    "workId": "67483902",
-    "title": "이기적 구원자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdynKw/dJMb996UqIS/bYAJkqWeQnx7w78KAwuv2K&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 90,
-    "workId": "68073449",
-    "title": "무협지 악녀의 하인으로 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ilx6p/dJMcaiYzvPF/ClB2TzhXYQkKMZXvYiQgA1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 91,
-    "workId": "49302258",
-    "title": "검을 든 꽃",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=udY6k/hAKLzu5Csy/HZnJtP8MzKoMsQzYNWNb9K&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
     "rank": 92,
+    "workId": "69151044",
+    "title": "기억을 잃은 흑막에게 연애 중인 걸 숨김",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cabfRy/dJMcagMds7c/ET4inemEdu4kx6NLrAnBH0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 93,
     "workId": "69561473",
     "title": "남주와 날치기 결혼을 해 버렸다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=crKI3/dJMcaiDNU2v/bOBcN749y6qo92sQTL5VF1&filename=th3",
@@ -1560,45 +1577,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 93,
-    "workId": "69151044",
-    "title": "기억을 잃은 흑막에게 연애 중인 걸 숨김",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cabfRy/dJMcagMds7c/ET4inemEdu4kx6NLrAnBH0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
       "amount": 1
     }
   },
   {
     "rank": 94,
-    "workId": "69577541",
-    "title": "이제 짝사랑 안 한다고",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=X566x/dJMcaaZ4srr/SJf4BuOzZiQi8N4K0ibA3k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 95,
     "workId": "58959817",
     "title": "몰락 세가의 시한부 영약",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bS4oTw/hAKLAAkDVs/E0nzBw0kAP0Q5mEs9r3Fv1&filename=th3",
@@ -1611,11 +1594,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 96,
+    "rank": 95,
     "workId": "63298785",
     "title": "병아리반 헌터는 효도 중!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qSD9x/hAFsEHG46Y/faTx699KXYomNsMQxqAtWK&filename=th3",
@@ -1627,15 +1610,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 97,
-    "workId": "60651868",
-    "title": "이상한데 효과적인 악녀 생활",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zdaOC/hzXap0VT6W/YekuZYRKWD28JdSTeCwIEK&filename=th3",
+    "rank": 96,
+    "workId": "69577541",
+    "title": "이제 짝사랑 안 한다고",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=X566x/dJMcaaZ4srr/SJf4BuOzZiQi8N4K0ibA3k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1645,11 +1628,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
-    "rank": 98,
+    "rank": 97,
     "workId": "69139838",
     "title": "악녀의 전속 시녀가 일을 너무 잘함",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9k3IC/dJMcacdKLo8/LbClN2LhVvfwgD6G1HRE40&filename=th3",
@@ -1661,12 +1644,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 99,
+    "rank": 98,
     "workId": "69596170",
     "title": "주인공에게 잡아먹힐 여신입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JHEk7/dJMcagsxE8j/j7KDercCid0R1RAreaaPP0&filename=th3",
@@ -1679,14 +1662,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 100,
-    "workId": "54224126",
-    "title": "소심하고 쩨쩨하게",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9265L/hyzcF09jL1/yakc1m2ERVG1voKiNlNCs1&filename=th3",
+    "rank": 99,
+    "workId": "60651868",
+    "title": "이상한데 효과적인 악녀 생활",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zdaOC/hzXap0VT6W/YekuZYRKWD28JdSTeCwIEK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1700,7 +1683,7 @@
     }
   },
   {
-    "rank": 101,
+    "rank": 100,
     "workId": "58390621",
     "title": "내가 주인공인 줄 알았다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cl2LI/hzhOhbikeR/jXyg5EM5C1aOY9M7c0k2n0&filename=th3",
@@ -1713,11 +1696,62 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 1
+    }
+  },
+  {
+    "rank": 101,
+    "workId": "70427898",
+    "title": "우주 기강 잡으러 데뷔합니다 : STUN-X ",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Una7B/dJMcaiYJ6oz/cwII2SCcwtlwwZxXV7D1L0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
     "rank": 102,
+    "workId": "50837413",
+    "title": "악녀는 두 번 산다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ikHJ3/hAHIuivUKC/KxfyHZCsrMzQ1Gr6nzJlo1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 103,
+    "workId": "63545356",
+    "title": "악녀 언니를 구하러 온 용감한 강아지입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=4AniQ/hAC1NgcUxq/dyxcVFCH5Kg5giQI8wjWg0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 104,
     "workId": "70262726",
     "title": "백작 부인의 시신이 사라졌다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d44fNY/dJMcagGCUnw/8i7i6gbiItlXDBpDyJZkK1&filename=th3",
@@ -1730,48 +1764,14 @@
     "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 103,
-    "workId": "57508924",
-    "title": "엄마가 계약결혼 했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mipuG/hzacc9m264/NO9RytS91urRxliDUbSeHK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 104,
-    "workId": "70427898",
-    "title": "우주 기강 잡으러 데뷔합니다 : STUN-X ",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Una7B/dJMcaiYJ6oz/cwII2SCcwtlwwZxXV7D1L0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 1
+      "amount": 2
     }
   },
   {
     "rank": 105,
-    "workId": "63545356",
-    "title": "악녀 언니를 구하러 온 용감한 강아지입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=4AniQ/hAC1NgcUxq/dyxcVFCH5Kg5giQI8wjWg0&filename=th3",
+    "workId": "54224126",
+    "title": "소심하고 쩨쩨하게",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9265L/hyzcF09jL1/yakc1m2ERVG1voKiNlNCs1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1786,60 +1786,9 @@
   },
   {
     "rank": 106,
-    "workId": "59392361",
-    "title": "북부 대공",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ecxgwW/dJMcafG5Q4E/KzGVkrVTbBGDrDk3w8SEQK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 107,
-    "workId": "50837413",
-    "title": "악녀는 두 번 산다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ikHJ3/hAHIuivUKC/KxfyHZCsrMzQ1Gr6nzJlo1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 108,
-    "workId": "65010801",
-    "title": "얼떨결에 죽은 남편을 부활시켜 버렸다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fCLK8/hAJq6mx28q/nhxAuku2t7ZL3hsbExxCEk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 109,
-    "workId": "66835435",
-    "title": "최강자 남편의 가짜 아내는 살고 싶다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QwR1J/dJMcabFDrmn/j1pMnqWwLKzQhCMgGfAdoK&filename=th3",
+    "workId": "57508924",
+    "title": "엄마가 계약결혼 했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mipuG/hzacc9m264/NO9RytS91urRxliDUbSeHK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -1853,7 +1802,41 @@
     }
   },
   {
-    "rank": 110,
+    "rank": 107,
+    "workId": "62850893",
+    "title": "이제 울어도 될까요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dSHf1P/dJMcahJM9rC/kGcx76XX3XO63eGI1V4oRk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 108,
+    "workId": "65584383",
+    "title": "최강 패밀리가 왔다!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=MWna4/hAKLJxapa4/En9Rfr1pjiWKKfs2HdyH90&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 109,
     "workId": "60138831",
     "title": "힘을 숨기고 즐기는 평화로운 하녀 생활",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c6BAV/dJMcajab3p7/birDYVkDjwrCuXZWlTdgx0&filename=th3",
@@ -1866,7 +1849,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
+    }
+  },
+  {
+    "rank": 110,
+    "workId": "66835435",
+    "title": "최강자 남편의 가짜 아내는 살고 싶다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QwR1J/dJMcabFDrmn/j1pMnqWwLKzQhCMgGfAdoK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -1882,46 +1882,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 112,
+    "workId": "57891734",
+    "title": "황후를 그만두겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=R9Yo2/hzb7A1Pm3h/id3FH78hXnTuZ6hK5uk8Rk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "up",
       "amount": 5
     }
   },
   {
-    "rank": 112,
-    "workId": "62850893",
-    "title": "이제 울어도 될까요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dSHf1P/dJMcahJM9rC/kGcx76XX3XO63eGI1V4oRk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
     "rank": 113,
-    "workId": "65584383",
-    "title": "최강 패밀리가 왔다!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=MWna4/hAKLJxapa4/En9Rfr1pjiWKKfs2HdyH90&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 114,
     "workId": "48068866",
     "title": "나는 한 편의 극을 보았다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ezkzb/hAJmH1CPnh/o9diZTNxWQOks8Erx4XtLk&filename=th3",
@@ -1933,12 +1916,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
+    "rank": 114,
+    "workId": "62183077",
+    "title": "나를 파멸시킬 그대에게 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 29
+    }
+  },
+  {
     "rank": 115,
+    "workId": "59392361",
+    "title": "북부 대공",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ecxgwW/dJMcafG5Q4E/KzGVkrVTbBGDrDk3w8SEQK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 116,
     "workId": "70264482",
     "title": "흑막 대공님을 꼬신 건 제가 아닌데요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RbKRD/dJMcahSTKAg/0hG57Inap20npuQtyO2GxK&filename=th3",
@@ -1951,11 +1968,11 @@
     "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 7
+      "amount": 1
     }
   },
   {
-    "rank": 116,
+    "rank": 117,
     "workId": "57243596",
     "title": "최강자 남주의 라이벌을 그만두었더니",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdgEZf/dJMcaaeshVl/6mO7Gyz1lKS0tCmipCKCAK&filename=th3",
@@ -1972,37 +1989,20 @@
     }
   },
   {
-    "rank": 117,
-    "workId": "57891734",
-    "title": "황후를 그만두겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=R9Yo2/hzb7A1Pm3h/id3FH78hXnTuZ6hK5uk8Rk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
     "rank": 118,
-    "workId": "54326966",
-    "title": "최종 보스의 애인이라니 오해입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oqAh5/hyzcFtTTNq/jDLCzhB2PSPMS54wY6lgGK&filename=th3",
+    "workId": "69522596",
+    "title": "북해빙궁 시한부 영애로 살아남기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dR5PV/dJMcacDz4XH/MhcPQVk1oJkbJv6UIvai41&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -2018,46 +2018,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 120,
-    "workId": "62655415",
-    "title": "나는 이 빙의를 끝내려 한다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bS4U7m/hAJrI7wfhS/ra6FvwBOE1P76irAxK2Ijk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 10
-    }
-  },
-  {
-    "rank": 121,
-    "workId": "69522596",
-    "title": "북해빙궁 시한부 영애로 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dR5PV/dJMcacDz4XH/MhcPQVk1oJkbJv6UIvai41&filename=th3",
+    "workId": "65010801",
+    "title": "얼떨결에 죽은 남편을 부활시켜 버렸다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fCLK8/hAJq6mx28q/nhxAuku2t7ZL3hsbExxCEk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 12
     }
   },
   {
-    "rank": 122,
+    "rank": 121,
     "workId": "56272329",
     "title": "무림세가 천대받는 손녀 딸이 되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ewS3q/hAd4xB2dmW/l4K749T53XAwyqeRaJpel1&filename=th3",
@@ -2070,24 +2053,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 1
+    }
+  },
+  {
+    "rank": 122,
+    "workId": "66204294",
+    "title": "남편에게 정체를 숨김",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ns0Ww/hAKLDRbIVY/ltrCHCvK2LbPuA9t3Rc6k1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
     "rank": 123,
-    "workId": "68361799",
-    "title": "내 착각계는 생존이다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d1IMs/dJMcaa6SmU8/QvdR5k5wZlG7kN4yMINm4k&filename=th3",
+    "workId": "62655415",
+    "title": "나는 이 빙의를 끝내려 한다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bS4U7m/hAJrI7wfhS/ra6FvwBOE1P76irAxK2Ijk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 3
     }
   },
   {
@@ -2109,23 +2109,57 @@
   },
   {
     "rank": 125,
-    "workId": "66204294",
-    "title": "남편에게 정체를 숨김",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ns0Ww/hAKLDRbIVY/ltrCHCvK2LbPuA9t3Rc6k1&filename=th3",
+    "workId": "68361799",
+    "title": "내 착각계는 생존이다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d1IMs/dJMcaa6SmU8/QvdR5k5wZlG7kN4yMINm4k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
-    "waitFreeType": "3다무",
+    "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
     "rank": 126,
+    "workId": "55391838",
+    "title": "세이렌: 악당과 계약 가족이 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DcXGK/hzp2ngZ60m/oAQk9NTdHhzkaHfNeUGqN0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 127,
+    "workId": "58956049",
+    "title": "육아물 여주인공의 새언니",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eB5XI/dJMcaaeqbR6/zTBeVp7nPkORm53qvKValk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 128,
     "workId": "67665909",
     "title": "나의 작고 소중한 멸망 [19세 완전판]",
     "thumbnail": null,
@@ -2137,12 +2171,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 127,
+    "rank": 129,
+    "workId": "67209990",
+    "title": "테라리움 어드벤처",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QTxQ1/dJMb9OUOkAP/i1gArdo0H4R9hddHrtbTaK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 130,
     "workId": "68266257",
     "title": "이 황제는 결혼 사기를 칩니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=is7s2/dJMcajn92rw/FbKUK6OH0ktl5knqM9HXrK&filename=th3",
@@ -2155,58 +2206,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 128,
-    "workId": "55391838",
-    "title": "세이렌: 악당과 계약 가족이 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DcXGK/hzp2ngZ60m/oAQk9NTdHhzkaHfNeUGqN0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 129,
-    "workId": "66346702",
-    "title": "악당 공작가에 피어난 새싹 아기님",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Di3Xv/dJMcaa5eWsF/IcxsJRF58aaoLnooGfkJj0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 130,
-    "workId": "58956049",
-    "title": "육아물 여주인공의 새언니",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eB5XI/dJMcaaeqbR6/zTBeVp7nPkORm53qvKValk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
@@ -2222,29 +2222,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 132,
-    "workId": "50492750",
-    "title": "황제궁 옆 마로니에 농장",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Q2vCi/hyhBfdPhYi/y11EOgCsl5wvF7A52f2iOk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 133,
     "workId": "58035850",
     "title": "악당 가문의 상속녀입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkJbbm/hAd4iE7aY2/46f3KsN8FO3mBUthSJYPk1&filename=th3",
@@ -2257,11 +2240,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 1
     }
   },
   {
-    "rank": 134,
+    "rank": 133,
     "workId": "53706168",
     "title": "당신의 이해를 돕기 위하여",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cZhH1F/hyxJECRPGN/evC0m9yShIBmgeVJlzon8K&filename=th3",
@@ -2273,46 +2256,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 135,
-    "workId": "62730241",
-    "title": "망나니 악녀가 돌아왔다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQfoBA/dJMcabrDY16/KOkNRltuIgpaif7dGHbIxk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 136,
-    "workId": "67209990",
-    "title": "테라리움 어드벤처",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QTxQ1/dJMb9OUOkAP/i1gArdo0H4R9hddHrtbTaK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "up",
-      "amount": 5
+      "amount": 1
     }
   },
   {
-    "rank": 137,
+    "rank": 134,
     "workId": "57561322",
     "title": "악당들을 돈으로 사 버렸습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wb4Qr/hzp2jL5KS4/XGHfekcykkPXYKifcwtG10&filename=th3",
@@ -2325,11 +2274,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 3
     }
   },
   {
-    "rank": 138,
+    "rank": 135,
     "workId": "62294909",
     "title": "표국 손녀가 무공을 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AWUa5/hAd4iri3rS/DCFWYqDZPxfyBsVgiEZ6wk&filename=th3",
@@ -2339,14 +2288,150 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 3
+    }
+  },
+  {
+    "rank": 136,
+    "workId": "62730241",
+    "title": "망나니 악녀가 돌아왔다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQfoBA/dJMcabrDY16/KOkNRltuIgpaif7dGHbIxk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 137,
+    "workId": "66346702",
+    "title": "악당 공작가에 피어난 새싹 아기님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Di3Xv/dJMcaa5eWsF/IcxsJRF58aaoLnooGfkJj0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 138,
+    "workId": "68037519",
+    "title": "망나니 사관학교에서 살아남기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KEcqq/dJMcaarSmtS/heq6yX0b0EhBgCpVo68yCk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
     "rank": 139,
+    "workId": "69911197",
+    "title": "좋은 소규모 길드에서 살아남는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkR3Fy/dJMcabdPLTc/6vhfJKc7ZrFGMAw1JMPUHk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 140,
+    "workId": "57850880",
+    "title": "이 3세는 악역입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5eP1E/hzCtgXLlo2/KMSOpfnklqQIYktnnXVux1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 141,
+    "workId": "50492750",
+    "title": "황제궁 옆 마로니에 농장",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Q2vCi/hyhBfdPhYi/y11EOgCsl5wvF7A52f2iOk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 142,
+    "workId": "61319817",
+    "title": "전속은 곤란합니다, 공작님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bLjIsU/hzVqHXvwrF/iixQkVAJkcRIXe2KbWdhhk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 143,
+    "workId": "53696269",
+    "title": "그 공작의 아내 집착",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cg1PZ/hywgHnQEcD/XtiGGhxqtrhLqHCG5WTjW0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 144,
     "workId": "69148826",
     "title": "육아물 악녀가 인성을 안 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=e8aHH/dJMcaak9vgy/jBOjWcrleVnvYcdKoJiGy1&filename=th3",
@@ -2363,10 +2448,10 @@
     }
   },
   {
-    "rank": 140,
-    "workId": "69911197",
-    "title": "좋은 소규모 길드에서 살아남는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bkR3Fy/dJMcabdPLTc/6vhfJKc7ZrFGMAw1JMPUHk&filename=th3",
+    "rank": 145,
+    "workId": "68512203",
+    "title": "내 친구의 시어머니가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d5dIAA/dJMcabXhjdg/bCkKMCKXHPij3G1n3k6SM0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -2375,29 +2460,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 141,
-    "workId": "68037519",
-    "title": "망나니 사관학교에서 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KEcqq/dJMcaarSmtS/heq6yX0b0EhBgCpVo68yCk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
       "type": "up",
-      "amount": 1
+      "amount": 3
     }
   },
   {
-    "rank": 142,
+    "rank": 146,
     "workId": "69338121",
     "title": "최강이 될 가문에서 총애받는 중!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d6keUQ/dJMcad27QOe/FRulEhHdNbkv7rMHpLDe9K&filename=th3",
@@ -2414,112 +2482,10 @@
     }
   },
   {
-    "rank": 143,
-    "workId": "62183077",
-    "title": "나를 파멸시킬 그대에게 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 144,
-    "workId": "57850880",
-    "title": "이 3세는 악역입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5eP1E/hzCtgXLlo2/KMSOpfnklqQIYktnnXVux1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 145,
-    "workId": "61319817",
-    "title": "전속은 곤란합니다, 공작님",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bLjIsU/hzVqHXvwrF/iixQkVAJkcRIXe2KbWdhhk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 146,
-    "workId": "63495091",
-    "title": "말단 공무원은 출세가 하고 싶어서",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpbhPO/hzXarZKml0/ol022zufZW1N4ZbAs4X3Y0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
     "rank": 147,
     "workId": "64967507",
     "title": "시한부 아기 의원이 천재인 걸 안 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XmrCq/hAHIqf3xcQ/Kz8Uaz4V4tyXMJAktlgBrK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 148,
-    "workId": "68512203",
-    "title": "내 친구의 시어머니가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d5dIAA/dJMcabXhjdg/bCkKMCKXHPij3G1n3k6SM0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 149,
-    "workId": "67216052",
-    "title": "무림명가의 며느리가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bXKtE0/dJMb9MvVnsI/yPbxNn5GcObLmfiVikWoi1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -2533,7 +2499,24 @@
     }
   },
   {
-    "rank": 150,
+    "rank": 148,
+    "workId": "67216052",
+    "title": "무림명가의 며느리가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bXKtE0/dJMb9MvVnsI/yPbxNn5GcObLmfiVikWoi1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 149,
     "workId": "64191065",
     "title": "멍문세가를 호령하는 아기 고양이입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byBYwa/hAJmKxmyPs/544PGeynEumq12rUXuBhbK&filename=th3",
@@ -2546,28 +2529,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
+    }
+  },
+  {
+    "rank": 150,
+    "workId": "63495091",
+    "title": "말단 공무원은 출세가 하고 싶어서",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cpbhPO/hzXarZKml0/ol022zufZW1N4ZbAs4X3Y0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
     }
   },
   {
     "rank": 151,
-    "workId": "70428866",
-    "title": "나만 빼고 스파이",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ZhjrI/dJMcaiFd5Do/jsONV3r5rkVwznJi4Xqz3k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 20
-    }
-  },
-  {
-    "rank": 152,
     "workId": "57708610",
     "title": "나쁜 시녀들",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bo5QHv/hzmU19f6KF/Y4p1UW9aBZHtBcXe1kjiK0&filename=th3",
@@ -2580,31 +2563,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 153,
-    "workId": "53696269",
-    "title": "그 공작의 아내 집착",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cg1PZ/hywgHnQEcD/XtiGGhxqtrhLqHCG5WTjW0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 154,
-    "workId": "61351763",
-    "title": "복수는 이렇게 하는 거다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mTaxJ/hyZIa2wzH5/eh1XNSK1tqJ6Bppg2ToC8K&filename=th3",
+    "rank": 152,
+    "workId": "68916436",
+    "title": "악녀가 정체를 숨겼더니 다들 착각함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b1rQEV/dJMcahxQpdz/C2mkdNHRbQqVOPL0uAART0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -2613,7 +2579,41 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 153,
+    "workId": "67707419",
+    "title": "밤의 회전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cLAXWQ/dJMcab37Ep6/j4kocXJXkhjp5iyQvBUpe1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 104
+    }
+  },
+  {
+    "rank": 154,
+    "workId": "52654302",
+    "title": "악역의 엔딩은 죽음뿐",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqnocF/hyqDpMAsjf/Kscud578X1bVPDoEmetLK0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 4
     }
   },
@@ -2630,8 +2630,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2647,32 +2647,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 157,
-    "workId": "68916436",
-    "title": "악녀가 정체를 숨겼더니 다들 착각함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b1rQEV/dJMcahxQpdz/C2mkdNHRbQqVOPL0uAART0&filename=th3",
+    "workId": "70428866",
+    "title": "나만 빼고 스파이",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ZhjrI/dJMcaiFd5Do/jsONV3r5rkVwznJi4Xqz3k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 6
     }
   },
   {
     "rank": 158,
-    "workId": "52654302",
-    "title": "악역의 엔딩은 죽음뿐",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqnocF/hyqDpMAsjf/Kscud578X1bVPDoEmetLK0&filename=th3",
+    "workId": "61351763",
+    "title": "복수는 이렇게 하는 거다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mTaxJ/hyZIa2wzH5/eh1XNSK1tqJ6Bppg2ToC8K&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -2682,7 +2682,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 4
     }
   },
   {
@@ -2698,29 +2698,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 160,
-    "workId": "60558550",
-    "title": "이 결혼은 어차피 망하게 되어 있다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cRi6Kt/hzN2gFaJdD/3swJqaxX28xKiVnphpwapK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 12
-    }
-  },
-  {
-    "rank": 161,
     "workId": "66911680",
     "title": "남편이 회귀를 숨김 그래서 나도 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bvU0lz/dJMcaiYTmIs/CBLEJ9WbMvXOqSyDO5DJl0&filename=th3",
@@ -2732,12 +2715,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 162,
+    "rank": 161,
     "workId": "64061210",
     "title": "세 번 사는 악녀의 소소한 복수 플랜",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cyDz9/dJMb9ap2YnL/qviuXuxF4lqdY2YRy3K1z1&filename=th3",
@@ -2754,6 +2737,23 @@
     }
   },
   {
+    "rank": 162,
+    "workId": "65231575",
+    "title": "천마신교 최강하녀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SpDqS/dJMcaico01c/TPcq4EyCOrvkIKBayrG9b1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
     "rank": 163,
     "workId": "66540166",
     "title": "피폐물 남주가 상대를 잘못 고름",
@@ -2766,63 +2766,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 164,
-    "workId": "65231575",
-    "title": "천마신교 최강하녀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SpDqS/dJMcaico01c/TPcq4EyCOrvkIKBayrG9b1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 165,
-    "workId": "70576432",
-    "title": "불사신의 주치의가 내과의사임",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1kK62/dJMcacLhxXe/ak75oJQxgpy4AjYfILLkUk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 166,
-    "workId": "64496417",
-    "title": "악당 아기님이 예언을 함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5LllB/dJMcadBPdqu/o39fh9Hd7Eolr4BnKhFWqk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 167,
+    "rank": 164,
     "workId": "51732678",
     "title": "여보, 나 파업할게요(단독선공개)",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=beRXFh/hymrjiXDkJ/KWCLhDi2Q6Gyn6Atm0bWIK&filename=th3",
@@ -2835,11 +2784,45 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 165,
+    "workId": "64496417",
+    "title": "악당 아기님이 예언을 함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5LllB/dJMcadBPdqu/o39fh9Hd7Eolr4BnKhFWqk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 168,
+    "rank": 166,
+    "workId": "60558550",
+    "title": "이 결혼은 어차피 망하게 되어 있다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cRi6Kt/hzN2gFaJdD/3swJqaxX28xKiVnphpwapK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 167,
     "workId": "68970923",
     "title": "임신한 척했는데 남편이 돌아왔다 [독점 외전]",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dj52Fv/dJMcai3Kj3r/Eu1m4u3ijNkOLOtT3O5Y4k&filename=th3",
@@ -2852,24 +2835,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 1
     }
   },
   {
-    "rank": 169,
-    "workId": "67343559",
-    "title": "인벤토리에 랭커를 숨김",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=01Ryk/dJMcaafV1Ne/qHWbtkcnhcS9Hz2ovDb6k1&filename=th3",
+    "rank": 168,
+    "workId": "54326966",
+    "title": "최종 보스의 애인이라니 오해입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oqAh5/hyzcFtTTNq/jDLCzhB2PSPMS54wY6lgGK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 50
+    }
+  },
+  {
+    "rank": 169,
+    "workId": "70970303",
+    "title": "먼치킨 황녀님은 도망치고 싶어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j22Y0/dJMcajxiQ9s/2CEyhh3b4tG1SpQNsS64c1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": true,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
     }
   },
   {
@@ -2891,6 +2891,23 @@
   },
   {
     "rank": 171,
+    "workId": "67343559",
+    "title": "인벤토리에 랭커를 숨김",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=01Ryk/dJMcaafV1Ne/qHWbtkcnhcS9Hz2ovDb6k1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 172,
     "workId": "61303871",
     "title": "흑표 가문의 설표 아기님",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dENugw/hAdNQBPVxk/ymRdfMsEkFdtS5EbogGjbK&filename=th3",
@@ -2903,11 +2920,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 1
     }
   },
   {
-    "rank": 172,
+    "rank": 173,
+    "workId": "66217385",
+    "title": "시어머니지만 고부 갈등은 싫습니다[외전 독점]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c9GdS0/hAJmyDz9BQ/UKpf8wCP7AJR8OtHOJxvi1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 174,
     "workId": "69186057",
     "title": "그녀에겐 뭔가 특별한 것이 있다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bmf8T6/dJMcaiDwQgG/iKYxoZV98ZFUH5FFTfU2G1&filename=th3",
@@ -2920,48 +2954,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 173,
-    "workId": "70970303",
-    "title": "먼치킨 황녀님은 도망치고 싶어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j22Y0/dJMcajxiQ9s/2CEyhh3b4tG1SpQNsS64c1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": true,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 174,
-    "workId": "65321537",
-    "title": "소문난 쓰레기통이 여긴가요 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
+      "amount": 2
     }
   },
   {
     "rank": 175,
-    "workId": "62171261",
-    "title": "피폐 역하렘 남주들의 막내 처제가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqCix/hAd4Mk9A1X/AR5x6cJuuf2X3C7kjqfx00&filename=th3",
+    "workId": "70756095",
+    "title": "아야는 도망쳤다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5lYqK/dJMcabMCXVE/B1ACtGDPGjiP1NbCXP1cbK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -2971,28 +2971,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 6
     }
   },
   {
     "rank": 176,
-    "workId": "65832123",
-    "title": "적국의 왕자를 기사로 들이면",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btsnwj/hAJrfKP04j/LLVzKZWT02sKPfsKHkwllk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 177,
     "workId": "68936984",
     "title": "죽었어야 할 남편이 돌아왔다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ch3QAz/dJMcabDzgfN/U02JbnTCdjzKAqw7ksFDF1&filename=th3",
@@ -3004,8 +2987,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 177,
+    "workId": "65832123",
+    "title": "적국의 왕자를 기사로 들이면",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btsnwj/hAJrfKP04j/LLVzKZWT02sKPfsKHkwllk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
-      "amount": 5
+      "amount": 1
     }
   },
   {
@@ -3021,12 +3021,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 7
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 179,
+    "workId": "69513612",
+    "title": "업보 쌓은 성녀의 구원 백서",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSE8op/dJMcaijqmNv/QoPX9C33POKkVG17hEnUz1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 180,
+    "workId": "65321537",
+    "title": "소문난 쓰레기통이 여긴가요 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 181,
     "workId": "60992349",
     "title": "이 결혼은 반드시 성공합니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iM78c/hyoXBaBYCI/DndkkZzsXbqNRiIBcbj5uK&filename=th3",
@@ -3038,32 +3072,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 180,
-    "workId": "66217385",
-    "title": "시어머니지만 고부 갈등은 싫습니다[외전 독점]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c9GdS0/hAJmyDz9BQ/UKpf8wCP7AJR8OtHOJxvi1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 181,
-    "workId": "70756095",
-    "title": "아야는 도망쳤다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5lYqK/dJMcabMCXVE/B1ACtGDPGjiP1NbCXP1cbK&filename=th3",
+    "rank": 182,
+    "workId": "62171261",
+    "title": "피폐 역하렘 남주들의 막내 처제가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqCix/hAd4Mk9A1X/AR5x6cJuuf2X3C7kjqfx00&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3073,11 +3090,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 7
     }
   },
   {
-    "rank": 182,
+    "rank": 183,
     "workId": "65042813",
     "title": "숨은 신록 끝에서 [삽화 미포함][19세 완전판]",
     "thumbnail": null,
@@ -3090,11 +3107,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 8
+      "amount": 1
     }
   },
   {
-    "rank": 183,
+    "rank": 184,
+    "workId": "55785266",
+    "title": "아기님 캐시로 로판 달린다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sxZa7/hAd4brJeR5/wcZS9ykkzufSzbuMWoKjN1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 185,
     "workId": "68501816",
     "title": "버려진 악녀가 이참에 다 가짐",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DgUEY/dJMcad1N7KG/g6vkOH7No1S8zHSjCnY6pK&filename=th3",
@@ -3111,27 +3145,27 @@
     }
   },
   {
-    "rank": 184,
-    "workId": "62707360",
-    "title": "루시아 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 186,
+    "workId": "70966030",
+    "title": "별의 아이, 육아 일기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dwZbcr/dJMcaiSGW2j/eLOACS1XzKSIhfc7XLdxN0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": true,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 5
     }
   },
   {
-    "rank": 185,
-    "workId": "55785266",
-    "title": "아기님 캐시로 로판 달린다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sxZa7/hAd4brJeR5/wcZS9ykkzufSzbuMWoKjN1&filename=th3",
+    "rank": 187,
+    "workId": "67472171",
+    "title": "서브 남주와 가짜 연애 중!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bubWbz/dJMb80OuY0Z/u9TavJXPfjYJVb4MlyXcG1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3140,12 +3174,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
-    "rank": 186,
+    "rank": 188,
     "workId": "68104840",
     "title": "전직 황후가 능력을 (대충) 숨김",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dk86DT/dJMcadny39v/OJZabKIWhJpkm3fepMGQd0&filename=th3",
@@ -3162,58 +3196,7 @@
     }
   },
   {
-    "rank": 187,
-    "workId": "67472171",
-    "title": "서브 남주와 가짜 연애 중!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bubWbz/dJMb80OuY0Z/u9TavJXPfjYJVb4MlyXcG1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 188,
-    "workId": "69513612",
-    "title": "업보 쌓은 성녀의 구원 백서",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSE8op/dJMcaijqmNv/QoPX9C33POKkVG17hEnUz1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
     "rank": 189,
-    "workId": "64086068",
-    "title": "트라베스티-가짜 황자가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YedES/dJMcabkD9ue/4bcoEsKEiH55DK1ZtPzhyK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 190,
     "workId": "50746174",
     "title": "금발의 정령사 [개정판]",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GoKsC/dJMcadQMdGi/ITM28kljsk4r6R5zAeeGk0&filename=th3",
@@ -3230,24 +3213,7 @@
     }
   },
   {
-    "rank": 191,
-    "workId": "70966030",
-    "title": "별의 아이, 육아 일기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dwZbcr/dJMcaiSGW2j/eLOACS1XzKSIhfc7XLdxN0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": true,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 192,
+    "rank": 190,
     "workId": "63725318",
     "title": "힘을 숨겨도 공녀가 제일 강함",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=w49RY/hzXam5cPXY/yKV0DbjRNyeAqsRZkBXnq0&filename=th3",
@@ -3259,12 +3225,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 193,
+    "rank": 191,
+    "workId": "62707360",
+    "title": "루시아 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 192,
     "workId": "68532882",
     "title": "직접 고른 공작 아빠가 눈이 잘 (안) 보임",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cj61Oy/dJMb997AZbE/S9DfTkAkGEveqCRTQwOVq1&filename=th3",
@@ -3276,8 +3259,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 6
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 193,
+    "workId": "58464734",
+    "title": "세계 멸망을 굳이 막아야 하나요",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bafF9f/dJMb9L4Q1F4/UKXSyKD0n0MB4fMJOuptD1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -3293,15 +3293,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 195,
-    "workId": "58464734",
-    "title": "세계 멸망을 굳이 막아야 하나요",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bafF9f/dJMb9L4Q1F4/UKXSyKD0n0MB4fMJOuptD1&filename=th3",
+    "workId": "64086068",
+    "title": "트라베스티-가짜 황자가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YedES/dJMcabkD9ue/4bcoEsKEiH55DK1ZtPzhyK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3310,29 +3310,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 5
+      "type": "down",
+      "amount": 6
     }
   },
   {
     "rank": 196,
-    "workId": "62962503",
-    "title": "신성력은 돈으로 사겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yeI3C/hAd4BKYnxm/EvnHR5SVKcvvQktWlifvnK&filename=th3",
+    "workId": "70576432",
+    "title": "불사신의 주치의가 내과의사임",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1kK62/dJMcacLhxXe/ak75oJQxgpy4AjYfILLkUk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 31
+    }
+  },
+  {
+    "rank": 197,
+    "workId": "70764676",
+    "title": "회귀 그만두고 아기 용 키워보겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=324zq/dJMcadwBeXB/olGcsSOTxnafM1vNgGkBPk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 197,
+    "rank": 198,
     "workId": "65012983",
     "title": "소꿉친구와 절교하면 생기는 일",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=51Ci4/hAHItYnPQm/bqFJcm6tXtb5w5Zfqyc0vk&filename=th3",
@@ -3345,24 +3362,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 198,
-    "workId": "70764676",
-    "title": "회귀 그만두고 아기 용 키워보겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=324zq/dJMcadwBeXB/olGcsSOTxnafM1vNgGkBPk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 6
+      "amount": 1
     }
   },
   {
@@ -3384,40 +3384,6 @@
   },
   {
     "rank": 200,
-    "workId": "67686750",
-    "title": "헬로해피헬",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bC7pjz/dJMb9LKIEjZ/r9uKBlsLVe6TSZwzCZLhsk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 201,
-    "workId": "68921148",
-    "title": "대공님, 아내 덕질을 멈춰 주세요!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KCxRD/dJMcaio7tnD/7iKx0Qx7X020SjhoDfwKPk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 202,
     "workId": "68285577",
     "title": "인간인 척하느라 오늘도 고생입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bvINmY/dJMcag5jH7w/Gcgaw46G4yTsLfEBYuxGoK&filename=th3",
@@ -3429,83 +3395,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 203,
-    "workId": "52653435",
-    "title": "무협지 악녀인데 내가 제일 쎄!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ejA6XV/hyqDuAlThA/xj0XkMidDBix7a6Mv7GhFk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 204,
-    "workId": "69123443",
-    "title": "탑 공략 안 하면 죽는 게임에 빙의했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWiY3k/dJMcacpgsbg/w8bCBr4i6lp0XGIkTfNB40&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "up",
-      "amount": 5
+      "amount": 2
     }
   },
   {
-    "rank": 205,
-    "workId": "68094170",
-    "title": "남주의 애착 하녀가 너무 유능함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cPbMY/dJMcahprZT0/QGeMUZ05FeJ7XcPKQuo0v0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 206,
-    "workId": "67255527",
-    "title": "네 목을 비트는 새벽[개정판]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ozuwu/dJMcaby4oK8/KgbmDy4fIN772K5ab1gPqk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 207,
-    "workId": "70820216",
-    "title": "불법 사채 갚으려다 황자비 된 썰 푼다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JypQa/dJMcacYZ2j2/ZZHamkJ6XpZEkQUyJICUIk&filename=th3",
+    "rank": 201,
+    "workId": "67686750",
+    "title": "헬로해피헬",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bC7pjz/dJMb9LKIEjZ/r9uKBlsLVe6TSZwzCZLhsk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3515,14 +3413,31 @@
     "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 208,
-    "workId": "68504255",
-    "title": "(목숨 걸고) 헤이즐 양에게 청혼하기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bKvnO2/dJMcabbXsTo/3xj20gCqzBtpZRx2T5sb71&filename=th3",
+    "rank": 202,
+    "workId": "69123443",
+    "title": "탑 공략 안 하면 죽는 게임에 빙의했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWiY3k/dJMcacpgsbg/w8bCBr4i6lp0XGIkTfNB40&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 203,
+    "workId": "68921148",
+    "title": "대공님, 아내 덕질을 멈춰 주세요!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KCxRD/dJMcaio7tnD/7iKx0Qx7X020SjhoDfwKPk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3536,7 +3451,41 @@
     }
   },
   {
-    "rank": 209,
+    "rank": 204,
+    "workId": "62962503",
+    "title": "신성력은 돈으로 사겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yeI3C/hAd4BKYnxm/EvnHR5SVKcvvQktWlifvnK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 205,
+    "workId": "70820216",
+    "title": "불법 사채 갚으려다 황자비 된 썰 푼다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JypQa/dJMcacYZ2j2/ZZHamkJ6XpZEkQUyJICUIk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 206,
     "workId": "62523567",
     "title": "악녀님의 최애로 간택된 사정",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gBwan/hAd4xBOVwd/aAOuX31DQ11ZlkkJs6a5zk&filename=th3",
@@ -3553,10 +3502,10 @@
     }
   },
   {
-    "rank": 210,
-    "workId": "63786828",
-    "title": "공포게임 속 백치 영애로 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b0ExOA/dJMcac4FNzV/aQCNG7r25vlfcwoilBCfCK&filename=th3",
+    "rank": 207,
+    "workId": "68504255",
+    "title": "(목숨 걸고) 헤이즐 양에게 청혼하기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bKvnO2/dJMcabbXsTo/3xj20gCqzBtpZRx2T5sb71&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3565,20 +3514,20 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 211,
-    "workId": "62167756",
-    "title": "마지막 여행이 끝나면 [19세 완전판] [단행본]",
-    "thumbnail": null,
+    "rank": 208,
+    "workId": "68094170",
+    "title": "남주의 애착 하녀가 너무 유능함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cPbMY/dJMcahprZT0/QGeMUZ05FeJ7XcPKQuo0v0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -3587,78 +3536,27 @@
     }
   },
   {
-    "rank": 212,
-    "workId": "67733192",
-    "title": "카샤 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 209,
+    "workId": "67255527",
+    "title": "네 목을 비트는 새벽[개정판]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ozuwu/dJMcaby4oK8/KgbmDy4fIN772K5ab1gPqk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": false,
     "waitFreeType": null,
-    "ageRating": "19세",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 213,
-    "workId": "70493597",
-    "title": "랑제 스캔들",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JZju7/dJMcadwlni1/cPpzadgKND4RWkGTwxtRyK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 3
     }
   },
   {
-    "rank": 214,
-    "workId": "69007578",
-    "title": "군의관이 계약직 대공비를 너무 잘함 [외전] [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 215,
-    "workId": "68637534",
-    "title": "내 아이의 아빠와 계약 결혼합니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dEP2EY/dJMcaaRMlCI/Ls8EA8FvKyKmiBUb0pOIt0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 216,
-    "workId": "69358546",
-    "title": "회귀 후 소꿉친구한테 청혼했더니",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=djZlQJ/dJMcagr6x2r/fjcvWplD3vhhqxSMtJVYwK&filename=th3",
+    "rank": 210,
+    "workId": "59684509",
+    "title": "전 그냥 내 집 마련이 꿈인데요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g3I5S/hzCtfLFodc/MIrSzBMYG1VHiztuehN2nk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3672,27 +3570,10 @@
     }
   },
   {
-    "rank": 217,
-    "workId": "59684509",
-    "title": "전 그냥 내 집 마련이 꿈인데요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g3I5S/hzCtfLFodc/MIrSzBMYG1VHiztuehN2nk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 218,
-    "workId": "67726795",
-    "title": "네가 진짜면 내 남편은 뭔데",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gmgXc/dJMcahwtPaO/yiVxWDJD2dxcqRc16l6d80&filename=th3",
+    "rank": 211,
+    "workId": "52653435",
+    "title": "무협지 악녀인데 내가 제일 쎄!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ejA6XV/hyqDuAlThA/xj0XkMidDBix7a6Mv7GhFk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3702,14 +3583,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 8
     }
   },
   {
-    "rank": 219,
-    "workId": "68877748",
-    "title": "짝사랑이 너무 재밌어서 곤란하다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bjT3pB/dJMcaf0c0K9/8kkKs7zzj7EwG6LkHuMBL1&filename=th3",
+    "rank": 212,
+    "workId": "69007578",
+    "title": "군의관이 계약직 대공비를 너무 잘함 [외전] [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 213,
+    "workId": "63786828",
+    "title": "공포게임 속 백치 영애로 살아남기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b0ExOA/dJMcac4FNzV/aQCNG7r25vlfcwoilBCfCK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3720,6 +3618,108 @@
     "change": {
       "type": "down",
       "amount": 3
+    }
+  },
+  {
+    "rank": 214,
+    "workId": "66546996",
+    "title": "삼촌이 광마임",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IxDyo/dJMcadmXaYg/60d83Oqk5ZCs9JRDrEEn01&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 215,
+    "workId": "69358546",
+    "title": "회귀 후 소꿉친구한테 청혼했더니",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=djZlQJ/dJMcagr6x2r/fjcvWplD3vhhqxSMtJVYwK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 216,
+    "workId": "70861062",
+    "title": "빙의자인데요, 주거 침입범이 되라고요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XHWaJ/dJMcahe5UYV/xlVRYxwKhrOnSK2KIK4bkK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 217,
+    "workId": "70493597",
+    "title": "랑제 스캔들",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JZju7/dJMcadwlni1/cPpzadgKND4RWkGTwxtRyK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 218,
+    "workId": "62167756",
+    "title": "마지막 여행이 끝나면 [19세 완전판] [단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 219,
+    "workId": "70819833",
+    "title": "레이디는 처음이라 사고 좀 치겠습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9DqNN/dJMcajcGoZ7/ZdBXjXA6Sf2JforhGBpklk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": true,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 10
     }
   },
   {
@@ -3735,32 +3735,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 221,
-    "workId": "70861062",
-    "title": "빙의자인데요, 주거 침입범이 되라고요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XHWaJ/dJMcahe5UYV/xlVRYxwKhrOnSK2KIK4bkK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 222,
-    "workId": "66546996",
-    "title": "삼촌이 광마임",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IxDyo/dJMcadmXaYg/60d83Oqk5ZCs9JRDrEEn01&filename=th3",
+    "workId": "68877748",
+    "title": "짝사랑이 너무 재밌어서 곤란하다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bjT3pB/dJMcaf0c0K9/8kkKs7zzj7EwG6LkHuMBL1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3769,12 +3752,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 11
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 223,
+    "rank": 222,
     "workId": "69722492",
     "title": "힐링 농사 게임인 줄 알았는데요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bPDRiW/dJMcacjoKsy/72HkC45yMzeolFh1Op2pK1&filename=th3",
@@ -3786,14 +3769,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 8
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 224,
-    "workId": "60374376",
-    "title": "결혼 장사[19세 완전판]",
+    "rank": 223,
+    "workId": "67975634",
+    "title": "프시케를 위하여 [19세 완전판] [단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
@@ -3803,15 +3786,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 21
+      "type": "up",
+      "amount": 4
     }
   },
   {
-    "rank": 225,
-    "workId": "69305314",
-    "title": "빙의수저 셰프님이 제국을 먹여살림",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=breTry/dJMcagzzyxC/9hIJJ1y9iovUI7halIsoLK&filename=th3",
+    "rank": 224,
+    "workId": "68637534",
+    "title": "내 아이의 아빠와 계약 결혼합니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dEP2EY/dJMcaaRMlCI/Ls8EA8FvKyKmiBUb0pOIt0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3821,7 +3804,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 12
+      "amount": 9
+    }
+  },
+  {
+    "rank": 225,
+    "workId": "67726795",
+    "title": "네가 진짜면 내 남편은 뭔데",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gmgXc/dJMcahwtPaO/yiVxWDJD2dxcqRc16l6d80&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
     }
   },
   {
@@ -3837,14 +3837,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 6
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 227,
-    "workId": "67975634",
-    "title": "프시케를 위하여 [19세 완전판] [단행본]",
+    "workId": "67733192",
+    "title": "카샤 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
@@ -3854,12 +3854,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 14
+      "type": "down",
+      "amount": 15
     }
   },
   {
     "rank": 228,
+    "workId": "59729125",
+    "title": "결혼도 안 했는데 무슨 이혼인가요, 폐하",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHHXYQ/hzwBrSdoGG/vfrwjsO483IDs3N7joTkl0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 229,
+    "workId": "49783693",
+    "title": "금빛 슈발리에",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cGMwUv/hyfxbrsLCN/7Qtc7NS6CaODLuxmnnGfP1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 48
+    }
+  },
+  {
+    "rank": 230,
     "workId": "68522323",
     "title": "힐링 테라피 숍 사장은 세계 랭킹 0위",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cE83F0/dJMcaa5flpa/7yrG0Zqkt3XoGkPInRxfh1&filename=th3",
@@ -3872,65 +3906,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 229,
-    "workId": "70819833",
-    "title": "레이디는 처음이라 사고 좀 치겠습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9DqNN/dJMcajcGoZ7/ZdBXjXA6Sf2JforhGBpklk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": true,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 230,
-    "workId": "59729125",
-    "title": "결혼도 안 했는데 무슨 이혼인가요, 폐하",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHHXYQ/hzwBrSdoGG/vfrwjsO483IDs3N7joTkl0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
+      "amount": 2
     }
   },
   {
     "rank": 231,
-    "workId": "64708167",
-    "title": "도망친 곳이 낙원이었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=C6zxN/hAFrLz55on/T6k3HDOfWU72HyouTvG9R1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 232,
-    "workId": "59068978",
-    "title": "악녀는 백만장자 해결사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQXGiJ/hzCs857jDL/lCcS42lcKM6BIkdevN1cI1&filename=th3",
+    "workId": "69423124",
+    "title": "친구의 동생은 여자가 아니라면서요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PFPFP/dJMcaiDyXHH/8CcPU7k1K14ZChgNdKV61k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3939,12 +3922,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 36
     }
   },
   {
-    "rank": 233,
+    "rank": 232,
     "workId": "70058148",
     "title": "현미경과 캔버스",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NHu5H/dJMcah6r5ta/oneKopoSJP11hLhHLCSyo0&filename=th3",
@@ -3961,10 +3944,10 @@
     }
   },
   {
-    "rank": 234,
-    "workId": "52099606",
-    "title": "악녀는 마리오네트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gSUze/hyZ8ulObDk/yHyLLaLtWvd4RUEy11GTO1&filename=th3",
+    "rank": 233,
+    "workId": "59068978",
+    "title": "악녀는 백만장자 해결사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQXGiJ/hzCs857jDL/lCcS42lcKM6BIkdevN1cI1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3974,14 +3957,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 8
+      "amount": 1
+    }
+  },
+  {
+    "rank": 234,
+    "workId": "69969869",
+    "title": "마탑주의 실험쥐가 되었습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dUujw/dJMcacrBYJM/7LnuDkwJkOdDQm9GiKGFHk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 4
     }
   },
   {
     "rank": 235,
-    "workId": "65926499",
-    "title": "병약한 몸으로 즐기는 남궁세가 서녀생존",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cXKy2o/hAMBZLqC9e/kfVgvdGJL2I5jEnWPGuFr0&filename=th3",
+    "workId": "69305314",
+    "title": "빙의수저 셰프님이 제국을 먹여살림",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=breTry/dJMcagzzyxC/9hIJJ1y9iovUI7halIsoLK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -3990,8 +3990,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "down",
+      "amount": 10
     }
   },
   {
@@ -4005,14 +4005,31 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 237,
+    "workId": "52099606",
+    "title": "악녀는 마리오네트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gSUze/hyZ8ulObDk/yHyLLaLtWvd4RUEy11GTO1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 238,
     "workId": "67258375",
     "title": "너희가 악역인 세상",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ltDWq/dJMb9YJWJY1/q9ncpyvGTfPSSEmzUXKHc1&filename=th3",
@@ -4029,41 +4046,41 @@
     }
   },
   {
-    "rank": 238,
-    "workId": "69969869",
-    "title": "마탑주의 실험쥐가 되었습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dUujw/dJMcacrBYJM/7LnuDkwJkOdDQm9GiKGFHk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
     "rank": 239,
-    "workId": "68866775",
-    "title": "젤리외계인이 구해줄게!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qjjxa/dJMcaaeAGoU/qnXvIFCCMckZQgZKpIEl3K&filename=th3",
+    "workId": "64708167",
+    "title": "도망친 곳이 낙원이었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=C6zxN/hAFrLz55on/T6k3HDOfWU72HyouTvG9R1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 9
+      "amount": 8
     }
   },
   {
     "rank": 240,
+    "workId": "69517713",
+    "title": "감금했지만, 악의는 없습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c8CbIk/dJMcaccq6kC/ZsRWxdsPIuQRlEnv1U0Bw1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 241,
     "workId": "67961660",
     "title": "여신들을 위하여 : 다프네를 위하여 [19세 완전판]",
     "thumbnail": null,
@@ -4075,32 +4092,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 241,
-    "workId": "61601970",
-    "title": "주인공의 꽃길에 올라타는 방법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSZWfY/hAd4X759Tb/x83vvoKQ8KX0qk2UYhlMC0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 4
+      "amount": 1
     }
   },
   {
     "rank": 242,
-    "workId": "68003707",
-    "title": "나를 죽인 영웅의 아내가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqnQKU/dJMcaeMKU5I/swVr5shc5O8KDe3OZcStf0&filename=th3",
+    "workId": "67689299",
+    "title": "야, 너도 악녀할 수 있어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byOHkg/dJMb9MQiB8Q/IWRF4ukCjLipRjIorUa7B1&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4109,25 +4109,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 3
     }
   },
   {
     "rank": 243,
-    "workId": "68463338",
-    "title": "이혼 찬가 [19세 완전판]",
-    "thumbnail": null,
+    "workId": "65926499",
+    "title": "병약한 몸으로 즐기는 남궁세가 서녀생존",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cXKy2o/hAMBZLqC9e/kfVgvdGJL2I5jEnWPGuFr0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 8
     }
   },
   {
@@ -4143,66 +4143,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 245,
-    "workId": "67689299",
-    "title": "야, 너도 악녀할 수 있어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byOHkg/dJMb9MQiB8Q/IWRF4ukCjLipRjIorUa7B1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 246,
-    "workId": "69517713",
-    "title": "감금했지만, 악의는 없습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c8CbIk/dJMcaccq6kC/ZsRWxdsPIuQRlEnv1U0Bw1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 247,
-    "workId": "65321755",
-    "title": "사천당가 막내딸이 무지 강함",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rug37/dJMcacwJHvt/iOVdHPWpdV7gnzdsmkKqD0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 248,
-    "workId": "69296200",
-    "title": "신수들의 한의사가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=x5hxh/dJMcai5JSiv/yCA5WKX3q1yq4JuFnXFwb0&filename=th3",
+    "rank": 245,
+    "workId": "68866775",
+    "title": "젤리외계인이 구해줄게!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qjjxa/dJMcaaeAGoU/qnXvIFCCMckZQgZKpIEl3K&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4212,7 +4161,58 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
+      "amount": 6
+    }
+  },
+  {
+    "rank": 246,
+    "workId": "60374376",
+    "title": "결혼 장사[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 22
+    }
+  },
+  {
+    "rank": 247,
+    "workId": "68463338",
+    "title": "이혼 찬가 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 248,
+    "workId": "68003707",
+    "title": "나를 죽인 영웅의 아내가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqnQKU/dJMcaeMKU5I/swVr5shc5O8KDe3OZcStf0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
     }
   },
   {
@@ -4228,46 +4228,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 10
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 250,
-    "workId": "69342257",
-    "title": "마법헌터소녀는 던전을 꾸며!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cVkRVv/dJMcajoH4bf/Egmw07BaHHH1JD9WOFf98k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 11
-    }
-  },
-  {
-    "rank": 251,
-    "workId": "55067834",
-    "title": "주치의는 할 일 다 하고 사표 씁니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWpPI2/hAFPT50xru/zVzX3koIq4MW0kDcUsOop0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 252,
     "workId": "67961676",
     "title": "여신들을 위하여 : 페르세포네를 위하여 [19세 완전판]",
     "thumbnail": null,
@@ -4280,31 +4246,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 9
+      "amount": 2
     }
   },
   {
-    "rank": 253,
-    "workId": "57423775",
-    "title": "흑막 남주의 시한부 유모입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gFcz3/hy41NHh5tZ/gGBoIKWUQRC3Ki8hPpW3x0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 254,
-    "workId": "70865794",
-    "title": "어느 날, 아빠가 사라졌다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b6a1vy/dJMcajcNaQ6/7d2d8AOyku3PK3cOgPeUb0&filename=th3",
+    "rank": 251,
+    "workId": "61601970",
+    "title": "주인공의 꽃길에 올라타는 방법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSZWfY/hAd4X759Tb/x83vvoKQ8KX0qk2UYhlMC0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4318,146 +4267,10 @@
     }
   },
   {
-    "rank": 255,
+    "rank": 252,
     "workId": "54257360",
     "title": "남주의 입양딸이 되었습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWJ0Cu/hzCteZZqcY/AjS5krzydEk9UlkUx9k671&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 256,
-    "workId": "68743207",
-    "title": "다시 태어난다면 너랑은 결혼 안 해",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFaxY2/dJMcacCyNch/tg9gBLLyDxwXQUiknqPlt0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 257,
-    "workId": "67707419",
-    "title": "밤의 회전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cLAXWQ/dJMcab37Ep6/j4kocXJXkhjp5iyQvBUpe1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 258,
-    "workId": "66637080",
-    "title": "사랑한다더니 묘약 때문이라네요",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ZwbaP/dJMcaf560Dh/FldANDLiFJ1beTcOp1zqSk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 259,
-    "workId": "70068504",
-    "title": "나의 정복자, 세르반테",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIgCS3/dJMcaij0CiB/5ssfaEZHHJL3gkZlgzAaC1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 260,
-    "workId": "66000425",
-    "title": "너희 집 가자며, 왜 황궁 가는데",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PkLyT/hAJrP0fgZq/kaQ1hv3wZNQ9zEPKpoZrOk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 261,
-    "workId": "69519597",
-    "title": "각성자 특별학교 서열 0위",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iFFZg/dJMcajpND5q/EaFBo57KQVuxUvgRTkN2kk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 262,
-    "workId": "68495775",
-    "title": "집착남주에게 집착(당하는) 중!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jyA6n/dJMcab4b2CX/RBiY6cKWBSHwzCaNI98B6k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 263,
-    "workId": "50790304",
-    "title": "제국의 시녀",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dzRNVO/hyksRH6qv4/jEjk2ffoaV1n47YjasM3wK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4471,27 +4284,27 @@
     }
   },
   {
-    "rank": 264,
-    "workId": "66771897",
-    "title": "최종 악역이 음란마귀에게 당해버렸다 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 253,
+    "workId": "70865794",
+    "title": "어느 날, 아빠가 사라졌다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b6a1vy/dJMcajcNaQ6/7d2d8AOyku3PK3cOgPeUb0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 17
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 265,
-    "workId": "67946061",
-    "title": "시한부 황제와 결혼했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ewckHN/dJMcabQvGVb/frxEi3AqGUs2s0pIN4XXs1&filename=th3",
+    "rank": 254,
+    "workId": "65321755",
+    "title": "사천당가 막내딸이 무지 강함",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rug37/dJMcacwJHvt/iOVdHPWpdV7gnzdsmkKqD0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4505,27 +4318,27 @@
     }
   },
   {
-    "rank": 266,
-    "workId": "67968433",
-    "title": "내 애인의 환승을 응원합니다 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 255,
+    "workId": "66637080",
+    "title": "사랑한다더니 묘약 때문이라네요",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ZwbaP/dJMcaf560Dh/FldANDLiFJ1beTcOp1zqSk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 3
     }
   },
   {
-    "rank": 267,
-    "workId": "69423124",
-    "title": "친구의 동생은 여자가 아니라면서요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PFPFP/dJMcaiDyXHH/8CcPU7k1K14ZChgNdKV61k&filename=th3",
+    "rank": 256,
+    "workId": "69296200",
+    "title": "신수들의 한의사가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=x5hxh/dJMcai5JSiv/yCA5WKX3q1yq4JuFnXFwb0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4535,28 +4348,164 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 8
     }
   },
   {
-    "rank": 268,
-    "workId": "69127714",
-    "title": "사천당가 막내딸은 미움받는 줄 알았는데요",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgsMqn/dJMcabcT61l/q1NUeKSTNWC0kSPIzimOW0&filename=th3",
+    "rank": 257,
+    "workId": "55067834",
+    "title": "주치의는 할 일 다 하고 사표 씁니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWpPI2/hAFPT50xru/zVzX3koIq4MW0kDcUsOop0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 258,
+    "workId": "69342257",
+    "title": "마법헌터소녀는 던전을 꾸며!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cVkRVv/dJMcajoH4bf/Egmw07BaHHH1JD9WOFf98k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 259,
+    "workId": "66000425",
+    "title": "너희 집 가자며, 왜 황궁 가는데",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PkLyT/hAJrP0fgZq/kaQ1hv3wZNQ9zEPKpoZrOk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 260,
+    "workId": "68743207",
+    "title": "다시 태어난다면 너랑은 결혼 안 해",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFaxY2/dJMcacCyNch/tg9gBLLyDxwXQUiknqPlt0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 261,
+    "workId": "57423775",
+    "title": "흑막 남주의 시한부 유모입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gFcz3/hy41NHh5tZ/gGBoIKWUQRC3Ki8hPpW3x0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 262,
+    "workId": "70068504",
+    "title": "나의 정복자, 세르반테",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIgCS3/dJMcaij0CiB/5ssfaEZHHJL3gkZlgzAaC1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 263,
+    "workId": "68495775",
+    "title": "집착남주에게 집착(당하는) 중!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jyA6n/dJMcab4b2CX/RBiY6cKWBSHwzCaNI98B6k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 269,
+    "rank": 264,
+    "workId": "67946061",
+    "title": "시한부 황제와 결혼했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ewckHN/dJMcabQvGVb/frxEi3AqGUs2s0pIN4XXs1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 265,
+    "workId": "69519597",
+    "title": "각성자 특별학교 서열 0위",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iFFZg/dJMcajpND5q/EaFBo57KQVuxUvgRTkN2kk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 266,
     "workId": "58905054",
     "title": "내 아이가 분명해",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c0xVhx/hzp2drYuPJ/ow596oZuHuMownL9F0u110&filename=th3",
@@ -4569,7 +4518,58 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
+      "amount": 3
+    }
+  },
+  {
+    "rank": 267,
+    "workId": "50790304",
+    "title": "제국의 시녀",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dzRNVO/hyksRH6qv4/jEjk2ffoaV1n47YjasM3wK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 268,
+    "workId": "69515172",
+    "title": "시한부 블랙 요원이 귀촌하면 생기는 일",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RyJwi/dJMcaf1gDUs/9VtZ37QHE4JVSbfdiQ2kGk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 269,
+    "workId": "66771897",
+    "title": "최종 악역이 음란마귀에게 당해버렸다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
     }
   },
   {
@@ -4585,46 +4585,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 7
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 271,
-    "workId": "69515172",
-    "title": "시한부 블랙 요원이 귀촌하면 생기는 일",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RyJwi/dJMcaf1gDUs/9VtZ37QHE4JVSbfdiQ2kGk&filename=th3",
+    "workId": "68736342",
+    "title": "하북팽가 막내딸은 진짜 유명한 소천마임",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gKGZ2/dJMcaaYTvcW/OKlkVWcLtzp67zyxskJn0k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 21
     }
   },
   {
     "rank": 272,
-    "workId": "69084876",
-    "title": "좀비물 민폐 악녀가 된 K직장인",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYYNLC/dJMcaduOwCM/1ZI2TGp1w8vZR4fEw5zVbK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 273,
     "workId": "70801848",
     "title": "남이 망친 여주가 되어 버렸다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bySIyF/dJMcabM0gJH/AREY653ZDkkrhGdxUr8cK0&filename=th3",
@@ -4636,48 +4619,14 @@
     "isNewRelease": false,
     "hasNewEpisode": true,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
-    "rank": 274,
-    "workId": "59369331",
-    "title": "무림최강 남궁세가 막내딸입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biWIZ6/hzN2l1z4Sv/raWL14OqXmtNfAPoX1Kk8k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 275,
-    "workId": "56639121",
-    "title": "타람 타람 타람",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tYeBS/hzHNBopAAa/gTfhEigzsbMVs65xetD5k0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 276,
-    "workId": "68267853",
-    "title": "폭주한 남주의 치유사가 되었다 [19세 완전판]",
+    "rank": 273,
+    "workId": "67968433",
+    "title": "내 애인의 환승을 응원합니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "로판",
@@ -4688,28 +4637,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 8
+      "amount": 7
     }
   },
   {
-    "rank": 277,
-    "workId": "49783693",
-    "title": "금빛 슈발리에",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cGMwUv/hyfxbrsLCN/7Qtc7NS6CaODLuxmnnGfP1&filename=th3",
+    "rank": 274,
+    "workId": "69127714",
+    "title": "사천당가 막내딸은 미움받는 줄 알았는데요",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgsMqn/dJMcabcT61l/q1NUeKSTNWC0kSPIzimOW0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
-    "waitFreeType": "3다무",
+    "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "down",
+      "amount": 6
     }
   },
   {
-    "rank": 278,
+    "rank": 275,
     "workId": "55629319",
     "title": "망할 가문을 살려보겠습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=u4TZK/hAd4Q2kcc8/A91CpagRis0Xv94SQiPqd1&filename=th3",
@@ -4722,7 +4671,58 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 3
+    }
+  },
+  {
+    "rank": 276,
+    "workId": "69084876",
+    "title": "좀비물 민폐 악녀가 된 K직장인",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYYNLC/dJMcaduOwCM/1ZI2TGp1w8vZR4fEw5zVbK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 277,
+    "workId": "56639121",
+    "title": "타람 타람 타람",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tYeBS/hzHNBopAAa/gTfhEigzsbMVs65xetD5k0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 278,
+    "workId": "54673618",
+    "title": "악역 황녀님은 과자집에서 살고 싶어",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fHDsP/hynaFrncON/XhlILykNvP2cJQIPdkzSnK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -4738,15 +4738,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 280,
-    "workId": "67772529",
-    "title": "슬기로운 감금 생활",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Zmcdq/dJMb9LDS7Y6/pjly9KUmzGIfwRdvHLo7Bk&filename=th3",
+    "workId": "59369331",
+    "title": "무림최강 남궁세가 막내딸입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biWIZ6/hzN2l1z4Sv/raWL14OqXmtNfAPoX1Kk8k&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4755,29 +4755,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 6
     }
   },
   {
     "rank": 281,
-    "workId": "54673618",
-    "title": "악역 황녀님은 과자집에서 살고 싶어",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fHDsP/hynaFrncON/XhlILykNvP2cJQIPdkzSnK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 282,
     "workId": "58985428",
     "title": "부활한 악녀를 찾지 마세요",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBiEeJ/hzp2d6Gqoz/yKMsNUydCshOtiim3OAirK&filename=th3",
@@ -4790,11 +4773,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 1
     }
   },
   {
-    "rank": 283,
+    "rank": 282,
     "workId": "65113751",
     "title": "금린상단 소단주",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oCbl0/hAFPPhZ5na/jHkxhAD3ctINxwDLKemmnK&filename=th3",
@@ -4804,10 +4787,27 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 283,
+    "workId": "67772529",
+    "title": "슬기로운 감금 생활",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Zmcdq/dJMb9LDS7Y6/pjly9KUmzGIfwRdvHLo7Bk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 3
     }
   },
   {
@@ -4823,15 +4823,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 285,
-    "workId": "58289261",
-    "title": "남주들의 집착보다 내 탈영이 빠르겠다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bDrF7h/hzHNDNhdZt/ixZvfFjtqIGzN542wnmE60&filename=th3",
+    "workId": "67587416",
+    "title": "하녀가 아니라 스파이였다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ur9DM/dJMb9PsPSpD/qtwlmArrt5Ue92765KkgSK&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4841,14 +4841,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 11
+      "amount": 3
     }
   },
   {
     "rank": 286,
-    "workId": "58870912",
-    "title": "악마의 주인님이 되어버렸다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ik4Kf/hzp2nn3ulx/qpXU8OKasjhdyBCjvPNDg0&filename=th3",
+    "workId": "53312983",
+    "title": "주인공의 구원자가 될 운명입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jVDKE/hyuhowGfwQ/LtTBKL24KMB4NDVi7jcSkk&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4858,7 +4858,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 9
+      "amount": 3
     }
   },
   {
@@ -4874,49 +4874,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 288,
-    "workId": "67587416",
-    "title": "하녀가 아니라 스파이였다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ur9DM/dJMb9PsPSpD/qtwlmArrt5Ue92765KkgSK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 289,
-    "workId": "53312983",
-    "title": "주인공의 구원자가 될 운명입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jVDKE/hyuhowGfwQ/LtTBKL24KMB4NDVi7jcSkk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 290,
-    "workId": "60067478",
-    "title": "용의 파수꾼",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgG9po/hzCtgD0UJc/pvh0XOsVXpZ74IiRcXRQt0&filename=th3",
+    "workId": "46803116",
+    "title": "황제의 외동딸",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgu82P/hzN2eVvuBd/22mKDTt4jW0p2tH1HNSkN0&filename=th3",
     "category": "웹소설",
     "subCategory": "로판",
     "waitFree": true,
@@ -4926,7 +4892,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 8
+    }
+  },
+  {
+    "rank": 289,
+    "workId": "68267853",
+    "title": "폭주한 남주의 치유사가 되었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 290,
+    "workId": "58870912",
+    "title": "악마의 주인님이 되어버렸다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ik4Kf/hzp2nn3ulx/qpXU8OKasjhdyBCjvPNDg0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
     }
   },
   {
@@ -4942,29 +4942,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 292,
-    "workId": "68736342",
-    "title": "하북팽가 막내딸은 진짜 유명한 소천마임",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gKGZ2/dJMcaaYTvcW/OKlkVWcLtzp67zyxskJn0k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
+      "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 293,
+    "rank": 292,
     "workId": "68940684",
     "title": "치킨좌의 게임은 현실이 된다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=i986k/dJMcaiJAO7S/bQVf2jK2dfWUN4bJrZq3rk&filename=th3",
@@ -4977,11 +4960,130 @@
     "hasNewEpisode": true,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 1
+    }
+  },
+  {
+    "rank": 293,
+    "workId": "70787087",
+    "title": "예비 시아빠의 아들을 찾습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=u5mCO/dJMcabyTxKx/klWbQkcbAC5Qoj0hvokBpk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
     "rank": 294,
+    "workId": "59227904",
+    "title": "집착남주 두고 튀려는 엑스트라입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PuMkX/hzCtfjOdRx/P9VqlVNoJPbJm6iDVbXhcK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 295,
+    "workId": "65562474",
+    "title": "왜 이러세요, 공작님! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 296,
+    "workId": "65670427",
+    "title": "19금 출신 귀환자입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c775Tv/hAJraWR8Hd/t96qN4SxiaBDFAwhyoBghk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 297,
+    "workId": "60067478",
+    "title": "용의 파수꾼",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgG9po/hzCtgD0UJc/pvh0XOsVXpZ74IiRcXRQt0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 298,
+    "workId": "58289261",
+    "title": "남주들의 집착보다 내 탈영이 빠르겠다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bDrF7h/hzHNDNhdZt/ixZvfFjtqIGzN542wnmE60&filename=th3",
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 299,
+    "workId": "60449392",
+    "title": "내게 빌어봐 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "로판",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 300,
     "workId": "55089648",
     "title": "마음이 이끄는 대로",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DblKA/hyEdeqnK9Y/1m8Etj4EhjIPGOKG5GTZhK&filename=th3",
@@ -4994,109 +5096,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 295,
-    "workId": "70787087",
-    "title": "예비 시아빠의 아들을 찾습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=u5mCO/dJMcabyTxKx/klWbQkcbAC5Qoj0hvokBpk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "down",
-      "amount": 11
-    }
-  },
-  {
-    "rank": 296,
-    "workId": "46803116",
-    "title": "황제의 외동딸",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cgu82P/hzN2eVvuBd/22mKDTt4jW0p2tH1HNSkN0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 297,
-    "workId": "59227904",
-    "title": "집착남주 두고 튀려는 엑스트라입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PuMkX/hzCtfjOdRx/P9VqlVNoJPbJm6iDVbXhcK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 298,
-    "workId": "65849157",
-    "title": "안 미안한데 어차피 왕자님은 저와 결혼합니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dlVtx9/hAJraP2jtP/x3RGz6hUicKrveQdL5Ssok&filename=th3",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 299,
-    "workId": "65562474",
-    "title": "왜 이러세요, 공작님! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 300,
-    "workId": "60449392",
-    "title": "내게 빌어봐 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "로판",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
+      "amount": 6
     }
   }
 ]
