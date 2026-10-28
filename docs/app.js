@@ -48,6 +48,23 @@ async function getIndex() {
   return indexCache;
 }
 
+// 19금 작품은 카카오 화면이 표지를 숨겨서 목록에서 받은 표지가 비어 있다 →
+// data/covers.json(scripts/collect-covers.mjs가 작품 정보 API에서 받아 둔 표지 id)으로 채운다.
+// 그래도 없으면 src를 비워 깨진 그림 대신 빈 회색 칸(.rank-thumb 배경)만 보인다.
+let coversCache = null;
+function setCover(img, workId, url) {
+  // 표지 주소가 안 열리면(내려간 표지 등) 깨진 그림 대신 빈 칸으로
+  img.onerror = () => { img.onerror = null; img.removeAttribute('src'); };
+  if (url) { img.src = url; return; }
+  img.removeAttribute('src');
+  if (!workId) return;
+  if (!coversCache) coversCache = fetchJson('data/covers.json').then((j) => (j && j.c) || {}).catch(() => ({}));
+  coversCache.then((c) => {
+    const kid = c[String(workId)];
+    if (kid) img.src = `https://dn-img-page.kakao.com/download/resource?kid=${kid}&filename=th3`;
+  });
+}
+
 async function getWorksCache() {
   if (!worksCache) worksCache = await fetchJson('data/works.json').catch(() => ({}));
   return worksCache;
@@ -1706,7 +1723,7 @@ function buildHighlightHistoryRow(item, cat, period, promoChip) {
   const thumb = document.createElement('img');
   thumb.className = 'rank-thumb';
   thumb.loading = 'lazy';
-  thumb.src = item.thumbnail || '';
+  setCover(thumb, item.workId, item.thumbnail);
   thumb.alt = '';
 
   const info = document.createElement('div');
@@ -1802,7 +1819,7 @@ function buildNewReleaseRow(item, cat, workMeta) {
   const thumb = document.createElement('img');
   thumb.className = 'rank-thumb';
   thumb.loading = 'lazy';
-  thumb.src = item.thumbnail || '';
+  setCover(thumb, item.workId, item.thumbnail);
   thumb.alt = '';
 
   const info = document.createElement('div');
@@ -1905,7 +1922,7 @@ function buildRankRow(item, cat, period, workMeta, promoChip) {
   const thumb = document.createElement('img');
   thumb.className = 'rank-thumb';
   thumb.loading = 'lazy';
-  thumb.src = item.thumbnail || '';
+  setCover(thumb, item.workId, item.thumbnail);
   thumb.alt = '';
 
   const info = document.createElement('div');
@@ -2063,7 +2080,7 @@ async function renderPublisherView(pub) {
     const thumb = document.createElement('img');
     thumb.className = 'rank-thumb';
     thumb.loading = 'lazy';
-    thumb.src = w.thumbnail || '';
+    setCover(thumb, w.workId, w.thumbnail);
     thumb.alt = '';
     const info = document.createElement('div');
     info.className = 'rank-info';
@@ -2141,7 +2158,7 @@ async function renderWorkView(cat, period, workId) {
   const header = document.createElement('div');
   header.className = 'work-header';
   const img = document.createElement('img');
-  img.src = (latestItem && latestItem.thumbnail) || '';
+  setCover(img, workId, latestItem && latestItem.thumbnail);
   header.appendChild(img);
 
   const infoDiv = document.createElement('div');
@@ -2970,7 +2987,7 @@ async function runSearch(query) {
       const div = document.createElement('div');
       div.className = 'sr-item';
       const img = document.createElement('img');
-      img.src = it.thumbnail || '';
+      setCover(img, it.workId, it.thumbnail);
       const meta = document.createElement('div');
       const titleDiv = document.createElement('div');
       titleDiv.textContent = it.title;

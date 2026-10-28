@@ -1,0 +1,64 @@
+name: 표지 채우기 (19금 작품)
+
+# scripts/collect-covers.mjs — 카카오 화면이 숨기는 19금 작품 표지를 작품 정보 API(로그인 없음)에서 받아
+# docs/data/covers.json 하나에만 쌓는다. 매일 수집과 완전히 따로 돈다(매일 수집이 쓰는 파일은 건드리지 않음).
+# 첫 실행은 약 2,800작품(2시간 안팎), 그다음부터는 새로 생긴 표지 없는 작품만(하루 수십 개).
+# 카카오 요청 사이 2초 이상, 429/503/403이 2번 연속(또는 다른 실패 5번 연속)이면 멈춘다. 다음 날 이어서 채운다.
+# 실행 시간은 최대 125분(그 전에 스스로 멈추고 저장) — 작업은 135분에 강제로 끊긴다.
+
+on:
+  schedule:
+    - cron: '30 10 * * *'   # 19:30 KST — 그날 매일 수집(07:15 KST 시작)이 끝난 뒤
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "최대 실행 시간(분)"
+        type: string
+        default: "120"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: covers
+  cancel-in-progress: false
+
+jobs:
+  covers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 노드 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: 표지 받기
+        timeout-minutes: 135
+        env:
+          MINUTES: ${{ inputs.minutes || '120' }}
+        run: node scripts/collect-covers.mjs --minutes "$MINUTES"
+
+      - name: 저장(커밋)
+        if: always()
+        run: |
+          git config user.name "ehgowjd1-afk"
+          git config user.email "ehgowjd1@gmail.com"
+          git add docs/data/covers.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "바뀐 내용이 없어 커밋하지 않습니다."
+            exit 0
+          fi
+          git commit -q -m "표지 채우기 ($(TZ=Asia/Seoul date +%F))"
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:master; then echo "저장 완료"; exit 0; fi
+            echo "다른 수집과 겹쳤습니다. 합치고 다시 시도 ($i/5)"
+            git fetch -q origin master && git rebase -q origin/master || { git rebase --abort 2>/dev/null || true; }
+            sleep $((i * 10))
+          done
+          echo "저장 실패"; exit 1
