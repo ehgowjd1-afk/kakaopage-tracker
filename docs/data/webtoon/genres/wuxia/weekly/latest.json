@@ -29,8 +29,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -46,8 +46,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -61,10 +61,10 @@
     "waitFreeType": "3다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -80,32 +80,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 6,
-    "workId": "69800992",
-    "title": "삼류무가 천하제일인",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bo16mo/dJMcaiKZs6z/5SDPOAA34Pez8WrD9kIch0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 7,
-    "workId": "55989064",
-    "title": "의원, 다시 살다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bO3it6/dJMcaas0ZyH/0d1WUOZIkYMwvAcBNK2Xz0&filename=th3",
+    "workId": "46304288",
+    "title": "열혈강호",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baxGtN/hzXauhWdNN/PQDNlsSLGbOCWlVgKo1xuK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -114,32 +97,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 17
     }
   },
   {
-    "rank": 8,
-    "workId": "60105861",
-    "title": "관존 이강진",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b0SUHv/hAKLyWvFm3/M30uDM93n79rumkb0jSsoK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 9,
-    "workId": "63302278",
-    "title": "흑백무제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bxhs3J/dJMcahri234/k2SEA3PZpmG3Kth4NUBojk&filename=th3",
+    "rank": 7,
+    "workId": "55989064",
+    "title": "의원, 다시 살다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bO3it6/dJMcaas0ZyH/0d1WUOZIkYMwvAcBNK2Xz0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -153,27 +119,44 @@
     }
   },
   {
-    "rank": 10,
-    "workId": "67671194",
-    "title": "창귀무쌍",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cOXF9m/dJMcag1oJ9j/e3uPKmwudUJYGiTHQlKhS0&filename=th3",
+    "rank": 8,
+    "workId": "69800992",
+    "title": "삼류무가 천하제일인",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tCuFB/dJMcab0GSeb/pFZUNdZfsF9uOfjLLUJOPK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFreeType": "3다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 11,
-    "workId": "67498693",
-    "title": "기연독식",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ijz6l/dJMcafm10bH/ZJ8uiUCwDG7D3kKbSoHYPk&filename=th3",
+    "rank": 9,
+    "workId": "60105861",
+    "title": "관존 이강진",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b0SUHv/hAKLyWvFm3/M30uDM93n79rumkb0jSsoK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 10,
+    "workId": "63302278",
+    "title": "흑백무제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bxhs3J/dJMcahri234/k2SEA3PZpmG3Kth4NUBojk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -182,12 +165,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 12,
+    "rank": 11,
     "workId": "59528467",
     "title": "학사검전",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bRgV9z/dJMcajhA4zz/rK6QoqCno8Eoh1UkjVka60&filename=th3",
@@ -199,12 +182,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 12,
+    "workId": "67498693",
+    "title": "기연독식",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ijz6l/dJMcafm10bH/ZJ8uiUCwDG7D3kKbSoHYPk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
     "rank": 13,
+    "workId": "67671194",
+    "title": "창귀무쌍",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cOXF9m/dJMcag1oJ9j/e3uPKmwudUJYGiTHQlKhS0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 14,
     "workId": "59153035",
     "title": "천광명월",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zVYT6/hAC1R3uUbd/uHkjXrshasME0xWoGP4tpk&filename=th3",
@@ -216,15 +233,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 14,
-    "workId": "65653266",
-    "title": "천하제일 무공교관",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFLv2Z/dJMb990eOpF/rl0eg6OPAKaGdpJmyNdBKk&filename=th3",
+    "rank": 15,
+    "workId": "69115333",
+    "title": "대사형 이회",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nI3s3/dJMcaayul4w/RkYOuul4S7pgTK4WUfd9N1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -238,7 +255,24 @@
     }
   },
   {
-    "rank": 15,
+    "rank": 16,
+    "workId": "65653266",
+    "title": "천하제일 무공교관",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bFLv2Z/dJMb990eOpF/rl0eg6OPAKaGdpJmyNdBKk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 17,
     "workId": "60701523",
     "title": "무림에 떨어진 현대인",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bUKPWO/dJMcacdz9NE/2qWDfikPuOlymaOvkGcKVk&filename=th3",
@@ -255,24 +289,7 @@
     }
   },
   {
-    "rank": 16,
-    "workId": "69115333",
-    "title": "대사형 이회",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nI3s3/dJMcaayul4w/RkYOuul4S7pgTK4WUfd9N1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 17,
+    "rank": 18,
     "workId": "63646168",
     "title": "천하제일 곤륜객잔",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eEWEyd/dJMcabkgIa5/P1LOMqcT4jqEQ0YxOJlkmK&filename=th3",
@@ -284,83 +301,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 18,
-    "workId": "67137961",
-    "title": "군림천하",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ccM8bI/hAL14T4Urk/g1c3c3SsdqiSfKmyAgKfx0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 19,
-    "workId": "59787320",
-    "title": "환생표사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=djwcRX/dJMb9OAvAev/KJo0bywnunXRqT7Zzksstk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 20,
-    "workId": "64138609",
-    "title": "무장 - 무투전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqPO7Q/hAC1OM3bhj/fKAVVDHddthca5x1AbJ1b1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 21,
-    "workId": "53483967",
-    "title": "무련전봉",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cQYbL/hAd4UREcsR/mwUfLDykfpz5mU410Hy0t0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 22,
-    "workId": "56952321",
-    "title": "낭선기환담",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ikn6m/dJMb9XYww2n/NxHDCU5pU8kVD30ktjU2kk&filename=th3",
+    "rank": 19,
+    "workId": "67137961",
+    "title": "군림천하",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ccM8bI/hAL14T4Urk/g1c3c3SsdqiSfKmyAgKfx0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -374,20 +323,71 @@
     }
   },
   {
+    "rank": 20,
+    "workId": "59787320",
+    "title": "환생표사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=djwcRX/dJMb9OAvAev/KJo0bywnunXRqT7Zzksstk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 21,
+    "workId": "64138609",
+    "title": "무장 - 무투전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqPO7Q/hAC1OM3bhj/fKAVVDHddthca5x1AbJ1b1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 22,
+    "workId": "53483967",
+    "title": "무련전봉",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cQYbL/hAd4UREcsR/mwUfLDykfpz5mU410Hy0t0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
     "rank": 23,
-    "workId": "46304288",
-    "title": "열혈강호",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baxGtN/hzXauhWdNN/PQDNlsSLGbOCWlVgKo1xuK&filename=th3",
+    "workId": "56952321",
+    "title": "낭선기환담",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ikn6m/dJMb9XYww2n/NxHDCU5pU8kVD30ktjU2kk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -409,23 +409,6 @@
   },
   {
     "rank": 25,
-    "workId": "54872059",
-    "title": "로그인 무림",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c5EMsf/hAFPOXlsXp/xZVLagr4k7l3UCMNkPOzQ1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 26,
     "workId": "64167676",
     "title": "남궁세가 천재 외손자",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WDHjV/hAd4NZAtGH/m0k4treBWpBKDz23IGkkYk&filename=th3",
@@ -437,8 +420,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 26,
+    "workId": "70277593",
+    "title": "적룡무제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lWPPS/dJMcajp9Hji/TrejkSvm1Y53R5QZkWzKt1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -460,19 +460,19 @@
   },
   {
     "rank": 28,
-    "workId": "70277593",
-    "title": "적룡무제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lWPPS/dJMcajp9Hji/TrejkSvm1Y53R5QZkWzKt1&filename=th3",
+    "workId": "54872059",
+    "title": "로그인 무림",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c5EMsf/hAFPOXlsXp/xZVLagr4k7l3UCMNkPOzQ1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 4
+      "type": "down",
+      "amount": 3
     }
   },
   {
@@ -494,23 +494,6 @@
   },
   {
     "rank": 30,
-    "workId": "69494486",
-    "title": "제암진천경",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bXl4Zi/dJMcahZfIiO/F9fV9cv223LPC7ZtGruX6k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 31,
     "workId": "55884394",
     "title": "무당기협",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=W5B5l/dJMcaiwcihP/fJHjhCXT3NwuSsLck6K5hk&filename=th3",
@@ -522,8 +505,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 31,
+    "workId": "69494486",
+    "title": "제암진천경",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bXl4Zi/dJMcahZfIiO/F9fV9cv223LPC7ZtGruX6k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -539,8 +539,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -556,8 +556,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -571,10 +571,10 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -607,8 +607,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -624,29 +624,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 38,
-    "workId": "64940527",
-    "title": "일보신권",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j80qf/hAHIj9ig7B/eihbVkz5ngo9ErkUhGyTwk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 39,
     "workId": "56979725",
     "title": "전왕전기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wbf0W/hAKLDclXP0/p6WiRwHY4u3dkb0wFObDuK&filename=th3",
@@ -663,7 +646,41 @@
     }
   },
   {
+    "rank": 39,
+    "workId": "64940527",
+    "title": "일보신권",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j80qf/hAHIj9ig7B/eihbVkz5ngo9ErkUhGyTwk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
     "rank": 40,
+    "workId": "51526841",
+    "title": "신마경천기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AIBWG/hAd4l9FAqN/iLpIOCEtqDWo3YkRtKHBI0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 41,
     "workId": "59771249",
     "title": "사신표월",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gD3x9/dJMb9XYwbA3/5EgJK2ap9BMLpERUfCCzR1&filename=th3",
@@ -676,23 +693,6 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 41,
-    "workId": "71099588",
-    "title": "무사정천",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bB4oDx/dJMcabsAY2L/IohWJkKbdi3agqpBdaummK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "up",
       "amount": 1
     }
   },
@@ -709,15 +709,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 43,
-    "workId": "51526841",
-    "title": "신마경천기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=AIBWG/hAd4l9FAqN/iLpIOCEtqDWo3YkRtKHBI0&filename=th3",
+    "workId": "60716852",
+    "title": "허약선생",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnA2aC/hzXav8YcoG/GlP243jXSWZmhqTmGLrkPK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -726,8 +726,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -749,19 +749,19 @@
   },
   {
     "rank": 45,
-    "workId": "60716852",
-    "title": "허약선생",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnA2aC/hzXav8YcoG/GlP243jXSWZmhqTmGLrkPK&filename=th3",
+    "workId": "71099588",
+    "title": "무사정천",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bB4oDx/dJMcabsAY2L/IohWJkKbdi3agqpBdaummK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "down",
+      "amount": 4
     }
   },
   {
@@ -777,12 +777,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 47,
+    "workId": "67629492",
+    "title": "내 경지는 무한대",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HdYdr/dJMcad1RpW7/91p7p5G4J8qoRIkemZ3s71&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 14
+    }
+  },
+  {
+    "rank": 48,
     "workId": "54177223",
     "title": "절세무신",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2vEtx/hAd4cSqzmV/xgeK8StkfCQ3Ix0413V60K&filename=th3",
@@ -794,12 +811,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 48,
+    "rank": 49,
     "workId": "70425983",
     "title": "황성 죽음을 삼킨 복수 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=brGhDl/dJMcac5we05/VeBBaHubjYMcJvem6vyauk&filename=th3",
@@ -811,12 +828,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 49,
+    "rank": 50,
     "workId": "70824128",
     "title": "황성 불굴의 무인 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=5apmR/dJMcafIt1oh/cHnOLa6sukuO4WrFxmk4U0&filename=th3",
@@ -833,7 +850,7 @@
     }
   },
   {
-    "rank": 50,
+    "rank": 51,
     "workId": "63037953",
     "title": "사상최강의 데릴사위",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FLV9Y/hzXapATeIe/KNZdpkveU1oPf9T7LzDK9k&filename=th3",
@@ -843,14 +860,14 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 51,
+    "rank": 52,
     "workId": "66847385",
     "title": "독왕강림",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bD5JZe/hAKLAU3kiI/sPCGnfOrwjrq4sYKYENGAk&filename=th3",
@@ -862,24 +879,7 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 52,
-    "workId": "69544139",
-    "title": "황성 천하의 변수 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=m0qjR/dJMcaf1r6fL/dIY2RsL5IMWksB22ejKpl1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
@@ -894,27 +894,27 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 54,
-    "workId": "50207148",
-    "title": "성무신결",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eXwF9/hAd4lBRioH/42fl5r60JgyRbPtKe7617k&filename=th3",
+    "workId": "69544139",
+    "title": "황성 천하의 변수 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=m0qjR/dJMcaf1r6fL/dIY2RsL5IMWksB22ejKpl1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 2
     }
   },
   {
@@ -930,12 +930,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 56,
+    "workId": "50207148",
+    "title": "성무신결",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eXwF9/hAd4lBRioH/42fl5r60JgyRbPtKe7617k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 57,
     "workId": "60492600",
     "title": "구천구검",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yUdvz/hAdNR85oK8/9Jk8ED1ie4v3Fd7ULgvMkK&filename=th3",
@@ -947,12 +964,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 57,
+    "rank": 58,
     "workId": "66420663",
     "title": "성승귀환",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DdeTO/hALRYzwFlu/KwcBiuwTHMGJDuzKbSmfz1&filename=th3",
@@ -964,100 +981,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 58,
-    "workId": "66346734",
-    "title": "신마의선",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TAt4x/hAL2hlnarH/3YpTNNS3FyaOvkuyoqKdT1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
     "rank": 59,
-    "workId": "69949264",
-    "title": "황성 계승된 절학 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uoihy/dJMb99N1DLm/4it0dsRB3RWQ7nmlSx0Bd0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 60,
     "workId": "70436764",
     "title": "마교육제",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YcCYN/dJMcadclgxD/L6vaKApvwLt3OMpo5Drikk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 61,
-    "workId": "67629492",
-    "title": "내 경지는 무한대",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HdYdr/dJMcad1RpW7/91p7p5G4J8qoRIkemZ3s71&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 62,
-    "workId": "69329416",
-    "title": "황성 결이 다른 무공 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d0CtVn/dJMcaci0SmJ/vG6ZtVGeNvqZSiEAumPUBK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 63,
-    "workId": "69949735",
-    "title": "괴력난신 무림 외전 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=0peFj/dJMcahFrEdz/2HSy6upKFUr2caNngEQalk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1071,10 +1003,78 @@
     }
   },
   {
-    "rank": 64,
+    "rank": 60,
+    "workId": "69949264",
+    "title": "황성 계승된 절학 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uoihy/dJMb99N1DLm/4it0dsRB3RWQ7nmlSx0Bd0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 61,
+    "workId": "69329416",
+    "title": "황성 결이 다른 무공 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d0CtVn/dJMcaci0SmJ/vG6ZtVGeNvqZSiEAumPUBK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 62,
     "workId": "69124632",
     "title": "황성 지옥 수련(완) 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tk3HX/dJMcagSVR6R/r4UrxLCfqxFTqQURIcdoB0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 63,
+    "workId": "66346734",
+    "title": "신마의선",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TAt4x/hAL2hlnarH/3YpTNNS3FyaOvkuyoqKdT1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 64,
+    "workId": "69949735",
+    "title": "괴력난신 무림 외전 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=0peFj/dJMcahFrEdz/2HSy6upKFUr2caNngEQalk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1106,6 +1106,23 @@
   },
   {
     "rank": 66,
+    "workId": "53318356",
+    "title": "백련성신",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dlXzr8/hAdNTeps6b/Pk7mKmdxKErcb7tWPBPBq1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 67,
     "workId": "65133537",
     "title": "천마 객잔",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g71Q9/dJMcab4wIRz/DRKKkZHOwD7yAvo8POjaP1&filename=th3",
@@ -1117,25 +1134,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 67,
-    "workId": "53528718",
-    "title": "무장",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fayZV/hAdNQBXs1K/ayzisQQcKN5ZKIKk2tLws1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -1151,15 +1151,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 69,
-    "workId": "53318356",
-    "title": "백련성신",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dlXzr8/hAdNTeps6b/Pk7mKmdxKErcb7tWPBPBq1&filename=th3",
+    "workId": "51298446",
+    "title": "천애협로",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWcTsH/hAd4Td6P5j/W06xykqWdNURcTd3v7sWAK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1169,24 +1169,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
+      "amount": 3
     }
   },
   {
     "rank": 70,
-    "workId": "56029598",
-    "title": "선무제존",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ckPRar/hAd4KuHCTu/x2yzfoKeCO4tTdmJZwuvc1&filename=th3",
+    "workId": "53528718",
+    "title": "무장",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fayZV/hAdNQBXs1K/ayzisQQcKN5ZKIKk2tLws1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 3
     }
   },
   {
@@ -1208,60 +1208,9 @@
   },
   {
     "rank": 72,
-    "workId": "51298446",
-    "title": "천애협로",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWcTsH/hAd4Td6P5j/W06xykqWdNURcTd3v7sWAK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 73,
-    "workId": "68917457",
-    "title": "황성 무의 본질 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tAymo/dJMcaiv3GPC/VUW4nlTlYoM1IIc45pDdT0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 74,
-    "workId": "58884852",
-    "title": "패왕의 별",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ebKPRQ/hAdNZZZoHH/Tiw6UEBnTxMwB0U0RzKnV1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 75,
-    "workId": "62263317",
-    "title": "회귀했더니 무공 천재",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cEYrzc/hAFszzRfMH/ThHKo4rb5XaW6Y0fbY9KH0&filename=th3",
+    "workId": "56029598",
+    "title": "선무제존",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ckPRar/hAd4KuHCTu/x2yzfoKeCO4tTdmJZwuvc1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1275,7 +1224,41 @@
     }
   },
   {
-    "rank": 76,
+    "rank": 73,
+    "workId": "62263317",
+    "title": "회귀했더니 무공 천재",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cEYrzc/hAFszzRfMH/ThHKo4rb5XaW6Y0fbY9KH0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 74,
+    "workId": "68917457",
+    "title": "황성 무의 본질 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tAymo/dJMcaiv3GPC/VUW4nlTlYoM1IIc45pDdT0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 75,
     "workId": "58306830",
     "title": "풍운객잔",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cs0Sr/hAd4wJ7ICf/jAbxd6gbbqx6PeuDKxHko1&filename=th3",
@@ -1287,12 +1270,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 77,
+    "rank": 76,
     "workId": "53114649",
     "title": "투파창궁",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KKbzo/hzXapt8hCH/n0lNUkTDyBX6WKVNU5w8GK&filename=th3",
@@ -1304,8 +1287,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 77,
+    "workId": "65640514",
+    "title": "환생마신전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqrU2M/hAJrHguGdS/VsqX6g2SbGWUB9RoL1kbw0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
@@ -1321,15 +1321,83 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 79,
-    "workId": "65640514",
-    "title": "환생마신전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqrU2M/hAJrHguGdS/VsqX6g2SbGWUB9RoL1kbw0&filename=th3",
+    "workId": "58672424",
+    "title": "만고지존",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lWqJS/hAd4xCh9w0/EF27p6Y9UR1FEQ3ecsuVl1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 80,
+    "workId": "55722226",
+    "title": "풍혼",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CoWJv/hzXauoEruj/GtQUqPOi2ql7VKkYBes4gk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 81,
+    "workId": "68744232",
+    "title": "황성 먼치킨 강호록 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQKFBm/dJMcajg0QV9/cMS752BLOd1fixU1pVxnp1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 82,
+    "workId": "62746527",
+    "title": "초초수련천년",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bI25tk/hAd4AljDrh/JmxpQeJ4oHBOBtIGL7gOc0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 83,
+    "workId": "48206197",
+    "title": "마검왕",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=doqbOu/hAdNXHRpn7/ljbYEbuECeWHD87l7lI3h1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1343,61 +1411,10 @@
     }
   },
   {
-    "rank": 80,
-    "workId": "58672424",
-    "title": "만고지존",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lWqJS/hAd4xCh9w0/EF27p6Y9UR1FEQ3ecsuVl1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 81,
-    "workId": "55722226",
-    "title": "풍혼",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CoWJv/hzXauoEruj/GtQUqPOi2ql7VKkYBes4gk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 82,
-    "workId": "68744232",
-    "title": "황성 먼치킨 강호록 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQKFBm/dJMcajg0QV9/cMS752BLOd1fixU1pVxnp1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 83,
-    "workId": "62746527",
-    "title": "초초수련천년",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bI25tk/hAd4AljDrh/JmxpQeJ4oHBOBtIGL7gOc0&filename=th3",
+    "rank": 84,
+    "workId": "56505406",
+    "title": "화산권마",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vZBfq/hAd4xCh7cI/IWTqpT0F3jU2vhvAvZwHlK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1407,11 +1424,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 6
     }
   },
   {
-    "rank": 84,
+    "rank": 85,
     "workId": "64037895",
     "title": "초보무사 일대기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=qd5SE/hAFszT0zoQ/3y5Z7z5IsYFkNf6GWJV0Wk&filename=th3",
@@ -1424,24 +1441,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 85,
-    "workId": "60297218",
-    "title": "악역무쌍",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9NXl9/hzXarrXcmD/j0ApwbzkS5sFisHv8bOrc0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
@@ -1457,29 +1457,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 87,
-    "workId": "48206197",
-    "title": "마검왕",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=doqbOu/hAdNXHRpn7/ljbYEbuECeWHD87l7lI3h1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 88,
     "workId": "69555509",
     "title": "삼류반란 무림 외전 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nHkOa/dJMcaglVqfU/Oc2W260kUzKLcW11CqLpT1&filename=th3",
@@ -1491,12 +1474,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 1
     }
   },
   {
+    "rank": 88,
+    "workId": "65262572",
+    "title": "무림맹주 막내제자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pC2hw/hAJmKX1SFc/YbFq9vWVtSpE3f4PxPBsqK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
     "rank": 89,
+    "workId": "66471819",
+    "title": "반로환동인 줄 알았다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdxsZx/hAJmEqlBli/qD7cwYOfK9bkUCbojJPGx1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 90,
     "workId": "63727156",
     "title": "무쌍",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FSM9y/hAFsGTrsJl/L5j6Yb4ZKOcAQGwNhiLY21&filename=th3",
@@ -1509,62 +1526,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 90,
-    "workId": "56505406",
-    "title": "화산권마",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vZBfq/hAd4xCh7cI/IWTqpT0F3jU2vhvAvZwHlK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
+      "amount": 1
     }
   },
   {
     "rank": 91,
-    "workId": "65262572",
-    "title": "무림맹주 막내제자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pC2hw/hAJmKX1SFc/YbFq9vWVtSpE3f4PxPBsqK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 92,
-    "workId": "66471819",
-    "title": "반로환동인 줄 알았다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bdxsZx/hAJmEqlBli/qD7cwYOfK9bkUCbojJPGx1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 93,
     "workId": "61557271",
     "title": "휘영검전",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Z61yp/hAKLIENrwF/PydkRHODZGjmApxkynfcDK&filename=th3",
@@ -1576,29 +1542,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 94,
-    "workId": "66853733",
-    "title": "무림 속 공무원으로 살아가는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IfXK7/hAL2lg8vGN/xbsQ2zoOZoARZwbjZjuB5k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 95,
+    "rank": 92,
     "workId": "69340569",
     "title": "사대비정 무림 외전 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mSG9p/dJMcabLqX1J/pPwKTPyqT4gPLqye8VHMjK&filename=th3",
@@ -1610,8 +1559,59 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 93,
+    "workId": "66853733",
+    "title": "무림 속 공무원으로 살아가는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IfXK7/hAL2lg8vGN/xbsQ2zoOZoARZwbjZjuB5k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 94,
+    "workId": "58884852",
+    "title": "패왕의 별",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ebKPRQ/hAdNZZZoHH/Tiw6UEBnTxMwB0U0RzKnV1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 20
+    }
+  },
+  {
+    "rank": 95,
+    "workId": "60297218",
+    "title": "악역무쌍",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9NXl9/hzXarrXcmD/j0ApwbzkS5sFisHv8bOrc0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
     }
   },
   {
@@ -1644,46 +1644,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 98,
-    "workId": "68519259",
-    "title": "황성 천하주인전 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBjeJ/dJMcab38uVp/mZyj3aSyRGel0NxqM7gMsk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 99,
-    "workId": "55581051",
-    "title": "궁귀검신 1부",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c3RSM/hAd4tNp9cw/PXLkJkLrwobjqLZrQ6Spwk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 100,
     "workId": "61150512",
     "title": "월령검제",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=MvASX/hAd4b625b1/pZwFbiHsjQP4gAMfv25Ts1&filename=th3",
@@ -1696,11 +1662,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 99,
+    "workId": "68519259",
+    "title": "황성 천하주인전 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBjeJ/dJMcab38uVp/mZyj3aSyRGel0NxqM7gMsk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 101,
+    "rank": 100,
     "workId": "56458652",
     "title": "묵향 디 오리진",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSNGzI/hAd4pRLwEk/QDoUsLdjtp3zks93e83aIK&filename=th3",
@@ -1717,7 +1700,7 @@
     }
   },
   {
-    "rank": 102,
+    "rank": 101,
     "workId": "59833265",
     "title": "남궁세가 막내공자",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zR89u/hAJjKDPljS/FQ0rMIOBBj3UQNZWpck7Z0&filename=th3",
@@ -1730,11 +1713,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 103,
+    "rank": 102,
     "workId": "56599549",
     "title": "수라전설 독룡",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=itKs9/hAdNXVnJsB/c0Rq2rgUOvpW9pVynHXrx0&filename=th3",
@@ -1746,25 +1729,42 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 104,
-    "workId": "66659332",
-    "title": "환생무신",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=MjRSK/hAL18aYlxV/Z2t5kQxEQo4cAP0CO9xmN0&filename=th3",
+    "rank": 103,
+    "workId": "60601122",
+    "title": "궁귀검신 2부 : 궁귀의 후예",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uZDWC/hAC1UlCiNW/K3LRq1HCV3FCYx0WQtj5S1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 104,
+    "workId": "55581051",
+    "title": "궁귀검신 1부",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c3RSM/hAd4tNp9cw/PXLkJkLrwobjqLZrQ6Spwk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 6
+      "amount": 5
     }
   },
   {
@@ -1786,57 +1786,6 @@
   },
   {
     "rank": 106,
-    "workId": "55478434",
-    "title": "절대무신",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dGaB1c/hAd4zNr3Ae/kZOaO1KK7G93vYwpj8cKD0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 107,
-    "workId": "60601122",
-    "title": "궁귀검신 2부 : 궁귀의 후예",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uZDWC/hAC1UlCiNW/K3LRq1HCV3FCYx0WQtj5S1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 108,
-    "workId": "68152924",
-    "title": "황성 강호패도 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cip38/dJMcacaxikO/D7l9KTycYwNokgQwY5QWCK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 109,
     "workId": "59492382",
     "title": "100만 년 만에 귀환하다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eokFC/hAd4A6HDV2/aGK21o9mNJPI5KpxZkT5g1&filename=th3",
@@ -1853,7 +1802,41 @@
     }
   },
   {
-    "rank": 110,
+    "rank": 107,
+    "workId": "68152924",
+    "title": "황성 강호패도 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cip38/dJMcacaxikO/D7l9KTycYwNokgQwY5QWCK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 108,
+    "workId": "66659332",
+    "title": "환생무신",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=MjRSK/hAL18aYlxV/Z2t5kQxEQo4cAP0CO9xmN0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 109,
     "workId": "67655008",
     "title": "황성 피의 왕좌 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bccjGc/dJMb9WL9GMk/kYR1OR46m4TWQgma0Iy2yk&filename=th3",
@@ -1865,12 +1848,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 111,
+    "rank": 110,
     "workId": "69329899",
     "title": "야설록 천상 귀환록 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bUNLD1/dJMb99UbGGI/mITlEGMuAyROUynHiXIkRK&filename=th3",
@@ -1882,32 +1865,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 112,
+    "rank": 111,
     "workId": "55531681",
     "title": "학사귀환",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnd0Zz/hAd4TZsIxT/b2ILkHK83LUHevcNIUutl0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 113,
-    "workId": "61132206",
-    "title": "천하제일 의뢰문",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hPGdQ/hAC1UsoGZ6/VMSKQnMHoL5FCQGlJKr0m0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -1921,7 +1887,24 @@
     }
   },
   {
-    "rank": 114,
+    "rank": 112,
+    "workId": "55478434",
+    "title": "절대무신",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dGaB1c/hAd4zNr3Ae/kZOaO1KK7G93vYwpj8cKD0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 113,
     "workId": "67485711",
     "title": "황성 검은 하늘 아래 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=wiFmc/dJMcabrmaXg/huvgzNrEeEOqUtkW1bzoW1&filename=th3",
@@ -1934,7 +1917,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 1
+    }
+  },
+  {
+    "rank": 114,
+    "workId": "61132206",
+    "title": "천하제일 의뢰문",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hPGdQ/hAC1UsoGZ6/VMSKQnMHoL5FCQGlJKr0m0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -1950,29 +1950,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 116,
-    "workId": "58450188",
-    "title": "대영반",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cd6PCc/hAC1NfIKBM/gw2WM1FTqwKJQFxzu2RJJ1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 117,
     "workId": "69544349",
     "title": "야설록 칼끝에 남은 연심 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=baswrj/dJMcagM0CCF/KN5XdbeiJohQ0vENkNWrT1&filename=th3",
@@ -1985,28 +1968,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 118,
-    "workId": "69124699",
-    "title": "야설록 마교 처리반 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5yaqf/dJMcaiDd5CO/ckIEdZBaw3ZSGPFzerndn0&filename=th3",
+    "rank": 117,
+    "workId": "58450188",
+    "title": "대영반",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cd6PCc/hAC1NfIKBM/gw2WM1FTqwKJQFxzu2RJJ1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 6
+      "type": "down",
+      "amount": 1
     }
   },
   {
-    "rank": 119,
+    "rank": 118,
     "workId": "67301030",
     "title": "황성 월령(月影) 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=izbqb/dJMb9N9rBmU/Li78qUuAx0NXco8vKLbnE1&filename=th3",
@@ -2019,14 +2002,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 120,
-    "workId": "60513863",
-    "title": "아! 형산파",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ju2Ss/hAdNUYE7Gv/JbLT4qIiKWtnDqPQv6wxn0&filename=th3",
+    "rank": 119,
+    "workId": "69124699",
+    "title": "야설록 마교 처리반 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5yaqf/dJMcaiDd5CO/ckIEdZBaw3ZSGPFzerndn0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2035,8 +2018,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 120,
+    "workId": "55989189",
+    "title": "도사강호",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b7pe6Z/hAd4HxXwDX/fKK3TaHc5pWcKf3OJINqS0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "up",
-      "amount": 3
+      "amount": 6
     }
   },
   {
@@ -2052,32 +2052,66 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 8
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 122,
-    "workId": "68912329",
-    "title": "야설록 다시 깨어난 검 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnKMbo/dJMcacQdwjO/RPBu9ik1bxMY1VpjgHjkak&filename=th3",
+    "workId": "59849934",
+    "title": "마인화산",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oGNKG/hzXatwwxLk/MAlD7FKREHBs1BXqsDtYQ0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 3
     }
   },
   {
     "rank": 123,
-    "workId": "70363076",
-    "title": "십만마도",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4SEw0/dJMcaiq5aTI/kDs9FuxomImxMgzvE4wLl1&filename=th3",
+    "workId": "65131876",
+    "title": "북검전기 [단행본]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fuS1Z/dJMcacXOuWR/8fIiWdIiZFtaKrUhCNuUSk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 124,
+    "workId": "60077993",
+    "title": "곤륜마협",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=duccu/hAd4mtY9R8/avEgrkIR9OaZKxH6wyIEe0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 12
+    }
+  },
+  {
+    "rank": 125,
+    "workId": "60513863",
+    "title": "아! 형산파",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Ju2Ss/hAdNUYE7Gv/JbLT4qIiKWtnDqPQv6wxn0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2091,7 +2125,24 @@
     }
   },
   {
-    "rank": 124,
+    "rank": 126,
+    "workId": "68912329",
+    "title": "야설록 다시 깨어난 검 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnKMbo/dJMcacQdwjO/RPBu9ik1bxMY1VpjgHjkak&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 127,
     "workId": "70823387",
     "title": "야설록 고통을 삼킨 초인 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=deFu7/dJMcahMTIsB/7FGwhDpgsMHpBixghEocnK&filename=th3",
@@ -2103,76 +2154,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 125,
-    "workId": "59849934",
-    "title": "마인화산",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oGNKG/hzXatwwxLk/MAlD7FKREHBs1BXqsDtYQ0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 126,
-    "workId": "55989189",
-    "title": "도사강호",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b7pe6Z/hAd4HxXwDX/fKK3TaHc5pWcKf3OJINqS0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 127,
-    "workId": "64903372",
-    "title": "황성 전지전능 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vvPRk/hAFPP3hPjc/srJWuOb2tPvH4SB7304xwK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 8
+      "amount": 3
     }
   },
   {
     "rank": 128,
-    "workId": "54804856",
-    "title": "무신전기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nCNrT/hAd4TkTg08/9oQKdrtn3MzNKitskOAlZk&filename=th3",
+    "workId": "50676059",
+    "title": "666부대(신연예인지옥)",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6U577/dJMb8VsTawT/k9w3lWpxzQcmJ5h7mmKa8K&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
+    "waitFree": false,
+    "waitFreeType": null,
     "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "up",
+      "amount": 14
     }
   },
   {
@@ -2188,49 +2188,49 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 13
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 130,
-    "workId": "65131876",
-    "title": "북검전기 [단행본]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fuS1Z/dJMcacXOuWR/8fIiWdIiZFtaKrUhCNuUSk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 21
-    }
-  },
-  {
-    "rank": 131,
-    "workId": "61495437",
-    "title": "열 명의 신제들이 모두 내 제자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bTMp6V/hAdNQWhJql/XtOmi5d3XyaxkVLrbZBhx1&filename=th3",
+    "workId": "64903372",
+    "title": "황성 전지전능 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vvPRk/hAFPP3hPjc/srJWuOb2tPvH4SB7304xwK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 3
     }
   },
   {
+    "rank": 131,
+    "workId": "70363076",
+    "title": "십만마도",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b4SEw0/dJMcaiq5aTI/kDs9FuxomImxMgzvE4wLl1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
     "rank": 132,
-    "workId": "57474947",
-    "title": "신마",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CC8kK/hAd4r9T0OP/kWARJc9HD3yyEIxxykk3s0&filename=th3",
+    "workId": "65964608",
+    "title": "황성 절대강자 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fSiZu/hAJrOmJ9tV/wpbs2bTMDqpGgGIDzBUe8K&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2240,7 +2240,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 9
     }
   },
   {
@@ -2256,8 +2256,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2273,12 +2273,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 135,
+    "workId": "57474947",
+    "title": "신마",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CC8kK/hAd4r9T0OP/kWARJc9HD3yyEIxxykk3s0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 136,
     "workId": "60090816",
     "title": "태극무존",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cWX2m/hAd4RtPU6C/nlfucfZ0RCsRD0DT8erT31&filename=th3",
@@ -2290,49 +2307,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 1
     }
   },
   {
-    "rank": 136,
-    "workId": "60077993",
-    "title": "곤륜마협",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=duccu/hAd4mtY9R8/avEgrkIR9OaZKxH6wyIEe0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
     "rank": 137,
-    "workId": "51516006",
-    "title": "불사무적",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=J8yDP/hAd4aNP0gJ/56CcLhwIphNyavxIkRnoBk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 26
-    }
-  },
-  {
-    "rank": 138,
-    "workId": "63807255",
-    "title": "홍도",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHnDwk/dJMb9LRrHku/YwdKKSuczoQsOsxSyKkF61&filename=th3",
+    "workId": "54804856",
+    "title": "무신전기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nCNrT/hAd4TkTg08/9oQKdrtn3MzNKitskOAlZk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2341,15 +2324,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 138,
+    "workId": "66404489",
+    "title": "황성 신화의 시작 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jLEGC/hAMhruymSr/92vQ1MBMIewBQnhaio3rKk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
     }
   },
   {
     "rank": 139,
-    "workId": "63092645",
-    "title": "파공검제",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=crkink/dJMb9Lqf1JC/OUksbfunDHVKYo4uuTRo11&filename=th3",
+    "workId": "61495437",
+    "title": "열 명의 신제들이 모두 내 제자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bTMp6V/hAdNQWhJql/XtOmi5d3XyaxkVLrbZBhx1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2364,9 +2364,9 @@
   },
   {
     "rank": 140,
-    "workId": "66404489",
-    "title": "황성 신화의 시작 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jLEGC/hAMhruymSr/92vQ1MBMIewBQnhaio3rKk&filename=th3",
+    "workId": "63807255",
+    "title": "홍도",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bHnDwk/dJMb9LRrHku/YwdKKSuczoQsOsxSyKkF61&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2376,41 +2376,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 2
     }
   },
   {
     "rank": 141,
-    "workId": "65964608",
-    "title": "황성 절대강자 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fSiZu/hAJrOmJ9tV/wpbs2bTMDqpGgGIDzBUe8K&filename=th3",
+    "workId": "51516006",
+    "title": "불사무적",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=J8yDP/hAd4aNP0gJ/56CcLhwIphNyavxIkRnoBk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 4
     }
   },
   {
     "rank": 142,
-    "workId": "50676059",
-    "title": "666부대(신연예인지옥)",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6U577/dJMb8VsTawT/k9w3lWpxzQcmJ5h7mmKa8K&filename=th3",
+    "workId": "56921582",
+    "title": "이희재 삼국지",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GD72b/hAd4i6clXF/KesC2yO0aaFxGqpYVovexk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 56
     }
   },
   {
@@ -2426,8 +2426,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2443,15 +2443,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 145,
-    "workId": "56074047",
-    "title": "광룡기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hFC0e/hAd4KVLKjP/cQzIc5kSUUHk0AGh7NhaX0&filename=th3",
+    "workId": "63092645",
+    "title": "파공검제",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=crkink/dJMb9Lqf1JC/OUksbfunDHVKYo4uuTRo11&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 146,
+    "workId": "64814065",
+    "title": "무적지경",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcnWjP/hAFPP3dXir/0hIcEIBHtW671C5ojvuK6k&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2461,24 +2478,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 146,
-    "workId": "59757658",
-    "title": "묵검향 일석이조 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjbf3N/hzXasxCuer/3EfO7LjlKVOAfkCWkFiAb1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
+      "amount": 15
     }
   },
   {
@@ -2494,12 +2494,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 148,
+    "workId": "59757658",
+    "title": "묵검향 일석이조 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cjbf3N/hzXasxCuer/3EfO7LjlKVOAfkCWkFiAb1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
       "amount": 2
     }
   },
   {
-    "rank": 148,
+    "rank": 149,
+    "workId": "56074047",
+    "title": "광룡기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hFC0e/hAd4KVLKjP/cQzIc5kSUUHk0AGh7NhaX0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 150,
     "workId": "65165269",
     "title": "검신광룡",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bCuuwc/hAJjMhg93Y/OOPZr4ID03GhgiNqIYj3S1&filename=th3",
@@ -2516,24 +2550,7 @@
     }
   },
   {
-    "rank": 149,
-    "workId": "70429478",
-    "title": "야설록 천하보물 쟁탈전 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cTkp4h/dJMcackbadq/fsDkkKp6w9Dn5fKE0S0bfk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 150,
+    "rank": 151,
     "workId": "66143747",
     "title": "황성 군계일학 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RC8J7/hAJjMWbZ6t/QNrRxirlQiqBkTcodb12VK&filename=th3",
@@ -2545,49 +2562,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 151,
-    "workId": "58228007",
-    "title": "만계 출석 시스템",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EqTVm/hAC1UTr2SG/CcZnAYkcKr0vrc4kzMW2Y0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 2
+      "amount": 1
     }
   },
   {
     "rank": 152,
-    "workId": "63106490",
-    "title": "쌍호전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9UMiv/hAC1NfIKrU/YuSbCtPxvGpRCQ6Utw69h0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 153,
-    "workId": "58424714",
-    "title": "태상교주 숙수되다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dbKhJ9/hAd4YT1sTv/ZghndvN61WKf5XTdnmgBak&filename=th3",
+    "workId": "70429478",
+    "title": "야설록 천하보물 쟁탈전 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cTkp4h/dJMcackbadq/fsDkkKp6w9Dn5fKE0S0bfk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2597,28 +2580,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 3
     }
   },
   {
-    "rank": 154,
-    "workId": "67671271",
-    "title": "마도신검",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iB49o/dJMcafyaaRd/NiLooLEUwJVZrCAHQ3qKA1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 155,
+    "rank": 153,
     "workId": "57834975",
     "title": "천년방사",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iwPYZ/hAd4dDNAUE/GFjxRlqCyS04BOfHM5GsH0&filename=th3",
@@ -2631,7 +2597,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 2
+    }
+  },
+  {
+    "rank": 154,
+    "workId": "63106490",
+    "title": "쌍호전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9UMiv/hAC1NfIKrU/YuSbCtPxvGpRCQ6Utw69h0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 155,
+    "workId": "67671271",
+    "title": "마도신검",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iB49o/dJMcafyaaRd/NiLooLEUwJVZrCAHQ3qKA1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
     }
   },
   {
@@ -2647,8 +2647,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -2662,14 +2662,31 @@
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
-      "type": "up",
-      "amount": 11
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 158,
+    "workId": "69109802",
+    "title": "파천행로",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GXVKe/dJMb99TLqnj/vvLaFG88L6yAANfAvvUBE0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 159,
     "workId": "57372163",
     "title": "황성 지존귀환 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHk9Zv/hAC1UFVhQh/JBDrQon3KQEtWPoRCqiKGk&filename=th3",
@@ -2682,24 +2699,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 159,
-    "workId": "69109802",
-    "title": "파천행로",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GXVKe/dJMb99TLqnj/vvLaFG88L6yAANfAvvUBE0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
@@ -2715,15 +2715,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 161,
-    "workId": "64814065",
-    "title": "무적지경",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcnWjP/hAFPP3dXir/0hIcEIBHtW671C5ojvuK6k&filename=th3",
+    "workId": "58228007",
+    "title": "만계 출석 시스템",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EqTVm/hAC1UTr2SG/CcZnAYkcKr0vrc4kzMW2Y0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2732,15 +2732,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 10
     }
   },
   {
     "rank": 162,
-    "workId": "55114980",
-    "title": "괴",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bfkHxM/hAd4uleuRY/jTjuFqyGl8WVDKYHaWOoU1&filename=th3",
+    "workId": "58424714",
+    "title": "태상교주 숙수되다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dbKhJ9/hAd4YT1sTv/ZghndvN61WKf5XTdnmgBak&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2750,7 +2750,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
+      "amount": 9
     }
   },
   {
@@ -2766,29 +2766,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 164,
-    "workId": "55720111",
-    "title": "천하제일살수",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqltGm/hAd43OztW4/dqGD1AfOKnbqJU0IF5Zwk1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 165,
     "workId": "66441721",
     "title": "절륜환관",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bT0X4X/hAJrapbKVD/n47abQRONBoMaGpcdjlnHK&filename=th3",
@@ -2805,7 +2788,7 @@
     }
   },
   {
-    "rank": 166,
+    "rank": 165,
     "workId": "59232492",
     "title": "풍뢰도",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bW2eXd/hAC1TfW4oB/WfbAYnbdmjstcDtPkLcXvk&filename=th3",
@@ -2818,14 +2801,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 22
+      "amount": 1
+    }
+  },
+  {
+    "rank": 166,
+    "workId": "55114980",
+    "title": "괴",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bfkHxM/hAd4uleuRY/jTjuFqyGl8WVDKYHaWOoU1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
     }
   },
   {
     "rank": 167,
-    "workId": "54582757",
-    "title": "생사결: 여래의 복수",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9lvq2/hzXamxoSX6/lfhcFNnl27vnQYWVmYOAd1&filename=th3",
+    "workId": "55720111",
+    "title": "천하제일살수",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cqltGm/hAd43OztW4/dqGD1AfOKnbqJU0IF5Zwk1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -2835,62 +2835,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
+      "amount": 3
     }
   },
   {
     "rank": 168,
-    "workId": "68740858",
-    "title": "야설록 무림 난이도: 하 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIDOEF/dJMcadumUHW/wq7jPE9G4kGcZ6OOkzA2LK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 169,
-    "workId": "59701325",
-    "title": "천검기협",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dVI4A5/hAd4o6qxGi/F8aZ6Pqo0FIqfoXrL29HL1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 170,
-    "workId": "53970251",
-    "title": "사류무사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYcQfY/hAd4nsTuPb/XuqWubr4fXBCSXWimGPe9k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 171,
     "workId": "59152017",
     "title": "천사지인",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=0O3xA/hAFrPQJPQs/LQnkNxmVOWFF6AmiVBtLuk&filename=th3",
@@ -2902,63 +2851,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 7
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 172,
-    "workId": "62863839",
-    "title": "풍검",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Lc7Ta/hAd4rWm9QU/Y4iW1CkUO8blG1L6laneu1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 173,
-    "workId": "57757903",
-    "title": "황성 패왕무적 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XaPL9/dJMb9fdOUmc/Ymm8RbKJCQS9uNiKQ1cqY1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 174,
-    "workId": "63874446",
-    "title": "천재 장로 제자수련기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dxFcyt/dJMb9XqGB5p/SpNbDRK8hIPPLgB0oS9CE0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 175,
+    "rank": 169,
     "workId": "60155184",
     "title": "격투 챔피언, 무림에 가다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fCmyO/hAd4eW06PK/reUkmcKAF1u8iKoRQ0pAP0&filename=th3",
@@ -2971,11 +2869,62 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 6
     }
   },
   {
-    "rank": 176,
+    "rank": 170,
+    "workId": "68740858",
+    "title": "야설록 무림 난이도: 하 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cIDOEF/dJMcadumUHW/wq7jPE9G4kGcZ6OOkzA2LK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 171,
+    "workId": "54582757",
+    "title": "생사결: 여래의 복수",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9lvq2/hzXamxoSX6/lfhcFNnl27vnQYWVmYOAd1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 172,
+    "workId": "48475105",
+    "title": "권왕무적",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EZgED/hAdNTeptpD/BXirboaGLkyMTEcLWYVJbK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 173,
     "workId": "59789966",
     "title": "뢰신전기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bsK8ka/hAd423ckLQ/ZuglICXrWGYc45I8WtkXP1&filename=th3",
@@ -2987,12 +2936,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 177,
+    "rank": 174,
     "workId": "69794848",
     "title": "전생마인",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hcAg8/dJMcaazjQcD/XaUpyMKZSsxRhDIwobH96K&filename=th3",
@@ -3004,8 +2953,59 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 175,
+    "workId": "57757903",
+    "title": "황성 패왕무적 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XaPL9/dJMb9fdOUmc/Ymm8RbKJCQS9uNiKQ1cqY1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
       "amount": 2
+    }
+  },
+  {
+    "rank": 176,
+    "workId": "59701325",
+    "title": "천검기협",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dVI4A5/hAd4o6qxGi/F8aZ6Pqo0FIqfoXrL29HL1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 177,
+    "workId": "62863839",
+    "title": "풍검",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Lc7Ta/hAd4rWm9QU/Y4iW1CkUO8blG1L6laneu1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
     }
   },
   {
@@ -3021,49 +3021,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 179,
-    "workId": "48475105",
-    "title": "권왕무적",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EZgED/hAdNTeptpD/BXirboaGLkyMTEcLWYVJbK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 180,
-    "workId": "53498710",
-    "title": "황성 잠룡승천 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9atfS/dJMb9MW0oxZ/8TYvyLe5QOrI6ywaSk9e70&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 59
-    }
-  },
-  {
-    "rank": 181,
-    "workId": "62473734",
-    "title": "촌검무인",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=C8kuz/hAd4UjMzLz/O4gm8tSgUomC5MCiwZZIi1&filename=th3",
+    "workId": "53970251",
+    "title": "사류무사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYcQfY/hAd4nsTuPb/XuqWubr4fXBCSXWimGPe9k&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3077,7 +3043,24 @@
     }
   },
   {
-    "rank": 182,
+    "rank": 180,
+    "workId": "63874446",
+    "title": "천재 장로 제자수련기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dxFcyt/dJMb9XqGB5p/SpNbDRK8hIPPLgB0oS9CE0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 181,
     "workId": "56993394",
     "title": "황성 일취월장 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bGJvP1/dJMb8YwnGJR/2ca8k6vFCNH1XQe12KLVb1&filename=th3",
@@ -3090,45 +3073,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 1
     }
   },
   {
-    "rank": 183,
-    "workId": "57837211",
-    "title": "창천무신",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pLDch/dJMb9XYxZCk/KsZMmKF9iwR3MskSKGm0t1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 184,
-    "workId": "53504901",
-    "title": "검역창궁",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PtXIP/hzXanpxTSj/RgBH7LfZukwST5ufTtYVoK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 185,
+    "rank": 182,
     "workId": "65775303",
     "title": "황성 무적괴물 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GyL2N/hAJjG2C8pi/jdz6uPPjR58DX3ikhkzOf1&filename=th3",
@@ -3141,14 +3090,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 3
     }
   },
   {
-    "rank": 186,
-    "workId": "59425928",
-    "title": "황성 천하독종 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g28Hn/dJMb9PlTkLh/f1FWrPC5DmLcK2HzOKmgM0&filename=th3",
+    "rank": 183,
+    "workId": "63312057",
+    "title": "황성 중원신화 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dYns9h/hAd4VCZRXp/GjUXSOUkggzT8H6npHTKI0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3158,14 +3107,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 10
     }
   },
   {
-    "rank": 187,
-    "workId": "58056195",
-    "title": "황성 무량무도 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KFBWB/dJMb9Pe7JQ2/CEaxg9CXwCnYPPfu0qas5K&filename=th3",
+    "rank": 184,
+    "workId": "53498710",
+    "title": "황성 잠룡승천 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9atfS/dJMb9MW0oxZ/8TYvyLe5QOrI6ywaSk9e70&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3174,12 +3123,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 4
     }
   },
   {
-    "rank": 188,
+    "rank": 185,
+    "workId": "53504901",
+    "title": "검역창궁",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PtXIP/hzXanpxTSj/RgBH7LfZukwST5ufTtYVoK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 186,
+    "workId": "66263893",
+    "title": "천마신교 낙양본부",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EA6lM/hAMhhZIx2R/jpMN6h7y07sbqR6Ee3DxvK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 187,
     "workId": "69638770",
     "title": "묵검향 주먹의 신 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QMmT5/dJMcaasMbEn/nGKWbGkblSncVtkkDTFSv1&filename=th3",
@@ -3191,12 +3174,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 189,
+    "rank": 188,
     "workId": "68144406",
     "title": "이리초파랑",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eQYpW/dJMcagRwouh/MtdwDyKRkkdTIM5GHyNSnk&filename=th3",
@@ -3209,7 +3192,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 10
+      "amount": 1
+    }
+  },
+  {
+    "rank": 189,
+    "workId": "59425928",
+    "title": "황성 천하독종 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g28Hn/dJMb9PlTkLh/f1FWrPC5DmLcK2HzOKmgM0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
     }
   },
   {
@@ -3225,8 +3225,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -3242,80 +3242,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 10
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 192,
-    "workId": "67548129",
-    "title": "창천무신2",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Y3ZuT/dJMb9Ljw2nh/e78ahncJgIylkLvBigXTk1&filename=th3",
+    "workId": "58056195",
+    "title": "황성 무량무도 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KFBWB/dJMb9Pe7JQ2/CEaxg9CXwCnYPPfu0qas5K&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 14
+      "amount": 5
     }
   },
   {
     "rank": 193,
-    "workId": "63312057",
-    "title": "황성 중원신화 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dYns9h/hAd4VCZRXp/GjUXSOUkggzT8H6npHTKI0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 194,
-    "workId": "68347484",
-    "title": "야설록 화도살경 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biYaIb/dJMcabXc1N2/wME3nHShk2R9thSuc7QBX0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 195,
-    "workId": "66263893",
-    "title": "천마신교 낙양본부",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EA6lM/hAMhhZIx2R/jpMN6h7y07sbqR6Ee3DxvK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 196,
     "workId": "47178813",
     "title": "붉은 매",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cN2Cuv/dJMb9VzDBAT/DPmPLArnv1orqwrWezEOv1&filename=th3",
@@ -3327,12 +3276,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "up",
+      "amount": 3
     }
   },
   {
-    "rank": 197,
+    "rank": 194,
+    "workId": "62473734",
+    "title": "촌검무인",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=C8kuz/hAd4UjMzLz/O4gm8tSgUomC5MCiwZZIi1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 195,
     "workId": "65634426",
     "title": "빙공의 대가",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cnVj9/hAJmBGUmn9/JjAjXXTMrQwHX2xZBUG2w1&filename=th3",
@@ -3345,28 +3311,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
+      "amount": 2
     }
   },
   {
-    "rank": 198,
-    "workId": "56921582",
-    "title": "이희재 삼국지",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=GD72b/hAd4i6clXF/KesC2yO0aaFxGqpYVovexk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 199,
+    "rank": 196,
     "workId": "56238835",
     "title": "황성 마왕강림 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9rCex/dJMb9Wk0Jv9/uPsaqdYt90YPFsw3zTS3Rk&filename=th3",
@@ -3378,29 +3327,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 3
     }
   },
   {
-    "rank": 200,
-    "workId": "69520855",
-    "title": "권왕독존",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dDndzr/dJMcaccHMrH/Y16Dmv4je9kOXYg8gO9sq1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 201,
+    "rank": 197,
     "workId": "64428737",
     "title": "황성 천하호걸 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jMom2/dJMb83EspKh/f4kJb1imotoEkNHINz0Ex0&filename=th3",
@@ -3413,11 +3345,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 4
     }
   },
   {
-    "rank": 202,
+    "rank": 198,
     "workId": "55686347",
     "title": "황성 구중천 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hONWD/hAd44s9QsX/KkR76cIpRkfEGbThWaO06k&filename=th3",
@@ -3430,7 +3362,75 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 4
+    }
+  },
+  {
+    "rank": 199,
+    "workId": "67548129",
+    "title": "창천무신2",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Y3ZuT/dJMb9Ljw2nh/e78ahncJgIylkLvBigXTk1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 200,
+    "workId": "55516425",
+    "title": "황성 난세천하 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uzzNO/dJMb9LDNkOq/2Oq7HpyfEnCqkYf0UAw9LK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 14
+    }
+  },
+  {
+    "rank": 201,
+    "workId": "62930448",
+    "title": "황성 영웅등극 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Uqmr0/hAd4mOhL4Z/1sYh8HKcKO9DY3I5kKClKk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 202,
+    "workId": "69520855",
+    "title": "권왕독존",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dDndzr/dJMcaccHMrH/Y16Dmv4je9kOXYg8gO9sq1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
     }
   },
   {
@@ -3446,12 +3446,80 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 204,
+    "workId": "68347484",
+    "title": "야설록 화도살경 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biYaIb/dJMcabXc1N2/wME3nHShk2R9thSuc7QBX0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 205,
+    "workId": "65555486",
+    "title": "황성 폭풍일격 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DdDzr/hAFPJ3spKd/KAnAkXHhbvWCoeclJlMQyK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 206,
+    "workId": "57837211",
+    "title": "창천무신",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pLDch/dJMb9XYxZCk/KsZMmKF9iwR3MskSKGm0t1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 23
+    }
+  },
+  {
+    "rank": 207,
+    "workId": "64024878",
+    "title": "황성 패왕지기 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=njI5C/hAFsBxmj0O/ioAdAnOjYxsZijkT34Edik&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 208,
     "workId": "56662907",
     "title": "무인이곽",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cWZVPU/hAd4GTm932/CJtpkxfCpiFU8E9TIYXsqk&filename=th3",
@@ -3464,11 +3532,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
+      "amount": 4
     }
   },
   {
-    "rank": 205,
+    "rank": 209,
     "workId": "68519647",
     "title": "야설록 지옥귀환록 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cof9y/dJMcagLc5FI/okKNkqbW7UwogxC81l3uKK&filename=th3",
@@ -3485,112 +3553,10 @@
     }
   },
   {
-    "rank": 206,
-    "workId": "62930448",
-    "title": "황성 영웅등극 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Uqmr0/hAd4mOhL4Z/1sYh8HKcKO9DY3I5kKClKk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 207,
-    "workId": "54878314",
-    "title": "강호표사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dZ2zf1/hAdNYte2CP/2NVZbZK7o9UHQQqjjT3nlK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 20
-    }
-  },
-  {
-    "rank": 208,
-    "workId": "56136931",
-    "title": "신수제일검",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8xGxq/hAC1OeC6ck/aJm1bRBQoTh2lipFWTcbc0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 20
-    }
-  },
-  {
-    "rank": 209,
-    "workId": "65555486",
-    "title": "황성 폭풍일격 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DdDzr/hAFPJ3spKd/KAnAkXHhbvWCoeclJlMQyK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
     "rank": 210,
-    "workId": "61980928",
-    "title": "위사무적",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zPL5l/hAd4WIF9z9/NmuYP5kuS8Y1b4wde0k6Ck&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 211,
     "workId": "63897116",
     "title": "황성 은둔고수 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eE1WCp/hAd4mVjKoF/RikzKyStotTbAOI3kfCLJk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 212,
-    "workId": "67918629",
-    "title": "청성무사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b8SZxm/dJMcagcI6DS/SxE2K9iJsWojuFUeeAh1g1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3604,7 +3570,92 @@
     }
   },
   {
+    "rank": 211,
+    "workId": "61980928",
+    "title": "위사무적",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zPL5l/hAd4WIF9z9/NmuYP5kuS8Y1b4wde0k6Ck&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 212,
+    "workId": "56136931",
+    "title": "신수제일검",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8xGxq/hAC1OeC6ck/aJm1bRBQoTh2lipFWTcbc0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
     "rank": 213,
+    "workId": "67918629",
+    "title": "청성무사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b8SZxm/dJMcagcI6DS/SxE2K9iJsWojuFUeeAh1g1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 214,
+    "workId": "54878314",
+    "title": "강호표사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dZ2zf1/hAdNYte2CP/2NVZbZK7o9UHQQqjjT3nlK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 215,
+    "workId": "49019418",
+    "title": "마법사 무림에 가다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byELSj/hAd4HSgrVF/91luGcp1Im4RnyqTlLii11&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 14
+    }
+  },
+  {
+    "rank": 216,
     "workId": "60266746",
     "title": "황성 열혈남아 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=w0A7Y/hzXaqzOaF9/F0qTu5q0gj8omQX9nkoZgk&filename=th3",
@@ -3616,59 +3667,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 214,
-    "workId": "55516425",
-    "title": "황성 난세천하 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uzzNO/dJMb9LDNkOq/2Oq7HpyfEnCqkYf0UAw9LK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 215,
-    "workId": "63494612",
-    "title": "남궁세가 건달공자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ds6M0F/hAd4Y7yxb7/wktZyHb6ZaCTYL1bLuv7i1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 216,
-    "workId": "69208829",
-    "title": "묵검향 불멸자 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uuy4H/dJMcadB8Lhl/nj7UkERTUpNWyQCqftCx6k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
+      "amount": 3
     }
   },
   {
@@ -3684,15 +3684,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 218,
-    "workId": "68314859",
-    "title": "단장우물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQo9s3/dJMcabbN131/tq5QrUKbbn7oRyzQnE8BN1&filename=th3",
+    "workId": "55984086",
+    "title": "대사형",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=i01NI/hAd4U49b4n/OU7ktFgiCgHQU0ZCLIBPV1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 219,
+    "workId": "63494612",
+    "title": "남궁세가 건달공자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ds6M0F/hAd4Y7yxb7/wktZyHb6ZaCTYL1bLuv7i1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3702,41 +3719,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 219,
-    "workId": "55723566",
-    "title": "군림단주",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eKwRD/hAd4l2V5RL/A1HsfKKgZxG7XMKsqSetgK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
+      "amount": 4
     }
   },
   {
     "rank": 220,
-    "workId": "50410176",
-    "title": "면왕",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hkESx/hAd4mHv2kB/rWDq4RBKlVkk9abXe7sPM1&filename=th3",
+    "workId": "56796091",
+    "title": "황성 패왕지로 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=doDpvq/hAd4FNGzPC/TinQK4CcdfC0MSIQdcVV10&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 7
     }
   },
   {
@@ -3752,32 +3752,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 222,
-    "workId": "64024878",
-    "title": "황성 패왕지기 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=njI5C/hAFsBxmj0O/ioAdAnOjYxsZijkT34Edik&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 223,
-    "workId": "55984086",
-    "title": "대사형",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=i01NI/hAd4U49b4n/OU7ktFgiCgHQU0ZCLIBPV1&filename=th3",
+    "workId": "50410176",
+    "title": "면왕",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hkESx/hAd4mHv2kB/rWDq4RBKlVkk9abXe7sPM1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3786,12 +3769,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 9
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 224,
+    "rank": 223,
     "workId": "60509758",
     "title": "황성 유일무이 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LUmCb/hAd4VpsQMa/kxtjmkKD0QdDueKgCr4U4k&filename=th3",
@@ -3803,15 +3786,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 224,
+    "workId": "63106465",
+    "title": "황성 태극지존 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rhc23/hzXatpLWYJ/Iz05M7BHTRbuOUJV80Udsk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 8
     }
   },
   {
     "rank": 225,
-    "workId": "56463758",
-    "title": "황성 강호무정 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dpZAa/dJMb9N2GgPd/FKIG029Fc62cyRWqamJmWK&filename=th3",
+    "workId": "69208829",
+    "title": "묵검향 불멸자 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uuy4H/dJMcadB8Lhl/nj7UkERTUpNWyQCqftCx6k&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3821,11 +3821,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
+      "amount": 9
     }
   },
   {
     "rank": 226,
+    "workId": "56941637",
+    "title": "삼국지 여포전",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dy27de/hAd4VJKtJs/y4PsZPNAx6UrWPhFezgV5k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 227,
     "workId": "57165571",
     "title": "황성 동방불패 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cvPdct/hAC1PECRa7/2RzZZTCYuHcyx1qWNxkVIK&filename=th3",
@@ -3838,24 +3855,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 227,
-    "workId": "56796091",
-    "title": "황성 패왕지로 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=doDpvq/hAd4FNGzPC/TinQK4CcdfC0MSIQdcVV10&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
+      "amount": 1
     }
   },
   {
@@ -3871,15 +3871,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 14
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 229,
-    "workId": "49019418",
-    "title": "마법사 무림에 가다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byELSj/hAd4HSgrVF/91luGcp1Im4RnyqTlLii11&filename=th3",
+    "workId": "55723566",
+    "title": "군림단주",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eKwRD/hAd4l2V5RL/A1HsfKKgZxG7XMKsqSetgK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3889,24 +3889,24 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 14
+      "amount": 10
     }
   },
   {
     "rank": 230,
-    "workId": "56941637",
-    "title": "삼국지 여포전",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dy27de/hAd4VJKtJs/y4PsZPNAx6UrWPhFezgV5k&filename=th3",
+    "workId": "68314859",
+    "title": "단장우물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bQo9s3/dJMcabbN131/tq5QrUKbbn7oRyzQnE8BN1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 36
+      "amount": 12
     }
   },
   {
@@ -3922,29 +3922,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 232,
-    "workId": "63106465",
-    "title": "황성 태극지존 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rhc23/hzXatpLWYJ/Iz05M7BHTRbuOUJV80Udsk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 233,
     "workId": "62101495",
     "title": "황성 독불전설 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Oh7EB/hAd4Sfcwxq/fdgHRbeXNvSve1VVWInKFK&filename=th3",
@@ -3956,15 +3939,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 7
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 234,
-    "workId": "61980912",
-    "title": "황성 천마군림 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mc6Ij/hAd4kXdOf3/Fbl1H4IP0yzf1WLry3KWM0&filename=th3",
+    "rank": 233,
+    "workId": "65800187",
+    "title": "불멸낭인",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5zPSe/hAJmMuW6CC/4f1k2zvOwLKz7EPq4NOrj0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -3974,28 +3957,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 18
     }
   },
   {
-    "rank": 235,
-    "workId": "57884759",
-    "title": "황성 전무후무 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHrGlg/dJMb9YC77l5/MYhN2Eh79PiRXi8ooqvWo0&filename=th3",
+    "rank": 234,
+    "workId": "66100783",
+    "title": "검은 여우 독심호리:곤륜검선 백병지주",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=itXAl/hAJraP8tGM/19eo56TyLvMQfdUFTDYib0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 10
+      "type": "up",
+      "amount": 5
     }
   },
   {
-    "rank": 236,
+    "rank": 235,
     "workId": "60090852",
     "title": "황성 금강불괴 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cB7WOy/dJMb9XEdNue/unGYPAyFofbaaGETren5pk&filename=th3",
@@ -4008,96 +3991,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 1
     }
   },
   {
-    "rank": 237,
-    "workId": "57909581",
-    "title": "종횡구주",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=v5t89/hAd4UD5ytw/LC7lp3ftyLYieJqf8DtaR1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 238,
-    "workId": "63500261",
-    "title": "사마쌍협",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2r3Z8/hAd423b7ND/sjdcyKmHlKRyf93YGfxCpk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 239,
-    "workId": "66100783",
-    "title": "검은 여우 독심호리:곤륜검선 백병지주",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=itXAl/hAJraP8tGM/19eo56TyLvMQfdUFTDYib0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 240,
-    "workId": "63018521",
-    "title": "동방불패",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=balBGb/hAd4TkThgJ/F5FKxK53idTSHGDWupvCo1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 241,
-    "workId": "61755307",
-    "title": "황성 절정고수 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWU53z/hzXatQO11r/5nKLEmA8aC5Ka3kZnyjTSk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 242,
+    "rank": 236,
     "workId": "57560139",
     "title": "황성 천일인 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XXOqB/dJMb9NuQnjo/EvbDKjPVinpUK3gwpPWY30&filename=th3",
@@ -4110,14 +4008,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 41
+      "amount": 6
     }
   },
   {
-    "rank": 243,
-    "workId": "70469756",
-    "title": "묵검향 무림싹쓰리 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bCUxZj/dJMcadwOVC3/N5SmwogyK1mTIP4kZA5yO0&filename=th3",
+    "rank": 237,
+    "workId": "61860485",
+    "title": "학사신공 선계편",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=29sQr/hAd47wHxj1/PWPKkGrD345fJPrra23SIK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 23
+    }
+  },
+  {
+    "rank": 238,
+    "workId": "57884759",
+    "title": "황성 전무후무 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHrGlg/dJMb9YC77l5/MYhN2Eh79PiRXi8ooqvWo0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4126,29 +4041,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "down",
+      "amount": 3
     }
   },
   {
-    "rank": 244,
-    "workId": "59833335",
-    "title": "황성 국사무쌍 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cyRXQx/hAd4Dvzei5/sPC4sdmimC8mJLs3untrLk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 245,
+    "rank": 239,
     "workId": "63921074",
     "title": "천사혈성",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UoRnt/hAd4hfoAuV/rwBk9Mnzmq5PK5pZYxoSg1&filename=th3",
@@ -4165,44 +4063,10 @@
     }
   },
   {
-    "rank": 246,
-    "workId": "66683111",
-    "title": "야설록 환생공자 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fKXUg/hAM55YsdXy/kS91taSAYm074KEbWQ5dqk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 247,
-    "workId": "57757939",
-    "title": "황성 천하무쌍 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bbq5Kw/dJMcacda0ky/BgSdk4ZmOgeVhgqxdSyIL1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 248,
-    "workId": "67298037",
-    "title": "야설록 혈의 누(淚) 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fBVul/dJMb9cuC4N3/XGDiBxJkkPeHk2Or5kq3Ek&filename=th3",
+    "rank": 240,
+    "workId": "70469756",
+    "title": "묵검향 무림싹쓰리 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bCUxZj/dJMcadwOVC3/N5SmwogyK1mTIP4kZA5yO0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4212,164 +4076,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 249,
-    "workId": "55963958",
-    "title": "뇌신전생",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btRxWL/hAd49gWfMo/uXjk92XLrigropjUqUgbKK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 250,
-    "workId": "49618285",
-    "title": "건곤일월",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WmQid/dJMb9fLETkf/F42AIlKwzkjj3gOz5kyCB1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 251,
-    "workId": "65800187",
-    "title": "불멸낭인",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5zPSe/hAJmMuW6CC/4f1k2zvOwLKz7EPq4NOrj0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 37
-    }
-  },
-  {
-    "rank": 252,
-    "workId": "65408847",
-    "title": "치혼",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJTLaC/hAKLEJmKok/0m1bReMQa4lYIkdKANhSr1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 253,
-    "workId": "57561170",
-    "title": "호위무사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1kwyX/hAC1SOSlsw/43kBoMva7D46w8rhkKUGwK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 254,
-    "workId": "55783243",
-    "title": "마황귀환록",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=7oChc/hAd4VpsNwG/nWzpqBqKvNQoMkSZgcJhOK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 255,
-    "workId": "68909322",
-    "title": "천마대성",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CwZlq/dJMcacWWlfa/4Obhd0qkQG5ifvsxHuuwfK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 256,
-    "workId": "56028312",
-    "title": "황성 검마검신 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cMazf/dJMb9OtKCPb/xiB14UTd1HjjJk0DeKofK0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 257,
-    "workId": "62617381",
-    "title": "질풍패도",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iKOBB/hAd4rhJNW9/2k5XtZG9fmTKVGTECZquy1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
       "amount": 3
     }
   },
   {
-    "rank": 258,
+    "rank": 241,
     "workId": "54254274",
     "title": "풍운전신",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vyJoY/hAd43HNRq2/sKBHlzMHyxXAkzz9efL7W1&filename=th3",
@@ -4382,82 +4093,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 4
+      "amount": 17
     }
   },
   {
-    "rank": 259,
-    "workId": "58059601",
-    "title": "10만 년째 오늘을 살던 놈",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bICcNn/hAd40RQbv5/2DsxW1EYNKsQ6xe3WQ4Qck&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 260,
-    "workId": "61860485",
-    "title": "학사신공 선계편",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=29sQr/hAd47wHxj1/PWPKkGrD345fJPrra23SIK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 261,
-    "workId": "53308989",
-    "title": "황성 무신전기 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KXuqC/dJMb9M3LXDE/H5mgVlG3oNaENCNk0ltga0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 262,
-    "workId": "65309693",
-    "title": "묵검향 천하일품 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bwOuVW/hAJravBXmj/IHKMxItfRIgJQqLKQ6blak&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 263,
-    "workId": "55022694",
-    "title": "황성 전화위복 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bbN6yO/dJMb9d783hY/kfxAl4DxxQsLUzIVSEx9zk&filename=th3",
+    "rank": 242,
+    "workId": "59833335",
+    "title": "황성 국사무쌍 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cyRXQx/hAd4Dvzei5/sPC4sdmimC8mJLs3untrLk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4471,10 +4114,129 @@
     }
   },
   {
-    "rank": 264,
-    "workId": "58493971",
-    "title": "천하제일 표사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lOkwf/hAd4BR3akM/Q0VFzeUbVdgXOApp57Oq7k&filename=th3",
+    "rank": 243,
+    "workId": "61755307",
+    "title": "황성 절정고수 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWU53z/hzXatQO11r/5nKLEmA8aC5Ka3kZnyjTSk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 244,
+    "workId": "49618285",
+    "title": "건곤일월",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WmQid/dJMb9fLETkf/F42AIlKwzkjj3gOz5kyCB1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 245,
+    "workId": "62617381",
+    "title": "질풍패도",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=iKOBB/hAd4rhJNW9/2k5XtZG9fmTKVGTECZquy1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 12
+    }
+  },
+  {
+    "rank": 246,
+    "workId": "57757939",
+    "title": "황성 천하무쌍 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bbq5Kw/dJMcacda0ky/BgSdk4ZmOgeVhgqxdSyIL1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 247,
+    "workId": "57909581",
+    "title": "종횡구주",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=v5t89/hAd4UD5ytw/LC7lp3ftyLYieJqf8DtaR1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 248,
+    "workId": "55783243",
+    "title": "마황귀환록",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=7oChc/hAd4VpsNwG/nWzpqBqKvNQoMkSZgcJhOK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 249,
+    "workId": "65408847",
+    "title": "치혼",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cJTLaC/hAKLEJmKok/0m1bReMQa4lYIkdKANhSr1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 250,
+    "workId": "55963958",
+    "title": "뇌신전생",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btRxWL/hAd49gWfMo/uXjk92XLrigropjUqUgbKK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4488,27 +4250,10 @@
     }
   },
   {
-    "rank": 265,
-    "workId": "62346037",
-    "title": "황성 천하통일 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cn1gq/hzXalFibiA/SET1mZW1tDrPEO8OP0aKg1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 266,
-    "workId": "60696118",
-    "title": "황성 영웅호걸 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bInbDi/dJMb8ZB3Apu/nZ3HocurEiebVqRB8rIQf0&filename=th3",
+    "rank": 251,
+    "workId": "56028312",
+    "title": "황성 검마검신 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cMazf/dJMb9OtKCPb/xiB14UTd1HjjJk0DeKofK0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4518,14 +4263,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 10
+      "amount": 5
     }
   },
   {
-    "rank": 267,
-    "workId": "51952649",
-    "title": "만계선종",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d2nBvZ/hAd4b0keUL/elYzxKGDAvP8R613RI5Rck&filename=th3",
+    "rank": 252,
+    "workId": "63500261",
+    "title": "사마쌍협",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2r3Z8/hAd423b7ND/sjdcyKmHlKRyf93YGfxCpk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4535,65 +4280,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 7
+      "amount": 14
     }
   },
   {
-    "rank": 268,
-    "workId": "58304256",
-    "title": "황성 무림제일 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d1NbVw/hAC1VkQNZ8/3VHPAkrkup41mMN2LmHgD1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 269,
-    "workId": "60204422",
-    "title": "난가기연",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ezh9Kw/hAd4DWEhhI/H0pXhPaxyWxtjsGh9K8CGk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 270,
-    "workId": "57884717",
-    "title": "황성 강호지기 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bnjkaX/hAd4JbuySp/VoUJRpEsn1Kh7K14lBLvXk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 271,
-    "workId": "55145266",
-    "title": "황성 자객일지 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dT4LrV/dJMb9YpAWAz/3aIefGw1dl3fPHTF4LrIsk&filename=th3",
+    "rank": 253,
+    "workId": "67298037",
+    "title": "야설록 혈의 누(淚) 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fBVul/dJMb9cuC4N3/XGDiBxJkkPeHk2Or5kq3Ek&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4607,10 +4301,61 @@
     }
   },
   {
-    "rank": 272,
-    "workId": "60696093",
-    "title": "장강삼협",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btq6jq/hAd4wi3eGY/KGNDQwuZVH1xQqtitTI97k&filename=th3",
+    "rank": 254,
+    "workId": "66683111",
+    "title": "야설록 환생공자 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fKXUg/hAM55YsdXy/kS91taSAYm074KEbWQ5dqk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 255,
+    "workId": "63018521",
+    "title": "동방불패",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=balBGb/hAd4TkThgJ/F5FKxK53idTSHGDWupvCo1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 256,
+    "workId": "57561170",
+    "title": "호위무사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=1kwyX/hAC1SOSlsw/43kBoMva7D46w8rhkKUGwK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 257,
+    "workId": "55022694",
+    "title": "황성 전화위복 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bbN6yO/dJMb9d783hY/kfxAl4DxxQsLUzIVSEx9zk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4620,14 +4365,82 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 6
     }
   },
   {
-    "rank": 273,
-    "workId": "62538530",
-    "title": "황성 무적세가 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cGQqVj/hAd4JP5iLd/NaOFOFosKYC7hGHjQ8Zb0K&filename=th3",
+    "rank": 258,
+    "workId": "58059601",
+    "title": "10만 년째 오늘을 살던 놈",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bICcNn/hAd40RQbv5/2DsxW1EYNKsQ6xe3WQ4Qck&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 259,
+    "workId": "62346037",
+    "title": "황성 천하통일 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cn1gq/hzXalFibiA/SET1mZW1tDrPEO8OP0aKg1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 260,
+    "workId": "68909322",
+    "title": "천마대성",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=CwZlq/dJMcacWWlfa/4Obhd0qkQG5ifvsxHuuwfK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 261,
+    "workId": "54677168",
+    "title": "황성 마인전설 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b7oeu9/dJMb9OgdthZ/hiST1lKOP8k1xpSYKOt441&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 262,
+    "workId": "57884717",
+    "title": "황성 강호지기 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bnjkaX/hAd4JbuySp/VoUJRpEsn1Kh7K14lBLvXk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4641,7 +4454,92 @@
     }
   },
   {
-    "rank": 274,
+    "rank": 263,
+    "workId": "54200036",
+    "title": "전무: 최강 무도 계승패",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bsv0Nj/hAdNViYRD9/4Ck9XBZHfpQTKQcC6Co271&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 24
+    }
+  },
+  {
+    "rank": 264,
+    "workId": "53308989",
+    "title": "황성 무신전기 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KXuqC/dJMb9M3LXDE/H5mgVlG3oNaENCNk0ltga0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 265,
+    "workId": "60204422",
+    "title": "난가기연",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ezh9Kw/hAd4DWEhhI/H0pXhPaxyWxtjsGh9K8CGk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 266,
+    "workId": "58304256",
+    "title": "황성 무림제일 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d1NbVw/hAC1VkQNZ8/3VHPAkrkup41mMN2LmHgD1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 267,
+    "workId": "58493971",
+    "title": "천하제일 표사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lOkwf/hAd4BR3akM/Q0VFzeUbVdgXOApp57Oq7k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 268,
     "workId": "52821302",
     "title": "염라",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Dcvbe/dJMb9P7kRxo/eJUvMxjuJNPvcA1rdNyhj0&filename=th3",
@@ -4653,32 +4551,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 6
     }
   },
   {
-    "rank": 275,
-    "workId": "64253092",
-    "title": "황성 결사항전 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNIBoN/dJMb85bcEx1/KFwpObQdfBH2JjDcdNNj10&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 33
-    }
-  },
-  {
-    "rank": 276,
-    "workId": "67655994",
-    "title": "야설록 망각의 검 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SzyaN/dJMb9NBK3qh/54dj07i2ZfZw0J5SGkWCA1&filename=th3",
+    "rank": 269,
+    "workId": "55145266",
+    "title": "황성 자객일지 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dT4LrV/dJMb9YpAWAz/3aIefGw1dl3fPHTF4LrIsk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4688,7 +4569,126 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 270,
+    "workId": "51952649",
+    "title": "만계선종",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=d2nBvZ/hAd4b0keUL/elYzxKGDAvP8R613RI5Rck&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
       "amount": 3
+    }
+  },
+  {
+    "rank": 271,
+    "workId": "60900206",
+    "title": "황성 인간초월 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vew7U/hAd4raYPOO/kYijT12K7WDKqX8cdc9yb1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 272,
+    "workId": "54875202",
+    "title": "황성 무림지존 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2n40l/dJMb9MioTEq/3xmTS9FkcWwRDZnj3AIQMK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 273,
+    "workId": "58437428",
+    "title": "황성 일촉즉발 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JrMqa/dJMb9OHhMOw/pKlf4yvcmufO18L3Quav7k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 274,
+    "workId": "60696093",
+    "title": "장강삼협",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btq6jq/hAd4wi3eGY/KGNDQwuZVH1xQqtitTI97k&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 275,
+    "workId": "61352288",
+    "title": "황성 청풍전설 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYfpzB/hAC1KXACoh/8EHrwCSsXHSjMuXlctCKok&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 276,
+    "workId": "60696118",
+    "title": "황성 영웅호걸 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bInbDi/dJMb8ZB3Apu/nZ3HocurEiebVqRB8rIQf0&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
     }
   },
   {
@@ -4704,12 +4704,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 278,
+    "workId": "67655994",
+    "title": "야설록 망각의 검 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SzyaN/dJMb9NBK3qh/54dj07i2ZfZw0J5SGkWCA1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 279,
+    "workId": "65309693",
+    "title": "묵검향 천하일품 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bwOuVW/hAJravBXmj/IHKMxItfRIgJQqLKQ6blak&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 17
+    }
+  },
+  {
+    "rank": 280,
     "workId": "67902502",
     "title": "야설록 고금최강 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TvgqF/dJMcadf1AC7/Mk1K1iKkUcLqBKuQyvQXPk&filename=th3",
@@ -4721,49 +4755,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 2
     }
   },
   {
-    "rank": 279,
-    "workId": "58437428",
-    "title": "황성 일촉즉발 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JrMqa/dJMb9OHhMOw/pKlf4yvcmufO18L3Quav7k&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 280,
-    "workId": "60900206",
-    "title": "황성 인간초월 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vew7U/hAd4raYPOO/kYijT12K7WDKqX8cdc9yb1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
     "rank": 281,
-    "workId": "54875202",
-    "title": "황성 무림지존 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2n40l/dJMb9MioTEq/3xmTS9FkcWwRDZnj3AIQMK&filename=th3",
+    "workId": "63493249",
+    "title": "황성 중원입성 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gfQVh/dJMb9PsEXtJ/woY02INcQzIp9yUGzKoisK&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4773,31 +4773,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 11
+      "amount": 3
     }
   },
   {
     "rank": 282,
-    "workId": "61352288",
-    "title": "황성 청풍전설 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bYfpzB/hAC1KXACoh/8EHrwCSsXHSjMuXlctCKok&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 283,
-    "workId": "56792553",
-    "title": "내 소설의 악역이 되다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c8Tb62/hAd4f9solB/Yrqe8QT7oodyi6mG2rMlKK&filename=th3",
+    "workId": "61761390",
+    "title": "화산질풍검",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9qB9N/hAd4qb30f1/aU7OQGkAETGJ5MAAMShBqk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4811,61 +4794,27 @@
     }
   },
   {
+    "rank": 283,
+    "workId": "62688445",
+    "title": "황성 사상최강 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hIRbC/hAd40RQgZy/m7wjU7LY0iwed1j1YmnWzK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
     "rank": 284,
-    "workId": "63493249",
-    "title": "황성 중원입성 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gfQVh/dJMb9PsEXtJ/woY02INcQzIp9yUGzKoisK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 285,
-    "workId": "68650647",
-    "title": "신마도",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=coOsOT/dJMcaih6FQJ/MdWcl3PzzY762bEapuOKa1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 286,
-    "workId": "61755300",
-    "title": "천추강호",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yE0mj/hzXapHFM3m/FuAKdFWaZkGq1GZRpjLId0&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 287,
-    "workId": "54200036",
-    "title": "전무: 최강 무도 계승패",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bsv0Nj/hAdNViYRD9/4Ck9XBZHfpQTKQcC6Co271&filename=th3",
+    "workId": "61880705",
+    "title": "검마",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cib9m6/hAdNWhUnGG/UzHneUFSIsGQ9kivKiY3nk&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -4875,7 +4824,58 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 12
+      "amount": 15
+    }
+  },
+  {
+    "rank": 285,
+    "workId": "53273207",
+    "title": "투문",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=h8pX9/hAd4ynv12J/Ju83h58ztwdDE24OIcPzYK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "3다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 286,
+    "workId": "57855014",
+    "title": "제천만계에서 돌아오다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQIQ48/hAd4UqyIpe/xDu4d1LrIfkDb3S1nnVHk1&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 287,
+    "workId": "62538530",
+    "title": "황성 무적세가 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cGQqVj/hAd4JP5iLd/NaOFOFosKYC7hGHjQ8Zb0K&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 14
     }
   },
   {
@@ -4891,46 +4891,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 289,
-    "workId": "62688445",
-    "title": "황성 사상최강 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hIRbC/hAd40RQgZy/m7wjU7LY0iwed1j1YmnWzK&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 290,
-    "workId": "61761390",
-    "title": "화산질풍검",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b9qB9N/hAd4qb30f1/aU7OQGkAETGJ5MAAMShBqk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 291,
+    "rank": 289,
     "workId": "52432449",
     "title": "황성 무림혈투 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eYi7F/dJMcaa0GG6J/eGJ0A8Kkz7cJlT87kynvkk&filename=th3",
@@ -4943,19 +4909,19 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 2
     }
   },
   {
-    "rank": 292,
-    "workId": "57855014",
-    "title": "제천만계에서 돌아오다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dQIQ48/hAd4UqyIpe/xDu4d1LrIfkDb3S1nnVHk1&filename=th3",
+    "rank": 290,
+    "workId": "68650647",
+    "title": "신마도",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=coOsOT/dJMcaih6FQJ/MdWcl3PzzY762bEapuOKa1&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -4964,24 +4930,24 @@
     }
   },
   {
-    "rank": 293,
-    "workId": "56235400",
-    "title": "화룡왕",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgPVgM/hAd4aG7o7a/rYQjmuxIVZjYXDVRB8dVYk&filename=th3",
+    "rank": 291,
+    "workId": "53809344",
+    "title": "황성 참도혈검 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bj0HBn/dJMb9MJtc6b/bnWZEKkuIfUuMvuO9eUdz0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
     "waitFreeType": "기다무",
-    "ageRating": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 7
+      "amount": 4
     }
   },
   {
-    "rank": 294,
+    "rank": 292,
     "workId": "58056254",
     "title": "황성 금강불사 컬렉션",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=7cl0p/dJMb9O1ACiD/Nc3tLudmah3j944AkrLWs1&filename=th3",
@@ -4994,14 +4960,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 2
     }
   },
   {
-    "rank": 295,
-    "workId": "53809344",
-    "title": "황성 참도혈검 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bj0HBn/dJMb9MJtc6b/bnWZEKkuIfUuMvuO9eUdz0&filename=th3",
+    "rank": 293,
+    "workId": "61755300",
+    "title": "천추강호",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yE0mj/hzXapHFM3m/FuAKdFWaZkGq1GZRpjLId0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -5010,12 +4976,80 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 294,
+    "workId": "56235400",
+    "title": "화룡왕",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgPVgM/hAd4aG7o7a/rYQjmuxIVZjYXDVRB8dVYk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 295,
+    "workId": "61117915",
+    "title": "황성 중원지배자 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=YNhzP/hAC1QKiqsO/xGJnEOLHg9EXy8TBKjDTnK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
       "amount": null
     }
   },
   {
     "rank": 296,
+    "workId": "53645966",
+    "title": "황성 복수무적 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=zGrKa/hAd4BR5qi8/oUWl1YgYxph4xmuk9V5Kbk&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 297,
+    "workId": "50516383",
+    "title": "하수전설",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=439PW/hzXap8HpIE/xv9V5kj0XBl3h4rmPkxYsK&filename=th3",
+    "category": "웹툰",
+    "subCategory": "무협",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 298,
     "workId": "61555048",
     "title": "검마도",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=HbDNQ/hAd4NLJdnA/QSkf5uKMM9xR8tAXpYBnA1&filename=th3",
@@ -5027,49 +5061,15 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 297,
-    "workId": "57671122",
-    "title": "무역: 운명을 거스르다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bpvcEC/hAdNVXzJP6/FfWMBO1Z0xmTLvfGXK5zY1&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "down",
-      "amount": 28
-    }
-  },
-  {
-    "rank": 298,
-    "workId": "59436388",
-    "title": "속성으로 무림지존",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=hOVtW/hAd40qLt6Y/ZHrstunU4qH9CBlLxUfVdk&filename=th3",
-    "category": "웹툰",
-    "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 63
+      "amount": 2
     }
   },
   {
     "rank": 299,
-    "workId": "61880705",
-    "title": "검마",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cib9m6/hAdNWhUnGG/UzHneUFSIsGQ9kivKiY3nk&filename=th3",
+    "workId": "57407953",
+    "title": "역천지존",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=yvJS2/hzXav2bzek/0YrZL8B0YKP1aULWaDkZY0&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
     "waitFree": true,
@@ -5084,19 +5084,19 @@
   },
   {
     "rank": 300,
-    "workId": "59470101",
-    "title": "묵검향 파죽지세 컬렉션",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=KKmM5/hzwBpflVWv/IyNFK6IjhNbym0TM8dtptk&filename=th3",
+    "workId": "64253092",
+    "title": "황성 결사항전 컬렉션",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bNIBoN/dJMb85bcEx1/KFwpObQdfBH2JjDcdNNj10&filename=th3",
     "category": "웹툰",
     "subCategory": "무협",
-    "waitFree": true,
-    "waitFreeType": "3다무",
+    "waitFree": false,
+    "waitFreeType": null,
     "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 25
     }
   }
 ]
