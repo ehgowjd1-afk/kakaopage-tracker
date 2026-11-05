@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-11-05",
+    "workId": "71041075",
+    "title": "하트 어택(Heart attack)",
+    "category": "웹소설",
+    "subCategory": "로맨스",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UhEuH/dJMcabeZUG9/5F4NfT3Q0bWL07GzhivkhK&filename=th3"
+  },
+  {
+    "date": "2026-11-05",
+    "workId": "70788007",
+    "title": "바바리안이 농사를 잘함",
+    "category": "웹소설",
+    "subCategory": "판타지",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b2vREf/dJMcahGryaQ/5d2lSnzKcd5tGlZSkpekg0&filename=th3"
+  },
+  {
+    "date": "2026-11-05",
+    "workId": "70732901",
+    "title": "쟁자수가 천마 갤러리를 얻었다",
+    "category": "웹소설",
+    "subCategory": "무협",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=s05OI/dJMcacSyPWp/3ePyAGvQkeqPK8w5DgOCoK&filename=th3"
+  },
+  {
     "date": "2026-11-04",
     "workId": "71222629",
     "title": "은퇴하려고 결혼했는데, 상대가 황제다",
@@ -878,53 +902,5 @@
     "category": "웹소설",
     "subCategory": "무협",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ecVqS/dJMcahsGPtr/u3sQciavLkvfnAYxYiBCT1&filename=th3"
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70737761",
-    "title": "순정도 변한다 [19세 완전판]",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "thumbnail": null
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70720463",
-    "title": "흑막을 치료하고 도망치려다 실패함",
-    "category": "웹소설",
-    "subCategory": "로판",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=N47yI/dJMcacLHmXC/0IVyJouuO1jN5zFMkntBsk&filename=th3"
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70077717",
-    "title": "전생 네크로맨서는 헌터가 너무 쉽다",
-    "category": "웹소설",
-    "subCategory": "판타지",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ys3eo/dJMcah0ibRq/BGCR6PxQ4w62YnmCmjZZ70&filename=th3"
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70748948",
-    "title": "순정도 변한다",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gif12/dJMcagApbJk/TQTUAYE19hTLWrqhVbN6UK&filename=th3"
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70719256",
-    "title": "산들바람 로맨스",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=djOkbN/dJMcaa8blFO/isSLvWIl3l0Bnmwu5NL0V1&filename=th3"
-  },
-  {
-    "date": "2026-10-05",
-    "workId": "70718279",
-    "title": "산들바람 로맨스 [19세 완전판]",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "thumbnail": null
   }
 ]
