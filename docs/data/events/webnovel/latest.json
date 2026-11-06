@@ -1,5 +1,54 @@
 [
   {
+    "bannerUid": "220134",
+    "title": "매일매일 무료 플레이리스트",
+    "subtitle": "1시간마다 1화무료",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=EzdXS/dJMcacrOZKU/FBeAYu5ILxjYZi2MrbUATK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=ee52fab0fc274fc2a87befc6ae36b943"
+  },
+  {
+    "bannerUid": "220096",
+    "title": "전무님과 밤마다",
+    "subtitle": "외전 론칭 기념!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bPHs5o/dJMcaiZyNJc/yxYV13b4uonI5EixQeVIYk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=118d85c2d7e33cfb0f2dcc4ced8c0e99"
+  },
+  {
+    "bannerUid": "220007",
+    "title": "스페셜 오픈런 최대 5천캐시 선물",
+    "subtitle": "전원 캐시 선물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rpeID/dJMcacd55ra/5qHtzPGk3SKT5iKTq9yylk&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=865b67a38f30190a6b14edc48b81570f"
+  },
+  {
+    "bannerUid": "220074",
+    "title": "미래를 읽는 상권분석가",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=S1y3t/dJMcafWk4JT/XFKfnoV0QfYhsUSbFEvVpK&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19532/"
+  },
+  {
+    "bannerUid": "220070",
+    "title": "남주가 죽은 아내를 찾다가 미쳐간다는데, 그 아내가 나다",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bsisPk/dJMcahNct20/AwFpBBWZLxfQkKcoVKsfH1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19531/"
+  },
+  {
+    "bannerUid": "220164",
+    "title": "보답은 결혼으로 부탁할게요!",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bbM1jh/dJMcab0KQyg/jYcRpdEzujHz5ttZv6K6t1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19538/"
+  },
+  {
+    "bannerUid": "220180",
+    "title": "인기 단행본, 세트 할인가로 만나요",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8Fz14/dJMcaa8CFh0/xk03TU5tAlSuCqra5Qdtl1&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=9c6ba855f3774e415da56d10183f42e7"
+  },
+  {
     "bannerUid": "219901",
     "title": "무당기협",
     "subtitle": "긴급 캐시 증정!",
@@ -196,13 +245,6 @@
     "link": "https://page.kakao.com/landing/set/poster/page/landing/19481/"
   },
   {
-    "bannerUid": "219041",
-    "title": "전학생이 무당임을 숨김",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Lv7LT/dJMcacL2Teh/nLo5wI1CTFAfxw5QO6gIO1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19464/"
-  },
-  {
     "bannerUid": "219160",
     "title": "신이 깃든 검술천재",
     "subtitle": "최대 3천 캐시!",
@@ -278,20 +320,6 @@
     "subtitle": "단행본 할인 이벤트",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=brCxeG/dJMcac55pvk/dbFimBDqiTuqyrST7kuGM1&filename=th3",
     "link": "https://page.kakao.com/landing/series/list/page/landing/19364/"
-  },
-  {
-    "bannerUid": "217675",
-    "title": "룬 복사로 세계 최강",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=RbdUI/dJMb999jRVC/Z57kKzhvsbiFZDM53WLZv1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19368/"
-  },
-  {
-    "bannerUid": "217679",
-    "title": "귀환자의 마법은 특별해야 합니다",
-    "subtitle": "노블코믹 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fcJTJ/dJMcaielFYm/HE6AKbhFHk6KWXKdfp1Kv1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=ba9d927b994b4fecdc001f4c0a6e7f32"
   },
   {
     "bannerUid": "217299",
