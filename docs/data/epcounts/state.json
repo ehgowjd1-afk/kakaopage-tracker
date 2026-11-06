@@ -1,12 +1,12 @@
 {
- "lastRun": "2026-11-06",
- "minutes": 280,
- "done": 186,
+ "lastRun": "2026-11-07",
+ "minutes": 13,
+ "done": 4,
  "failed": 0,
- "skipped": 23,
- "requests": 8414,
+ "skipped": 3,
+ "requests": 376,
  "stopped": "time",
- "refresh": 120,
- "backfillLeft": 7874,
+ "refresh": 123,
+ "backfillLeft": 7894,
  "files": 1129
 }
