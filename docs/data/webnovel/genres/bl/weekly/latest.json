@@ -18,23 +18,6 @@
   },
   {
     "rank": 2,
-    "workId": "71157059",
-    "title": "우리 사이는 촬영 금지입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FvItV/dJMcafWc2eK/rynPeqasDxCYtYMTKgjyR1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": true,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 3,
     "workId": "71153652",
     "title": "쌍방 짝사랑 연애담",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bb6gJe/dJMcacSCg2Q/vFP0tzhnsED6ZKXMRIw0Uk&filename=th3",
@@ -47,11 +30,45 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 3,
+    "workId": "71153619",
+    "title": "쌍방 짝사랑 연애담 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 2
     }
   },
   {
     "rank": 4,
+    "workId": "71157059",
+    "title": "우리 사이는 촬영 금지입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FvItV/dJMcafWc2eK/rynPeqasDxCYtYMTKgjyR1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 5,
     "workId": "71322157",
     "title": "필요불가분적 가이드 [19세 완전판]",
     "thumbnail": null,
@@ -68,23 +85,6 @@
     }
   },
   {
-    "rank": 5,
-    "workId": "71153619",
-    "title": "쌍방 짝사랑 연애담 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
     "rank": 6,
     "workId": "70743281",
     "title": "이 빙의, 어딘가 잘못된 것 같다 [19세 완전판]",
@@ -97,8 +97,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -114,8 +114,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -131,14 +131,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 9,
-    "workId": "70549795",
-    "title": "마교주의 아들이 정파에서 살아남는 법 [19세 완전판]",
+    "workId": "69521459",
+    "title": "감정쓰레기통 서브공에 빙의했습니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -154,8 +154,8 @@
   },
   {
     "rank": 10,
-    "workId": "69521459",
-    "title": "감정쓰레기통 서브공에 빙의했습니다 [19세 완전판]",
+    "workId": "63878652",
+    "title": "도망가는 어린 양을 쫓는 법 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -165,14 +165,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 1
     }
   },
   {
     "rank": 11,
-    "workId": "63878652",
-    "title": "도망가는 어린 양을 쫓는 법 [19세 완전판]",
+    "workId": "70549795",
+    "title": "마교주의 아들이 정파에서 살아남는 법 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -199,25 +199,25 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 13,
-    "workId": "69521241",
-    "title": "감정쓰레기통 서브공에 빙의했습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b6Eip2/dJMcaiZpBSz/CothxcqujIbWlJVGhEl8Kk&filename=th3",
+    "workId": "71166311",
+    "title": "순서가 이게 맞냐? [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
-    "hasNewEpisode": true,
+    "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 3
     }
   },
   {
@@ -233,12 +233,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 15,
+    "workId": "69521241",
+    "title": "감정쓰레기통 서브공에 빙의했습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b6Eip2/dJMcaiZpBSz/CothxcqujIbWlJVGhEl8Kk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 16,
     "workId": "69329615",
     "title": "우리는 단지 봄을 사랑하지 않았을 뿐 [19세 완전판]",
     "thumbnail": null,
@@ -251,13 +268,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 3
+      "amount": 1
     }
   },
   {
-    "rank": 16,
-    "workId": "71166311",
-    "title": "순서가 이게 맞냐? [19세 완전판]",
+    "rank": 17,
+    "workId": "70307329",
+    "title": "비인기 멤버가 사라진 결과 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -268,11 +285,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 18,
+    "workId": "70270283",
+    "title": "나만 빼고 연애 중",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Bmo2l/dJMcafuIT0U/3mHoBZAptDyjuSh8o2uu30&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
       "amount": 4
     }
   },
   {
-    "rank": 17,
+    "rank": 19,
     "workId": "70780025",
     "title": "이 빙의, 어딘가 잘못된 것 같다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=USche/dJMcag1c1uY/7P46cNSgim6fKBkl0lnW8k&filename=th3",
@@ -285,62 +319,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 18,
-    "workId": "69406017",
-    "title": "운명 징크스",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=xDhIr/dJMcaaFxOsH/2bJ1ilzZsIW8Dprp2V8zZ0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 19,
-    "workId": "70706270",
-    "title": "안 사귀니까 엮지 마세요;[19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
       "amount": 2
     }
   },
   {
     "rank": 20,
-    "workId": "70307329",
-    "title": "비인기 멤버가 사라진 결과 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 21,
     "workId": "69887643",
     "title": "미래의 광공을 덕질 중입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=mInhR/dJMcaafXJak/p5tiDjcI7FYte64SfnOmMK&filename=th3",
@@ -357,10 +340,27 @@
     }
   },
   {
+    "rank": 21,
+    "workId": "70706270",
+    "title": "안 사귀니까 엮지 마세요;[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
     "rank": 22,
-    "workId": "70270283",
-    "title": "나만 빼고 연애 중",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Bmo2l/dJMcafuIT0U/3mHoBZAptDyjuSh8o2uu30&filename=th3",
+    "workId": "67399172",
+    "title": "남주와 침대에서 뒹굴었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=goq3C/dJMcadQ7tYg/rjKkRCdHdM7pgA4f1DkJR1&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -370,7 +370,7 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 1
+      "amount": 4
     }
   },
   {
@@ -386,97 +386,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 2
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 24,
-    "workId": "71236997",
-    "title": "대한민국 유일한 가이드가 되어버렸다 [19세 완전판]",
+    "workId": "70864123",
+    "title": "망돌 탈출했더니 결혼하자고? [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
     "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 25,
-    "workId": "70968310",
-    "title": "감각의 재정립 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 26,
-    "workId": "67399172",
-    "title": "남주와 침대에서 뒹굴었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=goq3C/dJMcadQ7tYg/rjKkRCdHdM7pgA4f1DkJR1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 6
     }
   },
   {
-    "rank": 27,
-    "workId": "70331844",
-    "title": "금쪽이 에스퍼의 업보 청산은 셀프입니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 28,
-    "workId": "63878791",
-    "title": "도망가는 어린 양을 쫓는 법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bfpEfH/dJMcaaAe6Qt/5iWH0nZxeVUk2Yhi1bWEH1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 29,
+    "rank": 25,
     "workId": "71323125",
     "title": "그림자 가이드 [19세 완전판]",
     "thumbnail": null,
@@ -489,13 +421,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 4
     }
   },
   {
-    "rank": 30,
-    "workId": "70864123",
-    "title": "망돌 탈출했더니 결혼하자고? [19세 완전판]",
+    "rank": 26,
+    "workId": "70331844",
+    "title": "금쪽이 에스퍼의 업보 청산은 셀프입니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -505,12 +437,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "up",
+      "amount": 1
     }
   },
   {
-    "rank": 31,
+    "rank": 27,
     "workId": "61778104",
     "title": "와일드 카드(Wild Card) [19세 완전판]",
     "thumbnail": null,
@@ -522,80 +454,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 28,
+    "workId": "70968310",
+    "title": "감각의 재정립 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "down",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 32,
-    "workId": "68486811",
-    "title": "광공이 나를 오작교로 쓰려고 한다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 33,
-    "workId": "70327636",
-    "title": "죽은 첫사랑이 돌아왔다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 34,
-    "workId": "67277518",
-    "title": "악역의 보좌관이 도망쳤다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 35,
-    "workId": "59812398",
-    "title": "패션 : 다이아포닉 심포니아",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ddj0JZ/hzCtcgOUBB/gmtb0fZyjHRNlfs1L4Gly1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
       "amount": 3
     }
   },
   {
-    "rank": 36,
+    "rank": 29,
     "workId": "71255696",
     "title": "외로운 다람쥐도 제 굴이 있다 [19세 완전판]",
     "thumbnail": null,
@@ -608,13 +489,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 7
     }
   },
   {
-    "rank": 37,
-    "workId": "69133114",
-    "title": "탁월한 거짓말 [19세 완전판]",
+    "rank": 30,
+    "workId": "68486811",
+    "title": "광공이 나를 오작교로 쓰려고 한다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -625,13 +506,81 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 14
+      "amount": 2
     }
   },
   {
-    "rank": 38,
+    "rank": 31,
+    "workId": "69133111",
+    "title": "탁월한 거짓말",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=N365D/dJMcadX0RqN/bjrjJLC6eBV6Zxf7MUcU8k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 32,
     "workId": "70330991",
     "title": "믿을 수 없게도 악녀의 오빠가 되었다[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 33,
+    "workId": "63878791",
+    "title": "도망가는 어린 양을 쫓는 법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bfpEfH/dJMcaaAe6Qt/5iWH0nZxeVUk2Yhi1bWEH1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 34,
+    "workId": "69125748",
+    "title": "바람 상대는 내가 아니야! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 35,
+    "workId": "67277518",
+    "title": "악역의 보좌관이 도망쳤다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -646,26 +595,26 @@
     }
   },
   {
-    "rank": 39,
-    "workId": "67491190",
-    "title": "시한폭탄을 가이딩할 생각은 없었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8ccls/dJMcajxcnVa/VyRkLPEIJSfkRzfNo1Hl40&filename=th3",
+    "rank": 36,
+    "workId": "70546075",
+    "title": "이혼만을 기다립니다 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 5
     }
   },
   {
-    "rank": 40,
-    "workId": "61994740",
-    "title": "내가 먼저 좋아했는데 [19세 완전판]",
+    "rank": 37,
+    "workId": "70327636",
+    "title": "죽은 첫사랑이 돌아왔다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -680,9 +629,26 @@
     }
   },
   {
-    "rank": 41,
-    "workId": "70546075",
-    "title": "이혼만을 기다립니다 [19세 완전판]",
+    "rank": 38,
+    "workId": "59812398",
+    "title": "패션 : 다이아포닉 심포니아",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ddj0JZ/hzCtcgOUBB/gmtb0fZyjHRNlfs1L4Gly1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 39,
+    "workId": "71236997",
+    "title": "대한민국 유일한 가이드가 되어버렸다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -693,14 +659,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 9
+      "amount": 15
     }
   },
   {
-    "rank": 42,
-    "workId": "69133111",
-    "title": "탁월한 거짓말",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=N365D/dJMcadX0RqN/bjrjJLC6eBV6Zxf7MUcU8k&filename=th3",
+    "rank": 40,
+    "workId": "67491190",
+    "title": "시한폭탄을 가이딩할 생각은 없었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=8ccls/dJMcajxcnVa/VyRkLPEIJSfkRzfNo1Hl40&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -709,8 +675,42 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 41,
+    "workId": "69133114",
+    "title": "탁월한 거짓말 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 42,
+    "workId": "71312910",
+    "title": "원래 집착도 전염이 되나요? [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
       "type": "up",
-      "amount": 91
+      "amount": 13
     }
   },
   {
@@ -726,8 +726,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 7
+      "type": "same",
+      "amount": null
     }
   },
   {
@@ -743,29 +743,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 45,
-    "workId": "69125748",
-    "title": "바람 상대는 내가 아니야! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 46,
     "workId": "64904037",
     "title": "집착광공이 아방수에 미치는 이유 [19세 완전판]",
     "thumbnail": null,
@@ -778,41 +761,58 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 1
+    }
+  },
+  {
+    "rank": 46,
+    "workId": "69406017",
+    "title": "운명 징크스",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=xDhIr/dJMcaaFxOsH/2bJ1ilzZsIW8Dprp2V8zZ0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 28
     }
   },
   {
     "rank": 47,
-    "workId": "69329606",
-    "title": "우리는 단지 봄을 사랑하지 않았을 뿐",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b16CNA/dJMcaaAklKI/i3r2NDd50SPSC0XJrW7tJ1&filename=th3",
+    "workId": "70321261",
+    "title": "어느 날, 아기맹수가 청혼했다 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
+      "type": "up",
+      "amount": 13
     }
   },
   {
     "rank": 48,
-    "workId": "70969251",
-    "title": "감각의 재정립",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dmPBzn/dJMcaf2zw1d/9pxLp98msFjJ7ujgtC2Dl0&filename=th3",
+    "workId": "71294889",
+    "title": "간택 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
+      "type": "up",
+      "amount": 8
     }
   },
   {
@@ -828,14 +828,31 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 4
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 50,
-    "workId": "68084269",
-    "title": "폭군 황제의 목줄을 쥐는 법 [19세 완전판]",
+    "workId": "69125747",
+    "title": "바람 상대는 내가 아니야!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oweyk/dJMcabeDPF6/3fKbRAHmDUDXU9ttGnitKK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 235
+    }
+  },
+  {
+    "rank": 51,
+    "workId": "64538531",
+    "title": "꽃은 밤을 걷는다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -846,14 +863,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 10
+      "amount": 27
     }
   },
   {
-    "rank": 51,
-    "workId": "70975945",
-    "title": "지금부터 멸망이 시작됩니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=o6EK1/dJMcagtJktA/ekvUhuflfaxatYlx703GWK&filename=th3",
+    "rank": 52,
+    "workId": "66003622",
+    "title": "비밀 사이 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 53,
+    "workId": "69329606",
+    "title": "우리는 단지 봄을 사랑하지 않았을 뿐",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b16CNA/dJMcaaAklKI/i3r2NDd50SPSC0XJrW7tJ1&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -863,13 +897,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 6
     }
   },
   {
-    "rank": 52,
-    "workId": "70975911",
-    "title": "지금부터 멸망이 시작됩니다 [19세 완전판]",
+    "rank": 54,
+    "workId": "61994740",
+    "title": "내가 먼저 좋아했는데 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -880,13 +914,47 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 4
+      "amount": 14
     }
   },
   {
-    "rank": 53,
-    "workId": "63955984",
-    "title": "죽음을 피하고 싶었을 뿐인데 [19세 완전판] [완결]",
+    "rank": 55,
+    "workId": "69474246",
+    "title": "히든 매치 : 알파와 오메가의 연애 리얼리티 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 56,
+    "workId": "69961955",
+    "title": "패션 : 스위트(suite) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 14
+    }
+  },
+  {
+    "rank": 57,
+    "workId": "68084269",
+    "title": "폭군 황제의 목줄을 쥐는 법 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -901,58 +969,24 @@
     }
   },
   {
-    "rank": 54,
-    "workId": "69474246",
-    "title": "히든 매치 : 알파와 오메가의 연애 리얼리티 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 58,
+    "workId": "70969251",
+    "title": "감각의 재정립",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dmPBzn/dJMcaf2zw1d/9pxLp98msFjJ7ujgtC2Dl0&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 11
+      "type": "down",
+      "amount": 10
     }
   },
   {
-    "rank": 55,
-    "workId": "71312910",
-    "title": "원래 집착도 전염이 되나요? [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 56,
-    "workId": "71294889",
-    "title": "간택 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 42
-    }
-  },
-  {
-    "rank": 57,
+    "rank": 59,
     "workId": "65138256",
     "title": "서브 남주로 살아남기 [19세 완전판]",
     "thumbnail": null,
@@ -964,12 +998,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
-      "amount": null
+      "type": "down",
+      "amount": 2
     }
   },
   {
-    "rank": 58,
+    "rank": 60,
     "workId": "67900897",
     "title": "순결을 위해 오늘, 죽기로 했습니다 [19세 완전판]",
     "thumbnail": null,
@@ -982,30 +1016,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 13
+      "amount": 2
     }
   },
   {
-    "rank": 59,
-    "workId": "66352519",
-    "title": "레가스(Regas) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 60,
-    "workId": "70321261",
-    "title": "어느 날, 아기맹수가 청혼했다 [19세 완전판]",
+    "rank": 61,
+    "workId": "63955984",
+    "title": "죽음을 피하고 싶었을 뿐인데 [19세 완전판] [완결]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1020,7 +1037,7 @@
     }
   },
   {
-    "rank": 61,
+    "rank": 62,
     "workId": "70332058",
     "title": "금쪽이 에스퍼의 업보 청산은 셀프입니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ci6jH1/dJMcajcLJEy/yhPvyUChJn8Zg9ZvyJwsXk&filename=th3",
@@ -1033,674 +1050,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 62,
-    "workId": "66576942",
-    "title": "한입거리 로맨스 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
+      "amount": 1
     }
   },
   {
     "rank": 63,
-    "workId": "66003622",
-    "title": "비밀 사이 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 10
-    }
-  },
-  {
-    "rank": 64,
-    "workId": "69262714",
-    "title": "에스퍼와 매칭률이 폭주 중입니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 65,
-    "workId": "70864122",
-    "title": "망돌 탈출했더니 결혼하자고?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5lZY1/dJMcajjEpFi/rXikiigkPMVU8BiuQczqzk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 66,
-    "workId": "70706368",
-    "title": "안 사귀니까 엮지 마세요;",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uKoH4/dJMcabr5Kqo/WXxnFCryyOxC5wum6BPU9k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 67,
-    "workId": "69959286",
-    "title": "패션 : 다이아포닉 심포니아 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 68,
-    "workId": "65733054",
-    "title": "첫사랑은 그만할래 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 11
-    }
-  },
-  {
-    "rank": 69,
-    "workId": "69885438",
-    "title": "서브남주 갱생 사태 [BL][19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 70,
-    "workId": "69961955",
-    "title": "패션 : 스위트(suite) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 71,
-    "workId": "71040377",
-    "title": "패션(PASSION) [19세 완전판] [단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 72,
-    "workId": "68697150",
-    "title": "SOS! 악역을 강제당하는 중입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byUhiJ/dJMcad4Gb0w/Gx73zu3l1VvJKwJaQKjlDK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 73,
-    "workId": "70307306",
-    "title": "비인기 멤버가 사라진 결과",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LaCDD/dJMcacqIixW/ayRxiqvtRESa4SklkJ3gBk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 74,
-    "workId": "69512228",
-    "title": "불멸자들 [19세 완전판][개정판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 75,
-    "workId": "67460299",
-    "title": "빙의에서 벗어나고 싶었을 뿐인데 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 76,
-    "workId": "60848877",
-    "title": "힐러 [특별외전 독점 19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 77,
-    "workId": "68704196",
-    "title": "리와인드 릴레이션십 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 78,
-    "workId": "64538531",
-    "title": "꽃은 밤을 걷는다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 42
-    }
-  },
-  {
-    "rank": 79,
-    "workId": "69819568",
-    "title": "황자님들, 집착 대상이 잘못되었습니다만 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 80,
-    "workId": "68634543",
-    "title": "좀비물은 항상 쓰레기들이 오래 산다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 10
-    }
-  },
-  {
-    "rank": 81,
-    "workId": "67233253",
-    "title": "천관사복 (삽화본)[단행본][개정판]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=guWjG/dJMb81Uax0b/k9extvJ14BYAlGuyJOnBMk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 24
-    }
-  },
-  {
-    "rank": 82,
-    "workId": "68906907",
-    "title": "미친 황제가 나를 자꾸 울리려 든다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 83,
-    "workId": "70330747",
-    "title": "믿을 수 없게도 악녀의 오빠가 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ewdJT/dJMb998EW83/2PdnzJ5fGH16D7e4oHvAf1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 84,
-    "workId": "65664592",
-    "title": "악당인데 용사 일행 최약체로 오해받는 중 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 85,
-    "workId": "71275594",
-    "title": "괴물 임보 일지 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 36
-    }
-  },
-  {
-    "rank": 86,
-    "workId": "67918628",
-    "title": "담비꺼야 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 87,
-    "workId": "68932760",
-    "title": "가장 안전한 세계 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 88,
-    "workId": "69826535",
-    "title": "빌런인데 히어로의 아이가 생겨 버렸다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 89,
-    "workId": "65296615",
-    "title": "주인공의 악역 형이 되었습니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 17
-    }
-  },
-  {
-    "rank": 90,
-    "workId": "60485968",
-    "title": "패션(PASSION) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 19
-    }
-  },
-  {
-    "rank": 91,
-    "workId": "71225835",
-    "title": "남편이 이혼을 요구합니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
-    }
-  },
-  {
-    "rank": 92,
-    "workId": "68285556",
-    "title": "헌터TV: SSS급 에스퍼와 산다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 93,
-    "workId": "69263747",
-    "title": "올 타임 하이 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 17
-    }
-  },
-  {
-    "rank": 94,
-    "workId": "68772805",
-    "title": "와일드 카드(Wild Card) [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 95,
-    "workId": "65917866",
-    "title": "그 형제가 부부가 된 사정 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "same",
-      "amount": null
-    }
-  },
-  {
-    "rank": 96,
-    "workId": "65804507",
-    "title": "악역 오메가는 드라마에서 탈출하고 싶다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 97,
-    "workId": "66283472",
-    "title": "페이백(PAYBACK) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 98,
-    "workId": "71220901",
-    "title": "사랑방 싸우나 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 99,
-    "workId": "71322815",
-    "title": "형과 나 re [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 100,
-    "workId": "63266161",
-    "title": "그 에스퍼와는 소꿉친구인데요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j6AgN/hAKLEiEUR7/dyJ3vs1H0C126YO79Qkb31&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 101,
     "workId": "71273997",
     "title": "하드 럭(Hard Luck) [19세 완전판]",
     "thumbnail": null,
@@ -1717,9 +1071,94 @@
     }
   },
   {
-    "rank": 102,
-    "workId": "70738958",
-    "title": "망돌은 연프 주인공으로 환승하겠습니다 [19세 완전판]",
+    "rank": 64,
+    "workId": "70975945",
+    "title": "지금부터 멸망이 시작됩니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=o6EK1/dJMcagtJktA/ekvUhuflfaxatYlx703GWK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 65,
+    "workId": "71040377",
+    "title": "패션(PASSION) [19세 완전판] [단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 66,
+    "workId": "69959286",
+    "title": "패션 : 다이아포닉 심포니아 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 67,
+    "workId": "70706368",
+    "title": "안 사귀니까 엮지 마세요;",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uKoH4/dJMcabr5Kqo/WXxnFCryyOxC5wum6BPU9k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 68,
+    "workId": "68697150",
+    "title": "SOS! 악역을 강제당하는 중입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=byUhiJ/dJMcad4Gb0w/Gx73zu3l1VvJKwJaQKjlDK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 69,
+    "workId": "66576942",
+    "title": "한입거리 로맨스 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1730,13 +1169,574 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 11
+      "amount": 7
+    }
+  },
+  {
+    "rank": 70,
+    "workId": "68634543",
+    "title": "좀비물은 항상 쓰레기들이 오래 산다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 71,
+    "workId": "70307306",
+    "title": "비인기 멤버가 사라진 결과",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=LaCDD/dJMcacqIixW/ayRxiqvtRESa4SklkJ3gBk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 72,
+    "workId": "66352519",
+    "title": "레가스(Regas) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 73,
+    "workId": "69262714",
+    "title": "에스퍼와 매칭률이 폭주 중입니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 74,
+    "workId": "67460299",
+    "title": "빙의에서 벗어나고 싶었을 뿐인데 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 75,
+    "workId": "70864122",
+    "title": "망돌 탈출했더니 결혼하자고?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b5lZY1/dJMcajjEpFi/rXikiigkPMVU8BiuQczqzk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 76,
+    "workId": "69819568",
+    "title": "황자님들, 집착 대상이 잘못되었습니다만 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 77,
+    "workId": "65733054",
+    "title": "첫사랑은 그만할래 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 78,
+    "workId": "68704196",
+    "title": "리와인드 릴레이션십 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 79,
+    "workId": "70975911",
+    "title": "지금부터 멸망이 시작됩니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 27
+    }
+  },
+  {
+    "rank": 80,
+    "workId": "65917866",
+    "title": "그 형제가 부부가 된 사정 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 81,
+    "workId": "67233253",
+    "title": "천관사복 (삽화본)[단행본][개정판]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=guWjG/dJMb81Uax0b/k9extvJ14BYAlGuyJOnBMk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 82,
+    "workId": "67918628",
+    "title": "담비꺼야 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 83,
+    "workId": "70330747",
+    "title": "믿을 수 없게도 악녀의 오빠가 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ewdJT/dJMb998EW83/2PdnzJ5fGH16D7e4oHvAf1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "same",
+      "amount": null
+    }
+  },
+  {
+    "rank": 84,
+    "workId": "69512228",
+    "title": "불멸자들 [19세 완전판][개정판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 85,
+    "workId": "70105826",
+    "title": "눈부신 숨 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 23
+    }
+  },
+  {
+    "rank": 86,
+    "workId": "65664592",
+    "title": "악당인데 용사 일행 최약체로 오해받는 중 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 87,
+    "workId": "68285556",
+    "title": "헌터TV: SSS급 에스퍼와 산다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 88,
+    "workId": "60485968",
+    "title": "패션(PASSION) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 89,
+    "workId": "61114566",
+    "title": "어프록시말 가이드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cefz7L/hzVqHimlYH/rjuOZJDGE0ej61xLzwKauk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 90,
+    "workId": "60848877",
+    "title": "힐러 [특별외전 독점 19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 14
+    }
+  },
+  {
+    "rank": 91,
+    "workId": "65296615",
+    "title": "주인공의 악역 형이 되었습니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 92,
+    "workId": "68772805",
+    "title": "와일드 카드(Wild Card) [19세 완전판][단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 93,
+    "workId": "68932760",
+    "title": "가장 안전한 세계 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 94,
+    "workId": "70952851",
+    "title": "종언의 세계 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 20
+    }
+  },
+  {
+    "rank": 95,
+    "workId": "65860414",
+    "title": "폐급 가이드가 되었는데 후배들이 내게 집착한다 [19세 완전판] [완결]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 96,
+    "workId": "71300869",
+    "title": "절정조교, 저택 X! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 59
+    }
+  },
+  {
+    "rank": 97,
+    "workId": "69263747",
+    "title": "올 타임 하이 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 98,
+    "workId": "65296069",
+    "title": "알파 집안의 하나뿐인 오메가 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 35
+    }
+  },
+  {
+    "rank": 99,
+    "workId": "71225835",
+    "title": "남편이 이혼을 요구합니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 100,
+    "workId": "71032792",
+    "title": "마왕성의 몽글몽글 침입자 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 29
+    }
+  },
+  {
+    "rank": 101,
+    "workId": "71220901",
+    "title": "사랑방 싸우나 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 102,
+    "workId": "63266161",
+    "title": "그 에스퍼와는 소꿉친구인데요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j6AgN/hAKLEiEUR7/dyJ3vs1H0C126YO79Qkb31&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 2
     }
   },
   {
     "rank": 103,
-    "workId": "65860414",
-    "title": "폐급 가이드가 되었는데 후배들이 내게 집착한다 [19세 완전판] [완결]",
+    "workId": "65070377",
+    "title": "제자를 괴롭히는 시한부 악역이 되어 버렸다 [19세 완전판] [완결]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1752,23 +1752,193 @@
   },
   {
     "rank": 104,
-    "workId": "61114566",
-    "title": "어프록시말 가이드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cefz7L/hzVqHimlYH/rjuOZJDGE0ej61xLzwKauk&filename=th3",
+    "workId": "69507336",
+    "title": "영웅 헌터는 육아 휴직 중! [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 20
+      "amount": 8
     }
   },
   {
     "rank": 105,
+    "workId": "70547661",
+    "title": "릭 미 업 이프 유 캔(Lick Me Up If You Can) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 106,
+    "workId": "71028435",
+    "title": "원사이드 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 107,
+    "workId": "69391956",
+    "title": "찰나의 첫사랑 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 19
+    }
+  },
+  {
+    "rank": 108,
+    "workId": "70327248",
+    "title": "죽은 첫사랑이 돌아왔다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dp3nX3/dJMcahevsJB/1IbLGWA0fsAb2eKX7ZH1v1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 109,
+    "workId": "66181540",
+    "title": "힘숨찐 가이드는 해달입니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 21
+    }
+  },
+  {
+    "rank": 110,
+    "workId": "69518534",
+    "title": "감금 피폐물에 대처하는 올바른 자세 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 22
+    }
+  },
+  {
+    "rank": 111,
+    "workId": "70738958",
+    "title": "망돌은 연프 주인공으로 환승하겠습니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 112,
+    "workId": "71315773",
+    "title": "원작대로 했는데도, [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 113,
+    "workId": "68290299",
+    "title": "오메가 부적 안 필요하세요? [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 27
+    }
+  },
+  {
+    "rank": 114,
+    "workId": "66283472",
+    "title": "페이백(PAYBACK) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 17
+    }
+  },
+  {
+    "rank": 115,
     "workId": "66626927",
     "title": "아웃사이더 오메가는 혼자이고 싶어! [19세 완전판]",
     "thumbnail": null,
@@ -1781,47 +1951,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
+      "amount": 10
     }
   },
   {
-    "rank": 106,
-    "workId": "59194458",
-    "title": "모노크롬 루머 [특별외전 독점]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Nibzm/hzVqKTGU1B/5UkK9k7k0rtmo2AKoJIIDK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 19
-    }
-  },
-  {
-    "rank": 107,
-    "workId": "68630367",
-    "title": "꿀 발린 S급 가이드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UPVCX/dJMcahi1FU7/97fFeQHaKrbjYrI1b9Icr0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 34
-    }
-  },
-  {
-    "rank": 108,
-    "workId": "70105826",
-    "title": "눈부신 숨 [19세 완전판]",
+    "rank": 116,
+    "workId": "70718279",
+    "title": "산들바람 로맨스 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1832,13 +1968,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 130
+      "amount": 5
     }
   },
   {
-    "rank": 109,
-    "workId": "71028435",
-    "title": "원사이드 [19세 완전판]",
+    "rank": 117,
+    "workId": "70091863",
+    "title": "필요충분조건 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1853,9 +1989,9 @@
     }
   },
   {
-    "rank": 110,
-    "workId": "71239816",
-    "title": "백치(白痴) [19세 완전판]",
+    "rank": 118,
+    "workId": "69615179",
+    "title": "(강제로) 병약한 가이드가 되어버린 건에 대하여 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1866,13 +2002,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 16
     }
   },
   {
-    "rank": 111,
-    "workId": "70091863",
-    "title": "필요충분조건 [19세 완전판]",
+    "rank": 119,
+    "workId": "71083478",
+    "title": "패션 : 다이아포닉 심포니아 [19세 완전판] [단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -1883,28 +2019,45 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 5
+      "amount": 9
     }
   },
   {
-    "rank": 112,
-    "workId": "69507336",
-    "title": "영웅 헌터는 육아 휴직 중! [19세 완전판]",
-    "thumbnail": null,
+    "rank": 120,
+    "workId": "59513875",
+    "title": "집착광공을 피해 아이를 낳는 방법",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dBjcb2/hzwBi1L0mO/ALIwMF8cbO6CAP0H3Jj8kk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
-    "ageRating": "19세",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 68
+    }
+  },
+  {
+    "rank": 121,
+    "workId": "60319128",
+    "title": "윈터필드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eprXyh/hzKkWDO16F/5eKAM2dgDCXz4zY5E4ktdK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 26
+      "amount": 3
     }
   },
   {
-    "rank": 113,
+    "rank": 122,
     "workId": "70738146",
     "title": "망돌은 연프 주인공으로 환승하겠습니다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=E3eTk/dJMcagG7Fge/pkXd7UnVIhbfF36JF162Dk&filename=th3",
@@ -1921,61 +2074,10 @@
     }
   },
   {
-    "rank": 114,
-    "workId": "70952851",
-    "title": "종언의 세계 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 15
-    }
-  },
-  {
-    "rank": 115,
-    "workId": "65070377",
-    "title": "제자를 괴롭히는 시한부 악역이 되어 버렸다 [19세 완전판] [완결]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 22
-    }
-  },
-  {
-    "rank": 116,
-    "workId": "70547661",
-    "title": "릭 미 업 이프 유 캔(Lick Me Up If You Can) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 117,
-    "workId": "70327248",
-    "title": "죽은 첫사랑이 돌아왔다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dp3nX3/dJMcahevsJB/1IbLGWA0fsAb2eKX7ZH1v1&filename=th3",
+    "rank": 123,
+    "workId": "59194458",
+    "title": "모노크롬 루머 [특별외전 독점]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Nibzm/hzVqKTGU1B/5UkK9k7k0rtmo2AKoJIIDK&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -1985,149 +2087,47 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 9
+      "amount": 17
     }
   },
   {
-    "rank": 118,
-    "workId": "60319128",
-    "title": "윈터필드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eprXyh/hzKkWDO16F/5eKAM2dgDCXz4zY5E4ktdK&filename=th3",
+    "rank": 124,
+    "workId": "70837454",
+    "title": "동절기 [19세완전판][단행본]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 71
+    }
+  },
+  {
+    "rank": 125,
+    "workId": "65661940",
+    "title": "진짜 악역이 아닌 악역",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pcd2l/hAJrPleuGF/nkvZKU2AfgB9cKBVYPKHdk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 72
-    }
-  },
-  {
-    "rank": 119,
-    "workId": "69226066",
-    "title": "천진서중양반파",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b35J4K/dJMcajvljay/Y8IgG52W4ZuKMbk64WErIK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 12
-    }
-  },
-  {
-    "rank": 120,
-    "workId": "70687104",
-    "title": "숲속 작은 집 창가에 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 121,
-    "workId": "70718279",
-    "title": "산들바람 로맨스 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 122,
-    "workId": "68674685",
-    "title": "지금부터 청혼만이 살길이다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 41
-    }
-  },
-  {
-    "rank": 123,
-    "workId": "60721613",
-    "title": "노벰버 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 124,
-    "workId": "70169335",
-    "title": "악역의 업보를 수습하는 중입니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 125,
-    "workId": "67618447",
-    "title": "남편 퇴치 프로젝트 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 19
+      "amount": 14
     }
   },
   {
     "rank": 126,
-    "workId": "69391956",
-    "title": "찰나의 첫사랑 [19세 완전판]",
+    "workId": "65804507",
+    "title": "악역 오메가는 드라마에서 탈출하고 싶다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2137,8 +2137,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 1
+      "type": "down",
+      "amount": 30
     }
   },
   {
@@ -2154,148 +2154,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 22
-    }
-  },
-  {
-    "rank": 128,
-    "workId": "71083478",
-    "title": "패션 : 다이아포닉 심포니아 [19세 완전판] [단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 129,
-    "workId": "71032792",
-    "title": "마왕성의 몽글몽글 침입자 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 122
-    }
-  },
-  {
-    "rank": 130,
-    "workId": "66181540",
-    "title": "힘숨찐 가이드는 해달입니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 131,
-    "workId": "65798898",
-    "title": "병약미인수는 망나니 내 동생",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cEDUQ/hAL17QAuPD/jKdZo6Gxa1DbkbsbOPa5Xk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 132,
-    "workId": "69518534",
-    "title": "감금 피폐물에 대처하는 올바른 자세 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 133,
-    "workId": "65296069",
-    "title": "알파 집안의 하나뿐인 오메가 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
+      "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 134,
-    "workId": "69615179",
-    "title": "(강제로) 병약한 가이드가 되어버린 건에 대하여 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 66
-    }
-  },
-  {
-    "rank": 135,
-    "workId": "71247611",
-    "title": "약탈의 밤 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 19
-    }
-  },
-  {
-    "rank": 136,
+    "rank": 128,
     "workId": "68098803",
     "title": "데드 엔딩을 피해 보겠습니다 [19세 완전판]",
     "thumbnail": null,
@@ -2308,36 +2172,36 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 20
+      "amount": 8
     }
   },
   {
-    "rank": 137,
-    "workId": "69603417",
-    "title": "마이 페어 매니악(My Fair Maniac) [19세 완전판]",
+    "rank": 129,
+    "workId": "65798898",
+    "title": "병약미인수는 망나니 내 동생",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cEDUQ/hAL17QAuPD/jKdZo6Gxa1DbkbsbOPa5Xk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 130,
+    "workId": "60721613",
+    "title": "노벰버 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
     "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 138,
-    "workId": "63259034",
-    "title": "악당에게 살아있는 걸 들켜버리면",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ookRQ/hAd42IF7ps/WKiXypweEqYkripF7GT2g1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -2346,26 +2210,162 @@
     }
   },
   {
-    "rank": 139,
-    "workId": "65661940",
-    "title": "진짜 악역이 아닌 악역",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pcd2l/hAJrPleuGF/nkvZKU2AfgB9cKBVYPKHdk&filename=th3",
+    "rank": 131,
+    "workId": "70169335",
+    "title": "악역의 업보를 수습하는 중입니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 132,
+    "workId": "64855986",
+    "title": "임신 실전, 빙의도 타이밍! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 36
+    }
+  },
+  {
+    "rank": 133,
+    "workId": "71247611",
+    "title": "약탈의 밤 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 2
+    }
+  },
+  {
+    "rank": 134,
+    "workId": "68630367",
+    "title": "꿀 발린 S급 가이드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UPVCX/dJMcahi1FU7/97fFeQHaKrbjYrI1b9Icr0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 27
+    }
+  },
+  {
+    "rank": 135,
+    "workId": "71322815",
+    "title": "형과 나 re [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 36
+    }
+  },
+  {
+    "rank": 136,
+    "workId": "70321251",
+    "title": "어느 날, 아기맹수가 청혼했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bhL7yq/dJMb998wzTM/42IGVTPaXl3VQmLgl1KhgK&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
     "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
+    "hasNewEpisode": true,
+    "change": {
+      "type": "up",
+      "amount": 29
+    }
+  },
+  {
+    "rank": 137,
+    "workId": "71275594",
+    "title": "괴물 임보 일지 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 52
+    }
+  },
+  {
+    "rank": 138,
+    "workId": "68674685",
+    "title": "지금부터 청혼만이 살길이다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 16
+    }
+  },
+  {
+    "rank": 139,
+    "workId": "71268695",
+    "title": "악역과 부모가 바뀌었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 19
+      "amount": 94
     }
   },
   {
     "rank": 140,
-    "workId": "68290299",
-    "title": "오메가 부적 안 필요하세요? [19세 완전판]",
+    "workId": "66799985",
+    "title": "단짝 V-log인데 단짝은 아닙니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2376,164 +2376,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 20
+      "amount": 54
     }
   },
   {
     "rank": 141,
-    "workId": "70425780",
-    "title": "매니저를 그만두니 배우가 쫓아왔다 [19세 완전판]",
-    "thumbnail": null,
+    "workId": "69226066",
+    "title": "천진서중양반파",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b35J4K/dJMcajvljay/Y8IgG52W4ZuKMbk64WErIK&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
-    "ageRating": "19세",
+    "ageRating": null,
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 12
+      "type": "down",
+      "amount": 22
     }
   },
   {
     "rank": 142,
-    "workId": "66862516",
-    "title": "러트 파트너 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 17
-    }
-  },
-  {
-    "rank": 143,
-    "workId": "71083894",
-    "title": "패션 : 스위트(suite) [19세 완전판] [단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 144,
-    "workId": "70050069",
-    "title": "세뇌를 풀려다가 각인이 돼 버렸다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 41
-    }
-  },
-  {
-    "rank": 145,
-    "workId": "53801300",
-    "title": "마도조사",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=x4KOW/hywgIUAGY6/GStuRUrkQL0fagdV3yMla1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 146,
-    "workId": "66995928",
-    "title": "악당 서브공의 애완 뱁새로 빙의했다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 147,
-    "workId": "71298710",
-    "title": "길드 막내가 되었습니다만 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 10
-    }
-  },
-  {
-    "rank": 148,
-    "workId": "69262703",
-    "title": "에스퍼와 매칭률이 폭주 중입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c63NP/dJMcacdFclP/LaYfKN1vUxIKdkpR5WeysK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 11
-    }
-  },
-  {
-    "rank": 149,
-    "workId": "70267410",
-    "title": "문란한 가이드에 빙의했다 [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 35
-    }
-  },
-  {
-    "rank": 150,
     "workId": "71290433",
     "title": "그 여름, 그 섬에서 [19세 완전판]",
     "thumbnail": null,
@@ -2546,13 +2410,30 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 43
+      "amount": 8
     }
   },
   {
-    "rank": 151,
-    "workId": "71274787",
-    "title": "회귀자 구원 레시피 [19세 완전판]",
+    "rank": 143,
+    "workId": "63259034",
+    "title": "악당에게 살아있는 걸 들켜버리면",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ookRQ/hAd42IF7ps/WKiXypweEqYkripF7GT2g1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 144,
+    "workId": "71239816",
+    "title": "백치(白痴) [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2562,12 +2443,29 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 12
+      "type": "down",
+      "amount": 34
     }
   },
   {
-    "rank": 152,
+    "rank": 145,
+    "workId": "69262703",
+    "title": "에스퍼와 매칭률이 폭주 중입니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c63NP/dJMcacdFclP/LaYfKN1vUxIKdkpR5WeysK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 146,
     "workId": "68486750",
     "title": "광공이 나를 오작교로 쓰려고 한다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uy2Fc/dJMcaiv2WoK/3gh2I0jauBhw8GdwAIc9kK&filename=th3",
@@ -2580,24 +2478,126 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 21
+      "amount": 6
     }
   },
   {
-    "rank": 153,
-    "workId": "64904038",
-    "title": "집착광공이 아방수에 미치는 이유",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vVfee/dJMcaa8ndlx/y6g6yN6Hw6EgAaRIZJ7Jxk&filename=th3",
+    "rank": 147,
+    "workId": "70687104",
+    "title": "숲속 작은 집 창가에 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 6
+      "amount": 27
+    }
+  },
+  {
+    "rank": 148,
+    "workId": "66339017",
+    "title": "이런 장르 아니었잖아요! [19세 완전판][완결]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 23
+    }
+  },
+  {
+    "rank": 149,
+    "workId": "70168719",
+    "title": "퇴사시켜 주세요, 주인님 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 150,
+    "workId": "63136492",
+    "title": "내 남편은 나를 싫어한다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 151,
+    "workId": "71298710",
+    "title": "길드 막내가 되었습니다만 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 152,
+    "workId": "69885438",
+    "title": "서브남주 갱생 사태 [BL][19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 83
+    }
+  },
+  {
+    "rank": 153,
+    "workId": "66995928",
+    "title": "악당 서브공의 애완 뱁새로 빙의했다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 7
     }
   },
   {
@@ -2613,20 +2613,88 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 14
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 155,
-    "workId": "71300869",
-    "title": "절정조교, 저택 X! [19세 완전판]",
+    "workId": "70050069",
+    "title": "세뇌를 풀려다가 각인이 돼 버렸다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
     "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 156,
+    "workId": "69603417",
+    "title": "마이 페어 매니악(My Fair Maniac) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 19
+    }
+  },
+  {
+    "rank": 157,
+    "workId": "69826535",
+    "title": "빌런인데 히어로의 아이가 생겨 버렸다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 69
+    }
+  },
+  {
+    "rank": 158,
+    "workId": "66862516",
+    "title": "러트 파트너 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 16
+    }
+  },
+  {
+    "rank": 159,
+    "workId": "69895090",
+    "title": "아이코닉 무드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=fAjnN/dJMcacdL95r/swGJKbHeKqa2g9Npda6d4K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -2635,24 +2703,7 @@
     }
   },
   {
-    "rank": 156,
-    "workId": "68099510",
-    "title": "여주가 탈주했더니 메인 남주가 폭군의 황후가 되었다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 157,
+    "rank": 160,
     "workId": "57566023",
     "title": "부시통",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cy9RNV/hy41MICimj/3orH9KnOImfogLQHNTCVQ1&filename=th3",
@@ -2665,28 +2716,28 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 6
+      "amount": 3
     }
   },
   {
-    "rank": 158,
-    "workId": "69512229",
-    "title": "불멸자들[개정판]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMek2Z/dJMcagsmVMV/Pq0kX61RkWeCrneaFvCNrK&filename=th3",
+    "rank": 161,
+    "workId": "62972346",
+    "title": "오메가 발현 주의보 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 30
+      "type": "up",
+      "amount": 59
     }
   },
   {
-    "rank": 159,
+    "rank": 162,
     "workId": "56098318",
     "title": "패션(Passion)",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bWiMjX/hyF28XdaUn/IkRW9fXenzDQoKo50Zwgs1&filename=th3",
@@ -2699,13 +2750,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 16
+      "amount": 3
     }
   },
   {
-    "rank": 160,
-    "workId": "68630549",
-    "title": "꿀 발린 S급 가이드 (외전) [19세 완전판]",
+    "rank": 163,
+    "workId": "67198007",
+    "title": "궁전 모텔 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2716,13 +2767,30 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 21
+      "amount": 49
     }
   },
   {
-    "rank": 161,
-    "workId": "63136492",
-    "title": "내 남편은 나를 싫어한다 [19세 완전판]",
+    "rank": 164,
+    "workId": "70766045",
+    "title": "또라이 알파 본부장을 피해 사직서를 냈더니 감금 당함 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 12
+    }
+  },
+  {
+    "rank": 165,
+    "workId": "67618447",
+    "title": "남편 퇴치 프로젝트 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2733,13 +2801,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 26
+      "amount": 40
     }
   },
   {
-    "rank": 162,
-    "workId": "71311230",
-    "title": "잘못했어요, 도련님[19세 완전판]",
+    "rank": 166,
+    "workId": "70162444",
+    "title": "하절기 [19세 완전판][단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2754,26 +2822,9 @@
     }
   },
   {
-    "rank": 163,
-    "workId": "71225043",
-    "title": "시한부 가이드에 빙의하지 말 것! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 101
-    }
-  },
-  {
-    "rank": 164,
-    "workId": "70168719",
-    "title": "퇴사시켜 주세요, 주인님 [19세 완전판]",
+    "rank": 167,
+    "workId": "63263063",
+    "title": "블레스 유, 블레스 미(Bless you, bless me) [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2784,14 +2835,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 19
+      "amount": 29
     }
   },
   {
-    "rank": 165,
-    "workId": "70321251",
-    "title": "어느 날, 아기맹수가 청혼했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bhL7yq/dJMb998wzTM/42IGVTPaXl3VQmLgl1KhgK&filename=th3",
+    "rank": 168,
+    "workId": "69512229",
+    "title": "불멸자들[개정판]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMek2Z/dJMcagsmVMV/Pq0kX61RkWeCrneaFvCNrK&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -2800,65 +2851,31 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
+      "type": "down",
       "amount": 10
     }
   },
   {
-    "rank": 166,
-    "workId": "69963671",
-    "title": "패션 : 라가(Raga)",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=crRM2X/dJMcabEYVgb/KFp80NQq4KcRXJBzyvvaC0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 6
-    }
-  },
-  {
-    "rank": 167,
-    "workId": "71246082",
-    "title": "무한으로 괴롭히기 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 168,
-    "workId": "64855986",
-    "title": "임신 실전, 빙의도 타이밍! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 45
-    }
-  },
-  {
     "rank": 169,
-    "workId": "63469222",
-    "title": "죽었더니 서브남주가 집착한다 [19세 완전판]",
+    "workId": "68522057",
+    "title": "던전에서 돌아온 애인이 다정해졌다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 18
+    }
+  },
+  {
+    "rank": 170,
+    "workId": "71083894",
+    "title": "패션 : 스위트(suite) [19세 완전판] [단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2869,30 +2886,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 170,
-    "workId": "64746829",
-    "title": "비비(Be, be) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
+      "amount": 27
     }
   },
   {
     "rank": 171,
-    "workId": "66339017",
-    "title": "이런 장르 아니었잖아요! [19세 완전판][완결]",
+    "workId": "68950537",
+    "title": "정지우, 전국 서열 2위에 빙의하다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -2902,8 +2902,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "up",
+      "amount": 11
     }
   },
   {
@@ -2919,37 +2919,20 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 102
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 173,
-    "workId": "70286384",
-    "title": "엑스트라인데 구멍이 둘. [19세 완전판]",
+    "workId": "71175541",
+    "title": "브라이트 플래시 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": false,
     "waitFreeType": null,
     "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 33
-    }
-  },
-  {
-    "rank": 174,
-    "workId": "63900883",
-    "title": "빌런에게도 사연이 있다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dd4Hm/hAd4eJCCd8/HhwiEp4rwRTQzqDqKHv9m1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
@@ -2958,41 +2941,24 @@
     }
   },
   {
-    "rank": 175,
-    "workId": "67403126",
-    "title": "우리 애는 안 물어요, 제가 물어요 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 174,
+    "workId": "64904038",
+    "title": "집착광공이 아방수에 미치는 이유",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=vVfee/dJMcaa8ndlx/y6g6yN6Hw6EgAaRIZJ7Jxk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 39
+      "amount": 21
     }
   },
   {
-    "rank": 176,
-    "workId": "70766045",
-    "title": "또라이 알파 본부장을 피해 사직서를 냈더니 감금 당함 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 177,
+    "rank": 175,
     "workId": "68906932",
     "title": "미친 황제가 나를 자꾸 울리려 든다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ceshWO/dJMcaio5qRY/nCwDWCJqqo8rGdThSRIPh1&filename=th3",
@@ -3005,13 +2971,370 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 12
+      "amount": 2
+    }
+  },
+  {
+    "rank": 176,
+    "workId": "70425780",
+    "title": "매니저를 그만두니 배우가 쫓아왔다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 35
+    }
+  },
+  {
+    "rank": 177,
+    "workId": "71367448",
+    "title": "알파 되려다 임신했다[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 49
     }
   },
   {
     "rank": 178,
-    "workId": "71139659",
-    "title": "모범 오메가 트레이닝 [19세 완전판]",
+    "workId": "63900883",
+    "title": "빌런에게도 사연이 있다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dd4Hm/hAd4eJCCd8/HhwiEp4rwRTQzqDqKHv9m1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 4
+    }
+  },
+  {
+    "rank": 179,
+    "workId": "69963671",
+    "title": "패션 : 라가(Raga)",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=crRM2X/dJMcabEYVgb/KFp80NQq4KcRXJBzyvvaC0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 180,
+    "workId": "71052549",
+    "title": "빙의했는데 악역이 아닌 것 같다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 39
+    }
+  },
+  {
+    "rank": 181,
+    "workId": "66075077",
+    "title": "나의 존귀한 자여 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 182,
+    "workId": "65296611",
+    "title": "주인공의 악역 형이 되었습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqkVp2/dJMcajm12mr/6QLAdFsgh5k6dam9DK6KlK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 183,
+    "workId": "53801300",
+    "title": "마도조사",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=x4KOW/hywgIUAGY6/GStuRUrkQL0fagdV3yMla1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 38
+    }
+  },
+  {
+    "rank": 184,
+    "workId": "65521960",
+    "title": "성녀인 척 연기합니다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 46
+    }
+  },
+  {
+    "rank": 185,
+    "workId": "68726762",
+    "title": "불완전 개화[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 49
+    }
+  },
+  {
+    "rank": 186,
+    "workId": "68630549",
+    "title": "꿀 발린 S급 가이드 (외전) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 26
+    }
+  },
+  {
+    "rank": 187,
+    "workId": "67926582",
+    "title": "무인도에서 민폐 악역캐로 생존하기 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 188,
+    "workId": "66749660",
+    "title": "남주가 서브남을 숨김 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 9
+    }
+  },
+  {
+    "rank": 189,
+    "workId": "66696390",
+    "title": "웹툰 속 악역, 흑화 드래곤이 되었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 29
+    }
+  },
+  {
+    "rank": 190,
+    "workId": "71311230",
+    "title": "잘못했어요, 도련님[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 28
+    }
+  },
+  {
+    "rank": 191,
+    "workId": "67403126",
+    "title": "우리 애는 안 물어요, 제가 물어요 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 16
+    }
+  },
+  {
+    "rank": 192,
+    "workId": "64746829",
+    "title": "비비(Be, be) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 22
+    }
+  },
+  {
+    "rank": 193,
+    "workId": "70267410",
+    "title": "문란한 가이드에 빙의했다 [19세 완전판][단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 44
+    }
+  },
+  {
+    "rank": 194,
+    "workId": "69020967",
+    "title": "마도조사 [19세 완전판][단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 77
+    }
+  },
+  {
+    "rank": 195,
+    "workId": "63469222",
+    "title": "죽었더니 서브남주가 집착한다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 26
+    }
+  },
+  {
+    "rank": 196,
+    "workId": "55649617",
+    "title": "Restart",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=z6wIV/hynaHbFi4v/tbX2eiDq7mDQn8h2NwIni0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 19
+    }
+  },
+  {
+    "rank": 197,
+    "workId": "70847747",
+    "title": "말랑말랑 핑크 젤리 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3026,43 +3349,9 @@
     }
   },
   {
-    "rank": 179,
-    "workId": "66749660",
-    "title": "남주가 서브남을 숨김 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 56
-    }
-  },
-  {
-    "rank": 180,
-    "workId": "70162444",
-    "title": "하절기 [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 19
-    }
-  },
-  {
-    "rank": 181,
-    "workId": "63865208",
-    "title": "어프록시말 가이드 [외전] [19세 완전판]",
+    "rank": 198,
+    "workId": "70325562",
+    "title": "금리(金利) [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3073,98 +3362,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 19
+      "amount": 3
     }
   },
   {
-    "rank": 182,
-    "workId": "68950537",
-    "title": "정지우, 전국 서열 2위에 빙의하다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 69
-    }
-  },
-  {
-    "rank": 183,
-    "workId": "66463634",
-    "title": "힐러인데 엉덩이가 바쁨 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 184,
-    "workId": "50872152",
-    "title": "길라잡이의 등불",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cKWQSa/dJMcaioIW9r/VRmZXkr5RW4ofKoSmjlVs0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 185,
-    "workId": "65296611",
-    "title": "주인공의 악역 형이 되었습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bqkVp2/dJMcajm12mr/6QLAdFsgh5k6dam9DK6KlK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 186,
+    "rank": 199,
     "workId": "68187029",
     "title": "러브 미 모어 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 187,
-    "workId": "68522057",
-    "title": "던전에서 돌아온 애인이 다정해졌다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3179,213 +3383,9 @@
     }
   },
   {
-    "rank": 188,
-    "workId": "59513875",
-    "title": "집착광공을 피해 아이를 낳는 방법",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dBjcb2/hzwBi1L0mO/ALIwMF8cbO6CAP0H3Jj8kk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 189,
-    "workId": "62632120",
-    "title": "악역인데 임신했다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ltUpw/hAd4blbcqq/HRgDKiRKT42AK5TpxfN05k&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 7
-    }
-  },
-  {
-    "rank": 190,
-    "workId": "67926582",
-    "title": "무인도에서 민폐 악역캐로 생존하기 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 33
-    }
-  },
-  {
-    "rank": 191,
-    "workId": "70870865",
-    "title": "폭군 예정 악역의 노예가 되었다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 192,
-    "workId": "70754387",
-    "title": "재벌집 좀비 아들 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 193,
-    "workId": "69702010",
-    "title": "너 말고 니 첫사랑 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 194,
-    "workId": "66799985",
-    "title": "단짝 V-log인데 단짝은 아닙니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 195,
-    "workId": "70837454",
-    "title": "동절기 [19세완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 102
-    }
-  },
-  {
-    "rank": 196,
-    "workId": "63263063",
-    "title": "블레스 유, 블레스 미(Bless you, bless me) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 197,
-    "workId": "71049418",
-    "title": "상실의 시작 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 32
-    }
-  },
-  {
-    "rank": 198,
-    "workId": "71167434",
-    "title": "원작 흑막은 어떻게 해도 흑막 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 199,
-    "workId": "70847747",
-    "title": "말랑말랑 핑크 젤리 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 43
-    }
-  },
-  {
     "rank": 200,
-    "workId": "62644551",
-    "title": "오메가 아닌데요 [19세 완전판]",
+    "workId": "70840803",
+    "title": "나락도 락이고, 아홉수도 수다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3395,14 +3395,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 33
+      "type": "up",
+      "amount": 22
     }
   },
   {
     "rank": 201,
-    "workId": "70325562",
-    "title": "금리(金利) [19세 완전판]",
+    "workId": "71294481",
+    "title": "엑스트라도 휴식이 필요하다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3412,14 +3412,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "new",
+      "amount": null
     }
   },
   {
     "rank": 202,
-    "workId": "69859875",
-    "title": "너의 죽은 가이드를 사칭했다 [19세 완전판]",
+    "workId": "71367565",
+    "title": "벽에 끼인 엉데렐라[19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3429,8 +3429,8 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 128
+      "type": "up",
+      "amount": 12
     }
   },
   {
@@ -3446,63 +3446,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 5
-    }
-  },
-  {
-    "rank": 204,
-    "workId": "65670435",
-    "title": "보편적 가이드의 평범한 일상 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 126
-    }
-  },
-  {
-    "rank": 205,
-    "workId": "61778052",
-    "title": "와일드 카드(Wild Card)",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biKVbv/dJMb99OFXzb/48kuRIXpetB2qLvrVXS4S1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 21
-    }
-  },
-  {
-    "rank": 206,
-    "workId": "71055065",
-    "title": "저속한 기류 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "same",
       "amount": null
     }
   },
   {
-    "rank": 207,
+    "rank": 204,
     "workId": "64881935",
     "title": "광공의 털뭉치로 빙의함 [19세 완전판]",
     "thumbnail": null,
@@ -3514,63 +3463,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
+      "type": "up",
       "amount": 3
     }
   },
   {
-    "rank": 208,
-    "workId": "62181989",
-    "title": "결혼과 부부생활 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 22
-    }
-  },
-  {
-    "rank": 209,
-    "workId": "70203577",
-    "title": "소꿉친구와 감금당했다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 54
-    }
-  },
-  {
-    "rank": 210,
-    "workId": "70308601",
-    "title": "빙의한 이물질 오메가로 생존하기! [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 99
-    }
-  },
-  {
-    "rank": 211,
+    "rank": 205,
     "workId": "66576903",
     "title": "한입거리 로맨스",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cAg7F7/dJMcaafyZIT/JL3mF9fWg9tKbUMkPrklHK&filename=th3",
@@ -3582,31 +3480,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 61
-    }
-  },
-  {
-    "rank": 212,
-    "workId": "67198007",
-    "title": "궁전 모텔 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "up",
-      "amount": 19
+      "amount": 6
     }
   },
   {
-    "rank": 213,
-    "workId": "62443594",
-    "title": "사랑은 쿵떡쿵 [19세 완전판]",
+    "rank": 206,
+    "workId": "62644551",
+    "title": "오메가 아닌데요 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3617,13 +3498,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 42
+      "amount": 6
     }
   },
   {
-    "rank": 214,
-    "workId": "71367565",
-    "title": "벽에 끼인 엉데렐라[19세 완전판]",
+    "rank": 207,
+    "workId": "71367902",
+    "title": "해야 나갈 수 있는 방―사이비편 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3634,14 +3515,65 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 2
+      "amount": 18
     }
   },
   {
-    "rank": 215,
-    "workId": "55649617",
-    "title": "Restart",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=z6wIV/hynaHbFi4v/tbX2eiDq7mDQn8h2NwIni0&filename=th3",
+    "rank": 208,
+    "workId": "68099510",
+    "title": "여주가 탈주했더니 메인 남주가 폭군의 황후가 되었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 52
+    }
+  },
+  {
+    "rank": 209,
+    "workId": "70734100",
+    "title": "위대하고 이로운 가이드 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 60
+    }
+  },
+  {
+    "rank": 210,
+    "workId": "63865208",
+    "title": "어프록시말 가이드 [외전] [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 29
+    }
+  },
+  {
+    "rank": 211,
+    "workId": "60806786",
+    "title": "미친놈들인 줄 알았더니 다정한 놈들인데요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cPe5xx/hzMT7wh2SX/x31KlG82PLRwF9T5fo6vlK&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -3650,8 +3582,76 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "up",
+      "amount": 64
+    }
+  },
+  {
+    "rank": 212,
+    "workId": "71225043",
+    "title": "시한부 가이드에 빙의하지 말 것! [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 49
+    }
+  },
+  {
+    "rank": 213,
+    "workId": "71027873",
+    "title": "원사이드",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=F88gB/dJMcafIxaJt/BttDSTVS6beTKwmWN4R0WK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 8
+    }
+  },
+  {
+    "rank": 214,
+    "workId": "65070426",
+    "title": "제자를 괴롭히는 시한부 악역이 되어 버렸다 [완결]",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=R42Ed/hALRZ6g3GT/CTyu0B6NwoDXhUfuf3y0Zk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 10
+    }
+  },
+  {
+    "rank": 215,
+    "workId": "68280718",
+    "title": "오메가를 부여받았습니다[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 23
     }
   },
   {
@@ -3667,14 +3667,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 11
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 217,
-    "workId": "67475247",
-    "title": "하기 싫어요, 아저씨 [19세 완전판]",
+    "workId": "69643430",
+    "title": "얼음성의 가이드 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3684,250 +3684,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 15
+      "type": "up",
+      "amount": 39
     }
   },
   {
     "rank": 218,
-    "workId": "66696390",
-    "title": "웹툰 속 악역, 흑화 드래곤이 되었다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 54
-    }
-  },
-  {
-    "rank": 219,
-    "workId": "71052549",
-    "title": "빙의했는데 악역이 아닌 것 같다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 32
-    }
-  },
-  {
-    "rank": 220,
-    "workId": "62972346",
-    "title": "오메가 발현 주의보 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 50
-    }
-  },
-  {
-    "rank": 221,
-    "workId": "71027873",
-    "title": "원사이드",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=F88gB/dJMcafIxaJt/BttDSTVS6beTKwmWN4R0WK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 222,
-    "workId": "70840803",
-    "title": "나락도 락이고, 아홉수도 수다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 15
-    }
-  },
-  {
-    "rank": 223,
-    "workId": "66985528",
-    "title": "랭킹 1위와 매칭되었다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 13
-    }
-  },
-  {
-    "rank": 224,
-    "workId": "65070426",
-    "title": "제자를 괴롭히는 시한부 악역이 되어 버렸다 [완결]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=R42Ed/hALRZ6g3GT/CTyu0B6NwoDXhUfuf3y0Zk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 225,
-    "workId": "71367902",
-    "title": "해야 나갈 수 있는 방―사이비편 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 27
-    }
-  },
-  {
-    "rank": 226,
-    "workId": "71367448",
-    "title": "알파 되려다 임신했다[19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 73
-    }
-  },
-  {
-    "rank": 227,
-    "workId": "62471576",
-    "title": "대쉬(DASH)[19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 228,
-    "workId": "69710826",
-    "title": "최애와 국혼했다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 62
-    }
-  },
-  {
-    "rank": 229,
-    "workId": "70003020",
-    "title": "악역 안 할 건데요? [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 15
-    }
-  },
-  {
-    "rank": 230,
-    "workId": "65521960",
-    "title": "성녀인 척 연기합니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 38
-    }
-  },
-  {
-    "rank": 231,
-    "workId": "67422516",
-    "title": "용 아들을 얻었더니 북부 대공 남편이 덤으로 딸려 옴",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cSyYOJ/dJMb9LqfPNf/7XxXJLMd3kDIEXQDOp5Wj0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 2
-    }
-  },
-  {
-    "rank": 232,
     "workId": "70870469",
     "title": "바닥에서 한 뼘 [19세 완전판]",
     "thumbnail": null,
@@ -3940,13 +3702,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 15
+      "amount": 14
     }
   },
   {
-    "rank": 233,
-    "workId": "71268695",
-    "title": "악역과 부모가 바뀌었다 [19세 완전판]",
+    "rank": 219,
+    "workId": "65451218",
+    "title": "호감도 올리려다 광공들을 꼬셔버렸다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3961,9 +3723,145 @@
     }
   },
   {
-    "rank": 234,
-    "workId": "68726762",
-    "title": "불완전 개화[19세 완전판]",
+    "rank": 220,
+    "workId": "62471576",
+    "title": "대쉬(DASH)[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 221,
+    "workId": "62632120",
+    "title": "악역인데 임신했다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ltUpw/hAd4blbcqq/HRgDKiRKT42AK5TpxfN05k&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 32
+    }
+  },
+  {
+    "rank": 222,
+    "workId": "71273254",
+    "title": "단짠단짠 보약한첩 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 31
+    }
+  },
+  {
+    "rank": 223,
+    "workId": "70003020",
+    "title": "악역 안 할 건데요? [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 6
+    }
+  },
+  {
+    "rank": 224,
+    "workId": "66463634",
+    "title": "힐러인데 엉덩이가 바쁨 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 41
+    }
+  },
+  {
+    "rank": 225,
+    "workId": "70754387",
+    "title": "재벌집 좀비 아들 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 33
+    }
+  },
+  {
+    "rank": 226,
+    "workId": "67900542",
+    "title": "순결을 위해 오늘, 죽기로 했습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=b7QKfp/dJMb9YJ06Kg/XQOPjkWvtlr7vgxj6OqlJ1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 227,
+    "workId": "69710826",
+    "title": "최애와 국혼했다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 1
+    }
+  },
+  {
+    "rank": 228,
+    "workId": "71055065",
+    "title": "저속한 기류 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3978,9 +3876,77 @@
     }
   },
   {
-    "rank": 235,
-    "workId": "63775143",
-    "title": "아저씨가 저를 좋아하는 것 같아요 [19세 완전판]",
+    "rank": 229,
+    "workId": "69937571",
+    "title": "나의 다정한 포식자 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 230,
+    "workId": "65990696",
+    "title": "기억상실 베타테스터 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 27
+    }
+  },
+  {
+    "rank": 231,
+    "workId": "71367775",
+    "title": "몸보신하는 교주님[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 13
+    }
+  },
+  {
+    "rank": 232,
+    "workId": "71167434",
+    "title": "원작 흑막은 어떻게 해도 흑막 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 34
+    }
+  },
+  {
+    "rank": 233,
+    "workId": "67475247",
+    "title": "하기 싫어요, 아저씨 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -3995,9 +3961,9 @@
     }
   },
   {
-    "rank": 236,
-    "workId": "69937571",
-    "title": "나의 다정한 포식자 [19세 완전판]",
+    "rank": 234,
+    "workId": "71049418",
+    "title": "상실의 시작 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4008,7 +3974,41 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 25
+      "amount": 37
+    }
+  },
+  {
+    "rank": 235,
+    "workId": "70870865",
+    "title": "폭군 예정 악역의 노예가 되었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 44
+    }
+  },
+  {
+    "rank": 236,
+    "workId": "71325303",
+    "title": "오늘도 발기찬 도련님[19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 11
     }
   },
   {
@@ -4024,14 +4024,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 9
+      "type": "same",
+      "amount": null
     }
   },
   {
     "rank": 238,
-    "workId": "68280718",
-    "title": "오메가를 부여받았습니다[19세 완전판]",
+    "workId": "70898745",
+    "title": "귀왕의 신부 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4042,14 +4042,48 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 3
+      "amount": 56
     }
   },
   {
     "rank": 239,
-    "workId": "60800539",
-    "title": "메인공 간택에 내 목숨이 걸려 있다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ba01aq/hzVqEeSSei/8MuzQvIdEKnfMWLRi0iTlk&filename=th3",
+    "workId": "50872152",
+    "title": "길라잡이의 등불",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cKWQSa/dJMcaioIW9r/VRmZXkr5RW4ofKoSmjlVs0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 55
+    }
+  },
+  {
+    "rank": 240,
+    "workId": "66005551",
+    "title": "에스퍼가 다섯 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 241,
+    "workId": "60109925",
+    "title": "Double Shot(더블 샷)",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cX6wHW/hzHNBo0Mip/KLVk9f5d9KxkDrKt7OyJ4K&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -4058,12 +4092,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 19
+      "type": "new",
+      "amount": null
     }
   },
   {
-    "rank": 240,
+    "rank": 242,
     "workId": "69956325",
     "title": "원래 가이드가 다 이런가요? [19세 완전판]",
     "thumbnail": null,
@@ -4076,79 +4110,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 19
-    }
-  },
-  {
-    "rank": 241,
-    "workId": "56334171",
-    "title": "이혼의 조건",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SHsP0/hzVqKzo7aN/LfJ36HcelXTI2vynMLgdXk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 242,
-    "workId": "70737761",
-    "title": "순정도 변한다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 8
+      "amount": 2
     }
   },
   {
     "rank": 243,
-    "workId": "65733091",
-    "title": "첫사랑은 그만할래",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nh6ov/dJMcacrlxAi/c0Is7tBvm33CdxKIOdFiQk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 51
-    }
-  },
-  {
-    "rank": 244,
-    "workId": "71367775",
-    "title": "몸보신하는 교주님[19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 34
-    }
-  },
-  {
-    "rank": 245,
     "workId": "71161449",
     "title": "멸망을 막기 위한 요람 [19세 완전판]",
     "thumbnail": null,
@@ -4160,12 +4126,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 27
+      "type": "up",
+      "amount": 2
     }
   },
   {
-    "rank": 246,
+    "rank": 244,
     "workId": "67286225",
     "title": "너드 프릭 (NERD FREAK) [19세 완전판]",
     "thumbnail": null,
@@ -4177,31 +4143,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 247,
-    "workId": "71325303",
-    "title": "오늘도 발기찬 도련님[19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
       "type": "up",
-      "amount": 18
+      "amount": 2
     }
   },
   {
-    "rank": 248,
-    "workId": "69029591",
-    "title": "옷깃만 스치지 맙시다 [19세 완전판]",
+    "rank": 245,
+    "workId": "62443594",
+    "title": "사랑은 쿵떡쿵 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4212,45 +4161,11 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 96
+      "amount": 32
     }
   },
   {
-    "rank": 249,
-    "workId": "70878995",
-    "title": "살아서 만납시다 [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 250,
-    "workId": "64560001",
-    "title": "환생 후 데뷔합니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZZkQ6/hAMhjpKjVW/5R1VcNmEX0wGJORYJ66X11&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 251,
+    "rank": 246,
     "workId": "70719256",
     "title": "산들바람 로맨스",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=WKj8w/dJMcaaGSI26/bHHEUzKwAhDwUkH58kIfGK&filename=th3",
@@ -4262,12 +4177,63 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 29
+      "type": "up",
+      "amount": 5
     }
   },
   {
-    "rank": 252,
+    "rank": 247,
+    "workId": "69324546",
+    "title": "맹수주의보 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 248,
+    "workId": "71246082",
+    "title": "무한으로 괴롭히기 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 81
+    }
+  },
+  {
+    "rank": 249,
+    "workId": "66985528",
+    "title": "랭킹 1위와 매칭되었다 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 26
+    }
+  },
+  {
+    "rank": 250,
     "workId": "62427079",
     "title": "마교의 폐급 제자가 되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Q8p5A/hzVqFk57Qy/OF4s1v5CVpt55kKEZ48mD1&filename=th3",
@@ -4280,81 +4246,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 14
+      "amount": 2
     }
   },
   {
-    "rank": 253,
-    "workId": "71273254",
-    "title": "단짠단짠 보약한첩 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 254,
-    "workId": "67618298",
-    "title": "남편 퇴치 프로젝트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=V8enL/dJMcacScglV/iMukzPuhsG2d0a2e4C62r1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 4
-    }
-  },
-  {
-    "rank": 255,
-    "workId": "70954998",
-    "title": "종언의 세계",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=W1Env/dJMcacx5lud/ELSks4HU8RGrSkOv7uxpK0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 256,
-    "workId": "69643430",
-    "title": "얼음성의 가이드 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 257,
-    "workId": "65990696",
-    "title": "기억상실 베타테스터 [19세 완전판]",
+    "rank": 251,
+    "workId": "70737761",
+    "title": "순정도 변한다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4369,24 +4267,41 @@
     }
   },
   {
-    "rank": 258,
-    "workId": "68285548",
-    "title": "헌터TV: SSS급 에스퍼와 산다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9s5FF/dJMcabRggUD/vGc9Ulj4EQ2qBA3KOi4un0&filename=th3",
+    "rank": 252,
+    "workId": "71274787",
+    "title": "회귀자 구원 레시피 [19세 완전판]",
+    "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 34
+      "amount": 101
     }
   },
   {
-    "rank": 259,
+    "rank": 253,
+    "workId": "65670435",
+    "title": "보편적 가이드의 평범한 일상 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 49
+    }
+  },
+  {
+    "rank": 254,
     "workId": "71238555",
     "title": "러브 쥬스 [19세 완전판]",
     "thumbnail": null,
@@ -4399,64 +4314,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 8
+      "amount": 5
     }
   },
   {
-    "rank": 260,
-    "workId": "62115219",
-    "title": "지금 우리 사이는 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 35
-    }
-  },
-  {
-    "rank": 261,
-    "workId": "66075340",
-    "title": "나의 존귀한 자여",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=g6vnb/hAL17C20d3/KBUNF0vfnkuyHj4KUzZ7uk&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 22
-    }
-  },
-  {
-    "rank": 262,
-    "workId": "69324546",
-    "title": "맹수주의보 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 263,
-    "workId": "67500188",
-    "title": "눈을 떴더니 사장님과 신혼여행 중이다 [19세 완전판]",
+    "rank": 255,
+    "workId": "62148981",
+    "title": "대충 가이드합니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4467,116 +4331,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "up",
-      "amount": 27
+      "amount": 45
     }
   },
   {
-    "rank": 264,
-    "workId": "68511219",
-    "title": "애프터워크: 원나잇 프레젠테이션 [19세 완전판] ",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 18
-    }
-  },
-  {
-    "rank": 265,
-    "workId": "66383261",
-    "title": "강아지는 건드리지 마라 [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 21
-    }
-  },
-  {
-    "rank": 266,
-    "workId": "71194665",
-    "title": "수인 게임 속 오메가 실험실 : 사(巳) [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 87
-    }
-  },
-  {
-    "rank": 267,
-    "workId": "67918620",
-    "title": "담비꺼야",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lwnCj/dJMcablEkIs/5oHgup9OvsEWaZzRCuRBAK&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 14
-    }
-  },
-  {
-    "rank": 268,
-    "workId": "62859682",
-    "title": "성덕이 되었다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=BngXX/hzN2ku0UyB/WnnOk7mzQPiQT9t8VHGx2K&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": null,
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 269,
-    "workId": "70734100",
-    "title": "위대하고 이로운 가이드 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 9
-    }
-  },
-  {
-    "rank": 270,
-    "workId": "48175332",
-    "title": "드라마(DRAMA)_BL단독선공개",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=68g0v/hybBGa1Zjj/eanDTwUb5BrOVXerGaVjL0&filename=th3",
+    "rank": 256,
+    "workId": "64560001",
+    "title": "환생 후 데뷔합니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bZZkQ6/hAMhjpKjVW/5R1VcNmEX0wGJORYJ66X11&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -4590,9 +4352,9 @@
     }
   },
   {
-    "rank": 271,
-    "workId": "69020967",
-    "title": "마도조사 [19세 완전판][단행본]",
+    "rank": 257,
+    "workId": "70203577",
+    "title": "소꿉친구와 감금당했다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4603,11 +4365,147 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 94
+      "amount": 48
     }
   },
   {
-    "rank": 272,
+    "rank": 258,
+    "workId": "63387505",
+    "title": "빙의했더니 장르가 달라졌는데요?",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBq0oE/hAJrfRwBC1/xIImItFhinLd7cFJZBBOJK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 259,
+    "workId": "64746419",
+    "title": "나를 사랑한 에스퍼 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 260,
+    "workId": "66380167",
+    "title": "(2004) 미안하다 빙의했다!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c7jfAb/dJMcacEUp4H/kE3DqXWXpAGKNON6ybzDj0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 261,
+    "workId": "62442160",
+    "title": "성공지향적 가이드 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 262,
+    "workId": "69780529",
+    "title": "소원성취 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 263,
+    "workId": "62755226",
+    "title": "[BL] 환몽 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 34
+    }
+  },
+  {
+    "rank": 264,
+    "workId": "69702010",
+    "title": "너 말고 니 첫사랑 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 71
+    }
+  },
+  {
+    "rank": 265,
+    "workId": "63890472",
+    "title": "두 번씩이나 이 거지 같은 섬에 떨어지다니",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bM382n/hAd4wKg0fc/xYfqp3O7M37WR4zTMZ6yV1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 266,
     "workId": "65917865",
     "title": "그 형제가 부부가 된 사정",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Up4Cl/hAMhidi5Rz/jVvkgVkKqzhi67AZmsYSe1&filename=th3",
@@ -4619,12 +4517,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 2
+      "type": "up",
+      "amount": 6
     }
   },
   {
-    "rank": 273,
+    "rank": 267,
     "workId": "62744924",
     "title": "장르가 잘못되었다",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=j2Zm5/hAd47JP00f/vPhNAi21K7FVaZ5kHtH7Y0&filename=th3",
@@ -4641,27 +4539,10 @@
     }
   },
   {
-    "rank": 274,
-    "workId": "71242644",
-    "title": "패싱 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 275,
-    "workId": "60806786",
-    "title": "미친놈들인 줄 알았더니 다정한 놈들인데요?",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cPe5xx/hzMT7wh2SX/x31KlG82PLRwF9T5fo6vlK&filename=th3",
+    "rank": 268,
+    "workId": "67422516",
+    "title": "용 아들을 얻었더니 북부 대공 남편이 덤으로 딸려 옴",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cSyYOJ/dJMb9LqfPNf/7XxXJLMd3kDIEXQDOp5Wj0&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -4670,12 +4551,12 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "down",
+      "amount": 37
     }
   },
   {
-    "rank": 276,
+    "rank": 269,
     "workId": "47443003",
     "title": "호형호제",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=FauQ1/hybnAay7dO/ieQZsxhWKrmMk307ZKh74k&filename=th3",
@@ -4692,9 +4573,9 @@
     }
   },
   {
-    "rank": 277,
-    "workId": "70962451",
-    "title": "시크릿 튜터링(Secret Tutoring) [19세 완전판]",
+    "rank": 270,
+    "workId": "67500188",
+    "title": "눈을 떴더니 사장님과 신혼여행 중이다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4705,79 +4586,62 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 16
+      "amount": 7
     }
   },
   {
-    "rank": 278,
-    "workId": "69884292",
-    "title": "도망가기 귀찮습니다 [19세 완전판]",
-    "thumbnail": null,
+    "rank": 271,
+    "workId": "68285548",
+    "title": "헌터TV: SSS급 에스퍼와 산다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=9s5FF/dJMcabRggUD/vGc9Ulj4EQ2qBA3KOi4un0&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 3
-    }
-  },
-  {
-    "rank": 279,
-    "workId": "69598017",
-    "title": "개차반 S급 악역에 빙의했습니다 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 25
-    }
-  },
-  {
-    "rank": 280,
-    "workId": "71340045",
-    "title": "월하동궁야사 [19세 완전판][단행본]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "up",
-      "amount": 20
-    }
-  },
-  {
-    "rank": 281,
-    "workId": "67429137",
-    "title": "인생 2회차, 곧 죽습니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eztTO/dJMb84cibli/bZyU8vxIacfbMRvXTDqtz0&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
+    "waitFree": true,
+    "waitFreeType": "기다무",
     "ageRating": "15세",
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 23
+      "amount": 13
     }
   },
   {
-    "rank": 282,
+    "rank": 272,
+    "workId": "67918620",
+    "title": "담비꺼야",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=lwnCj/dJMcablEkIs/5oHgup9OvsEWaZzRCuRBAK&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 273,
+    "workId": "48175332",
+    "title": "드라마(DRAMA)_BL단독선공개",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=68g0v/hybBGa1Zjj/eanDTwUb5BrOVXerGaVjL0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 3
+    }
+  },
+  {
+    "rank": 274,
     "workId": "70325494",
     "title": "금리(金利)",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=JHWFp/dJMcaiK75we/CKNkHc6zpYEkR40kYWpzWK&filename=th3",
@@ -4789,31 +4653,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 20
+      "type": "up",
+      "amount": 8
     }
   },
   {
-    "rank": 283,
-    "workId": "70274808",
-    "title": "일방적 계약 해지 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 51
-    }
-  },
-  {
-    "rank": 284,
-    "workId": "70168347",
-    "title": "악역의 최후는 임신 [19세 완전판]",
+    "rank": 275,
+    "workId": "69960542",
+    "title": "패션 : 라가(Raga) [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4828,10 +4675,10 @@
     }
   },
   {
-    "rank": 285,
-    "workId": "69125747",
-    "title": "바람 상대는 내가 아니야!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oweyk/dJMcabeDPF6/3fKbRAHmDUDXU9ttGnitKK&filename=th3",
+    "rank": 276,
+    "workId": "60800539",
+    "title": "메인공 간택에 내 목숨이 걸려 있다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ba01aq/hzVqEeSSei/8MuzQvIdEKnfMWLRi0iTlk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -4840,14 +4687,167 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "same",
+      "type": "down",
+      "amount": 37
+    }
+  },
+  {
+    "rank": 277,
+    "workId": "70525520",
+    "title": "보육원의 사범님 [19세 완전판][단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 278,
+    "workId": "70286384",
+    "title": "엑스트라인데 구멍이 둘. [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 105
+    }
+  },
+  {
+    "rank": 279,
+    "workId": "70168347",
+    "title": "악역의 최후는 임신 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 280,
+    "workId": "71272832",
+    "title": "302호의 국왕 폐하 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 7
+    }
+  },
+  {
+    "rank": 281,
+    "workId": "71234934",
+    "title": "스위트크라시(Sweetcrasy) [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 282,
+    "workId": "61248293",
+    "title": "짝사랑을 끝냈더니 소꿉친구들이 나에게 집착한다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=L9mfD/hzMT409sy3/mL67qTJSbS9Fiisp6G7lV1&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 283,
+    "workId": "62859682",
+    "title": "성덕이 되었다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=BngXX/hzN2ku0UyB/WnnOk7mzQPiQT9t8VHGx2K&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 15
+    }
+  },
+  {
+    "rank": 284,
+    "workId": "70878995",
+    "title": "살아서 만납시다 [19세 완전판][단행본]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 35
+    }
+  },
+  {
+    "rank": 285,
+    "workId": "70572258",
+    "title": "만남 어플은 사랑을 싣고 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
       "amount": null
     }
   },
   {
     "rank": 286,
-    "workId": "70898712",
-    "title": "귀왕의 신부 [19세 완전판][단행본]",
+    "workId": "64102679",
+    "title": "집착하는 S급 막내동생 떼어놓기 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4863,8 +4863,8 @@
   },
   {
     "rank": 287,
-    "workId": "71272832",
-    "title": "302호의 국왕 폐하 [19세 완전판]",
+    "workId": "68511219",
+    "title": "애프터워크: 원나잇 프레젠테이션 [19세 완전판] ",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4874,14 +4874,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 8
+      "type": "down",
+      "amount": 23
     }
   },
   {
     "rank": 288,
-    "workId": "65740947",
-    "title": "오늘도 서브공은 개수작질 중 [19세 완전판]",
+    "workId": "71340045",
+    "title": "월하동궁야사 [19세 완전판][단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4892,13 +4892,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 100
+      "amount": 8
     }
   },
   {
     "rank": 289,
-    "workId": "65731944",
-    "title": "계약 결혼에 기억상실 뿌리기 [19세 완전판]",
+    "workId": "62266953",
+    "title": "인투 더 쓰릴[19세 완전판][단행본]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4908,15 +4908,32 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "down",
-      "amount": 26
+      "type": "new",
+      "amount": null
     }
   },
   {
     "rank": 290,
-    "workId": "60129137",
-    "title": "끝내 닿는 봄",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ehFcD/dJMcabX0ZJp/VukECos03n9XkNC2QpX1mk&filename=th3",
+    "workId": "62146013",
+    "title": "셋 아닌 둘 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 291,
+    "workId": "65733091",
+    "title": "첫사랑은 그만할래",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=nh6ov/dJMcacrlxAi/c0Is7tBvm33CdxKIOdFiQk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -4925,12 +4942,46 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "up",
-      "amount": 3
+      "type": "down",
+      "amount": 48
     }
   },
   {
-    "rank": 291,
+    "rank": 292,
+    "workId": "67429137",
+    "title": "인생 2회차, 곧 죽습니다",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eztTO/dJMb84cibli/bZyU8vxIacfbMRvXTDqtz0&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 11
+    }
+  },
+  {
+    "rank": 293,
+    "workId": "56954638",
+    "title": "메인공의 순정을 가져갑니다.",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=7J42C/hzVqD1kyQb/wBCXtgr5fkeITI7h0q3uDk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": "15세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "new",
+      "amount": null
+    }
+  },
+  {
+    "rank": 294,
     "workId": "67460330",
     "title": "빙의에서 벗어나고 싶었을 뿐인데",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dHvVw/dJMb89ScVgz/RU8D1maSZH4Qz60ZtD43hK&filename=th3",
@@ -4943,30 +4994,13 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 56
+      "amount": 3
     }
   },
   {
-    "rank": 292,
-    "workId": "66158512",
-    "title": "힘숨찐 가이드는 해달입니다",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=biymgP/dJMcacSaK0B/FYBISAfKgK0RsonO2NBbP1&filename=th3",
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": true,
-    "waitFreeType": "기다무",
-    "ageRating": "15세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 1
-    }
-  },
-  {
-    "rank": 293,
-    "workId": "62258793",
-    "title": "오월의 우울한 실루엣 [19세 완전판]",
+    "rank": 295,
+    "workId": "69598017",
+    "title": "개차반 S급 악역에 빙의했습니다 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -4981,43 +5015,9 @@
     }
   },
   {
-    "rank": 294,
-    "workId": "70898745",
-    "title": "귀왕의 신부 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 91
-    }
-  },
-  {
-    "rank": 295,
-    "workId": "63207880",
-    "title": "불편한 동거인 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "down",
-      "amount": 7
-    }
-  },
-  {
     "rank": 296,
-    "workId": "70583593",
-    "title": "페로몬 쇼크 [19세 완전판]",
+    "workId": "71242644",
+    "title": "패싱 [19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
@@ -5028,31 +5028,14 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 51
+      "amount": 22
     }
   },
   {
     "rank": 297,
-    "workId": "62755226",
-    "title": "[BL] 환몽 [19세 완전판]",
-    "thumbnail": null,
-    "category": "웹소설",
-    "subCategory": "BL",
-    "waitFree": false,
-    "waitFreeType": null,
-    "ageRating": "19세",
-    "isNewRelease": false,
-    "hasNewEpisode": false,
-    "change": {
-      "type": "new",
-      "amount": null
-    }
-  },
-  {
-    "rank": 298,
-    "workId": "65860417",
-    "title": "폐급 가이드가 되었는데 후배들이 내게 집착한다 [완결]",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cUXsPw/hAL2hTcPPM/1Y90UeUPPEeHwsolHeVj41&filename=th3",
+    "workId": "56334171",
+    "title": "이혼의 조건",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=SHsP0/hzVqKzo7aN/LfJ36HcelXTI2vynMLgdXk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -5062,14 +5045,31 @@
     "hasNewEpisode": false,
     "change": {
       "type": "down",
-      "amount": 41
+      "amount": 56
+    }
+  },
+  {
+    "rank": 298,
+    "workId": "62258793",
+    "title": "오월의 우울한 실루엣 [19세 완전판]",
+    "thumbnail": null,
+    "category": "웹소설",
+    "subCategory": "BL",
+    "waitFree": false,
+    "waitFreeType": null,
+    "ageRating": "19세",
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "down",
+      "amount": 5
     }
   },
   {
     "rank": 299,
-    "workId": "65139204",
-    "title": "서브 남주로 살아남기",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=QcGl4/dJMcafBu27M/3u7B9KbwjdcVIt97I4zugk&filename=th3",
+    "workId": "60129137",
+    "title": "끝내 닿는 봄",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ehFcD/dJMcabX0ZJp/VukECos03n9XkNC2QpX1mk&filename=th3",
     "category": "웹소설",
     "subCategory": "BL",
     "waitFree": true,
@@ -5078,14 +5078,14 @@
     "isNewRelease": false,
     "hasNewEpisode": false,
     "change": {
-      "type": "new",
-      "amount": null
+      "type": "down",
+      "amount": 9
     }
   },
   {
     "rank": 300,
-    "workId": "62148981",
-    "title": "대충 가이드합니다 [19세 완전판]",
+    "workId": "71325344",
+    "title": "드래곤의 애완 인간이 될래[19세 완전판]",
     "thumbnail": null,
     "category": "웹소설",
     "subCategory": "BL",
