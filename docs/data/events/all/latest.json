@@ -1,10 +1,150 @@
 [
   {
-    "bannerUid": "221173",
-    "title": "1분 안에 1,100캐시 가능!",
-    "subtitle": "중요한 건 타이밍!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c89BGQ/dJMcacyvFj4/LDdnyoLuPXG8JeVIgYGxmK&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=6ede8e6292a1b080961c5e34da712b16"
+    "bannerUid": "221201",
+    "title": "독자님, 하트를 받으시겠습니까?",
+    "subtitle": "하트 캐치하면 캐시",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bpa8el/dJMcaf2ZVAN/nkNAyC3OvPVVgFSjkkaY10&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7ac73353b5aea78e5351b59cc7a1ab7c"
+  },
+  {
+    "bannerUid": "221187",
+    "title": "잊혀진 들판, 상수리나무 아래 팝업스토어가 곧 열려요!",
+    "subtitle": "웨이팅 하면 선물",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bgwwo5/dJMcah0NZ5h/2J63Ijsbcfs2yGuwY8ToI0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7186ce8ef6b898f4bfd6e33b54d559e2"
+  },
+  {
+    "bannerUid": "221246",
+    "title": "W 줄리엣 Ⅱ",
+    "subtitle": "3다무+캐시+할인!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bcR4Io/dJMcaat0LqK/kLGA5kH8meTkfwgavp9Fo1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19630/"
+  },
+  {
+    "bannerUid": "221244",
+    "title": "픽 미 업!",
+    "subtitle": "인기작 정주행!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=deZEFj/dJMcacSFoCY/njb1fhIPmk8IQ5SAkSB0Sk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19629/"
+  },
+  {
+    "bannerUid": "221242",
+    "title": "패왕영애",
+    "subtitle": "3다무+무료+캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=tBNrQ/dJMcacSFoyi/K3zk0R9plbevVIdkoqpil1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19628/"
+  },
+  {
+    "bannerUid": "221240",
+    "title": "종말의 세라프",
+    "subtitle": "3다무+캐시+할인!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dJ2uIt/dJMcaieB2cs/8XgPVzyZ2S30noGpgT8TJ0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19627/"
+  },
+  {
+    "bannerUid": "221238",
+    "title": "이런 역하렘은 싫어요",
+    "subtitle": "최종 완결 기념!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=w7OUj/dJMcabGgXd3/girMPUB9KW4t0lCgkmvlg1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19626/"
+  },
+  {
+    "bannerUid": "221235",
+    "title": "원피스",
+    "subtitle": "3다무+캐시+할인!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bUEpUt/dJMcahGyIIE/zdq2R0T7Z6ED4V61A7wl61&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19625/"
+  },
+  {
+    "bannerUid": "221231",
+    "title": "범하고 싶어",
+    "subtitle": "3다무+무료+캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=se7Gg/dJMcaiS8OX0/eT0GHzRaRi2zA6KQmN6Xc1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19624/"
+  },
+  {
+    "bannerUid": "221227",
+    "title": "무림에 떨어진 현대인",
+    "subtitle": "3다무+캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=duxYqU/dJMcaiS85fV/LTSitL9Ww93qz7VqPNk7Qk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19623/"
+  },
+  {
+    "bannerUid": "221223",
+    "title": "막장소설 속 악녀의 딸입니다",
+    "subtitle": "신작 론칭!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=XgXrG/dJMcabGgWKE/yUtJquPlAnkkmc4mCqNuzk&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19622/"
+  },
+  {
+    "bannerUid": "221220",
+    "title": "결혼도 안 했는데 무슨 이혼인가요, 폐하",
+    "subtitle": "최종 완결 기념!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=uCz2t/dJMcafIVCVD/SGroDAHdIHfx5I96RoPoD1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19621/"
+  },
+  {
+    "bannerUid": "219140",
+    "title": "수의사님! 안녕하세요?",
+    "subtitle": "30화 무료!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cHHi2q/dJMcabsF9Bu/vrpyMUNwYHzxL5b6CidzWK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=43eac02cef88cd7ebfd75fbfc2f85ce1"
+  },
+  {
+    "bannerUid": "221095",
+    "title": "빨루X힘숨하녀",
+    "subtitle": "리뷰 웹툰 보러가기",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cEIJ7/dJMcaiyQQmU/MjPI6kmPirWPaipa5NVe8K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=ba06d49b7d9ab274a8d4ae5b0f8ad26f"
+  },
+  {
+    "bannerUid": "221023",
+    "title": "퍼피 러브 릴레이션십",
+    "subtitle": "외전 론칭 이벤트!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=2aNZz/dJMb99V2VWF/JszvHcuK6wNEWfxTa3uwNK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=bbd331c9f5dd015dd739ee693d9dcfb1"
+  },
+  {
+    "bannerUid": "221193",
+    "title": "회귀한 재벌 손자는 용서가 어렵다",
+    "subtitle": "연참과 함께 정주행",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bs8jQD/dJMcaf2ZVf6/QaGXZnMndUdHkBbvNm967K&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=2397bde616a29b521cf17a5344f5a482"
+  },
+  {
+    "bannerUid": "221197",
+    "title": "그림자 세계의 미친 칼잡이",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cBl5yj/dJMcajkde8o/2Kq0wXpDrhTZoEs7ajUKz0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19618/"
+  },
+  {
+    "bannerUid": "221025",
+    "title": "졸업 못하면 학교 태워버릴 예정",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bSF0mF/dJMcagt8joH/K0mJNQKeXOQ95MRIDduxJ1&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19606/"
+  },
+  {
+    "bannerUid": "221195",
+    "title": "또 봐도 또 봐도 무료",
+    "subtitle": "또또또 무료로 보자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=dU1Rl7/dJMcadj1ywj/Cuuca3VovMOo1L2y42WWm0&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19619/"
+  },
+  {
+    "bannerUid": "221021",
+    "title": "또 봐도 또 봐도 무료",
+    "subtitle": "또또또 무료로 보자",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cixNog/dJMcahzPB8S/kXmjosHBxOuA5kB1cN2ofK&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=d7be360bb2d06128e5a1b4388d78b3ae"
+  },
+  {
+    "bannerUid": "221093",
+    "title": "막장소설 속 악녀의 딸입니다",
+    "subtitle": "단행본 할인 이벤트",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=gNWXS/dJMcahTWSYQ/4ekT5n6GAm98H1itSKdd10&filename=th3",
+    "link": "https://page.kakao.com/landing/series/list/page/landing/19614/"
   },
   {
     "bannerUid": "220869",
@@ -65,7 +205,7 @@
   {
     "bannerUid": "221019",
     "title": "미친 빌런이 정신을 되찾음",
-    "subtitle": "236.4만",
+    "subtitle": "244.2만",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=sXk12/dJMcaiypTtP/AxEnTxHRHaSdrIwq28HZpK&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=0c79c27a72b20d222ab6f7defc19929d"
   },
@@ -82,13 +222,6 @@
     "subtitle": "최대 3천 캐시!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cLotx4/dJMcabztUt5/abgZ8LyLkCloM19HNcqoA0&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=856bf711afce3c2feaeec5ec7d1b650f"
-  },
-  {
-    "bannerUid": "221000",
-    "title": "스페셜 오픈런 최대 5천캐시 선물",
-    "subtitle": "전원 캐시 선물",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=M1V4z/dJMb992SW6s/HojuzjX1qvCmc0SMqiVty1&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=2ae6a4d6692b970238defd83167165d5"
   },
   {
     "bannerUid": "220856",
@@ -469,13 +602,6 @@
     "link": "https://page.kakao.com/landing/series/list/page/landing/19566/"
   },
   {
-    "bannerUid": "180772",
-    "title": "랭킹 1위를 영혼까지 털어버림",
-    "subtitle": "한시한편 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=Y3cKd/dJMcadOUSTX/9mj76XXrO2aa9SBz1PN0JK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19569/"
-  },
-  {
     "bannerUid": "67835",
     "title": "삼류호텔 막내셰프",
     "subtitle": "기간 한정 이벤트!",
@@ -672,20 +798,6 @@
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=c08e0a871a2f3a742f1a914ab31c3b36"
   },
   {
-    "bannerUid": "219178",
-    "title": "11월 로판 셀렉트!",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eIhFK/dJMb99O2lFr/f671IVX4jvEvHGNbIv1vcK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/poster/page/landing/19477/"
-  },
-  {
-    "bannerUid": "219903",
-    "title": "하트 어택(Heart attack)",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=PNRGi/dJMcagOwnc4/dDw2wKwZAGFSEmd3ikO200&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19523/"
-  },
-  {
     "bannerUid": "219895",
     "title": "쟁자수가 천마 갤러리를 얻었다",
     "subtitle": "최대 3천 캐시!",
@@ -721,13 +833,6 @@
     "link": "https://page.kakao.com/landing/series/list/page/landing/19529/"
   },
   {
-    "bannerUid": "219960",
-    "title": "이계 검왕 생존기",
-    "subtitle": "3다무 + 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=IVO5Q/dJMcajddggq/2tEHoIW8169RP3Kw97chTK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19528/"
-  },
-  {
     "bannerUid": "219917",
     "title": "나 혼자 소드 마스터",
     "subtitle": "정주행 이벤트!",
@@ -742,13 +847,6 @@
     "link": "https://page.kakao.com/landing/series/list/page/landing/19525/"
   },
   {
-    "bannerUid": "219888",
-    "title": "독자의 선택",
-    "subtitle": "최대 1천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bwOcUc/dJMcagHJq3g/L9Na5jjgaSiFeO5F0Z0Bck&filename=th3",
-    "link": "https://page.kakao.com/landing/series/poster/page/landing/19518/"
-  },
-  {
     "bannerUid": "219886",
     "title": "계모인데, 딸이 너무 귀여워",
     "subtitle": "본편완결 시즌1무료",
@@ -761,13 +859,6 @@
     "subtitle": "3다무+무료UP!",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c1fnSI/dJMcagndWCP/6Xy0YWTHytnJ7rApQ9atQk&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=6d13e0a40cd606f9e0704640bdbf661e"
-  },
-  {
-    "bannerUid": "219144",
-    "title": "이 날만 기다렸다 외전 DAYS",
-    "subtitle": "외전+캐시 푼다!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btof7B/dJMcafu4dT2/fJuD36Yi2g2qrQA0BnXQGk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=9845aa4472f2e1d1bd4c13db58bc17b8"
   },
   {
     "bannerUid": "219905",
@@ -1127,55 +1218,6 @@
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=1e27d61822a122597c6e9e2fed01db23"
   },
   {
-    "bannerUid": "218771",
-    "title": "복숭아 심장",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=c4xFRs/dJMcaa1zpTF/aO1IufgRdHAP11NqJNkwcK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19438/"
-  },
-  {
-    "bannerUid": "218869",
-    "title": "앨버트가의 영애는 몰락을 소망합니다",
-    "subtitle": "기간 한정 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=DW8i5/dJMcabM8SUX/hAYwCOhQIPwVf2gmVsq0kk&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19449/"
-  },
-  {
-    "bannerUid": "218867",
-    "title": "나의 행복한 결혼",
-    "subtitle": "기간 한정 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bMPaiM/dJMcajj1bTu/d4knr4Bl3xGnHudIXfsFi0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19451/"
-  },
-  {
-    "bannerUid": "218862",
-    "title": "사내에서는 하지 말 것",
-    "subtitle": "부스팅 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=jFMRP/dJMcahs0Vfb/5YVTCKk0stLakMF4XEMmK0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19448/"
-  },
-  {
-    "bannerUid": "218856",
-    "title": "착한 며느리는 이제 없습니다",
-    "subtitle": "신작 론칭 기념!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bw52x8/dJMcaiyFGXv/5Y4jKNwmJ2ZyK2JneuHhXK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19447/"
-  },
-  {
-    "bannerUid": "218848",
-    "title": "죽은 아내가 돌아왔다",
-    "subtitle": "시즌2 오픈!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=eyLo7/dJMcafu2yBW/61bMJ4nN5Nx9Tc6JVVvvyK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19446/"
-  },
-  {
-    "bannerUid": "218618",
-    "title": "멸망급 데스나이트가 회귀함",
-    "subtitle": "삼각관계 등장?!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=cfvstz/dJMcabeWI4N/LxRySeRtNzAEFikdD9Dfak&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=efce5025dc8ec090d38b2ec3eb11f1e1"
-  },
-  {
     "bannerUid": "217299",
     "title": "인기 단행본, 세트 할인가로 만나요",
     "subtitle": "단행본 할인 이벤트",
@@ -1183,18 +1225,11 @@
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=2b982dfdd39a436dcb440c664ed1199c"
   },
   {
-    "bannerUid": "216213",
-    "title": "인기 단행본, 세트 할인가로 만나요",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=rL3u0/dJMcabMXSnb/VkWfYoDEYqmWR9n7KI3ap0&filename=th3",
-    "link": "https://page.kakao.com/landing/set/poster/page/landing/19267/"
-  },
-  {
     "bannerUid": "212474",
     "title": "BL소설 Top-Tier",
     "subtitle": "모아 보기",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=foSDM/dJMcagANLDM/N870KGEuGDtwpz7F0baEoK&filename=th3",
-    "link": "https://page.kakao.com/landing/series/card/page/landing/18973/"
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=e18b83be389749c49f7bbdf1c6497cab"
   },
   {
     "bannerUid": "203186",
