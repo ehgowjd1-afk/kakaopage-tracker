@@ -287,6 +287,10 @@ async function main() {
     if (!entry) return true;
     return now - new Date(entry.lastChecked).getTime() > refreshMs;
   });
+  // Never-seen works (no works.json entry) go first: ~2,000 works are due for their
+  // 30-day re-check every day, and in list order they used up the whole cap so new
+  // genre/new-release works waited weeks with no daily metrics (2026-11-26: 692).
+  staleIds.sort((a, b) => (cache[a] ? 1 : 0) - (cache[b] ? 1 : 0));
   const idsToFetch = staleIds.slice(0, MAX_DETAIL_FETCHES_PER_RUN);
   if (staleIds.length > idsToFetch.length) {
     console.log(

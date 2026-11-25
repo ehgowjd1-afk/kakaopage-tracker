@@ -30,9 +30,9 @@ function kakaoCount(n) {
   return n.toLocaleString('en-US');
 }
 
-export async function fetchBffDetail(seriesId) {
+export async function fetchBffDetail(seriesId, { gapMs = 300 } = {}) {
   const ov = await getJson(`${BASE}/overview?series_id=${seriesId}`);
-  await sleep(300);
+  await sleep(gapMs);
   const ab = await getJson(`${BASE}/about?series_id=${seriesId}`);
   const c = (ov.result && ov.result.content) || {};
   const a = ab.result || {};
