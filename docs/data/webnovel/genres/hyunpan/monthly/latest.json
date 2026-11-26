@@ -2186,7 +2186,7 @@
     "waitFreeType": "기다무",
     "ageRating": null,
     "isNewRelease": false,
-    "hasNewEpisode": false,
+    "hasNewEpisode": true,
     "change": {
       "type": "down",
       "amount": 1
@@ -4203,6 +4203,23 @@
     "workId": "68727882",
     "title": "장가",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=D9KNJ/dJMcabwCL4Y/nyKyeJjFPAh7dXAztnxANk&filename=th3",
+    "category": "웹소설",
+    "subCategory": "현판",
+    "waitFree": true,
+    "waitFreeType": "기다무",
+    "ageRating": null,
+    "isNewRelease": false,
+    "hasNewEpisode": false,
+    "change": {
+      "type": "up",
+      "amount": 5
+    }
+  },
+  {
+    "rank": 249,
+    "workId": "62757431",
+    "title": "차원이 다른 대표님",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ZoxkZ/dJMb9P0uNBn/Ao5AFTLipXmcuKU0KhuruK&filename=th3",
     "category": "웹소설",
     "subCategory": "현판",
     "waitFree": true,
