@@ -1,5 +1,19 @@
 [
   {
+    "bannerUid": "223612",
+    "title": "카카오페이지 금주의 루키 신작",
+    "subtitle": "최대 1만 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=pIhgo/dJMb999IT82/ZNWI0jKq8LBIqN2mxhExL0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=8e1a9cda11a5ef1eb1e2653047cc9169"
+  },
+  {
+    "bannerUid": "223610",
+    "title": "과실o 작가전",
+    "subtitle": "최대 3천 캐시!",
+    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oUL2E/dJMcadxpdTq/LxVlMYozRg5myEgC09Zdb0&filename=th3",
+    "link": "https://page.kakao.com/open/webview/event/?hash_uid=1af8231dea2865f2bc34bb730d431847"
+  },
+  {
     "bannerUid": "223603",
     "title": "잔혹한 상향혼",
     "subtitle": "최대 3천 캐시!",
@@ -26,13 +40,6 @@
     "subtitle": "밀리언페이지 >",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=ceHz8q/dJMcajqSNT2/RvQAxhKuBlpGGZxXiExVwk&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=035f0c29db44e1cc9e2afc41618cc23d"
-  },
-  {
-    "bannerUid": "223605",
-    "title": "스페셜 오픈런 최대 5천캐시 선물",
-    "subtitle": "전원 캐시 선물!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6toty/dJMcaiMlYtc/KEOoui51FvZh2SlGTjIYGk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=6df5f751df8935b9eafa4f4aaa774726"
   },
   {
     "bannerUid": "223424",
@@ -159,13 +166,6 @@
     "subtitle": "지금 확인하기>",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=6DlDi/dJMcaaOsy4W/S8XATJZDkPlxAdaSyYKZb1&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=b7a2b1f2710f36b54712b042052759ad"
-  },
-  {
-    "bannerUid": "223103",
-    "title": "남주가 죽은 아내를 찾다가 미쳐간다는데, 그 아내가 나다",
-    "subtitle": "연참과 함께 정주행",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=blNRlu/dJMcajxS9tn/gfhPQUgHJmF0zUKykm83nk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=7155b3f8247a2d4ef29ffdf06bc29933"
   },
   {
     "bannerUid": "223214",
@@ -308,13 +308,6 @@
     "link": "https://page.kakao.com/landing/set/poster/page/landing/19724/"
   },
   {
-    "bannerUid": "222372",
-    "title": "맹수 가문의 실세는 아기 새입니다!",
-    "subtitle": "최대 3천 캐시!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=NHjfA/dJMcabfdnQO/RLXUKKSGwnKX9GW9IZXtk1&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19713/"
-  },
-  {
     "bannerUid": "222528",
     "title": "과속으로 천마신교 데릴사위",
     "subtitle": "최대 3천 캐시!",
@@ -322,24 +315,10 @@
     "link": "https://page.kakao.com/landing/series/list/page/landing/19723/"
   },
   {
-    "bannerUid": "222550",
-    "title": "또 봐도 또 봐도 무료!",
-    "subtitle": "또또또 무료로 보자",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=boQO7q/dJMcabsVJsY/SCTJu9k8yPcHbc1DeNJM70&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19727/"
-  },
-  {
     "bannerUid": "222195",
     "title": "<상수리>, <잊들>",
     "subtitle": "팝업스토어 OPEN",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=bPUk5x/dJMcabNoMmP/ObJFqNcLDhPyirDqVsKknk&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=d9adc124a41340fe09f5675f46f9fce4"
-  },
-  {
-    "bannerUid": "222197",
-    "title": "<상수리>, <잊들>",
-    "subtitle": "팝업스토어 OPEN",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=oJbEW/dJMcaaAQW2i/GnABNXodge03ofaIPpivQ0&filename=th3",
     "link": "https://page.kakao.com/open/webview/event/?hash_uid=d9adc124a41340fe09f5675f46f9fce4"
   },
   {
@@ -425,20 +404,6 @@
     "subtitle": "단행본 할인 이벤트",
     "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=UOQZl/dJMcaat1ycK/DuSAgTSkwQt7Kd2BQkesY0&filename=th3",
     "link": "https://page.kakao.com/landing/set/poster/page/landing/19644/"
-  },
-  {
-    "bannerUid": "221292",
-    "title": "이 빙의, 어딘가 잘못된 것 같다",
-    "subtitle": "완결 기념 이벤트!",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=TTAI3/dJMb999zk9v/2tk765hHRju7b8jT5RAu91&filename=th3",
-    "link": "https://page.kakao.com/open/webview/event/?hash_uid=6876f2caef6ec7aea0bbd17123531855"
-  },
-  {
-    "bannerUid": "221286",
-    "title": "금손 아기님이 전부 다 고침!",
-    "subtitle": "단행본 할인 이벤트",
-    "thumbnail": "https://dn-img-page.kakao.com/download/resource?kid=btgyUg/dJMcagHQePC/L8U64O4Q2SyS0q3D2kYMp0&filename=th3",
-    "link": "https://page.kakao.com/landing/series/list/page/landing/19633/"
   },
   {
     "bannerUid": "219131",
